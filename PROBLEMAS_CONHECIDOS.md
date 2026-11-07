@@ -55,6 +55,16 @@ Na coluna "Onde se resolve": **Gerador** = nosso gerador de cidades a 1:15 (T7c/
 | U10 | Zumbis bem numerosos | Densidade pela população estimada | Ajuste depois (*Zombies per person*, *Horde cap*). O usuário achou aceitável por ora | Aberto (baixa prioridade) |
 | U11 | Jogo trava ao andar rápido ou teleportar | Notebook fraco (7,7 GB de RAM) | Medir no PC potente (T6). Não é bug do mapa por enquanto | Aberto |
 
+## Achados no jogo: teste do Botafogo 1:15 (T7c, 07/11/2026, jogo 42.21, gerador nosso + KnoxMap)
+
+| # | Problema | Causa provável | Onde se resolve | Status |
+|---|---|---|---|---|
+| U12 | Mapa de papel (tecla M) sem ruas, sem mata e sem nomes; só os prédios | O KnoxMap monta o mapa de papel só com o "download" do OSM guardado ao lado do mapa; num mapa só desenhado não há download | `knoxmap_pipeline.py` grava os nossos desenhos nesse formato logo depois de gerar (antes dos prédios, que é quando o mapa de papel é escrito). Ruas voltaram (8). **Falta:** nomes (dar às ruas geradas os nomes das ruas reais do bairro) e áreas verdes (desenhar parques e mata no gerador) | Contornado (falta nomes) |
+| U13 | Faixas de algumas ruas fora do centro, parecendo acostamento | Investigar: provável arredondamento da linha central no espaço "falso" de 1 m/tile, ou largura padrão do tipo de rua (avenida) diferente da posição da faixa | Investigar no gerador (Etapa 2): alinhar a linha da rua ao centro de tile e testar a etiqueta `width` | Aberto |
+| U14 | Subsolo mobiliado com mais de 10 máquinas de lavar enfileiradas | Lavanderia coletiva de prédio gerada pelo KnoxMap (porões, `basements`) exagerada | Gerador/plantas brasileiras (D-16): limitar repetição de móveis por cômodo; avaliar desligar porões (no Brasil são raros em casas) | Aberto |
+| U15 | Áreas pavimentadas vazias (parecem calçadões largos) sem vida | O KnoxMap pavimenta o terreno em volta de lojas e prédios (ver K12) e não põe mobiliário urbano | **Ideia do usuário:** encher esses espaços com orelhões, bancas de jornal, pontos de ônibus, mesas e cadeiras de bar onde fizer sentido. Usar peças do jogo base onde existirem; o que faltar (orelhão, banca) vai para o Kit Brasil | Aberto (Etapa 2/5) |
+| U16 | Acabamento ainda americano (tijolo, telhados) | Estilos do jogo base (ver U5) | Gerador + Kit Brasil | Aberto |
+
 ## Jogo / mod
 
 | # | Problema | Causa | Como evitar / resolver | Status |

@@ -39,6 +39,21 @@ def main() -> int:
             raise SystemExit(f"falhou em {route}")
         return data
 
+    def drawn_as_download() -> None:
+        """Mapa só desenhado (drawnOnly): o mapa de papel (tecla M) do KnoxMap
+        lê ruas, água e mata apenas do "download" do OSM guardado ao lado do
+        mapa. Sem download, ele sai só com os prédios (problema U12). Aqui os
+        nossos desenhos são gravados nesse mesmo formato."""
+        if not cfg.get("drawnOnly") or "sketch" not in cfg:
+            return
+        from pathlib import Path
+        from generator import osm, sketch
+        out = Path(knox) / "output" / name
+        info = json.loads((out / f"{name}_info.json").read_text(encoding="utf-8"))
+        feats = sketch.features(cfg["sketch"])
+        osm.save_cache(str(out / info["osm_cache"]), tuple(info["osm_bbox"]), feats)
+        print(f"mapa de papel: {len(feats)} desenhos gravados como download", flush=True)
+
     def install() -> None:
         post("/api/install", {"mapName": name, "title": cfg.get("title", name),
                               "modId": cfg.get("modId", name)})
@@ -54,6 +69,7 @@ def main() -> int:
         if key in cfg:
             gen[key] = cfg[key]
     post("/api/generate", gen)
+    drawn_as_download()   # antes dos prédios: é nessa etapa que o mapa de papel é escrito
 
     # Mapa independente (D-36): o mapa fica sozinho no mundo, na célula 0,0,
     # sem o Knox County do jogo base.
