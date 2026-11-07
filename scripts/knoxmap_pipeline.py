@@ -76,6 +76,11 @@ def main() -> int:
     if "standalone" in cfg:
         post(f"/api/placement/{name}", {"standalone": bool(cfg["standalone"])})
 
+    # Posição escolhida por nós (T2 parte 2): "cell": [x, y] em células de 300
+    # tiles do KnoxMap, contadas a partir da origem do mundo.
+    if "cell" in cfg:
+        post(f"/api/placement/{name}", {"cell_x": cfg["cell"][0], "cell_y": cfg["cell"][1]})
+
     build = {"mapName": name}
     for key in ("sketch", "drawnOnly"):
         if key in cfg:
