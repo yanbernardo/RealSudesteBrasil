@@ -28,6 +28,13 @@ def main() -> int:
     client = app.test_client()
     name = cfg["mapName"]
 
+    # Etiquetas extras permitidas nos desenhos (ex.: "shop", "amenity" para o
+    # tipo de loja). O KnoxMap só deixa passar as da lista EXTRA_TAGS; aqui, no
+    # nosso próprio script, a lista é ampliada sem mexer nos arquivos dele.
+    if cfg.get("extraTags"):
+        from generator import sketch as _sk
+        _sk.EXTRA_TAGS.update(cfg["extraTags"])
+
     def post(route: str, body: dict) -> dict:
         t0 = time.time()
         r = client.post(route, json=body)
