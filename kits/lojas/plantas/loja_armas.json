@@ -1,6 +1,6 @@
-{"name": "RSB Loja de Armas", "kind": "shop", "width": 8, "height": 12, "storeys": 1,
+{"name": "RSB Loja de Armas", "frente": "S", "kind": "shop", "width": 8, "height": 12, "storeys": 1,
  "rooms": [
-  {"x": 0, "y": 0, "w": 8, "h": 8, "kind": "gunstore"},
-  {"x": 0, "y": 8, "w": 5, "h": 4, "kind": "storage"},
-  {"x": 5, "y": 8, "w": 3, "h": 4, "kind": "bathroom"}
+  {"x": 0, "y": 4, "w": 8, "h": 8, "kind": "gunstore"},
+  {"x": 0, "y": 0, "w": 5, "h": 4, "kind": "gunstorestorage"},
+  {"x": 5, "y": 0, "w": 3, "h": 4, "kind": "bathroom"}
  ]}

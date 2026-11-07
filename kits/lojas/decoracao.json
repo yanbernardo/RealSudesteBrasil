@@ -1,3 +1,64 @@
-{"_sobre": "Decoração por tipo de cômodo de loja, com PAPÉIS de móvel (nomes do catálogo do KnoxMap, ex.: shop_case, gun_locker), não tiles. Para o Kit Brasil: registrar papéis novos (com seus tiles) e trocar os nomes aqui. rows=corredores no meio; wall=paredes laterais; back=parede do fundo; front=logo após a porta; counter=balcão do caixa.",
- "gunstore": {"rows": "shop_case", "aisles": ["shop_case"], "wall": ["gun_locker", "shop_shelf"], "back": ["gun_locker"], "front": ["shop_case"], "counter": "shop_counter"},
- "pharmacy": {"rows": "shop_aisle", "aisles": ["shop_aisle", "shop_shelf_white"], "wall": ["shop_shelf_white"], "back": ["shop_shelf_white", "shop_display"], "front": ["shop_case"], "counter": "shop_counter"}}
+{
+ "_sobre": "Decoração por tipo de cômodo de loja, com PAPÉIS de móvel (nomes do catálogo do KnoxMap, ex.: shop_case, gun_locker), não tiles. Para o Kit Brasil: registrar papéis novos (com seus tiles) e trocar os nomes aqui. rows=corredores no meio; wall=paredes laterais; back=parede do fundo; front=logo após a porta; counter=balcão do caixa. Em 'comodos': cômodos que o jogo tem (loot) e o KnoxMap não conhecia: [número do piso, rótulo, papéis]. Regra: só móvel que existe na loja do mesmo tipo no jogo base (papéis por loot: shelves, displaycase, locker, counter, fridge...). O 4o item de cada cômodo é o cômodo de onde copiar a cor no mapa do WorldEd.",
+ "comodos": {
+  "pharmacystorage": [
+   13,
+   "Pharmacy Storage",
+   [
+    "shop_counter",
+    "fridge",
+    "desk",
+    "filing_cabinet_pale"
+   ],
+   "pharmacy"
+  ],
+  "gunstorestorage": [
+   13,
+   "Gun Store Storage",
+   [
+    "gun_locker",
+    "gun_locker",
+    "desk",
+    "crate",
+    "dresser"
+   ],
+   "gunstore"
+  ]
+ },
+ "lojas": {
+  "gunstore": {
+   "rows": "shop_case",
+   "aisles": [
+    "shop_case"
+   ],
+   "wall": [
+    "gun_locker"
+   ],
+   "back": [
+    "gun_locker"
+   ],
+   "front": [
+    "shop_case"
+   ],
+   "counter": "shop_counter"
+  },
+  "pharmacy": {
+   "rows": "shop_aisle",
+   "aisles": [
+    "shop_aisle"
+   ],
+   "wall": [
+    "shop_aisle",
+    "shop_fridge_white"
+   ],
+   "back": [
+    "shop_fridge_white",
+    "shop_aisle"
+   ],
+   "front": [
+    "shop_shelf_white"
+   ],
+   "counter": "shop_counter"
+  }
+ }
+}
