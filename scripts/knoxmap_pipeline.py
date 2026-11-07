@@ -35,6 +35,13 @@ def main() -> int:
         from generator import sketch as _sk
         _sk.EXTRA_TAGS.update(cfg["extraTags"])
 
+    # Decoração das lojas: troca peças de um tipo de loja (ex.: gunstore) só
+    # durante esta execução, sem mexer nos arquivos do KnoxMap.
+    if cfg.get("storeOverrides"):
+        from knoxbuild import interiors as _it
+        for _kind, _over in cfg["storeOverrides"].items():
+            _it.STORES[_kind] = {**_it.STORES.get(_kind, {}), **_over}
+
     def post(route: str, body: dict) -> dict:
         t0 = time.time()
         r = client.post(route, json=body)
