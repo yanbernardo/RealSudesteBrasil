@@ -1,4 +1,27 @@
-{"_sobre": "Qual planta (preset) vale para cada etiqueta shop= do OSM. Cada planta fica em plantas/<nome>.json (desenho de cômodos). Para uma loja nova: desenhar a planta, listar aqui.",
- "chemist":  {"planta": "farmacia"},
- "pharmacy": {"planta": "farmacia"},
- "weapons":  {"planta": "loja_armas"}}
+{
+ "_sobre": "Qual prédio vale para cada etiqueta shop= do OSM. 'vanilla': cópia inteira de um prédio do mapa original (estrutura, móveis, cômodos), usada onde a rua fica do lado da 'frente' dela; senão, 'planta' (nossa, em plantas/).",
+ "chemist": {
+  "planta": "farmacia",
+  "vanilla": {
+   "arquivo": "vanilla/farmacia_pharmahug.tbx",
+   "frente": "W",
+   "origem": "Knox County, célula 46_26, prédio 32 (Pharmahug)"
+  }
+ },
+ "pharmacy": {
+  "planta": "farmacia",
+  "vanilla": {
+   "arquivo": "vanilla/farmacia_pharmahug.tbx",
+   "frente": "W",
+   "origem": "Knox County, célula 46_26, prédio 32 (Pharmahug)"
+  }
+ },
+ "weapons": {
+  "planta": "loja_armas",
+  "vanilla": {
+   "arquivo": "vanilla/loja_armas_14_33.tbx",
+   "frente": "W",
+   "origem": "Knox County, célula 14_33, prédio 3"
+  }
+ }
+}

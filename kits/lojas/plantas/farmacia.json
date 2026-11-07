@@ -41,46 +41,82 @@
    "W"
   ],
   [
-   "shop_shelf_white",
+   "shop_fridge_white",
    7,
    5,
    "E"
-  ],
-  [
-   "shop_shelf_white",
-   7,
-   7,
-   "E"
-  ],
-  [
-   "shop_aisle",
-   2,
-   5,
-   "W"
-  ],
-  [
-   "shop_aisle",
-   5,
-   5,
-   "W"
   ],
   [
    "shop_fridge_white",
+   7,
+   6,
+   "E"
+  ],
+  [
+   "shop_shelf_white",
+   7,
+   7,
+   "E"
+  ],
+  [
+   "shop_shelf_white",
    3,
    4,
    "N"
   ],
   [
-   "shop_fridge_white",
-   4,
+   "shop_shelf_white",
+   5,
    4,
    "N"
   ],
   [
-   "shop_fridge_white",
+   "counter_6",
+   3,
    5,
+   "S"
+  ],
+  [
+   "counter_6",
    4,
-   "N"
+   5,
+   "S"
+  ],
+  [
+   "counter_6",
+   5,
+   5,
+   "S"
+  ],
+  [
+   "counter_6",
+   6,
+   5,
+   "S"
+  ],
+  [
+   "shop_aisle",
+   2,
+   7,
+   "W"
+  ],
+  [
+   "shop_aisle",
+   5,
+   7,
+   "W"
+  ],
+  [
+   "plant",
+   0,
+   11,
+   "S"
+  ],
+  [
+   "bin",
+   7,
+   11,
+   "S"
   ],
   [
    "metal_rack",
@@ -117,25 +153,13 @@
    0,
    2,
    "W"
-  ],
-  [
-   "plant",
-   0,
-   11,
-   "S"
-  ],
-  [
-   "shop_bin",
-   7,
-   11,
-   "S"
   ]
  ],
  "parede": {
   "S": [
    [
     "clock",
-    6,
+    1,
     4,
     "N"
    ]
@@ -144,9 +168,10 @@
    [
     "clock",
     0,
-    6,
+    3,
     "W"
    ]
   ]
- }
+ },
+ "style": "shop~panel"
 }

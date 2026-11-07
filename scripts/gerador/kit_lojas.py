@@ -94,7 +94,22 @@ def _porta_no_lado_da_rua() -> None:
         r = limpar(building)
         if _MOVEIS[0] is not None and building.storeys:
             piso = building.storeys[0]
-            piso.furniture = [f for f in piso.furniture if f[0] in _MANTER] +                 [tuple(m) for m in _MOVEIS[0]]
+            # A porta é o KnoxMap quem põe; nenhum móvel nosso pode ficar nos
+            # dois quadrados de uma porta (dentro e fora), senão bloqueia a passagem.
+            from knoxbuild import catalog as C
+            livres = set()
+            for x, y, lado in piso.doors:
+                # dois quadrados de cada lado da porta, para dar para passar
+                livres |= ({(x, y + k) for k in (-2, -1, 0, 1)} if lado == "N"
+                           else {(x + k, y) for k in (-2, -1, 0, 1)})
+            meus = []
+            for m in _MOVEIS[0]:
+                parede = C.FURNITURE_LAYERS.get(m[0]) == "WallFurniture"
+                if not parede and set(_celulas(*m)) & livres:
+                    print(f"    móvel tirado da frente de uma porta: {m}", flush=True)
+                    continue
+                meus.append(tuple(m))
+            piso.furniture = [f for f in piso.furniture if f[0] in _MANTER] + meus
         return r
     L._clear_the_way = por_ultimo
 
@@ -121,6 +136,16 @@ def instalar_plantas(kit: Path) -> dict[str, str]:
             designer.keep(knoxpaths.BASE_DIR, nome, {**plano, "name": nome})
             out[f"{arq.stem}:{lado}"] = nome
     _MOVEIS[0] = None
+    # Cópias de prédios do mapa original (scripts/gerador/copiar_predio_vanilla.py):
+    # usadas como estão, só onde a rua fica do lado da frente delas.
+    from knoxbuild import presets as P
+    for shop, cfg in _ler(kit / "lojas.json").items():
+        if shop.startswith("_") or "vanilla" not in cfg:
+            continue
+        v = cfg["vanilla"]
+        nome = "RSB Vanilla " + Path(v["arquivo"]).stem
+        P.save(knoxpaths.BASE_DIR, nome, (kit / v["arquivo"]).read_text(encoding="utf-8"), kind="shop")
+        out[f"vanilla:{shop}:{v['frente']}"] = nome
     return out
 
 
@@ -139,9 +164,11 @@ def _lado_da_rua(poly: list, ruas: list) -> str | None:
             d = ex * ex + ey * ey
             if melhor is None or d < melhor[0]:
                 melhor = (d, ex, ey)
-    if melhor is None or abs(melhor[2]) < abs(melhor[1]):
+    if melhor is None:
         return None
-    return "N" if melhor[2] > 0 else "S"
+    if abs(melhor[2]) >= abs(melhor[1]):
+        return "N" if melhor[2] > 0 else "S"
+    return "E" if melhor[1] > 0 else "W"
 
 
 def zonas(sketch: dict, kit: Path, presets: dict[str, str]) -> list[dict]:
@@ -160,8 +187,9 @@ def zonas(sketch: dict, kit: Path, presets: dict[str, str]) -> list[dict]:
             continue
         anel = f["geometry"]["coordinates"][0]
         lado = _lado_da_rua(anel, ruas)
-        planta = presets.get(f"{mapa[shop]['planta']}:{lado}") if lado else None
-        print(f"  {tags.get('name', shop)}: rua ao {lado or 'leste/oeste'} -> {planta or 'gerador do KnoxMap'}", flush=True)
+        planta = (presets.get(f"vanilla:{shop}:{lado}")
+                  or presets.get(f"{mapa[shop].get('planta')}:{lado}")) if lado else None
+        print(f"  {tags.get('name', shop)}: rua ao {lado} -> {planta or 'gerador do KnoxMap'}", flush=True)
         if planta:
             zs.append({"name": tags.get("name", shop), "ring": anel, "settings": {}, "presets": [planta]})
     return zs
