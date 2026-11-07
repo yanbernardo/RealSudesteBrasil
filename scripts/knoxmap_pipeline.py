@@ -94,7 +94,9 @@ def main() -> int:
     if st.get("state") != "done" or st.get("error"):
         raise SystemExit("compilação falhou")
 
-    install()
+    # "--sem-instalar": gera e compila, mas não cria o mod (para comparar versões).
+    if "--sem-instalar" not in sys.argv[3:]:
+        install()
     return 0
 
 
