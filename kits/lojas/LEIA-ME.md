@@ -12,7 +12,7 @@ Como funciona: `scripts/knoxmap_pipeline.py` com `"kitLojas": "kits/lojas"` no c
 
 Regras e limites:
 - A planta é usada **como desenhada**, sem esticar nem girar: tem de caber no terreno da loja (hoje 8–10 × 12 tiles). Se não couber, o KnoxMap gera a loja sozinho.
-- A porta fica no lado norte (`y = 0`) da planta.
+- A planta é desenhada com a frente ao sul (`"frente": "S"`); o script grava também a versão virada (rua ao norte) e escolhe pela rua mais próxima. Móveis em `"moveis"` (posição fixa), itens de parede em `"parede"` por versão; nada fica a menos de 2 quadrados de uma porta.
 - O loot é pelo nome do cômodo e não muda com o desenho.
 - Lojas ainda sem planta própria (padaria, ferragens, roupas) saem com o gerador do KnoxMap.
 - Plantas feitas: farmácia (`chemist`/`pharmacy`) e loja de armas (`weapons`). Não usar `shop=pharmacy` sem planta: vira prédio médico (K17).
