@@ -14,7 +14,7 @@ Mod de mapa para Project Zomboid, inspirado no Real USA, que recria o Sudeste do
 - No notebook, adiantar só o leve: ferramentas, dados pequenos, scripts, documentos, modelos 3D pelo Tripo (nuvem) e testes minúsculos (T1/T7 num bairro). No jogo, testar só a visão isométrica por enquanto; o 3D do Viewpoint e o T6 (tamanho e desempenho) esperam o PC potente, a menos que um teste pequeno rode bem.
 - Não fazer no notebook: gerar ou compilar o RJ inteiro, rodar mapa grande no jogo, IA 3D local (TRELLIS.2, Hunyuan3D).
 - A pasta do projeto já está fora do OneDrive. Dados grandes (`dados`, `saida`) ficam fora do Git (`.gitignore`).
-- Internet do notebook (07/11/2026): o usuário está em alto mar, nos dados móveis do celular, conexão lenta e limitada. Não baixe nada grande (KnoxMap, compilador, extrato da Geofabrik) sem ele autorizar. O winget falhou (erro de conexão); Python, Git e GitHub CLI seguem não instalados até haver sinal melhor.
+- Internet do notebook (07/11/2026): o usuário está em alto mar, nos dados móveis do celular, conexão lenta e limitada. Não baixe nada grande (KnoxMap, compilador, extrato da Geofabrik) sem ele autorizar. Python 3.12.10, Git 2.56.0 e GitHub CLI 2.103.3 foram instalados (na segunda tentativa); o login no GitHub com a conta `yanbernardo` já foi feito. Repositório privado: `https://github.com/yanbernardo/RealSudesteBrasil`. Faltam KnoxMap, compilador e dados da Geofabrik (downloads grandes, esperam autorização/conexão melhor).
 - Versão do jogo: o jogo instalado está na 42.21 (Steam, ramo público). A 42.22 está em pré-lançamento; o usuário disse que pode desenvolver em qualquer uma das duas (07/11/2026).
 - Para levar o trabalho ao PC potente, use o repositório Git privado (D-25).
 
