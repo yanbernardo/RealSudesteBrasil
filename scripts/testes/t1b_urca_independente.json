@@ -1,0 +1,12 @@
+{
+  "mapName": "rsb_t1_urca",
+  "title": "RSB Teste T1 - Urca",
+  "modId": "rsb_t1_urca",
+  "south": -22.9495,
+  "west": -43.1665,
+  "north": -22.9420,
+  "east": -43.1590,
+  "metersPerTile": 2.0,
+  "standalone": true,
+  "settings": {"parking_density": 4.0, "forest_density": 0.5, "tree_density": 0.7}
+}

@@ -39,12 +39,26 @@ def main() -> int:
             raise SystemExit(f"falhou em {route}")
         return data
 
+    def install() -> None:
+        post("/api/install", {"mapName": name, "title": cfg.get("title", name),
+                              "modId": cfg.get("modId", name)})
+
+    # "--so-instalar": reinstala um mapa já compilado (ex.: depois de fechar o jogo).
+    if "--so-instalar" in sys.argv[3:]:
+        install()
+        return 0
+
     gen = {k: cfg[k] for k in ("south", "west", "north", "east", "metersPerTile")}
     gen["mapName"] = name
     for key in ("settings", "sketch", "drawnOnly", "shape"):
         if key in cfg:
             gen[key] = cfg[key]
     post("/api/generate", gen)
+
+    # Mapa independente (D-36): o mapa fica sozinho no mundo, na célula 0,0,
+    # sem o Knox County do jogo base.
+    if "standalone" in cfg:
+        post(f"/api/placement/{name}", {"standalone": bool(cfg["standalone"])})
 
     build = {"mapName": name}
     for key in ("sketch", "drawnOnly"):
@@ -64,8 +78,7 @@ def main() -> int:
     if st.get("state") != "done" or st.get("error"):
         raise SystemExit("compilação falhou")
 
-    post("/api/install", {"mapName": name, "title": cfg.get("title", name),
-                          "modId": cfg.get("modId", name)})
+    install()
     return 0
 
 
