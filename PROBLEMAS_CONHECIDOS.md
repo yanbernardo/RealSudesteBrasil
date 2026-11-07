@@ -33,6 +33,24 @@ Status: **Resolvido** (já está evitado no fluxo), **Contornado** (há um jeito
 | K8 | A 15 m/tile, prédios reais somem | Uma casa de 10 m vira menos de 1 tile | Nas cidades a 1:15, os prédios vêm do nosso gerador em escala de jogo (D-03), não do OSM. | Aberto (T7c) |
 | K9 | Baixar um bairro pela Overpass leva ~10 min | Internet móvel e servidores públicos lentos | Paciência, ou usar o extrato no PC potente. O KnoxMap guarda o que baixou: gerar a mesma área de novo não baixa outra vez. | Contornado |
 
+## Achados no jogo: teste da Urca (T1, 07/11/2026, jogo 42.21, 2 m/tile, prédios reais do OSM)
+
+Na coluna "Onde se resolve": **Gerador** = nosso gerador de cidades a 1:15 (T7c/Etapa 2); **Kit Brasil** = tiles novas (Etapa 5); **Ajuste** = opção do KnoxMap ou do nosso processo; **Investigar** = causa ainda desconhecida.
+
+| # | Problema | Causa provável | Onde se resolve | Status |
+|---|---|---|---|---|
+| U1 | Mureta da orla da Urca virou um muro alto de concreto | O KnoxMap usa a peça de muro do jogo para `barrier=wall`; o jogo base não tem mureta baixa de pedra | Kit Brasil: tile de mureta baixa (com 3D no Viewpoint). Até lá, trocar por cerca baixa ou nada | Aberto |
+| U2 | Algumas paredes incompletas (ex.: quarto em x 21308) | Prédios girados em relação ao grid ficam com paredes "em degrau" e falhas (limitação conhecida do KnoxMap) | Gerador: prédios sempre alinhados ao grid. Reportar ao KnoxMap se aparecer em prédio alinhado | Aberto |
+| U3 | Construção suspensa (o 2º andar que cruza a Av. João Luiz Alves, sobre colunas) virou um cômodo no meio da rua | O KnoxMap ignora `min_level`/`building:part` e constrói tudo a partir do térreo | Gerador/marcos: filtrar ou tratar prédios suspensos (passagem por baixo). Conferir no RJ grande | Aberto |
+| U4 | Alguns prédios saem com um cômodo só (quarto com cama, sem banheiro) | Prédios pequenos ou sem tipo no OSM viram uma casa mínima | Gerador: tamanho mínimo de lote e plantas brasileiras (D-16). Ver o *Room size* do KnoxMap | Aberto |
+| U5 | Prédios feios e nada brasileiros (tijolo à vista, estilo americano) | O KnoxMap usa os estilos de parede do jogo base pensados para os EUA | Gerador + Kit Brasil: paleta brasileira com peças do jogo base (reboco, cores claras, grades) | Aberto |
+| U6 | Ruas finas e "quadradas"; a orla parece concreto, não rua | Larguras do OSM a 2 m/tile; a beira-mar foi tratada como calçadão/área de pedestre | Gerador: larguras em escala de jogo. Kit Brasil: calçada portuguesa (ondas de Copacabana) | Aberto |
+| U7 | Nenhum carro na parte gerada | Investigar: o install registrou 31 vagas (`objects.lua`), mas os carros não apareceram. Pode faltar zona de veículo ou o jogo só sortear com o tempo | Investigar no T8 | Aberto |
+| U8 | Mapa de papel (tecla M) mostra nomes de ruas no mar | Investigar: provavelmente ruas do OSM cortadas ou desenhadas fora da terra depois do giro do mapa | Investigar | Aberto |
+| U9 | Mata densa demais; quase não há tile livre para andar | Morro da Urca/Pão de Açúcar todo como floresta densa | Ajuste: opção *Woodland* do KnoxMap; no nosso gerador, densidade por tipo de mata | Aberto |
+| U10 | Zumbis bem numerosos | Densidade pela população estimada | Ajuste depois (*Zombies per person*, *Horde cap*). O usuário achou aceitável por ora | Aberto (baixa prioridade) |
+| U11 | Jogo trava ao andar rápido ou teleportar | Notebook fraco (7,7 GB de RAM) | Medir no PC potente (T6). Não é bug do mapa por enquanto | Aberto |
+
 ## Jogo / mod
 
 | # | Problema | Causa | Como evitar / resolver | Status |
