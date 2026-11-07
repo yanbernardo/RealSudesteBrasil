@@ -4,6 +4,7 @@ Mod de mapa para Project Zomboid, inspirado no Real USA, que recria o Sudeste do
 
 ## Leia antes de qualquer tarefa
 - `PLANO_BRASIL_ZOMBOID.md`: plano completo, decisões (D-xx) e etapas. É a fonte da verdade. Se este arquivo e o plano discordarem, siga o plano e avise o usuário.
+- `PROBLEMAS_CONHECIDOS.md`: erros que já aconteceram e como evitá-los. **Leia antes de qualquer tarefa** e, sempre que resolver um erro novo (mesmo pequeno), acrescente uma entrada (problema, causa, solução, status) na mesma sessão, antes do commit. Se um erro da lista voltar, a solução registrada falhou: corrija a entrada.
 - Nunca mude uma decisão marcada como DECIDIDO no plano sem perguntar ao usuário.
 - Ao mudar uma decisão no plano, atualize também este arquivo.
 - Último ponto registrado (07/11/2026, notebook): Etapa 0.1 concluída; Etapa 0.2 começou. T1 passou na parte técnica (Urca gerada, compilada e instalada como mod `rsb_t1_urca`; falta o usuário jogar e olhar). T7 deu "não": o KnoxMap não inventa ruas nem bairros, então o gerador das cidades genéricas será nosso e o KnoxMap fica como montador/compilador. **Próximo passo:** usuário testar a Urca no jogo; depois T2, T4, T6, T8, T7c e T9 (T5 espera o PC potente). Ferramentas de edição (TileZed/WorldEd/BuildingEd) seguem adiadas.

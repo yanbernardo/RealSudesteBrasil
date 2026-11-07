@@ -434,6 +434,7 @@ Sul, Centro-Oeste, Nordeste e Norte não fazem parte deste projeto (decisão de 
 ## 8. Regras de trabalho para o Claude
 
 - Responder em pt-BR e explicar sem jargão: o usuário não programa.
+- **Problemas conhecidos (pedido do usuário em 07/11/2026):** manter `PROBLEMAS_CONHECIDOS.md` com cada erro já visto, a causa e a solução. Ler antes de cada tarefa e acrescentar todo erro novo resolvido na mesma sessão, para não repetir os mesmos bugs.
 - Mostrar antes de refazer; não refazer modelos automaticamente.
 - Modelos 3D: mostrar também em primeira pessoa de frente, direita, trás e esquerda (sem cima/baixo). Basta estilizado; precisão de pixel só se o usuário pedir.
 - Atualizar os arquivos direto no PC, sem zips.
@@ -611,6 +612,7 @@ A **beta do RJ** (fim da Etapa 4) fica em ~37–73 sessões: cerca de 3 a 6 mese
   - **T1 (caminho completo): passou na parte técnica, falta jogar.** Urca, retângulo de ~830 × 770 m a 2 m/tile: 901 elementos do OSM, 359 prédios mobiliados, 9 células (600 × 600 tiles), compilação em 10 s, mod instalado com 9,9 MB em `Zomboid\mods\rsb_t1_urca` (com mapa de papel, 8 pontos de nascimento e 31 vagas de carro). A imagem do mapa compilado (`saida\t1_urca\urca_compilada.png`) mostra prédios de vários andares, calçadas e grama. O KnoxMap girou o mapa 32° para alinhar as ruas (o norte não fica para cima) e o colocou sozinho a partir da célula 70,0 (assunto do T2). Download do bairro pela Overpass: ~10 min (internet móvel). Primeira tentativa errou o retângulo (pegou mar); corrigido com a contagem de prédios do OSM. **Pendente:** o usuário abrir o jogo, ativar o mod "RSB Teste T1 - Urca", começar um jogo novo e conferir na visão isométrica.
   - **T7 (modo "inventado" a 1:15): não.** (a) Só o contorno, desenhado como área de casas a 15 m/tile: chão vazio, 0 ruas, 0 prédios. (b) Contorno + 6 ruas desenhadas à mão: as ruas aparecem e compila (4 células, 1,4 MB), mas 0 prédios. O código confirma: o preenchimento do KnoxMap (`infill`) só completa buracos entre prédios que já existem numa rua ("não funda uma cidade"); casas extras só vêm de endereços do OSM ou da Overture. Ele aceita 15 m/tile (limite 0,5–100), mas avisa que o normal é 1–8 m/tile; a 15 m/tile um prédio real de 10 m vira menos de 1 tile. **Conclusão:** o "motor das cidades" (D-03) terá de ser nosso: um gerador que desenhe ruas e lotes em escala de jogo dentro do contorno real. O KnoxMap continua útil como **montador**: recebe ruas e prédios como se fossem do OSM (formato `sketch`/GeoJSON), mobilia, compila e instala. A ser confirmado num T7c (nosso gerador simples + KnoxMap montando).
   - Mods de teste instalados: `rsb_t1_urca` e `rsb_t7b_ruas` (só aparecem se forem ativados no jogo).
+  - **Nova regra de trabalho (pedido do usuário):** criado `PROBLEMAS_CONHECIDOS.md`, com 18 erros já vistos (ambiente, KnoxMap, jogo), a causa e a solução de cada um. Leitura obrigatória antes de cada tarefa (AGENTS.md e seção 8).
 
 ---
 
