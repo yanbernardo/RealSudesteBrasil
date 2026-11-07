@@ -320,9 +320,43 @@ def gravar(objects: Path, linhas: list[str]) -> None:
         b = txt.index(FIM) + len(FIM) + 1
         txt = txt[:a] + txt[b:]
     fim = txt.rstrip().rfind("}")
+    antes = txt[:fim].rstrip()
+    # A última zona do KnoxMap vem sem vírgula; sem ela o jogo recusa o arquivo
+    # inteiro (K30) e nenhuma zona carrega, nem as vagas.
+    if not antes.endswith((",", "{")):
+        antes += ","
     bloco = "\n".join([INICIO] + linhas + [FIM]) + "\n"
-    txt = txt[:fim] + bloco + txt[fim:]
+    txt = antes + "\n" + bloco + txt[fim:]
+    validar_lua(txt)
     objects.write_text(txt, encoding="utf-8")
+
+
+def validar_lua(txt: str) -> None:
+    """Confere a estrutura do objects.lua (tabela de tabelas) antes de gravar:
+    chaves equilibradas e vírgula entre as zonas. Para com erro se estiver ruim."""
+    import re
+    sem_coment = re.sub(r"--[^\n]*", "", txt)
+    sem_texto = re.sub(r'"[^"\n]*"', '""', sem_coment)
+    nivel, linha, esperando_virgula = 0, 1, False
+    for ch in sem_texto:
+        if ch == "\n":
+            linha += 1
+            continue
+        if ch.isspace():
+            continue
+        if esperando_virgula and ch not in ",}":
+            raise ValueError(f"objects.lua: falta vírgula antes da linha {linha}")
+        esperando_virgula = False
+        if ch == "{":
+            nivel += 1
+        elif ch == "}":
+            nivel -= 1
+            if nivel < 0:
+                raise ValueError(f"objects.lua: '}}' sobrando na linha {linha}")
+            if nivel == 1:
+                esperando_virgula = True
+    if nivel != 0:
+        raise ValueError("objects.lua: chaves '{' e '}' não fecham")
 
 
 def desenhar(png: Path, chao, ocupado, nav, areas, jams):
