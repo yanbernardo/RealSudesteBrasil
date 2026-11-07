@@ -1,0 +1,17 @@
+# Dados grandes e saída gerada ficam fora do Git (regenerável / baixável)
+dados/*
+saida/*
+!dados/LEIA-ME.txt
+!saida/LEIA-ME.txt
+
+# Ferramentas baixadas (KnoxMap, compilador etc.)
+ferramentas/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Lixo do sistema
+Thumbs.db
+desktop.ini

@@ -1,0 +1,1 @@
+Downloads grandes (OSM, IBGE, cobertura do solo, relevo). Fica fora do Git. Pode ser baixado de novo.

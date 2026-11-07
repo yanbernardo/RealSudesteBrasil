@@ -1,0 +1,1 @@
+Scripts que geram o mapa (Python). Criados e rodados pelo Claude nas etapas do plano.
