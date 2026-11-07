@@ -18,6 +18,7 @@ Status: **Resolvido** (já está evitado no fluxo), **Contornado** (há um jeito
 | A6 | Texto corrompido em arquivos: "erramentas" no lugar de "ferramentas", tabulação no lugar de `\t` em "scripts\testes" | Caminhos do Windows escritos dentro de código Python/shell: `\f` e `\t` viram caracteres especiais | Em código, escrever caminhos com `/` (o Windows aceita) ou como texto cru (`r"..."`). Depois de editar documento por script, conferir a linha alterada. **Voltou em 07/11/2026** (script Python com `C:\Users` deu erro `\U`): para mudar texto de documento, usar o editor (Edit), não script com caminhos dentro | Resolvido |
 | A7 | Python dá `UnicodeDecodeError` (cp1252) ao ler JSON ou Markdown | O Windows abre arquivos no código de página antigo | Rodar o Python com `-X utf8` (ou `PYTHONUTF8=1`), ou abrir com `encoding="utf-8"`. | Resolvido |
 | A8 | Comando longo "estourou o tempo" (600 s) | Download ou geração lenta | Rodar comandos longos em segundo plano (`run_in_background`). | Contornado |
+| A9 | Baixar e rodar um decompilador Java (CFR) foi bloqueado pelo modo automático | Rodar código baixado de fora é tratado como risco | Para ler regras do Java do jogo, usar o leitor próprio `scripts/ler_classe_java.py` (só lê o `.jar` como dados). Se um dia precisar de decompilador de verdade, pedir ao usuário antes | Contornado |
 
 ## KnoxMap
 
@@ -49,6 +50,8 @@ Status: **Resolvido** (já está evitado no fluxo), **Contornado** (há um jeito
 | K25 | Farmácia com comida nas prateleiras | É o loot do jogo base: as prateleiras da `pharmacy` sorteiam bebidas, salgadinhos, limpeza, cosméticos e remédios; remédios garantidos só no balcão e no estoque | Pôr balcões (`counter_6`) e estoque. Mudar a tabela de loot seria um mod de loot (decisão do usuário) | Explicado |
 | K26 | "Lixeira" que virou expositor de feira (caixote de legumes) | O papel `shop_bin` do KnoxMap é o caixote de hortifrúti; lixeira é `bin` | Conferir o tile de cada papel (`catalog.FURNITURE`) antes de usar | Resolvido |
 | K27 | Paredes com faixa xadrez "de posto" | Estilo `shop~painted` do KnoxMap usa a faixa Gas2Go | Fixar `"style": "shop~panel"` na planta (tira a faixa de dentro). Por fora, só o Kit Brasil ou cópia de loja original | Contornado |
+| K28 | Mapas do KnoxMap sem histórias de estrada (batidas, bloqueios) e de zona (acampamentos, churrasco) | O KnoxMap só grava vagas (`ParkingStall`) e área urbana (`TownZone`) no `objects.lua`; as histórias pedem zonas `Nav` (estrada) e `ZoneStory` (`Forest`/`Beach`/`Lake`). Regras em `catalogo/HISTORIAS.md` | `scripts/gerador/zonas_historias.py` acrescenta as zonas depois de instalar (`"zonasHistorias": {}` no config). Conferir a figura `saida/<mapa>/zonas_historias.png` | Resolvido (falta conferir em jogo) |
+| K29 | Primeira versão das zonas de estrada cobria só parte das ruas | Agrupar o asfalto linha a linha deixava o meio-fio e a calçada "estreitarem" a rua | Agrupar coluna a coluna: cada trecho de 5–12 de largura é semente e se estende enquanto houver asfalto na largura toda. **Sempre olhar a figura** antes de instalar | Resolvido |
 | K9 | Baixar um bairro pela Overpass leva ~10 min | Internet móvel e servidores públicos lentos | Paciência, ou usar o extrato no PC potente. O KnoxMap guarda o que baixou: gerar a mesma área de novo não baixa outra vez. | Contornado |
 
 ## Achados no jogo: teste da Urca (T1, 07/11/2026, jogo 42.21, 2 m/tile, prédios reais do OSM)
@@ -85,3 +88,4 @@ Na coluna "Onde se resolve": **Gerador** = nosso gerador de cidades a 1:15 (T7c/
 | # | Problema | Causa | Como evitar / resolver | Status |
 |---|---|---|---|---|
 | J1 | Mapa novo não aparece num save antigo | O jogo só carrega mapa novo em áreas nunca visitadas (D-34) | Sempre testar com **jogo novo**. | Contornado |
+| J2 | História que "deveria" aparecer e não aparece | Regras do jogo: só é sorteada na primeira vez que o pedaço carrega; uma por zona; casa precisa de quarto + cozinha ou sala + banheiro (U4: prédio de um cômodo nunca ganha); a casa de nascimento fica de fora; no padrão as chances são baixas (6% por zona, 2,5% por pedaço de estrada) | Em teste: **jogo novo** e sandbox em "Sempre que possível". No gerador: toda casa com os três cômodos; ruas em trechos | Explicado |

@@ -71,6 +71,27 @@ def main() -> int:
     def install() -> None:
         post("/api/install", {"mapName": name, "title": cfg.get("title", name),
                               "modId": cfg.get("modId", name)})
+        zonas_historias()
+
+    def zonas_historias() -> None:
+        """T8 (eventos, D-17): o KnoxMap só grava vagas e área urbana. Aqui entram
+        as zonas que ligam as histórias do jogo base: estrada ("Nav"), mata/praia/
+        lago ("ZoneStory") e engarrafamento. Ver scripts/gerador/zonas_historias.py."""
+        if "zonasHistorias" not in cfg:
+            return
+        from pathlib import Path
+        sys.path.insert(0, str(Path(__file__).resolve().parent / "gerador"))
+        import zonas_historias as zh
+        mods = Path.home() / "Zomboid" / "mods" / cfg.get("modId", name)
+        objs = sorted(mods.glob("common/media/maps/*/objects.lua"))
+        if not objs:
+            raise SystemExit(f"objects.lua do mod não encontrado em {mods}")
+        png = Path(__file__).resolve().parent.parent / "saida" / name / "zonas_historias.png"
+        png.parent.mkdir(parents=True, exist_ok=True)
+        res = zh.aplicar(Path(knox) / "output" / name / "lots", objs[0], png,
+                         cfg["zonasHistorias"] or None)
+        print("zonas de história:", json.dumps(res, ensure_ascii=False), flush=True)
+        print("figura:", png, flush=True)
 
     # "--so-instalar": reinstala um mapa já compilado (ex.: depois de fechar o jogo).
     if "--so-instalar" in sys.argv[3:]:

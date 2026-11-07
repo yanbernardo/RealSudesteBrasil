@@ -1,0 +1,397 @@
+"""Zonas que ligam as histórias do jogo base (T8, eventos; D-17).
+
+O KnoxMap só grava dois tipos de zona no objects.lua: vagas (ParkingStall) e
+área urbana (TownZone). As histórias do jogo dependem de outras (ver
+catalogo/HISTORIAS.md, lido do Java do jogo com scripts/ler_classe_java.py):
+
+- histórias de ESTRADA (batida, bloqueio policial, pneu furado...): zona "Nav"
+  retangular sobre o asfalto, com mais de 30 tiles de comprimento e menos de
+  13 de largura (pelo menos 5). Cada zona recebe no máximo UMA história, por
+  isso as ruas são divididas em trechos;
+- histórias de ZONA (acampamento, churrasco, piquenique...): zona do tipo
+  "ZoneStory" com nome "Forest", "Beach" ou "Lake", de tamanho mínimo por
+  história (até 13 x 13), sem água dentro;
+- engarrafamento: vaga (ParkingStall) com nome "trafficjamw/e/n/s" ao longo
+  de uma faixa (opcional, D-18);
+- histórias de CASA não precisam de zona: dependem dos nomes de cômodo
+  (quarto + cozinha ou sala + banheiro). Aqui só contamos as casas que servem.
+
+Lê o mapa compilado (.lotheader/.lotpack em output/<mapa>/lots) e acrescenta as
+zonas no objects.lua do mod instalado, entre marcas, para poder rodar de novo.
+
+Uso (Python com Pillow, ex.: o .venv do KnoxMap):
+    python -X utf8 zonas_historias.py <pasta lots> <objects.lua> [figura.png] [config.json]
+"""
+from __future__ import annotations
+
+import json
+import struct
+import sys
+from pathlib import Path
+
+CELL, CHUNKS, CHUNK = 256, 32, 8
+INICIO = "  -- RSB: zonas de historia (inicio)"
+FIM = "  -- RSB: zonas de historia (fim)"
+
+# Padrões do teste; o config pode trocar ("zonasHistorias": {...}).
+PADRAO = {
+    "navTrecho": 48,          # comprimento alvo de cada zona Nav (> 30)
+    "navLarguraMin": 5,       # o jogo exige >= 5 de largura de pista
+    "navLarguraMax": 12,      # e < 13
+    "historias": [            # [nome, largura, altura, quantas]
+        ["Forest", 16, 16, 6],
+        ["Beach", 14, 14, 1],
+        ["Lake", 14, 14, 1],
+    ],
+    "margem": 2,              # quadrados livres em volta de cada zona de história
+    "engarrafamento": True,   # uma rua com engarrafamento (trafficjam)
+}
+
+
+# ---------------------------------------------------------------- leitura
+def _linha(data: bytes, pos: int):
+    fim = data.index(b"\n", pos)
+    return data[pos:fim].decode("latin-1"), fim + 1
+
+
+def ler_cabecalho(path: Path):
+    data = path.read_bytes()
+    pos = 8 if data[:4] == b"LOTH" else 4
+    (n,) = struct.unpack_from("<i", data, pos); pos += 4
+    nomes = []
+    for _ in range(n):
+        s, pos = _linha(data, pos)
+        nomes.append(s)
+    _cw, _ch, lo, hi = struct.unpack_from("<4i", data, pos); pos += 16
+    (nr,) = struct.unpack_from("<i", data, pos); pos += 4
+    comodos = []
+    for _ in range(nr):
+        nome, pos = _linha(data, pos)
+        _nivel, nrect = struct.unpack_from("<2i", data, pos); pos += 8
+        pos += 16 * nrect
+        (nobj,) = struct.unpack_from("<i", data, pos); pos += 4
+        pos += 12 * nobj
+        comodos.append(nome)
+    (nb,) = struct.unpack_from("<i", data, pos); pos += 4
+    predios = []
+    for _ in range(nb):
+        (k,) = struct.unpack_from("<i", data, pos); pos += 4
+        predios.append(list(struct.unpack_from(f"<{k}i", data, pos))); pos += 4 * k
+    return nomes, lo, hi, comodos, predios
+
+
+def ler_chao(pack: Path, nomes, lo, hi, ox, oy, chao, quartos):
+    """Preenche chao[(x, y)] = [tiles] do térreo e quartos[(x, y)] = id do cômodo."""
+    data = pack.read_bytes()
+    pos = 8 if data[:4] == b"LOTP" else 4
+    (n,) = struct.unpack_from("<i", data, pos); pos += 4
+    offs = struct.unpack_from(f"<{n}q", data, pos)
+    for cx in range(CHUNKS):
+        for cy in range(CHUNKS):
+            p = offs[cx * CHUNKS + cy]
+            if p < 0:
+                continue
+            pular = 0
+            for z in range(lo, hi + 1):
+                for x in range(CHUNK):
+                    for y in range(CHUNK):
+                        if pular > 0:
+                            pular -= 1
+                            continue
+                        (c,) = struct.unpack_from("<i", data, p); p += 4
+                        if c == -1:
+                            (pular,) = struct.unpack_from("<i", data, p); p += 4
+                            pular -= 1
+                            continue
+                        (sala,) = struct.unpack_from("<i", data, p); p += 4
+                        ids = struct.unpack_from(f"<{c - 1}i", data, p); p += 4 * (c - 1)
+                        if z == 0:
+                            k = (ox + cx * CHUNK + x, oy + cy * CHUNK + y)
+                            chao[k] = [nomes[i] for i in ids]
+                            if sala >= 0:
+                                quartos[k] = sala
+
+
+def ler_mapa(lots: Path):
+    chao, ocupado, casas = {}, set(), {"total": 0, "servem": 0, "faltam": {}}
+    for cab in sorted(lots.glob("*.lotheader")):
+        cx, cy = (int(v) for v in cab.stem.split("_"))
+        nomes, lo, hi, comodos, predios = ler_cabecalho(cab)
+        quartos = {}
+        ler_chao(lots / f"world_{cx}_{cy}.lotpack", nomes, lo, hi, cx * CELL, cy * CELL, chao, quartos)
+        ocupado.update(quartos)
+        for ids in predios:
+            nomes_c = {comodos[i] for i in ids if 0 <= i < len(comodos)}
+            if not nomes_c & {"bedroom", "kitchen", "livingroom", "bathroom"}:
+                continue          # loja, escritório etc.: histórias próprias
+            casas["total"] += 1
+            falta = []
+            if "bedroom" not in nomes_c:
+                falta.append("quarto")
+            if not nomes_c & {"kitchen", "livingroom"}:
+                falta.append("cozinha/sala")
+            if "bathroom" not in nomes_c:
+                falta.append("banheiro")
+            if falta:
+                chave = " + ".join(falta)
+                casas["faltam"][chave] = casas["faltam"].get(chave, 0) + 1
+            else:
+                casas["servem"] += 1
+    return chao, ocupado, casas
+
+
+# ---------------------------------------------------------------- zonas Nav
+def e_rua(pilha) -> bool:
+    return bool(pilha) and pilha[0].startswith("blends_street")
+
+
+def faixas(rua: set, horizontal: bool, cfg) -> list[tuple[int, int, int, int]]:
+    """Retângulos de asfalto contínuo (comprimento > 30, largura 5-12).
+
+    Coluna a coluna (para ruas horizontais): cada trecho de asfalto com 5 a 12
+    de altura é uma "semente" da rua; ela se estende para os lados enquanto
+    houver asfalto cobrindo a mesma altura inteira (atravessa cruzamentos).
+    Meio-fio solto, calçada e entrada de garagem não estreitam a rua."""
+    if not rua:
+        return []
+    # trabalha sempre como se a rua fosse horizontal: a = ao longo, b = largura
+    pts = {(x, y) if horizontal else (y, x) for x, y in rua}
+    colunas = {}
+    for a, b in pts:
+        colunas.setdefault(a, []).append(b)
+    corridas = {}
+    for a, bs in colunas.items():
+        bs.sort()
+        ini = ant = bs[0]
+        out = []
+        for b in bs[1:] + [None]:
+            if b is not None and b == ant + 1:
+                ant = b
+                continue
+            out.append((ini, ant + 1))
+            if b is not None:
+                ini = ant = b
+        corridas[a] = out
+
+    def cobre(a, b0, b1):
+        return any(r0 <= b0 and b1 <= r1 for r0, r1 in corridas.get(a, ()))
+
+    segs = set()
+    for a, rs in corridas.items():
+        for b0, b1 in rs:
+            if not cfg["navLarguraMin"] <= b1 - b0 <= cfg["navLarguraMax"]:
+                continue
+            a0 = a
+            while cobre(a0 - 1, b0, b1):
+                a0 -= 1
+            a1 = a + 1
+            while cobre(a1, b0, b1):
+                a1 += 1
+            if a1 - a0 > 30:
+                segs.add((a0, a1, b0, b1))
+    # tira os repetidos: um trecho dentro de outro maior (mesma rua, sementes vizinhas)
+    segs = sorted(segs, key=lambda s: -(s[1] - s[0]) * (s[3] - s[2]))
+    ficam = []
+    for s in segs:
+        dentro = False
+        for t in ficam:
+            sobre_b = min(s[3], t[3]) - max(s[2], t[2])
+            sobre_a = min(s[1], t[1]) - max(s[0], t[0])
+            if sobre_b >= (s[3] - s[2]) / 2 and sobre_a >= (s[1] - s[0]) * 0.8:
+                dentro = True
+                break
+        if not dentro:
+            ficam.append(s)
+    out = []
+    for a0, a1, b0, b1 in ficam:
+        if horizontal:
+            out.append((a0, b0, a1 - a0, b1 - b0))
+        else:
+            out.append((b0, a0, b1 - b0, a1 - a0))
+    return out
+
+
+def picotar(r, horizontal: bool, trecho: int):
+    """Divide uma faixa longa em trechos (> 30 cada): uma história por trecho."""
+    x, y, w, h = r
+    comp = w if horizontal else h
+    n = max(1, comp // trecho)
+    passo = comp / n
+    out = []
+    for i in range(n):
+        a0 = int(round(i * passo))
+        a1 = int(round((i + 1) * passo))
+        if a1 - a0 <= 30:
+            continue
+        out.append((x + a0, y, a1 - a0, h) if horizontal else (x, y + a0, w, a1 - a0))
+    return out
+
+
+# ---------------------------------------------------------- zonas de história
+LIVRE = ("blends_natural_01", "blends_grassoverlays")
+
+
+def livre(pilha) -> bool:
+    return bool(pilha) and pilha[0].startswith("blends_natural_01") and all(
+        t.startswith(LIVRE) for t in pilha[1:])
+
+
+def natural(pilha) -> bool:
+    """Chão de terra/grama, com ou sem árvores e arbustos (sem água, rua ou prédio)."""
+    return bool(pilha) and pilha[0].startswith("blends_natural_01") and all(
+        t.startswith(LIVRE + ("e_", "vegetation_")) for t in pilha[1:])
+
+
+def zonas_cidade(objects: Path) -> list[tuple[int, int, int, int]]:
+    """Retângulos TownZone (área urbana) já gravados pelo KnoxMap."""
+    import re
+    out = []
+    for m in re.finditer(r'type = "TownZone", x = (\d+), y = (\d+), z = 0, width = (\d+), height = (\d+)',
+                         objects.read_text(encoding="utf-8")):
+        out.append(tuple(int(v) for v in m.groups()))
+    return out
+
+
+def escolher_areas(chao, pedidos, margem, centro, cidade=()):
+    """Zonas de história espalhadas em volta do bairro (as mais perto primeiro).
+
+    "Forest" aceita árvores (o jogo limpa a área da cena); praia e lago, só
+    gramado livre. Margem de chão livre em volta, 8 tiles entre zonas e fora
+    da área urbana (TownZone), como no mapa original."""
+    xs = [x for x, _ in chao]
+    ys = [y for _, y in chao]
+    X0, Y0, X1, Y1 = min(xs), min(ys), max(xs) + 1, max(ys) + 1
+    W, H = X1 - X0, Y1 - Y0
+
+    def acumulada(ok):
+        S = [[0] * (W + 1) for _ in range(H + 1)]
+        for j in range(H):
+            acc = 0
+            for i in range(W):
+                acc += 0 if ok(chao.get((X0 + i, Y0 + j))) else 1
+                S[j + 1][i + 1] = S[j][i + 1] + acc
+        return S
+
+    tabelas = {"livre": acumulada(livre), "natural": acumulada(natural)}
+
+    def ruins(S, i, j, w, h):
+        return S[j + h][i + w] - S[j][i + w] - S[j + h][i] + S[j][i]
+
+    escolhidas = []
+
+    def fora_da_cidade(i, j, w, h):
+        x, y = X0 + i, Y0 + j
+        return all(not (x < a + c + 4 and a < x + w + 4 and y < b + d + 4 and b < y + h + 4)
+                   for (a, b, c, d) in cidade)
+
+    def longe(i, j, w, h):
+        for (a, b, c, d, _) in escolhidas:
+            if i < a + c + 8 and a < i + w + 8 and j < b + d + 8 and b < j + h + 8:
+                return False
+        return True
+
+    cx, cy = centro[0] - X0, centro[1] - Y0
+    m = margem
+    for nome, w, h, qtd in pedidos:
+        S = tabelas["natural" if nome == "Forest" else "livre"]
+        cands = [(i, j) for j in range(m, H - h - m, 2) for i in range(m, W - w - m, 2)]
+        cands.sort(key=lambda p: (p[0] + w / 2 - cx) ** 2 + (p[1] + h / 2 - cy) ** 2)
+        feitos = 0
+        for i, j in cands:
+            if feitos >= qtd:
+                break
+            if (ruins(S, i - m, j - m, w + 2 * m, h + 2 * m) == 0 and longe(i, j, w, h)
+                    and fora_da_cidade(i, j, w, h)):
+                escolhidas.append((i, j, w, h, nome))
+                feitos += 1
+    return [(X0 + i, Y0 + j, w, h, nome) for (i, j, w, h, nome) in escolhidas]
+
+
+# ------------------------------------------------------------------- saída
+def linha_lua(nome, tipo, x, y, w, h):
+    return (f'  {{ name = "{nome}", type = "{tipo}", x = {x}, y = {y}, z = 0, '
+            f"width = {w}, height = {h} }},")
+
+
+def gravar(objects: Path, linhas: list[str]) -> None:
+    txt = objects.read_text(encoding="utf-8")
+    if INICIO in txt:
+        a = txt.index(INICIO)
+        b = txt.index(FIM) + len(FIM) + 1
+        txt = txt[:a] + txt[b:]
+    fim = txt.rstrip().rfind("}")
+    bloco = "\n".join([INICIO] + linhas + [FIM]) + "\n"
+    txt = txt[:fim] + bloco + txt[fim:]
+    objects.write_text(txt, encoding="utf-8")
+
+
+def desenhar(png: Path, chao, ocupado, nav, areas, jams):
+    from PIL import Image, ImageDraw
+    xs = [x for x, _ in chao]
+    ys = [y for _, y in chao]
+    X0, Y0 = min(xs), min(ys)
+    W, H = max(xs) - X0 + 1, max(ys) - Y0 + 1
+    k = 3
+    img = Image.new("RGB", (W * k, H * k), (40, 40, 40))
+    px = ImageDraw.Draw(img)
+    for (x, y), p in chao.items():
+        if (x, y) in ocupado:
+            cor = (150, 110, 80)
+        elif e_rua(p):
+            cor = (90, 90, 95)
+        elif livre(p):
+            cor = (110, 160, 90)
+        elif p and p[0].startswith("blends_natural"):
+            cor = (60, 110, 55)
+        else:
+            cor = (170, 170, 160)
+        px.rectangle([(x - X0) * k, (y - Y0) * k, (x - X0) * k + k - 1, (y - Y0) * k + k - 1], fill=cor)
+    for (x, y, w, h) in nav:
+        px.rectangle([(x - X0) * k, (y - Y0) * k, (x - X0 + w) * k - 1, (y - Y0 + h) * k - 1],
+                     outline=(60, 140, 255), width=2)
+    for (x, y, w, h, _) in jams:
+        px.rectangle([(x - X0) * k, (y - Y0) * k, (x - X0 + w) * k - 1, (y - Y0 + h) * k - 1],
+                     outline=(255, 60, 60), width=2)
+    cores = {"Forest": (255, 170, 0), "Beach": (255, 240, 120), "Lake": (0, 220, 220)}
+    for (x, y, w, h, nome) in areas:
+        px.rectangle([(x - X0) * k, (y - Y0) * k, (x - X0 + w) * k - 1, (y - Y0 + h) * k - 1],
+                     outline=cores.get(nome, (255, 255, 255)), width=3)
+        px.text(((x - X0) * k + 4, (y - Y0) * k + 4), nome, fill=(0, 0, 0))
+    img.save(png)
+
+
+def aplicar(lots: Path, objects: Path, png: Path | None = None, cfg: dict | None = None) -> dict:
+    cfg = {**PADRAO, **(cfg or {})}
+    chao, ocupado, casas = ler_mapa(lots)
+    rua = {k for k, p in chao.items() if e_rua(p) and k not in ocupado}
+    nav = []
+    for horizontal in (True, False):
+        for r in faixas(rua, horizontal, cfg):
+            nav += picotar(r, horizontal, cfg["navTrecho"])
+    centro = (sum(x for x, _ in rua) // max(1, len(rua)), sum(y for _, y in rua) // max(1, len(rua)))
+    areas = escolher_areas(chao, cfg["historias"], cfg["margem"], centro, zonas_cidade(objects))
+    jams = []
+    if cfg.get("engarrafamento"):
+        # a faixa horizontal mais longa vira engarrafamento: duas pistas de 3,
+        # uma para cada lado (como no jogo base: trafficjamw / trafficjame).
+        horiz = [r for r in faixas(rua, True, cfg)]
+        if horiz:
+            x, y, w, h = max(horiz, key=lambda r: r[2])
+            meio = y + h // 2
+            jams = [(x + 2, meio - 3, w - 4, 3, "trafficjamw"),
+                    (x + 2, meio, w - 4, 3, "trafficjame")]
+    linhas = [linha_lua("", "Nav", *r) for r in nav]
+    linhas += [linha_lua(nome, "ZoneStory", x, y, w, h) for (x, y, w, h, nome) in areas]
+    linhas += [linha_lua(nome, "ParkingStall", x, y, w, h) for (x, y, w, h, nome) in jams]
+    gravar(objects, linhas)
+    if png:
+        desenhar(png, chao, ocupado, nav, areas, jams)
+    return {"nav": len(nav), "historias": [(n, x, y, w, h) for (x, y, w, h, n) in areas],
+            "engarrafamento": [(n, x, y, w, h) for (x, y, w, h, n) in jams], "casas": casas}
+
+
+if __name__ == "__main__":
+    a = sys.argv[1:]
+    cfg = json.loads(Path(a[3]).read_text(encoding="utf-8")) if len(a) > 3 else None
+    res = aplicar(Path(a[0]), Path(a[1]), Path(a[2]) if len(a) > 2 else None, cfg)
+    print(json.dumps(res, ensure_ascii=False, indent=1))
