@@ -67,3 +67,5 @@ Mod de mapa para Project Zomboid, inspirado no Real USA, que recria o Sudeste do
 - Cristo: modelo 3D + tile; primeiro teste em chão plano (T5c). Corcovado: relevo visual com estrada até o topo (D-28).
 - Pão de Açúcar (D-30, PROPOSTO, em teste): o usuário quer visitar e ver a vista do alto. Não construir a montanha inteira em andares; fazer só um trajeto (trilha/escadaria com patamares) até um mirante, com a montanha como relevo visual. É o primeiro a ser prototipado na Etapa 2.7. Se falhar (FPS, visual), vale o D-28: rocha esculpida sem escalada.
 - Limite de altura da B42: 32 andares. Andares em excesso pesam na memória.
+
+- Atualização (07/11/2026): Etapa 0.1 concluída no notebook (KnoxMap + dependências em erramentas\knoxmap\). Próximo: T1/T7 num bairro do Rio (Opus, esforço Alto). Pasta de trabalho real: C:\Users\yanbe\Zomboid\RealSudesteBrasil\.
