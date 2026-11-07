@@ -88,8 +88,18 @@ def main() -> int:
             raise SystemExit(f"objects.lua do mod não encontrado em {mods}")
         png = Path(__file__).resolve().parent.parent / "saida" / name / "zonas_historias.png"
         png.parent.mkdir(parents=True, exist_ok=True)
-        res = zh.aplicar(Path(knox) / "output" / name / "lots", objs[0], png,
-                         cfg["zonasHistorias"] or None)
+        zcfg = dict(cfg["zonasHistorias"] or {})
+        if cfg.get("rodovias"):
+            # Linha da rodovia (desenho) -> tiles do mapa, com a mesma projeção
+            # que o KnoxMap usou (caixa e escala gravadas no _info.json).
+            from generator.rendering.projection import Projector
+            info = json.loads((Path(knox) / "output" / name / f"{name}_info.json").read_text(encoding="utf-8"))
+            bb = info["bbox"]
+            pj = Projector.build(bb["south"], bb["west"], bb["north"], bb["east"],
+                                 info["meters_per_tile"], info.get("rotation", 0.0))
+            zcfg["navPolilinhas"] = [{"pontos": [pj.to_px(lat, lon) for lon, lat in r["coords"]],
+                                      "largura": r["largura"]} for r in cfg["rodovias"]]
+        res = zh.aplicar(Path(knox) / "output" / name / "lots", objs[0], png, zcfg or None)
         print("zonas de história:", json.dumps(res, ensure_ascii=False), flush=True)
         print("figura:", png, flush=True)
 

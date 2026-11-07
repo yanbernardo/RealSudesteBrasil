@@ -399,13 +399,13 @@ def validar_lua(txt: str) -> None:
         raise ValueError("objects.lua: chaves '{' e '}' não fecham")
 
 
-def desenhar(png: Path, chao, ocupado, nav, areas, jams):
+def desenhar(png: Path, chao, ocupado, nav, areas, jams, polis=(), matas=()):
     from PIL import Image, ImageDraw
     xs = [x for x, _ in chao]
     ys = [y for _, y in chao]
     X0, Y0 = min(xs), min(ys)
     W, H = max(xs) - X0 + 1, max(ys) - Y0 + 1
-    k = 3
+    k = 3 if W * H < 400_000 else 1          # mapa grande: figura em escala 1
     img = Image.new("RGB", (W * k, H * k), (40, 40, 40))
     px = ImageDraw.Draw(img)
     for (x, y), p in chao.items():
@@ -420,18 +420,80 @@ def desenhar(png: Path, chao, ocupado, nav, areas, jams):
         else:
             cor = (170, 170, 160)
         px.rectangle([(x - X0) * k, (y - Y0) * k, (x - X0) * k + k - 1, (y - Y0) * k + k - 1], fill=cor)
+
+    def ret(x, y, w, h, cor, larg):
+        px.rectangle([(x - X0) * k, (y - Y0) * k, (x - X0 + w) * k - 1, (y - Y0 + h) * k - 1],
+                     outline=cor, width=larg)
+    for (x, y, w, h) in matas:
+        ret(x, y, w, h, (20, 70, 20), 2)
     for (x, y, w, h) in nav:
-        px.rectangle([(x - X0) * k, (y - Y0) * k, (x - X0 + w) * k - 1, (y - Y0 + h) * k - 1],
-                     outline=(60, 140, 255), width=2)
+        ret(x, y, w, h, (60, 140, 255), 2)
+    for i, (pontos, _larg) in enumerate(polis):
+        cor = (60, 140, 255) if i % 2 == 0 else (255, 255, 255)
+        px.line([((a - X0) * k, (b - Y0) * k) for a, b in pontos], fill=cor, width=max(2, k))
     for (x, y, w, h, _) in jams:
-        px.rectangle([(x - X0) * k, (y - Y0) * k, (x - X0 + w) * k - 1, (y - Y0 + h) * k - 1],
-                     outline=(255, 60, 60), width=2)
+        ret(x, y, w, h, (255, 60, 60), 2)
     cores = {"Forest": (255, 170, 0), "Beach": (255, 240, 120), "Lake": (0, 220, 220)}
     for (x, y, w, h, nome) in areas:
-        px.rectangle([(x - X0) * k, (y - Y0) * k, (x - X0 + w) * k - 1, (y - Y0 + h) * k - 1],
-                     outline=cores.get(nome, (255, 255, 255)), width=3)
+        ret(x, y, w, h, cores.get(nome, (255, 255, 255)), 3)
         px.text(((x - X0) * k + 4, (y - Y0) * k + 4), nome, fill=(0, 0, 0))
     img.save(png)
+
+
+# ------------------------------------------------- rodovias (linhas com largura)
+def picotar_linha(pontos, trecho: int):
+    """Divide a linha da rodovia em pedaços de ~`trecho` tiles (uma história cada)."""
+    from shapely.geometry import LineString
+    from shapely.ops import substring
+    g = LineString(pontos)
+    n = max(1, int(g.length // trecho))
+    passo = g.length / n
+    out = []
+    for i in range(n):
+        s = substring(g, i * passo, (i + 1) * passo)
+        out.append([(int(round(x)), int(round(y))) for x, y in s.coords])
+    return out
+
+
+def linha_lua_poli(nome, tipo, pontos, largura):
+    pts = ", ".join(f"{x}, {y}" for x, y in pontos)
+    return (f'  {{ name = "{nome}", type = "{tipo}", z = 0, geometry = "polyline", '
+            f"lineWidth = {largura}, points = {{ {pts} }} }},")
+
+
+def matas_rurais(pontos, largura, chao, rua, cidade, passo=110, lado=26, n_historia=3):
+    """Zonas de mata ("Forest") dos dois lados da rodovia, fora da cidade.
+
+    O jogo pede mata/fazenda a até ~15 tiles do pedaço para as histórias rurais
+    (batida com cervo, animal atropelado) e fora da área urbana. Uma em cada
+    `n_historia` ganha também uma zona de história de mata (acampamento)."""
+    from shapely.geometry import LineString
+    g = LineString(pontos)
+    matas, historias = [], []
+    d, i = passo / 2, 0
+    while d < g.length:
+        p, q = g.interpolate(d), g.interpolate(min(g.length, d + 1))
+        dx, dy = q.x - p.x, q.y - p.y
+        n = (dx * dx + dy * dy) ** 0.5 or 1
+        nx, ny = -dy / n, dx / n
+        for sinal in (1, -1):
+            off = largura / 2 + 4 + lado / 2
+            cx, cy = p.x + sinal * nx * off, p.y + sinal * ny * off
+            x, y = int(cx - lado / 2), int(cy - lado / 2)
+            quad = [(a, b) for a in range(x, x + lado) for b in range(y, y + lado)]
+            if any(k in rua for k in quad) or any(k not in chao for k in quad):
+                continue
+            if not all(x + lado + 15 < a or a + c + 15 < x or y + lado + 15 < b or b + e + 15 < y
+                       for (a, b, c, e) in cidade):
+                continue
+            if sum(1 for k in quad if natural(chao[k])) < 0.8 * len(quad):
+                continue
+            matas.append((x, y, lado, lado))
+            if i % n_historia == 0:
+                historias.append((x + 5, y + 5, 16, 16, "Forest"))
+            i += 1
+        d += passo
+    return matas, historias
 
 
 def aplicar(lots: Path, objects: Path, png: Path | None = None, cfg: dict | None = None) -> dict:
@@ -439,11 +501,25 @@ def aplicar(lots: Path, objects: Path, png: Path | None = None, cfg: dict | None
     chao, ocupado, casas = ler_mapa(lots)
     rua = {k for k, p in chao.items() if e_rua(p) and k not in ocupado}
     nav = []
-    for horizontal in (True, False):
-        for r in faixas(rua, horizontal, cfg):
-            nav += picotar(r, horizontal, cfg["navTrecho"])
-    centro = (sum(x for x, _ in rua) // max(1, len(rua)), sum(y for _, y in rua) // max(1, len(rua)))
-    areas = escolher_areas(chao, cfg["historias"], cfg["margem"], centro, zonas_cidade(objects))
+    if cfg.get("navAuto", True):
+        for horizontal in (True, False):
+            for r in faixas(rua, horizontal, cfg):
+                nav += picotar(r, horizontal, cfg["navTrecho"])
+    cidade = zonas_cidade(objects)
+    areas = []
+    if cfg["historias"]:
+        centro = (sum(x for x, _ in rua) // max(1, len(rua)), sum(y for _, y in rua) // max(1, len(rua)))
+        areas = escolher_areas(chao, cfg["historias"], cfg["margem"], centro, cidade)
+    # Rodovias: zonas de estrada em forma de linha (como as 265 do mapa
+    # original), em pedaços, e mata dos lados para as histórias rurais.
+    polis, matas = [], []
+    for r in cfg.get("navPolilinhas", []):
+        for pedaco in picotar_linha(r["pontos"], cfg["navTrecho"]):
+            polis.append((pedaco, r["largura"]))
+        if cfg.get("matasRurais"):
+            m, h = matas_rurais(r["pontos"], r["largura"], chao, rua, cidade)
+            matas += m
+            areas += h
     jams = []
     if cfg.get("engarrafamento"):
         # a faixa horizontal mais longa vira engarrafamento (duas pistas de 3,
@@ -452,12 +528,24 @@ def aplicar(lots: Path, objects: Path, png: Path | None = None, cfg: dict | None
         if horiz:
             jams = engarrafamento(rua, max(horiz, key=lambda r: r[2]), cfg)
     linhas = [linha_lua("", "Nav", *r) for r in nav]
+    linhas += [linha_lua_poli("", "Nav", pts, larg) for pts, larg in polis]
+    linhas += [linha_lua("", "Forest", *r) for r in matas]
     linhas += [linha_lua(nome, "ZoneStory", x, y, w, h) for (x, y, w, h, nome) in areas]
     linhas += [linha_lua(nome, "ParkingStall", x, y, w, h) for (x, y, w, h, nome) in jams]
     gravar(objects, linhas)
     if png:
-        desenhar(png, chao, ocupado, nav, areas, jams)
-    return {"nav": len(nav), "historias": [(n, x, y, w, h) for (x, y, w, h, n) in areas],
+        desenhar(png, chao, ocupado, nav, areas, jams, polis, matas)
+    # Conferência: quanto da linha da rodovia cai sobre asfalto de verdade.
+    sobre = []
+    for pts, _l in polis:
+        from shapely.geometry import LineString
+        g = LineString(pts)
+        amostras = [g.interpolate(t) for t in range(0, int(g.length) + 1, 2)]
+        sobre.append(sum(1 for a in amostras if any((int(a.x) + i, int(a.y) + j) in rua
+                                                   for i in (-1, 0, 1) for j in (-1, 0, 1))) / len(amostras))
+    return {"nav": len(nav), "nav_linhas": len(polis),
+            "nav_linhas_sobre_asfalto": round(min(sobre), 2) if sobre else None,
+            "matas": len(matas), "historias": [(n, x, y, w, h) for (x, y, w, h, n) in areas],
             "engarrafamento": [(n, x, y, w, h) for (x, y, w, h, n) in jams], "casas": casas}
 
 
