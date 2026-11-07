@@ -1,0 +1,171 @@
+{
+ "mapName": "rsb_t7b_ruas",
+ "title": "RSB Teste T7b - Contorno com ruas 1:15",
+ "modId": "rsb_t7b_ruas",
+ "south": -22.96,
+ "west": -43.195,
+ "north": -22.94,
+ "east": -43.16,
+ "metersPerTile": 15.0,
+ "drawnOnly": true,
+ "sketch": {
+  "type": "FeatureCollection",
+  "features": [
+   {
+    "type": "Feature",
+    "properties": {
+     "kind": "houses_land"
+    },
+    "geometry": {
+     "type": "Polygon",
+     "coordinates": [
+      [
+       [
+        -43.192,
+        -22.942
+       ],
+       [
+        -43.17,
+        -22.943
+       ],
+       [
+        -43.163,
+        -22.948
+       ],
+       [
+        -43.165,
+        -22.957
+       ],
+       [
+        -43.18,
+        -22.958
+       ],
+       [
+        -43.193,
+        -22.954
+       ],
+       [
+        -43.192,
+        -22.942
+       ]
+      ]
+     ]
+    }
+   },
+   {
+    "type": "Feature",
+    "properties": {
+     "kind": "primary"
+    },
+    "geometry": {
+     "type": "LineString",
+     "coordinates": [
+      [
+       -43.19,
+       -22.945
+      ],
+      [
+       -43.166,
+       -22.946
+      ]
+     ]
+    }
+   },
+   {
+    "type": "Feature",
+    "properties": {
+     "kind": "residential"
+    },
+    "geometry": {
+     "type": "LineString",
+     "coordinates": [
+      [
+       -43.19,
+       -22.95
+      ],
+      [
+       -43.165,
+       -22.951
+      ]
+     ]
+    }
+   },
+   {
+    "type": "Feature",
+    "properties": {
+     "kind": "residential"
+    },
+    "geometry": {
+     "type": "LineString",
+     "coordinates": [
+      [
+       -43.19,
+       -22.954
+      ],
+      [
+       -43.166,
+       -22.955
+      ]
+     ]
+    }
+   },
+   {
+    "type": "Feature",
+    "properties": {
+     "kind": "residential"
+    },
+    "geometry": {
+     "type": "LineString",
+     "coordinates": [
+      [
+       -43.185,
+       -22.9445
+      ],
+      [
+       -43.185,
+       -22.956
+      ]
+     ]
+    }
+   },
+   {
+    "type": "Feature",
+    "properties": {
+     "kind": "residential"
+    },
+    "geometry": {
+     "type": "LineString",
+     "coordinates": [
+      [
+       -43.178,
+       -22.9445
+      ],
+      [
+       -43.178,
+       -22.956
+      ]
+     ]
+    }
+   },
+   {
+    "type": "Feature",
+    "properties": {
+     "kind": "residential"
+    },
+    "geometry": {
+     "type": "LineString",
+     "coordinates": [
+      [
+       -43.171,
+       -22.9445
+      ],
+      [
+       -43.171,
+       -22.956
+      ]
+     ]
+    }
+   }
+  ]
+ }
+}

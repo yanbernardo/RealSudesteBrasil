@@ -1,0 +1,22 @@
+{
+  "mapName": "rsb_t7_contorno",
+  "title": "RSB Teste T7 - Contorno 1:15",
+  "modId": "rsb_t7_contorno",
+  "south": -22.9600,
+  "west": -43.1950,
+  "north": -22.9400,
+  "east": -43.1600,
+  "metersPerTile": 15.0,
+  "drawnOnly": true,
+  "sketch": {
+    "type": "FeatureCollection",
+    "features": [
+      {"type": "Feature",
+       "properties": {"kind": "houses_land"},
+       "geometry": {"type": "Polygon", "coordinates": [[
+         [-43.1920, -22.9420], [-43.1700, -22.9430], [-43.1630, -22.9480],
+         [-43.1650, -22.9570], [-43.1800, -22.9580], [-43.1930, -22.9540],
+         [-43.1920, -22.9420]]]}}
+    ]
+  }
+}
