@@ -1,0 +1,4 @@
+{"_sobre": "Qual planta (preset) vale para cada etiqueta shop= do OSM. Cada planta fica em plantas/<nome>.json (desenho de cômodos). Para uma loja nova: desenhar a planta, listar aqui.",
+ "chemist":  {"planta": "farmacia"},
+ "pharmacy": {"planta": "farmacia"},
+ "weapons":  {"planta": "loja_armas"}}

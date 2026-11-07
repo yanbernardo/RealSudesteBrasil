@@ -95,6 +95,20 @@ def main() -> int:
     if "cell" in cfg:
         post(f"/api/placement/{name}", {"cell_x": cfg["cell"][0], "cell_y": cfg["cell"][1]})
 
+    # Kit de lojas (T8): plantas nossas escolhidas pelo tipo de loja, com a
+    # decoração em papéis de móvel (kits/lojas/). Ver scripts/gerador/kit_lojas.py.
+    if cfg.get("kitLojas"):
+        from pathlib import Path
+        sys.path.insert(0, str(Path(__file__).resolve().parent / "gerador"))
+        import kit_lojas
+        from knoxbuild import zones as _zones
+        kit = Path(__file__).resolve().parent.parent / cfg["kitLojas"]
+        print("decoração:", kit_lojas.aplicar_decoracao(kit), flush=True)
+        presets = kit_lojas.instalar_plantas(kit)
+        zs = kit_lojas.zonas(cfg.get("sketch", {}), kit, presets)
+        _zones.save(str(Path(knox) / "output" / name), name, zs)
+        print(f"kit de lojas: {len(presets)} plantas, {len(zs)} lojas com planta própria", flush=True)
+
     build = {"mapName": name}
     for key in ("sketch", "drawnOnly"):
         if key in cfg:

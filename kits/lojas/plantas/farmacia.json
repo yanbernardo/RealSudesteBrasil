@@ -1,0 +1,6 @@
+{"name": "RSB Farmacia", "kind": "shop", "width": 8, "height": 12, "storeys": 1,
+ "rooms": [
+  {"x": 0, "y": 0, "w": 8, "h": 8, "kind": "pharmacy"},
+  {"x": 0, "y": 8, "w": 4, "h": 4, "kind": "storage"},
+  {"x": 4, "y": 8, "w": 4, "h": 4, "kind": "office"}
+ ]}

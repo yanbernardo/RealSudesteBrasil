@@ -1,0 +1,3 @@
+{"_sobre": "Decoração por tipo de cômodo de loja, com PAPÉIS de móvel (nomes do catálogo do KnoxMap, ex.: shop_case, gun_locker), não tiles. Para o Kit Brasil: registrar papéis novos (com seus tiles) e trocar os nomes aqui. rows=corredores no meio; wall=paredes laterais; back=parede do fundo; front=logo após a porta; counter=balcão do caixa.",
+ "gunstore": {"rows": "shop_case", "aisles": ["shop_case"], "wall": ["gun_locker", "shop_shelf"], "back": ["gun_locker"], "front": ["shop_case"], "counter": "shop_counter"},
+ "pharmacy": {"rows": "shop_aisle", "aisles": ["shop_aisle", "shop_shelf_white"], "wall": ["shop_shelf_white"], "back": ["shop_shelf_white", "shop_display"], "front": ["shop_case"], "counter": "shop_counter"}}

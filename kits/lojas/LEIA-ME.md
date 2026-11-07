@@ -1,0 +1,18 @@
+# Kit de lojas (plantas próprias por tipo de loja)
+
+Temporário, feito para o Kit Brasil (Etapa 5) poder redecorar sem mexer em código.
+
+| Arquivo | O que é | Como o Kit Brasil troca |
+|---|---|---|
+| `plantas/<nome>.json` | Desenho da loja: retângulos de cômodos (`x, y, w, h, kind`). O tipo do cômodo (`pharmacy`, `gunstore`, `storage`…) decide o loot, o piso e os móveis. | Mudar tamanhos e cômodos, ou trocar o desenho por um `.tbx` feito no BuildingEd (colocar em `presets/buildings` do KnoxMap). |
+| `decoracao.json` | Móveis por tipo de cômodo, em **papéis** (`shop_case`, `gun_locker`…), não em tiles. | Registrar papéis novos (com seus tiles) no catálogo e trocar os nomes aqui. |
+| `lojas.json` | Etiqueta `shop=` do OSM → planta. | Acrescentar uma linha por tipo de loja nova. |
+
+Como funciona: `scripts/knoxmap_pipeline.py` com `"kitLojas": "kits/lojas"` no config grava as plantas como presets do KnoxMap, cria uma zona em volta de cada loja desenhada com etiqueta conhecida e a zona diz qual planta usar. O código está em `scripts/gerador/kit_lojas.py`.
+
+Regras e limites:
+- A planta é usada **como desenhada**, sem esticar nem girar: tem de caber no terreno da loja (hoje 8–10 × 12 tiles). Se não couber, o KnoxMap gera a loja sozinho.
+- A porta fica no lado norte (`y = 0`) da planta.
+- O loot é pelo nome do cômodo e não muda com o desenho.
+- Lojas ainda sem planta própria (padaria, ferragens, roupas) saem com o gerador do KnoxMap.
+- Plantas feitas: farmácia (`chemist`/`pharmacy`) e loja de armas (`weapons`). Não usar `shop=pharmacy` sem planta: vira prédio médico (K17).
