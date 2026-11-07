@@ -227,6 +227,46 @@ def picotar(r, horizontal: bool, trecho: int):
     return out
 
 
+# ----------------------------------------------------------- engarrafamento
+def engarrafamento(rua: set, faixa, cfg) -> list:
+    """Trechos de engarrafamento numa rua horizontal, como no mapa original.
+
+    Regra do jogo (IsoChunk.AddVehicles_TrafficJam_*): um carro a cada ~6 tiles
+    e a cada 3 de largura; quanto mais longe da ponta "arrumada" da faixa, mais
+    torto (até ~115 graus depois de 40 tiles). No mapa original, 630 trechos,
+    quase todos de 5 a 30 tiles. Por isso: trechos de até `jamMax` tiles, sem
+    passar por cima dos cruzamentos (a 2 tiles deles)."""
+    x, y, w, h = faixa
+    jmax = cfg.get("jamMax", 30)
+
+    def cruza(c):
+        acima = all((c, y - k) in rua for k in range(1, 6))
+        abaixo = all((c, y + h - 1 + k) in rua for k in range(1, 6))
+        return acima or abaixo
+
+    livres, ini = [], None
+    for c in range(x, x + w + 1):
+        ok = c < x + w and not cruza(c)
+        if ok and ini is None:
+            ini = c
+        elif not ok and ini is not None:
+            livres.append((ini + 2, c - 2))      # 2 tiles longe do cruzamento
+            ini = None
+    meio = y + h // 2
+    out = []
+    for a0, a1 in livres:
+        comp = a1 - a0
+        if comp < 10:
+            continue
+        n = -(-comp // jmax)
+        passo = comp / n
+        for i in range(n):
+            s0, s1 = a0 + int(round(i * passo)), a0 + int(round((i + 1) * passo))
+            out.append((s0, meio - 3, s1 - s0, 3, "trafficjamw"))
+            out.append((s0, meio, s1 - s0, 3, "trafficjame"))
+    return out
+
+
 # ---------------------------------------------------------- zonas de história
 LIVRE = ("blends_natural_01", "blends_grassoverlays")
 
@@ -406,14 +446,11 @@ def aplicar(lots: Path, objects: Path, png: Path | None = None, cfg: dict | None
     areas = escolher_areas(chao, cfg["historias"], cfg["margem"], centro, zonas_cidade(objects))
     jams = []
     if cfg.get("engarrafamento"):
-        # a faixa horizontal mais longa vira engarrafamento: duas pistas de 3,
-        # uma para cada lado (como no jogo base: trafficjamw / trafficjame).
+        # a faixa horizontal mais longa vira engarrafamento (duas pistas de 3,
+        # trafficjamw / trafficjame), em trechos curtos ENTRE os cruzamentos.
         horiz = [r for r in faixas(rua, True, cfg)]
         if horiz:
-            x, y, w, h = max(horiz, key=lambda r: r[2])
-            meio = y + h // 2
-            jams = [(x + 2, meio - 3, w - 4, 3, "trafficjamw"),
-                    (x + 2, meio, w - 4, 3, "trafficjame")]
+            jams = engarrafamento(rua, max(horiz, key=lambda r: r[2]), cfg)
     linhas = [linha_lua("", "Nav", *r) for r in nav]
     linhas += [linha_lua(nome, "ZoneStory", x, y, w, h) for (x, y, w, h, nome) in areas]
     linhas += [linha_lua(nome, "ParkingStall", x, y, w, h) for (x, y, w, h, nome) in jams]
