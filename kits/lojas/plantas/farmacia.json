@@ -1,5 +1,152 @@
-{"name": "RSB Farmacia", "frente": "S", "kind": "shop", "width": 8, "height": 12, "storeys": 1,
+{
+ "name": "RSB Farmacia",
+ "frente": "S",
+ "kind": "shop",
+ "width": 8,
+ "height": 12,
+ "storeys": 1,
  "rooms": [
-  {"x": 0, "y": 4, "w": 8, "h": 8, "kind": "pharmacy"},
-  {"x": 0, "y": 0, "w": 8, "h": 4, "kind": "pharmacystorage"}
- ]}
+  {
+   "x": 0,
+   "y": 4,
+   "w": 8,
+   "h": 8,
+   "kind": "pharmacy"
+  },
+  {
+   "x": 0,
+   "y": 0,
+   "w": 8,
+   "h": 4,
+   "kind": "pharmacystorage"
+  }
+ ],
+ "moveis": [
+  [
+   "shop_shelf_white",
+   0,
+   5,
+   "W"
+  ],
+  [
+   "shop_shelf_white",
+   0,
+   7,
+   "W"
+  ],
+  [
+   "shop_shelf_white",
+   0,
+   9,
+   "W"
+  ],
+  [
+   "shop_shelf_white",
+   7,
+   5,
+   "E"
+  ],
+  [
+   "shop_shelf_white",
+   7,
+   7,
+   "E"
+  ],
+  [
+   "shop_aisle",
+   2,
+   5,
+   "W"
+  ],
+  [
+   "shop_aisle",
+   5,
+   5,
+   "W"
+  ],
+  [
+   "shop_fridge_white",
+   3,
+   4,
+   "N"
+  ],
+  [
+   "shop_fridge_white",
+   4,
+   4,
+   "N"
+  ],
+  [
+   "shop_fridge_white",
+   5,
+   4,
+   "N"
+  ],
+  [
+   "metal_rack",
+   0,
+   0,
+   "N"
+  ],
+  [
+   "metal_rack",
+   2,
+   0,
+   "N"
+  ],
+  [
+   "metal_rack",
+   4,
+   0,
+   "N"
+  ],
+  [
+   "shop_fridge_white",
+   6,
+   0,
+   "N"
+  ],
+  [
+   "shop_fridge_white",
+   7,
+   0,
+   "N"
+  ],
+  [
+   "counter_2",
+   0,
+   2,
+   "W"
+  ],
+  [
+   "plant",
+   0,
+   11,
+   "S"
+  ],
+  [
+   "shop_bin",
+   7,
+   11,
+   "S"
+  ]
+ ],
+ "parede": {
+  "S": [
+   [
+    "clock",
+    6,
+    4,
+    "N"
+   ]
+  ],
+  "N": [
+   [
+    "clock",
+    0,
+    6,
+    "W"
+   ]
+  ]
+ }
+}

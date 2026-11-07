@@ -107,6 +107,8 @@ def main() -> int:
         presets = kit_lojas.instalar_plantas(kit)
         zs = kit_lojas.zonas(cfg.get("sketch", {}), kit, presets)
         _zones.save(str(Path(knox) / "output" / name), name, zs)
+        # O cache de prédios do KnoxMap não percebe que a planta mudou: limpar.
+        (Path(knox) / "output" / name / "build_cache.json").unlink(missing_ok=True)
         print(f"kit de lojas: {len(presets)} plantas, {len(zs)} lojas com planta própria", flush=True)
 
     build = {"mapName": name}

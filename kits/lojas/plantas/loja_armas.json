@@ -1,6 +1,207 @@
-{"name": "RSB Loja de Armas", "frente": "S", "kind": "shop", "width": 8, "height": 12, "storeys": 1,
+{
+ "name": "RSB Loja de Armas",
+ "frente": "S",
+ "kind": "shop",
+ "width": 8,
+ "height": 12,
+ "storeys": 1,
  "rooms": [
-  {"x": 0, "y": 4, "w": 8, "h": 8, "kind": "gunstore"},
-  {"x": 0, "y": 0, "w": 5, "h": 4, "kind": "gunstorestorage"},
-  {"x": 5, "y": 0, "w": 3, "h": 4, "kind": "bathroom"}
- ]}
+  {
+   "x": 0,
+   "y": 4,
+   "w": 8,
+   "h": 8,
+   "kind": "gunstore"
+  },
+  {
+   "x": 0,
+   "y": 0,
+   "w": 5,
+   "h": 4,
+   "kind": "gunstorestorage"
+  },
+  {
+   "x": 5,
+   "y": 0,
+   "w": 3,
+   "h": 4,
+   "kind": "bathroom"
+  }
+ ],
+ "moveis": [
+  [
+   "gun_locker",
+   0,
+   5,
+   "W"
+  ],
+  [
+   "gun_locker",
+   0,
+   6,
+   "W"
+  ],
+  [
+   "gun_locker",
+   0,
+   7,
+   "W"
+  ],
+  [
+   "gun_locker",
+   0,
+   8,
+   "W"
+  ],
+  [
+   "gun_locker",
+   7,
+   5,
+   "E"
+  ],
+  [
+   "gun_locker",
+   7,
+   6,
+   "E"
+  ],
+  [
+   "gun_locker",
+   7,
+   7,
+   "E"
+  ],
+  [
+   "gun_locker",
+   1,
+   4,
+   "N"
+  ],
+  [
+   "gun_locker",
+   4,
+   4,
+   "N"
+  ],
+  [
+   "gun_locker",
+   5,
+   4,
+   "N"
+  ],
+  [
+   "shop_case",
+   2,
+   6,
+   "S"
+  ],
+  [
+   "shop_case",
+   3,
+   6,
+   "S"
+  ],
+  [
+   "shop_case",
+   2,
+   8,
+   "S"
+  ],
+  [
+   "shop_case",
+   3,
+   8,
+   "S"
+  ],
+  [
+   "mannequin_male",
+   6,
+   5,
+   "N"
+  ],
+  [
+   "gun_locker",
+   0,
+   0,
+   "N"
+  ],
+  [
+   "gun_locker",
+   1,
+   0,
+   "N"
+  ],
+  [
+   "metal_rack",
+   2,
+   0,
+   "N"
+  ],
+  [
+   "crate",
+   0,
+   3,
+   "S"
+  ],
+  [
+   "crate",
+   4,
+   3,
+   "S"
+  ],
+  [
+   "bin",
+   7,
+   11,
+   "S"
+  ],
+  [
+   "plant",
+   0,
+   11,
+   "S"
+  ]
+ ],
+ "parede": {
+  "S": [
+   [
+    "poster_0",
+    6,
+    4,
+    "N"
+   ],
+   [
+    "poster_1",
+    0,
+    10,
+    "W"
+   ],
+   [
+    "clock",
+    3,
+    4,
+    "N"
+   ]
+  ],
+  "N": [
+   [
+    "poster_0",
+    0,
+    1,
+    "W"
+   ],
+   [
+    "poster_1",
+    0,
+    2,
+    "W"
+   ],
+   [
+    "clock",
+    0,
+    4,
+    "W"
+   ]
+  ]
+ }
+}

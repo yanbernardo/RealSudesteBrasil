@@ -35,12 +35,41 @@ def aplicar_decoracao(kit: Path) -> list[str]:
 def _girar(d: dict) -> dict:
     """A mesma planta virada 180 graus (a porta passa do lado sul para o norte)."""
     g = dict(d)
+    if d.get("moveis"):
+        g["moveis"] = _girar_moveis(d["moveis"], d["width"], d["height"])
     g["rooms"] = [{**r, "x": d["width"] - r["x"] - r["w"], "y": d["height"] - r["y"] - r["h"]}
                   for r in d["rooms"]]
     return g
 
 
 _LADO = ["S"]
+_MOVEIS: list = [None]   # lista de móveis da planta em construção (ou None)
+# O que o gerador põe sozinho e que mantemos (luz, balcão do caixa, caixa registradora).
+_MANTER = {"switch", "register", "shop_counter", "shop_counter_red"}
+_OPOSTO = {"N": "S", "S": "N", "E": "W", "W": "E"}
+
+
+def _celulas(papel: str, x: int, y: int, lado: str) -> list[tuple[int, int]]:
+    from knoxbuild import catalog as C
+    pecas = C.FURNITURE.get(papel, {}).get(lado) or {}
+    out = []
+    for k in pecas:
+        dx, dy = (int(v) for v in k.split(","))
+        out.append((x + dx, y + dy))
+    return out or [(x, y)]
+
+
+def _girar_moveis(moveis: list, w: int, h: int) -> list:
+    """A mesma lista de móveis virada 180 graus (ponto de ancoragem = canto de menor x,y)."""
+    from knoxbuild import catalog as C
+    out = []
+    for papel, x, y, lado in moveis:
+        cel = _celulas(papel, x, y, lado)
+        novas = [(w - 1 - cx, h - 1 - cy) for cx, cy in cel]
+        # Peças que só existem em alguns lados (ex.: corredor só W/N) ficam como estão.
+        novo_lado = _OPOSTO[lado] if _OPOSTO[lado] in C.FURNITURE.get(papel, {}) else lado
+        out.append([papel, min(c[0] for c in novas), min(c[1] for c in novas), novo_lado])
+    return out
 
 
 def _porta_no_lado_da_rua() -> None:
@@ -55,6 +84,19 @@ def _porta_no_lado_da_rua() -> None:
         return original(plan, rng, avoid=avoid, street=_LADO[0], entrances=entrances)
     porta._rsb = True
     L._exterior_door = porta
+
+    # Móveis desenhados à mão: entram por último, depois de todas as limpezas do
+    # KnoxMap (que tiram e movem peças), só com a luz, o balcão e o caixa do
+    # gerador junto. A planta é que garante que o caminho da porta fica livre.
+    limpar = L._clear_the_way
+
+    def por_ultimo(building):
+        r = limpar(building)
+        if _MOVEIS[0] is not None and building.storeys:
+            piso = building.storeys[0]
+            piso.furniture = [f for f in piso.furniture if f[0] in _MANTER] +                 [tuple(m) for m in _MOVEIS[0]]
+        return r
+    L._clear_the_way = por_ultimo
 
 
 def instalar_plantas(kit: Path) -> dict[str, str]:
@@ -72,9 +114,13 @@ def instalar_plantas(kit: Path) -> dict[str, str]:
         d = _ler(arq)
         for lado, plano in (("S", d), ("N", _girar(d))):
             _LADO[0] = lado
+            # Itens de parede (cartaz, relógio) só existem virados a oeste/norte:
+            # não giram com a planta; cada versão tem a sua lista ("parede": {"S": [...], "N": [...]}).
+            _MOVEIS[0] = (plano.get("moveis") or []) + (d.get("parede", {}).get(lado) or [])
             nome = f"{d['name']} {lado}"
             designer.keep(knoxpaths.BASE_DIR, nome, {**plano, "name": nome})
             out[f"{arq.stem}:{lado}"] = nome
+    _MOVEIS[0] = None
     return out
 
 
