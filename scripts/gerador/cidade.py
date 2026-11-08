@@ -688,7 +688,11 @@ COPIAS = {"chemist": ("W", 21, 16), "pharmacy": ("W", 21, 16), "weapons": ("W", 
           "convenience": ("S", 13, 16), "greengrocer": ("S", 13, 16)}
 # Serviços especiais copiados do mapa original (U22; kits/lojas/lojas.json,
 # chaves "kind:..."): lado da porta, frente (ao longo da rua) e fundo do lote.
-COPIAS_ESPECIAIS = {"police": ("E", 15, 13), "fire": ("W", 25, 16)}
+# DESLIGADO a pedido do usuário (08/11/2026): o resultado ficou feio no mapa; por
+# enquanto polícia e bombeiros saem do gerador do KnoxMap. Para religar: devolver
+# {"police": ("E", 15, 13), "fire": ("W", 25, 16)} aqui e as chaves "kind:police" e
+# "kind:fire" em kits/lojas/lojas.json (arquivos em kits/lojas/vanilla/).
+COPIAS_ESPECIAIS = {}
 
 
 class Quarteirao:

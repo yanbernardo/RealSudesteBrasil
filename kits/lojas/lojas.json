@@ -37,19 +37,5 @@
    "frente": "S",
    "origem": "Knox County, célula 52_8, prédio 191 (mercearia: grocery + grocerystorage + bathroom, 11 x 14)"
   }
- },
- "kind:police": {
-  "vanilla": {
-   "arquivo": "vanilla/delegacia_9_54.tbx",
-   "frente": "E",
-   "origem": "Knox County, célula 9_54, prédio 40 (delegacia pequena: policeoffice, policegunstorage, prisoncells; 11 x 13)"
-  }
- },
- "kind:fire": {
-  "vanilla": {
-   "arquivo": "vanilla/quartel_47_27.tbx",
-   "frente": "W",
-   "origem": "Knox County, célula 47_27, prédio 20 (quartel: firegarage, firestorage, gym, kitchen; 14 x 23)"
-  }
  }
 }
