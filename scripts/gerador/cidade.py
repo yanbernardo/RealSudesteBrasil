@@ -1309,6 +1309,7 @@ def main() -> int:
                            "historias": [["Forest", 16, 16, 6], ["Lake", 14, 14, 1]]},
         "centrarFaixas": True,          # U13 (scripts/gerador/faixas.py)
         "limparOrla": True,             # U25 (scripts/gerador/limpar_orla.py)
+        "semCalcadaDiagonal": True,     # K15/U20 (scripts/gerador/diagonais.py)
     }
     saida.write_text(json.dumps(cfg, ensure_ascii=False), encoding="utf-8")
     figura(png, mold, [("mar", mar), ("forest", mata), ("urbano", urbano)]

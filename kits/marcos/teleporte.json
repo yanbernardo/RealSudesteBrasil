@@ -8,7 +8,7 @@
       {"nome": "Orla sem casas - Ipanema", "tile": [69600, 66277]},
       {"nome": "Orla sem casas - Copacabana (Av. Atlantica)", "tile": [69770, 66146]},
       {"nome": "Orla do Leblon emendada no Jardim de Alah (U30)", "tile": [69532, 66275]},
-      {"nome": "Rua Santa Clara sem o X (U30)", "tile": [69696, 66132]},
+      {"nome": "Rua Santa Clara - diagonal sem calcada em degraus (U20)", "tile": [69696, 66132]},
       {"nome": "Tunel Zuzu Angel ligado (U28)", "tile": [69372, 66264]}
     ]},
     {"grupo": "Rio de Janeiro - Marcos", "pontos": [

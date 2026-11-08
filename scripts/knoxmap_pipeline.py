@@ -220,6 +220,13 @@ def main() -> int:
         import limpar_orla
         print("orla:", limpar_orla.limpar(Path(knox), name, cfg), flush=True)
 
+    # K15/U20: rua diagonal sem calçada em degraus (como no jogo original)
+    if cfg.get("semCalcadaDiagonal"):
+        from pathlib import Path
+        sys.path.insert(0, str(Path(__file__).resolve().parent / "gerador"))
+        import diagonais
+        print("diagonais:", diagonais.tirar(Path(knox), name, cfg), flush=True)
+
     # Mapa independente (D-36): o mapa fica sozinho no mundo, na célula 0,0,
     # sem o Knox County do jogo base.
     if "standalone" in cfg:
