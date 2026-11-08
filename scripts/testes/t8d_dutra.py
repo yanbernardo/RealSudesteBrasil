@@ -1,10 +1,10 @@
 """T8d (D-35): viagem de rodovia pela Dutra real, Piraí -> Volta Redonda, a 1:15.
 
 - Rodovia: traçado real da BR-116 (Overpass, `dados/contornos/dutra_pirai_vr.json`),
-  encolhido a 1:15 e cortado entre os pontos mais perto de Piraí e de Volta
-  Redonda. As duas pistas reais (mão única) ficam a 1-3 tiles uma da outra a
-  1:15, então vira uma linha só, de pista dupla (4 faixas, 14 tiles).
-  As curvas saem em degraus (K15): o desenho de curvas nosso é da Etapa 2.
+  encolhido a 1:15, cortado entre os pontos mais perto de Piraí e de Volta
+  Redonda e suavizado; vira pista dupla (2 faixas por sentido e canteiro) com
+  `scripts/gerador/rodovia.py`. Bordas e faixas pintadas ainda em degraus nas
+  diagonais (K15): o desenho de curvas nosso é da Etapa 2.
 - Vila A (ponta de Piraí), nível "completa" (D-35): casas, posto com bombas do
   jogo (ponto "fuel" do KnoxMap), mercadinho e farmácia (cópia da Pharmahug, D-38).
 - Vila B (ponta de Volta Redonda), nível "seca": só casas.
@@ -23,11 +23,11 @@ import sys
 
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "gerador"))
 from gerador_t7c import METROS_FALSOS, Projecao, feature  # noqa: E402
+import rodovia  # noqa: E402
 
 from shapely.geometry import LineString, MultiLineString, Point, box  # noqa: E402
 from shapely.ops import linemerge, substring  # noqa: E402
 
-LARGURA_RODOVIA = 14          # tiles (4 faixas de ~3 + acostamento)
 PASSO_X, PASSO_Y = 46, 46     # quarteirões quadrados (cabe a farmácia original com a rua a oeste)
 AFASTAMENTO_VILA = 95         # do fim da rodovia até o centro da vila
 
@@ -55,8 +55,12 @@ def lotes_de_casas(q, rnd_semente, pular=None):
                 break
             lote = (box(x, qy0 + 1, x + w, qy0 + 1 + d) if lado == 0
                     else box(x, qy1 - 1 - d, x + w, qy1 - 1))
-            if pular is None or not lote.intersects(pular):
-                out.append((lote, rnd.choice((1, 1, 2))))
+            if pular is not None and lote.intersects(pular):
+                # pula a loja e continua do outro lado dela (casas em volta das lojas)
+                fim = max(g.bounds[2] for g in getattr(pular, "geoms", [pular]) if g.intersects(lote))
+                x = max(x + 1, int(fim) + 1)
+                continue
+            out.append((lote, rnd.choice((1, 1, 2))))
             x += w + rnd.randint(2, 4)
     return out
 
@@ -75,37 +79,37 @@ def vila(cx, cy, completa, proj, semente):
         ruas.append(g)
         feats.append(feature("residential", g, proj))
     resumo = {"casas": 0, "lojas": []}
+    # Vila "completa": lojas com casas em volta, no mesmo quarteirão (como no
+    # jogo base). Cada loja reserva um pedaço; as casas preenchem o resto.
+    # Lojas = cópias do mapa original (D-38) via kit de lojas, escolhidas pela
+    # etiqueta shop= e pela rua mais próxima (precisa ser a da frente da cópia).
+    lojas = {}
+    if completa:
+        lojas[(1, 0)] = [("shop", box(xs[1] + 8, ys[0] + 11, xs[1] + 28, ys[0] + 35),
+                          {"shop": "chemist", "name": "Farmacia", "building:levels": "1"},
+                          box(xs[1] + 4, ys[0] + 4, xs[1] + 30, ys[0] + 40), "farmacia (Pharmahug, rua a oeste)")]
+        lojas[(0, 1)] = [("shop", box(xs[0] + 12, ys[1] + 7, xs[0] + 26, ys[1] + 24),
+                          {"shop": "convenience", "name": "Mercadinho", "building:levels": "1"},
+                          box(xs[0] + 8, ys[1] + 4, xs[0] + 29, ys[1] + 27), "mercadinho (mercearia 52_8, rua ao sul)")]
+        # Posto: loja de 10 x 8 e um ponto "fuel" dentro dela; o KnoxMap faz o
+        # pátio com as bombas do jogo para o lado da rua mais próxima (oeste).
+        lojas[(0, 0)] = [("posto", box(xs[0] + 14, ys[0] + 18, xs[0] + 24, ys[0] + 26),
+                          {"name": "Posto", "building:levels": "1"},
+                          box(xs[0] + 4, ys[0] + 4, xs[0] + 27, ys[0] + 28), "posto (bombas do jogo)")]
     for i in range(2):
         for j in range(2):
             q = box(xs[i] + 6, ys[j] + 6, xs[i + 1] - 6, ys[j + 1] - 6)
-            especial = None
-            if completa and (i, j) == (1, 0):
-                # Farmácia original (Pharmahug, 14 x 19, frente a oeste): lote
-                # 20 x 24 a 8 tiles da rua do oeste, como no teste T8b.
-                lote = box(xs[1] + 8, ys[0] + 11, xs[1] + 28, ys[0] + 35)
-                feats.append(feature("commercial_land", q, proj))
-                feats.append(feature("shop", lote, proj, {"shop": "chemist", "name": "Farmacia",
-                                                          "building:levels": "1"}))
-                merc = box(xs[1] + 31, ys[0] + 7, xs[1] + 40, ys[0] + 19)
-                feats.append(feature("shop", merc, proj, {"shop": "convenience", "name": "Mercadinho",
-                                                          "building:levels": "1"}))
-                resumo["lojas"] += ["farmacia (Pharmahug)", "mercadinho"]
-                especial = box(xs[1], q.bounds[1], xs[2], q.bounds[3])
-                continue
-            if completa and (i, j) == (0, 0):
-                # Posto: loja de 10 x 8 no fundo do quarteirão e um ponto "fuel"
-                # dentro dela; o KnoxMap faz o pátio com as bombas do jogo para o
-                # lado da rua (a de baixo, ys[0]).
-                feats.append(feature("commercial_land", q, proj))
-                loja = box(xs[0] + 14, ys[0] + 6 + 12, xs[0] + 24, ys[0] + 6 + 20)
-                feats.append(feature("shop", loja, proj, {"name": "Posto", "building:levels": "1"}))
-                c = loja.centroid
-                feats.append({"type": "Feature", "properties": {"kind": "fuel"},
-                              "geometry": {"type": "Point", "coordinates": proj.para_falso(c.x, c.y)}})
-                resumo["lojas"].append("posto")
-                especial = box(xs[0], ys[0], xs[0] + 30, ys[1])
             feats.append(feature("houses_land", q, proj))
-            for lote, andares in lotes_de_casas(q, semente * 10 + i * 2 + j, especial):
+            reserva = None
+            for tipo, lote, tags, res, nome in lojas.get((i, j), []):
+                feats.append(feature("shop", lote, proj, tags))
+                if tipo == "posto":
+                    c = lote.centroid
+                    feats.append({"type": "Feature", "properties": {"kind": "fuel"},
+                                  "geometry": {"type": "Point", "coordinates": proj.para_falso(c.x, c.y)}})
+                reserva = res if reserva is None else reserva.union(res)
+                resumo["lojas"].append(nome)
+            for lote, andares in lotes_de_casas(q, semente * 10 + i * 2 + j, reserva):
                 feats.append(feature("house", lote, proj, {"building:levels": str(andares)}))
                 resumo["casas"] += 1
     return feats, ruas, resumo
@@ -124,10 +128,9 @@ def main() -> int:
     trecho = substring(dutra, min(a, b), max(a, b))
     if a > b:
         trecho = LineString(list(trecho.coords)[::-1])   # sempre de Piraí para VR
-    trecho = trecho.simplify(0.5)
-    feats = [feature("motorway", trecho, proj,
-                     {"name": "Rodovia Presidente Dutra (BR-116)", "width": str(LARGURA_RODOVIA),
-                      "lanes": "4"})]
+    # Pista dupla suavizada (peça do gerador: scripts/gerador/rodovia.py).
+    trecho = rodovia.suavizar(trecho)
+    feats, rodovias = rodovia.pista_dupla(trecho, "Rodovia Presidente Dutra (BR-116)", proj, feature)
 
     def ponta(linha, inicio):
         cs = list(linha.coords)
@@ -171,7 +174,7 @@ def main() -> int:
         "kitLojas": "kits/lojas",
         "sketch": {"type": "FeatureCollection", "features": feats},
         # Para as zonas de estrada e de mata (zonas_historias.py via pipeline).
-        "rodovias": [{"coords": feats[0]["geometry"]["coordinates"], "largura": LARGURA_RODOVIA - 2}],
+        "rodovias": rodovias,
         "zonasHistorias": {"navAuto": False, "engarrafamento": False, "historias": [],
                            "matasRurais": True},
     }

@@ -18,6 +18,7 @@ from xml.sax.saxutils import escape, quoteattr
 
 KNOX = sys.argv[1]
 sys.path.insert(0, KNOX)
+PASTA_ORIGEM = os.getcwd()   # caminhos de saída relativos valem a partir daqui (K34)
 os.chdir(KNOX)
 from tools.building_stats import read_header, read_squares  # noqa: E402
 
@@ -134,4 +135,4 @@ if __name__ == "__main__":
     if sys.argv[2] == "listar":
         listar(set(sys.argv[3:]))
     else:
-        copiar(sys.argv[3], int(sys.argv[4]), sys.argv[5], sys.argv[6])
+        copiar(sys.argv[3], int(sys.argv[4]), sys.argv[5], os.path.join(PASTA_ORIGEM, sys.argv[6]))

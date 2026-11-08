@@ -42,7 +42,7 @@ def _girar(d: dict) -> dict:
     return g
 
 
-_LADO = ["S"]
+_LADO: list = [None]   # lado da porta só enquanto montamos as nossas plantas
 _MOVEIS: list = [None]   # lista de móveis da planta em construção (ou None)
 # O que o gerador põe sozinho e que mantemos (luz, balcão do caixa, caixa registradora).
 _MANTER = {"switch", "register", "shop_counter", "shop_counter_red"}
@@ -81,7 +81,11 @@ def _porta_no_lado_da_rua() -> None:
     original = L._exterior_door
 
     def porta(plan, rng, avoid=None, street=None, entrances=None):
-        return original(plan, rng, avoid=avoid, street=_LADO[0], entrances=entrances)
+        # Só durante a montagem das NOSSAS plantas (_LADO[0] definido); nos outros
+        # prédios vale o lado da rua que o KnoxMap achou (K33: antes isto valia para
+        # todas as casas, e as com rua ao sul ficavam com a porta nos fundos).
+        lado = _LADO[0] if _LADO[0] is not None else street
+        return original(plan, rng, avoid=avoid, street=lado, entrances=entrances)
     porta._rsb = True
     L._exterior_door = porta
 
@@ -136,6 +140,7 @@ def instalar_plantas(kit: Path) -> dict[str, str]:
             designer.keep(knoxpaths.BASE_DIR, nome, {**plano, "name": nome})
             out[f"{arq.stem}:{lado}"] = nome
     _MOVEIS[0] = None
+    _LADO[0] = None
     # Cópias de prédios do mapa original (scripts/gerador/copiar_predio_vanilla.py):
     # usadas como estão, só onde a rua fica do lado da frente delas.
     from knoxbuild import presets as P

@@ -23,5 +23,19 @@
    "frente": "W",
    "origem": "Knox County, célula 14_33, prédio 3"
   }
+ },
+ "convenience": {
+  "vanilla": {
+   "arquivo": "vanilla/mercado_52_8.tbx",
+   "frente": "S",
+   "origem": "Knox County, célula 52_8, prédio 191 (mercearia: grocery + grocerystorage + bathroom, 11 x 14)"
+  }
+ },
+ "greengrocer": {
+  "vanilla": {
+   "arquivo": "vanilla/mercado_52_8.tbx",
+   "frente": "S",
+   "origem": "Knox County, célula 52_8, prédio 191 (mercearia: grocery + grocerystorage + bathroom, 11 x 14)"
+  }
  }
 }
