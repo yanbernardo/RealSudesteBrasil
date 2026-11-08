@@ -819,26 +819,31 @@ def lotes(livre, corredor, ruas, bairro_de, kit, lojas, especiais, rnd):
                 B = Q[k]
                 cand = [(math.dist((B.x0 + c, B.y0 + r), (p.x, p.y)), lado, r, c)
                         for lado in LADOS for r, c in B.frentes(lado)]
-                for _d, lado, r, c in sorted(cand):
-                    copia = COPIAS_ESP.get(tipo)
-                    ret = lote = None
-                    if copia and copia[0] == lado:
-                        ret = B.encaixe(lado, r, c, copia[1], copia[2])
-                        if ret and rua_mais_perto(B.caixa(*ret)) != lado:
-                            ret = None            # K32: a cópia só vale se esta rua for a mais perto
-                        if ret:
-                            resumo["copias"][tipo] = resumo["copias"].get(tipo, 0) + 1
-                    if not ret:
-                        copia = None
-                        ret = B.encaixe(lado, r, c, w, d)
-                    if ret:
-                        B.ocupar(*ret)
-                        lote = B.caixa(*ret)
-                        if tipo == "fuel":
-                            registrar("shop", lote, {"name": "Posto"}, 1, "posto")
+                # 1ª volta: a cópia do mapa original (só com a rua do lado da frente dela);
+                # 2ª volta: o tamanho comum do ESPECIAIS (gerador do KnoxMap)
+                voltas = [COPIAS_ESP[tipo]] if tipo in COPIAS_ESP else []
+                for copia in voltas + [None]:
+                    for _d, lado, r, c in sorted(cand):
+                        if copia:
+                            if copia[0] != lado:
+                                continue
+                            ret = B.encaixe(lado, r, c, copia[1], copia[2])
+                            if ret and rua_mais_perto(B.caixa(*ret)) != lado:
+                                ret = None        # K32: a cópia só vale se esta rua for a mais perto
                         else:
-                            registrar(tipo, lote, {"rsb_copia": tipo} if copia else None, 1, tipo)
-                        feito = True
+                            ret = B.encaixe(lado, r, c, w, d)
+                        if ret:
+                            B.ocupar(*ret)
+                            lote = B.caixa(*ret)
+                            if tipo == "fuel":
+                                registrar("shop", lote, {"name": "Posto"}, 1, "posto")
+                            else:
+                                registrar(tipo, lote, {"rsb_copia": tipo} if copia else None, 1, tipo)
+                            if copia:
+                                resumo["copias"][tipo] = resumo["copias"].get(tipo, 0) + 1
+                            feito = True
+                            break
+                    if feito:
                         break
                 if feito:
                     break

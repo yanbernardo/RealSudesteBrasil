@@ -192,6 +192,10 @@ def zonas(sketch: dict, kit: Path, presets: dict[str, str]) -> list[dict]:
             continue
         anel = f["geometry"]["coordinates"][0]
         lado = _lado_da_rua(anel, ruas)
+        if tags.get("rsb_copia") and mapa[shop].get("vanilla"):
+            # o gerador já escolheu o lote pela rua do lado da frente da cópia; o lote
+            # fundo (25 tiles) faz a "rua mais perto do centro" mudar (quartel, U22)
+            lado = mapa[shop]["vanilla"]["frente"]
         planta = (presets.get(f"vanilla:{shop}:{lado}")
                   or presets.get(f"{mapa[shop].get('planta')}:{lado}")) if lado else None
         print(f"  {tags.get('name', shop)}: rua ao {lado} -> {planta or 'gerador do KnoxMap'}", flush=True)
