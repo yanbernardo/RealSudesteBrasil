@@ -3,6 +3,7 @@
   "grupos": [
     {"grupo": "TESTE (tirar depois do OK do usuario)", "pontos": [
       {"nome": "Grande Hotel Atlantida (inspirado no Copacabana Palace)", "tile": [69848, 66092]},
+      {"nome": "Casa de laje exemplo - Humaita", "tile": [69640, 66056]},
       {"nome": "Orla sem casas - Leblon", "tile": [69500, 66279]},
       {"nome": "Orla sem casas - Ipanema", "tile": [69600, 66277]},
       {"nome": "Orla sem casas - Copacabana (Av. Atlantica)", "tile": [69770, 66146]},

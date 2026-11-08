@@ -103,6 +103,17 @@ O BuildingEd **já está no seu computador**: veio junto com o KnoxMap, em
 7. Muro baixo e portão na frente: isso é terreno, não prédio. Por enquanto deixe de fora; depois eu levo o terreno junto, como fiz com o estacionamento da delegacia.
 8. *File → Save* como `kits\lojas\brasil\casa_laje_01.tbx` (crie a pasta `brasil`).
 
+### 5.4.1 Laje reta (em vez do telhado inclinado)
+O telhado não é o "Ceilings" (isso é o forro, visto por dentro). Use a **ferramenta de telhado (Roof Tool)** com o tipo **Flat Top** cobrindo a casa, com **profundidade (Depth) Three**: a laje vira o chão do andar de cima, onde dá para andar. Na janela **Tiles**, categoria **Roof Tops**, em **Expert Mode**, crie uma entrada com uma peça de concreto em todos os espaços (ex.: `floors_exterior_street_01_016`) e escolha essa entrada no telhado.
+
+**Exemplo pronto:** `kits\lojasrasil\casa_laje_exemplo.tbx` (abra no BuildingEd). Casa térrea 9 × 10 com laje de concreto, guarda-corpo branco em volta e caixa d'água; também está no mapa (teleporte TESTE: "Casa de laje exemplo - Humaita"). Foi gerada por `scripts/gerador/predio_desenhado.py` (planta `casa_laje_exemplo.json`) e `scripts/gerador/laje.py` (mureta e caixa d'água).
+
+### 5.4.2 Cercas, grades, guarda-corpos e outros objetos ("fixtures")
+- No BuildingEd, cerca, grade, guarda-corpo, caixa d'água, ar-condicionado etc. são **móveis (furniture)**: ferramenta **Furniture Tool**, escolher a peça no painel de móveis e clicar. Perto da parede ou da borda, ele escolhe sozinho para que lado a peça fica virada.
+- Se a peça não estiver em nenhuma categoria de móveis: janela **Tiles** → crie uma **categoria de móveis** sua (botões embaixo da lista; dois cliques para dar nome, ex.: "Brasil") → arraste a peça da lista de peças para dentro dela. Cada entrada tem uma peça por direção (oeste, norte, leste, sul). Exemplos de folhas: `fixtures_railings_01` (guarda-corpos: a peça 64 é o lado oeste e a 65 o lado norte), `fencing_01` (cercas e muros baixos), `fixtures_doors_fences_01` (portões), `rooftop_furniture` (caixas e aparelhos de telhado).
+- Camada (**Layer**, embaixo da lista): "Furniture" é o normal; "Walls" troca a parede por aquela peça (portão de garagem, vitrine larga); "WallOverlay" é para o que fica pintado na parede.
+- **Cerca e muro do quintal (fora da casa)** não fazem parte do prédio no BuildingEd: são terreno. Faça a casa sem eles; eu levo o quintal junto como "entorno", como fiz com o estacionamento da delegacia. Se quiser desenhar o quintal você mesmo, dá para fazer a casa com uns tiles a mais e a cerca nessa borda; me avise que eu ajusto o gerador.
+
 ### 5.5 Regras para o gerador conseguir usar
 - **A porta da frente define o lado da rua.** Faça a porta da frente virada para baixo/esquerda da tela (lado sul) ou avise qual lado é; o gerador não gira o prédio (K35).
 - **Tamanho fixo:** anote o tamanho; o gerador reserva um lote exatamente desse tamanho.

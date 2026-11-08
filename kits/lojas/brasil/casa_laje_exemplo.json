@@ -1,0 +1,64 @@
+{
+ "name": "RSB Casa de laje exemplo",
+ "kind": "house",
+ "storeys": 1,
+ "width": 9,
+ "height": 10,
+ "seed": 2026,
+ "_sobre": "Exemplo para o usuário abrir no BuildingEd: casa térrea com laje de concreto (telhado Flat Top, profundidade Three = vira o chão de cima), mureta de guarda-corpo em volta e caixa d'água. Frente ao sul (sala).",
+ "estilo_fachada": {
+  "base": "apartment~stucco", "base_kind": "apartment",
+  "parede": "walls_interior_house_02_048",
+  "janela": "fixtures_windows_white_016"
+ },
+ "rooms": [
+  {
+   "level": 0,
+   "x": 0,
+   "y": 5,
+   "w": 5,
+   "h": 5,
+   "kind": "livingroom"
+  },
+  {
+   "level": 0,
+   "x": 5,
+   "y": 5,
+   "w": 4,
+   "h": 5,
+   "kind": "kitchen"
+  },
+  {
+   "level": 0,
+   "x": 0,
+   "y": 0,
+   "w": 4,
+   "h": 5,
+   "kind": "bedroom"
+  },
+  {
+   "level": 0,
+   "x": 4,
+   "y": 0,
+   "w": 3,
+   "h": 3,
+   "kind": "bathroom"
+  },
+  {
+   "level": 0,
+   "x": 4,
+   "y": 3,
+   "w": 3,
+   "h": 2,
+   "kind": "hall"
+  },
+  {
+   "level": 0,
+   "x": 7,
+   "y": 0,
+   "w": 2,
+   "h": 5,
+   "kind": "laundry"
+  }
+ ]
+}

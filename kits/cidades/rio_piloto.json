@@ -3,43 +3,264 @@
   "mapName": "rsb_rio_piloto",
   "title": "RSB Etapa 2 - Rio (Centro e Zona Sul)",
   "dados": "osm_rio_piloto",
-  "recorte": [[-43.180, -22.893], [-43.200, -22.897], [-43.207, -22.915], [-43.203, -22.935],
-              [-43.218, -22.952], [-43.245, -22.968], [-43.245, -23.000], [-43.150, -22.995],
-              [-43.148, -22.940], [-43.165, -22.900]],
+  "recorte": [
+    [
+      -43.18,
+      -22.893
+    ],
+    [
+      -43.2,
+      -22.897
+    ],
+    [
+      -43.207,
+      -22.915
+    ],
+    [
+      -43.203,
+      -22.935
+    ],
+    [
+      -43.218,
+      -22.952
+    ],
+    [
+      -43.245,
+      -22.968
+    ],
+    [
+      -43.245,
+      -23.0
+    ],
+    [
+      -43.15,
+      -22.995
+    ],
+    [
+      -43.148,
+      -22.94
+    ],
+    [
+      -43.165,
+      -22.9
+    ]
+  ],
   "_mar": "pontos que com certeza são água: alto-mar em frente a Copacabana e o meio da baía",
-  "mar": [[-43.185, -22.998], [-43.140, -22.915]],
+  "mar": [
+    [
+      -43.185,
+      -22.998
+    ],
+    [
+      -43.14,
+      -22.915
+    ]
+  ],
   "_bairros": "tipo de cada bairro (ponto do OSM mais próximo); o que não estiver aqui usa 'misto'",
   "bairros": {
-    "centro": ["Centro", "Saúde", "Gamboa", "Lapa", "Castelo", "Saara", "Cidade Nova", "Bairro de Fátima", "Glória"],
-    "orla": ["Copacabana", "Leme", "Ipanema", "Leblon", "Arpoador", "Bairro Peixoto"],
-    "denso": ["Flamengo", "Botafogo", "Catete", "Lagoa", "Humaitá"],
-    "casas": ["Gávea", "Jardim Botânico", "Urca", "Santa Teresa", "Cosme Velho", "Laranjeiras", "Horto",
-              "Silvestre", "Vidigal", "Catumbi", "Estácio", "Santa Marta", "Pico", "Segunda mina",
-              "Primeira Mina", "Cocheira", "Vila Rica", "Estradinha", "Mangueirinha", "Barro", "Figueira"]
+    "centro": [
+      "Centro",
+      "Saúde",
+      "Gamboa",
+      "Lapa",
+      "Castelo",
+      "Saara",
+      "Cidade Nova",
+      "Bairro de Fátima",
+      "Glória"
+    ],
+    "orla": [
+      "Copacabana",
+      "Leme",
+      "Ipanema",
+      "Leblon",
+      "Arpoador",
+      "Bairro Peixoto"
+    ],
+    "denso": [
+      "Flamengo",
+      "Botafogo",
+      "Catete",
+      "Lagoa",
+      "Humaitá"
+    ],
+    "casas": [
+      "Gávea",
+      "Jardim Botânico",
+      "Urca",
+      "Santa Teresa",
+      "Cosme Velho",
+      "Laranjeiras",
+      "Horto",
+      "Silvestre",
+      "Vidigal",
+      "Catumbi",
+      "Estácio",
+      "Santa Marta",
+      "Pico",
+      "Segunda mina",
+      "Primeira Mina",
+      "Cocheira",
+      "Vila Rica",
+      "Estradinha",
+      "Mangueirinha",
+      "Barro",
+      "Figueira"
+    ]
   },
   "_teto_zumbis": "P19: nenhum pedaço de 8x8 tiles passa do máximo do centro de Louisville no jogo original (medido nos .lotheader em 08/11/2026: 7; o 10 só aparece em poucos pontos especiais)",
   "teto_zumbis": 7,
   "_andares_max": "teto de andares de qualquer prédio (o KnoxMap corta em 6 se não disser; a B42 aguenta 31, mas andar demais pesa na memória)",
   "andares_max": 14,
   "_clareiras": "U23: mata do KnoxMap já está no grau mais ralo e ainda é densa. 'fracao' da mata vira campo aberto em manchas de 'raio' tiles; 'fixas_tiles' = [x, y, raio] no mundo (Corcovado = onde fica o Cristo, D-28)",
-  "clareiras": {"fracao": 0.5, "raio": [8, 18], "fixas_tiles": [[69568, 66021, 32]]},
+  "clareiras": {
+    "fracao": 0.5,
+    "raio": [
+      8,
+      18
+    ],
+    "fixas_tiles": [
+      [
+        69568,
+        66021,
+        32
+      ]
+    ]
+  },
   "_praias": "U18: praia em escala de jogo. A costa entre 'de' e 'ate' (lon, lat; o ponto vai para a costa mais perto) ganha uma faixa de areia de 'largura' tiles para o lado do mar (o mar recua) e areia até a avenida da orla; zonas de história 'Beach' (13 x 13) espalhadas na areia. Copacabana não vem como praia no OSM baixado.",
   "praias": [
-    {"nome": "Leme e Copacabana", "de": [-43.18930, -22.98300], "ate": [-43.16446, -22.96277], "largura": 22,
-     "ruas_orla": {"profundidade": 60, "_leia": "U19: na faixa atrás da praia, só a família de ruas da grade que atravessa a faixa (escolhida trecho a trecho pela direção da costa) e ruas no miolo a partir de 16 tiles"}},
-    {"nome": "Arpoador, Ipanema e Leblon", "de": [-43.22733, -22.98907], "ate": [-43.19124, -22.98951], "largura": 22}
+    {
+      "nome": "Leme e Copacabana",
+      "de": [
+        -43.1893,
+        -22.983
+      ],
+      "ate": [
+        -43.16446,
+        -22.96277
+      ],
+      "largura": 22,
+      "ruas_orla": {
+        "profundidade": 60,
+        "_leia": "U19: na faixa atrás da praia, só a família de ruas da grade que atravessa a faixa (escolhida trecho a trecho pela direção da costa) e ruas no miolo a partir de 16 tiles"
+      }
+    },
+    {
+      "nome": "Arpoador, Ipanema e Leblon",
+      "de": [
+        -43.22733,
+        -22.98907
+      ],
+      "ate": [
+        -43.19124,
+        -22.98951
+      ],
+      "largura": 22
+    }
   ],
   "_mistura": "chance de cada tipo de lote [loja, prédio, casa] e andares dos prédios [mín, máx]; opcional 'predio_frente' [mín, máx] e 'predio_fundo' (tiles; padrão 10-14 e 14); 'orla' = paredão de prédios altos e largos (U19)",
   "mistura": {
-    "centro": {"lote": [0.35, 0.45, 0.20], "andares": [4, 10]},
-    "orla":   {"lote": [0.12, 0.80, 0.08], "andares": [10, 14], "predio_frente": [14, 20], "predio_fundo": 16, "sem_casas": true, "andares_pequeno": [4, 8]},
-    "denso":  {"lote": [0.18, 0.55, 0.27], "andares": [5, 10]},
-    "misto":  {"lote": [0.15, 0.35, 0.50], "andares": [3, 6]},
-    "casas":  {"lote": [0.10, 0.20, 0.70], "andares": [2, 4]}
+    "centro": {
+      "lote": [
+        0.35,
+        0.45,
+        0.2
+      ],
+      "andares": [
+        4,
+        10
+      ]
+    },
+    "orla": {
+      "lote": [
+        0.12,
+        0.8,
+        0.08
+      ],
+      "andares": [
+        10,
+        14
+      ],
+      "predio_frente": [
+        14,
+        20
+      ],
+      "predio_fundo": 16,
+      "sem_casas": true,
+      "andares_pequeno": [
+        4,
+        8
+      ]
+    },
+    "denso": {
+      "lote": [
+        0.18,
+        0.55,
+        0.27
+      ],
+      "andares": [
+        5,
+        10
+      ]
+    },
+    "misto": {
+      "lote": [
+        0.15,
+        0.35,
+        0.5
+      ],
+      "andares": [
+        3,
+        6
+      ]
+    },
+    "casas": {
+      "lote": [
+        0.1,
+        0.2,
+        0.7
+      ],
+      "andares": [
+        2,
+        4
+      ]
+    }
   },
   "predios_marco": [
-    {"nome": "Grande Hotel Atlantida", "chave": "hotel_atlantida", "tipo": "townhall", "legenda": "hotel", "andares": 8,
-     "lat": -22.96707, "lon": -43.17839, "frentes": {"E": [30, 14], "S": [30, 14]},
-     "_sobre": "Inspirado no Copacabana Palace, nome fictício (direitos). Planta em kits/marcos/hotel_atlantida.json. tipo townhall: o KnoxMap não divide o prédio em unidades (hotel/apartamento comprido vira fileira); a legenda do mapa vem de legenda."}
+    {
+      "nome": "Grande Hotel Atlantida",
+      "chave": "hotel_atlantida",
+      "tipo": "townhall",
+      "legenda": "hotel",
+      "andares": 8,
+      "lat": -22.96707,
+      "lon": -43.17839,
+      "frentes": {
+        "E": [
+          30,
+          14
+        ],
+        "S": [
+          30,
+          14
+        ]
+      },
+      "_sobre": "Inspirado no Copacabana Palace, nome fictício (direitos). Planta em kits/marcos/hotel_atlantida.json. tipo townhall: o KnoxMap não divide o prédio em unidades (hotel/apartamento comprido vira fileira); a legenda do mapa vem de legenda."
+    },
+    {
+      "nome": "Casa de laje exemplo",
+      "chave": "casa_laje_exemplo",
+      "tipo": "house",
+      "andares": 1,
+      "lat": -22.956,
+      "lon": -43.199,
+      "frentes": {
+        "S": [
+          9,
+          10
+        ]
+      },
+      "_sobre": "Exemplo de laje (Flat Top de concreto, mureta, caixa d'água) para o usuário ver em jogo; tirar depois do OK."
+    }
   ]
 }

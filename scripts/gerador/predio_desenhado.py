@@ -37,7 +37,7 @@ def main() -> None:
 
     estilo = d.get("estilo_fachada")
     if estilo:
-        base = dict(B.style_named(estilo.get("base", "civic"), d.get("kind") or None))
+        base = dict(B.style_named(estilo.get("base", "civic"), estilo.get("base_kind") or d.get("kind") or None))
         p = estilo["parede"]           # ex.: walls_commercial_02_048 (as 8 peças seguem a ordem do jogo)
         folha, n = p.rsplit("_", 1)
         n = int(n)
