@@ -856,7 +856,7 @@ COPIAS = {"chemist": ("W", 21, 16), "pharmacy": ("W", 21, 16), "weapons": ("W", 
 # exatamente o tamanho do prédio, senão a sobra fica entre o prédio e a rua (usuário,
 # 08/11/2026: delegacia e quartel longe da calçada). Frente: lado da porta, conferido
 # no render do Knox County (a delegacia 9_54 dá para leste; o quartel 23_20, para o sul).
-COPIAS_ESP = {"police": ("E", 13, 11), "fire": ("S", 26, 20)}
+COPIAS_ESP = {"police": ("E", 29, 13), "fire": ("S", 26, 20)}
 VAO_COPIA = 3              # tiles livres em volta de uma cópia (a delegacia colada no vizinho virava um prédio só)
 
 

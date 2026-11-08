@@ -7,7 +7,8 @@ mesma ordem do mapa original; as paredes automáticas do KnoxMap ficam desligada
 
 Uso (Python do .venv do KnoxMap):
   listar:  python -I copiar_predio_vanilla.py <KnoxMap> listar pharmacy [gunstore ...]
-  copiar:  python -I copiar_predio_vanilla.py <KnoxMap> copiar <célula X_Y> <nº do prédio> <nome> <saída.tbx>
+  copiar:  python -I copiar_predio_vanilla.py <KnoxMap> copiar <célula X_Y> <nº do prédio> <nome> <saída.tbx> [oeste,norte,leste,sul]
+           (o último, opcional: tiles de entorno em volta do prédio, copiados com o chão)
 """
 from __future__ import annotations
 
@@ -52,7 +53,9 @@ def listar(alvos: set[str]) -> None:
                   f"andares {niveis}, cômodos {sorted(nomes)}")
 
 
-def copiar(celula: str, indice: int, nome: str, saida: str) -> None:
+def copiar(celula: str, indice: int, nome: str, saida: str, margens=(0, 0, 0, 0)) -> None:
+    """`margens` = tiles a mais em volta do prédio (oeste, norte, leste, sul): o
+    "entorno" (estacionamento, cerca, postes, gramado) vem junto, com o chão."""
     cab = MAPAS / f"{celula}.lotheader"
     nomes, lo, hi, rooms, predios = _predios(cab)
     sq = read_squares(str(MAPAS / f"world_{celula}.lotpack"), nomes, lo, hi)
@@ -61,7 +64,20 @@ def copiar(celula: str, indice: int, nome: str, saida: str) -> None:
     y0 = min(y for _n, _l, rects in rs for _x, y, _w, _h in rects)
     x1 = max(x + w for _n, _l, rects in rs for x, _y, w, _h in rects)
     y1 = max(y + h for _n, _l, rects in rs for _x, y, _w, h in rects)
-    W, H = x1 - x0, y1 - y0
+    mo, mn, ml, ms = margens
+    bx, by, bw, bh = mo, mn, x1 - x0, y1 - y0          # o prédio dentro do retângulo copiado
+    x0, y0 = x0 - mo, y0 - mn
+    W, H = bw + mo + ml, bh + mn + ms
+    # quadrados de cômodos de outros prédios (no entorno não se copia vizinho)
+    meus = set(predios[indice])
+    alheio = {}
+    for k, (_nm, lv, rects) in enumerate(rooms):
+        if k in meus:
+            continue
+        for x, y, w, h in rects:
+            for a in range(w):
+                for b in range(h):
+                    alheio.setdefault(lv, set()).add((x + a, y + b))
     niveis = sorted({lv for _n, lv, _r in rs if lv >= 0})
     topo = max(niveis) + 1          # o telhado fica no andar de cima do último
 
@@ -88,8 +104,16 @@ def copiar(celula: str, indice: int, nome: str, saida: str) -> None:
                 ts = sq.get((x0 + x, y0 + y, z), [])
                 if not ts:
                     continue
-                if (x, y) not in dentro.get(z, set()) and not (z == topo and dentro.get(z - 1, set())
-                                                                 and (x, y) in dentro[z - 1]):
+                no_predio = bx <= x <= bx + bw and by <= y <= by + bh
+                if not no_predio:
+                    # entorno: tudo, com o chão (menos vizinho e menos o chão da faixa de
+                    # fora a leste e ao sul, que é a calçada do KnoxMap)
+                    if (x0 + x, y0 + y) in alheio.get(z, set()):
+                        continue
+                    if x == W or y == H:
+                        ts = [t for t in ts if not t.startswith(CHAO)]
+                elif (x, y) not in dentro.get(z, set()) and not (z == topo and dentro.get(z - 1, set())
+                                                                   and (x, y) in dentro[z - 1]):
                     # Fora dos cômodos, mas no retângulo do prédio (com a faixa das paredes
                     # de fora a leste e ao sul): fica tudo menos o chão. As paredes de fora
                     # podem ser de qualquer conjunto de peças (o quartel 47_27 usa "industry_",
@@ -135,4 +159,5 @@ if __name__ == "__main__":
     if sys.argv[2] == "listar":
         listar(set(sys.argv[3:]))
     else:
-        copiar(sys.argv[3], int(sys.argv[4]), sys.argv[5], os.path.join(PASTA_ORIGEM, sys.argv[6]))
+        m = tuple(int(v) for v in sys.argv[7].split(",")) if len(sys.argv) > 7 else (0, 0, 0, 0)
+        copiar(sys.argv[3], int(sys.argv[4]), sys.argv[5], os.path.join(PASTA_ORIGEM, sys.argv[6]), m)

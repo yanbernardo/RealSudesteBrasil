@@ -32,3 +32,4 @@ Regras (K35):
 - 3 tiles livres em volta (`VAO_COPIA`), senão o jogo junta a cópia com o vizinho num prédio só.
 - No retângulo do prédio a cópia leva tudo menos o chão (as paredes de fora podem ser de qualquer conjunto de peças, ex.: `industry_`).
 - A cópia não gira: para ter o mesmo tipo virado para outros lados, copiar outro prédio original virado para lá.
+- **Entorno (teste, 08/11/2026):** o último argumento do `copiar` (oeste,norte,leste,sul) copia também o terreno em volta (estacionamento, cerca, postes), com o chão e sem os prédios vizinhos. A faixa de fora a leste e ao sul fica sem chão (é a calçada do KnoxMap). Medir o entorno no Knox County antes. Em uso: `delegacia_9_54_entorno.tbx` (margens 2,0,0,16); o lote no gerador cresce junto (`COPIAS_ESP`).
