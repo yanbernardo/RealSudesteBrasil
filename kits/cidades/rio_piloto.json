@@ -228,26 +228,6 @@
   },
   "predios_marco": [
     {
-      "nome": "Grande Hotel Atlantida",
-      "chave": "hotel_atlantida",
-      "tipo": "townhall",
-      "legenda": "hotel",
-      "andares": 8,
-      "lat": -22.96707,
-      "lon": -43.17839,
-      "frentes": {
-        "E": [
-          30,
-          14
-        ],
-        "S": [
-          30,
-          14
-        ]
-      },
-      "_sobre": "Inspirado no Copacabana Palace, nome fictício (direitos). Planta em kits/marcos/hotel_atlantida.json. tipo townhall: o KnoxMap não divide o prédio em unidades (hotel/apartamento comprido vira fileira); a legenda do mapa vem de legenda."
-    },
-    {
       "nome": "Casa de laje exemplo",
       "chave": "casa_laje_exemplo",
       "tipo": "house",
@@ -257,7 +237,7 @@
       "frentes": {
         "S": [
           9,
-          10
+          11
         ]
       },
       "_sobre": "Exemplo de laje (Flat Top de concreto, mureta, caixa d'água) para o usuário ver em jogo; tirar depois do OK."

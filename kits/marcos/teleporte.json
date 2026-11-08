@@ -2,13 +2,12 @@
   "_leia": "Pontos do menu de teleporte do modo debug (D-39). Cada ponto tem lat/lon reais OU 'localidade' (nome da sede/localidade no localidades_rj.csv). O script scripts/gerador/teleporte_debug.py converte pela grade (D-02) e gera o Lua. Grupo TESTE: locais de teste em tile do jogo (tile: [x, y]); o usuario pediu que cada local novo a testar entre aqui e saia quando ele der o OK. Para mudar a lista, edite aqui e rode o script de novo.",
   "grupos": [
     {"grupo": "TESTE (tirar depois do OK do usuario)", "pontos": [
-      {"nome": "Grande Hotel Atlantida (inspirado no Copacabana Palace)", "tile": [69848, 66092]},
-      {"nome": "Casa de laje exemplo - Humaita", "tile": [69640, 66056]},
+      {"nome": "Casa de laje exemplo - Humaita", "tile": [69651, 66062]},
       {"nome": "Orla sem casas - Leblon", "tile": [69500, 66279]},
       {"nome": "Orla sem casas - Ipanema", "tile": [69600, 66277]},
       {"nome": "Orla sem casas - Copacabana (Av. Atlantica)", "tile": [69770, 66146]},
       {"nome": "Orla do Leblon emendada no Jardim de Alah (U30)", "tile": [69532, 66275]},
-      {"nome": "Rua Santa Clara - diagonal sem calcada em degraus (U20)", "tile": [69696, 66132]},
+      {"nome": "Rua Santa Clara moldada em trechos retos (D-43)", "tile": [69696, 66132]},
       {"nome": "Tunel Zuzu Angel ligado (U28)", "tile": [69372, 66264]}
     ]},
     {"grupo": "Rio de Janeiro - Marcos", "pontos": [

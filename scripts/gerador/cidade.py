@@ -27,6 +27,7 @@ import json
 import math
 import pathlib
 import random
+import re
 import sys
 
 import numpy as np
@@ -498,6 +499,44 @@ def ligar_pontas(linha, aceitas, arvore):
     return LineString(cs)
 
 
+# D-43: só avenidas, túneis e rodovias seguem o traçado real; rua interna é moldada.
+TRACADO_REAL = re.compile(r"^(Avenida|Av\.|Túnel|Tunel|Rodovia|Estrada|Elevado|Viaduto|Autoestrada|Linha|"
+                          r"Via |Ponte|Aterro|(BR|RJ|SP|MG|ES)-\d)", re.I)
+DEGRAU = 26              # tiles: comprimento de cada degrau da escada (um quarteirão da grade)
+QUASE_RETO = 22          # graus: trecho até isto de um eixo é só endireitado
+
+
+def tracado_real(h, nome):
+    return h in ("motorway", "trunk") or bool(TRACADO_REAL.match(nome or ""))
+
+
+def moldar(l):
+    """Rua interna real em trechos retos (D-43): o trecho quase reto é endireitado;
+    o diagonal vira escada de degraus de ~DEGRAU tiles que acompanha o caminho real.
+    Assim a rua tem calçada, meio-fio e faixa como as do Knox County."""
+    cs = list(l.simplify(4.0).coords)
+    out = [(round(cs[0][0]), round(cs[0][1]))]
+    for a, b in zip(cs, cs[1:]):
+        x, y = out[-1]
+        dx, dy = b[0] - x, b[1] - y
+        if abs(dx) < 1 and abs(dy) < 1:
+            continue
+        ang = math.degrees(math.atan2(abs(dy), abs(dx)))
+        if ang <= QUASE_RETO:
+            out.append((round(b[0]), y))
+        elif ang >= 90 - QUASE_RETO:
+            out.append((x, round(b[1])))
+        else:
+            n = max(1, round(min(abs(dx), abs(dy)) / DEGRAU))
+            for k in range(1, n + 1):
+                nx, ny = round(x + dx * k / n), round(y + dy * k / n)
+                px, py = out[-1]
+                out.append((nx, py) if abs(dx) >= abs(dy) else (px, ny))
+                out.append((nx, ny))
+    pts = [out[0]] + [q for p, q in zip(out, out[1:]) if q != p]
+    return LineString(pts) if len(pts) >= 2 else l
+
+
 def esqueleto(dados, kit, recorte, terra_urbana_ou_mata):
     vias = {}
     for t, g in ler_overpass(dados / kit["dados"] / "vias.json"):
@@ -512,6 +551,8 @@ def esqueleto(dados, kit, recorte, terra_urbana_ou_mata):
         for l in linhas(linemerge(ls)):
             for p in linhas(l.intersection(lim)):
                 p = p.simplify(1.0)
+                if not tracado_real(h, nome):
+                    p = moldar(p)
                 if p.length >= (SECUNDARIA_MIN if h == "secondary" else TRECHO_MIN):
                     cands.append((ordem, -p.length, h, nome, p))
     cands.sort(key=lambda c: (c[0], c[1]))

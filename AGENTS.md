@@ -42,6 +42,7 @@ Mod de mapa para Project Zomboid, inspirado no Real USA, que recria o Sudeste do
 - Lojas comerciais (D-38): cópias inteiras das lojas do jogo original (estrutura, móveis, loot) até existir o Kit Brasil; só então pensar decoração e estrutura brasileiras.
 - Cidades genéricas: contorno real + malha de ruas em escala de jogo; marcos famosos feitos à parte (D-03).
 - Mapa do jogo (D-41, D-42, DECIDIDOS em 08/11/2026): visão de satélite (`pyramid.zip`) e legenda igual à do mapa original (polícia, bombeiros etc. não aparecem como residencial), até no mapa final.
+- Ruas (D-43, DECIDIDO em 08/11/2026): avenidas, túneis e rodovias no traçado real; ruas internas reais entram com o nome, mas moldadas em trechos retos (escada), para terem calçada.
 - Praias em escala de jogo (D-40, DECIDIDO em 08/11/2026): as praias importantes ganham ~20 tiles de areia (o mar recua) e zonas de história de praia; lista no kit da cidade (`"praias"`).
 - Dados atuais, não 1993 (D-08).
 - Ordem dos estados: RJ → SP → MG → ES (D-24). Cidade piloto: Rio de Janeiro (D-05). Beta pública: só o RJ (D-33).

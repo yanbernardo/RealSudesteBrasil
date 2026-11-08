@@ -2,11 +2,11 @@
  "name": "Grande Hotel Atlantida",
  "kind": "civic",
  "storeys": 8,
- "width": 28,
+ "width": 20,
  "height": 14,
  "seed": 1923,
  "vazio": true,
- "_sobre": "Inspirado no Copacabana Palace (fachada branca simétrica, pavilhões nas pontas e no centro), com nome fictício (direitos). Vazio por dentro: só apartamentos (sala, quarto, banheiro) ao longo de um corredor, pedido do usuário em 08/11/2026. Tamanho de jogo: 28 x 14 tiles, 8 andares (é o maior que cabe na orla perto do lugar real).",
+ "_sobre": "Inspirado no Copacabana Palace (fachada branca simétrica, pavilhões nas pontas e no centro), com nome fictício (direitos). Vazio por dentro: só apartamentos (sala, quarto, banheiro) ao longo de um corredor, pedido do usuário em 08/11/2026. Tamanho de jogo: 20 x 14 tiles, 8 andares (o maior que cabe na orla perto do lugar real depois do D-43).",
  "estilo_fachada": {
   "base": "civic",
   "parede": "walls_interior_house_01_000",
@@ -17,13 +17,13 @@
    "level": 0,
    "x": 0,
    "y": 6,
-   "w": 28,
+   "w": 20,
    "h": 2,
    "kind": "hall"
   },
   {
    "level": 0,
-   "x": 11,
+   "x": 7,
    "y": 0,
    "w": 6,
    "h": 14,
@@ -33,7 +33,7 @@
    "level": 0,
    "x": 0,
    "y": 8,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -49,7 +49,7 @@
    "level": 0,
    "x": 0,
    "y": 11,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -57,7 +57,7 @@
    "level": 0,
    "x": 0,
    "y": 0,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -65,7 +65,7 @@
    "level": 0,
    "x": 0,
    "y": 3,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -79,15 +79,15 @@
   },
   {
    "level": 0,
-   "x": 5,
+   "x": 3,
    "y": 8,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "bedroom"
   },
   {
    "level": 0,
-   "x": 5,
+   "x": 3,
    "y": 8,
    "w": 2,
    "h": 2,
@@ -95,31 +95,79 @@
   },
   {
    "level": 0,
-   "x": 5,
+   "x": 3,
    "y": 11,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "livingroom"
   },
   {
    "level": 0,
-   "x": 5,
+   "x": 3,
    "y": 0,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "livingroom"
   },
   {
    "level": 0,
-   "x": 5,
+   "x": 3,
    "y": 3,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "bedroom"
   },
   {
    "level": 0,
-   "x": 5,
+   "x": 3,
+   "y": 4,
+   "w": 2,
+   "h": 2,
+   "kind": "bathroom"
+  },
+  {
+   "level": 0,
+   "x": 13,
+   "y": 8,
+   "w": 4,
+   "h": 3,
+   "kind": "bedroom"
+  },
+  {
+   "level": 0,
+   "x": 13,
+   "y": 8,
+   "w": 2,
+   "h": 2,
+   "kind": "bathroom"
+  },
+  {
+   "level": 0,
+   "x": 13,
+   "y": 11,
+   "w": 4,
+   "h": 3,
+   "kind": "livingroom"
+  },
+  {
+   "level": 0,
+   "x": 13,
+   "y": 0,
+   "w": 4,
+   "h": 3,
+   "kind": "livingroom"
+  },
+  {
+   "level": 0,
+   "x": 13,
+   "y": 3,
+   "w": 4,
+   "h": 3,
+   "kind": "bedroom"
+  },
+  {
+   "level": 0,
+   "x": 13,
    "y": 4,
    "w": 2,
    "h": 2,
@@ -129,7 +177,7 @@
    "level": 0,
    "x": 17,
    "y": 8,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -145,7 +193,7 @@
    "level": 0,
    "x": 17,
    "y": 11,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -153,7 +201,7 @@
    "level": 0,
    "x": 17,
    "y": 0,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -161,7 +209,7 @@
    "level": 0,
    "x": 17,
    "y": 3,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -175,65 +223,17 @@
   },
   {
    "level": 0,
-   "x": 23,
-   "y": 8,
-   "w": 5,
-   "h": 3,
-   "kind": "bedroom"
-  },
-  {
-   "level": 0,
-   "x": 23,
-   "y": 8,
-   "w": 2,
-   "h": 2,
-   "kind": "bathroom"
-  },
-  {
-   "level": 0,
-   "x": 23,
-   "y": 11,
-   "w": 5,
-   "h": 3,
-   "kind": "livingroom"
-  },
-  {
-   "level": 0,
-   "x": 23,
-   "y": 0,
-   "w": 5,
-   "h": 3,
-   "kind": "livingroom"
-  },
-  {
-   "level": 0,
-   "x": 23,
-   "y": 3,
-   "w": 5,
-   "h": 3,
-   "kind": "bedroom"
-  },
-  {
-   "level": 0,
-   "x": 23,
-   "y": 4,
-   "w": 2,
-   "h": 2,
-   "kind": "bathroom"
-  },
-  {
-   "level": 0,
-   "x": 5,
+   "x": 3,
    "y": 13,
-   "w": 6,
+   "w": 4,
    "h": 1,
    "kind": ""
   },
   {
    "level": 0,
-   "x": 17,
+   "x": 13,
    "y": 13,
-   "w": 6,
+   "w": 4,
    "h": 1,
    "kind": ""
   },
@@ -241,13 +241,13 @@
    "level": 1,
    "x": 0,
    "y": 6,
-   "w": 28,
+   "w": 20,
    "h": 2,
    "kind": "hall"
   },
   {
    "level": 1,
-   "x": 11,
+   "x": 7,
    "y": 0,
    "w": 6,
    "h": 14,
@@ -257,7 +257,7 @@
    "level": 1,
    "x": 0,
    "y": 8,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -273,7 +273,7 @@
    "level": 1,
    "x": 0,
    "y": 11,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -281,7 +281,7 @@
    "level": 1,
    "x": 0,
    "y": 0,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -289,7 +289,7 @@
    "level": 1,
    "x": 0,
    "y": 3,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -303,15 +303,15 @@
   },
   {
    "level": 1,
-   "x": 5,
+   "x": 3,
    "y": 8,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "bedroom"
   },
   {
    "level": 1,
-   "x": 5,
+   "x": 3,
    "y": 8,
    "w": 2,
    "h": 2,
@@ -319,31 +319,79 @@
   },
   {
    "level": 1,
-   "x": 5,
+   "x": 3,
    "y": 11,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "livingroom"
   },
   {
    "level": 1,
-   "x": 5,
+   "x": 3,
    "y": 0,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "livingroom"
   },
   {
    "level": 1,
-   "x": 5,
+   "x": 3,
    "y": 3,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "bedroom"
   },
   {
    "level": 1,
-   "x": 5,
+   "x": 3,
+   "y": 4,
+   "w": 2,
+   "h": 2,
+   "kind": "bathroom"
+  },
+  {
+   "level": 1,
+   "x": 13,
+   "y": 8,
+   "w": 4,
+   "h": 3,
+   "kind": "bedroom"
+  },
+  {
+   "level": 1,
+   "x": 13,
+   "y": 8,
+   "w": 2,
+   "h": 2,
+   "kind": "bathroom"
+  },
+  {
+   "level": 1,
+   "x": 13,
+   "y": 11,
+   "w": 4,
+   "h": 3,
+   "kind": "livingroom"
+  },
+  {
+   "level": 1,
+   "x": 13,
+   "y": 0,
+   "w": 4,
+   "h": 3,
+   "kind": "livingroom"
+  },
+  {
+   "level": 1,
+   "x": 13,
+   "y": 3,
+   "w": 4,
+   "h": 3,
+   "kind": "bedroom"
+  },
+  {
+   "level": 1,
+   "x": 13,
    "y": 4,
    "w": 2,
    "h": 2,
@@ -353,7 +401,7 @@
    "level": 1,
    "x": 17,
    "y": 8,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -369,7 +417,7 @@
    "level": 1,
    "x": 17,
    "y": 11,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -377,7 +425,7 @@
    "level": 1,
    "x": 17,
    "y": 0,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -385,7 +433,7 @@
    "level": 1,
    "x": 17,
    "y": 3,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -399,65 +447,17 @@
   },
   {
    "level": 1,
-   "x": 23,
-   "y": 8,
-   "w": 5,
-   "h": 3,
-   "kind": "bedroom"
-  },
-  {
-   "level": 1,
-   "x": 23,
-   "y": 8,
-   "w": 2,
-   "h": 2,
-   "kind": "bathroom"
-  },
-  {
-   "level": 1,
-   "x": 23,
-   "y": 11,
-   "w": 5,
-   "h": 3,
-   "kind": "livingroom"
-  },
-  {
-   "level": 1,
-   "x": 23,
-   "y": 0,
-   "w": 5,
-   "h": 3,
-   "kind": "livingroom"
-  },
-  {
-   "level": 1,
-   "x": 23,
-   "y": 3,
-   "w": 5,
-   "h": 3,
-   "kind": "bedroom"
-  },
-  {
-   "level": 1,
-   "x": 23,
-   "y": 4,
-   "w": 2,
-   "h": 2,
-   "kind": "bathroom"
-  },
-  {
-   "level": 1,
-   "x": 5,
+   "x": 3,
    "y": 13,
-   "w": 6,
+   "w": 4,
    "h": 1,
    "kind": ""
   },
   {
    "level": 1,
-   "x": 17,
+   "x": 13,
    "y": 13,
-   "w": 6,
+   "w": 4,
    "h": 1,
    "kind": ""
   },
@@ -465,13 +465,13 @@
    "level": 2,
    "x": 0,
    "y": 6,
-   "w": 28,
+   "w": 20,
    "h": 2,
    "kind": "hall"
   },
   {
    "level": 2,
-   "x": 11,
+   "x": 7,
    "y": 0,
    "w": 6,
    "h": 14,
@@ -481,7 +481,7 @@
    "level": 2,
    "x": 0,
    "y": 8,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -497,7 +497,7 @@
    "level": 2,
    "x": 0,
    "y": 11,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -505,7 +505,7 @@
    "level": 2,
    "x": 0,
    "y": 0,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -513,7 +513,7 @@
    "level": 2,
    "x": 0,
    "y": 3,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -527,15 +527,15 @@
   },
   {
    "level": 2,
-   "x": 5,
+   "x": 3,
    "y": 8,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "bedroom"
   },
   {
    "level": 2,
-   "x": 5,
+   "x": 3,
    "y": 8,
    "w": 2,
    "h": 2,
@@ -543,31 +543,79 @@
   },
   {
    "level": 2,
-   "x": 5,
+   "x": 3,
    "y": 11,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "livingroom"
   },
   {
    "level": 2,
-   "x": 5,
+   "x": 3,
    "y": 0,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "livingroom"
   },
   {
    "level": 2,
-   "x": 5,
+   "x": 3,
    "y": 3,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "bedroom"
   },
   {
    "level": 2,
-   "x": 5,
+   "x": 3,
+   "y": 4,
+   "w": 2,
+   "h": 2,
+   "kind": "bathroom"
+  },
+  {
+   "level": 2,
+   "x": 13,
+   "y": 8,
+   "w": 4,
+   "h": 3,
+   "kind": "bedroom"
+  },
+  {
+   "level": 2,
+   "x": 13,
+   "y": 8,
+   "w": 2,
+   "h": 2,
+   "kind": "bathroom"
+  },
+  {
+   "level": 2,
+   "x": 13,
+   "y": 11,
+   "w": 4,
+   "h": 3,
+   "kind": "livingroom"
+  },
+  {
+   "level": 2,
+   "x": 13,
+   "y": 0,
+   "w": 4,
+   "h": 3,
+   "kind": "livingroom"
+  },
+  {
+   "level": 2,
+   "x": 13,
+   "y": 3,
+   "w": 4,
+   "h": 3,
+   "kind": "bedroom"
+  },
+  {
+   "level": 2,
+   "x": 13,
    "y": 4,
    "w": 2,
    "h": 2,
@@ -577,7 +625,7 @@
    "level": 2,
    "x": 17,
    "y": 8,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -593,7 +641,7 @@
    "level": 2,
    "x": 17,
    "y": 11,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -601,7 +649,7 @@
    "level": 2,
    "x": 17,
    "y": 0,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -609,7 +657,7 @@
    "level": 2,
    "x": 17,
    "y": 3,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -623,65 +671,17 @@
   },
   {
    "level": 2,
-   "x": 23,
-   "y": 8,
-   "w": 5,
-   "h": 3,
-   "kind": "bedroom"
-  },
-  {
-   "level": 2,
-   "x": 23,
-   "y": 8,
-   "w": 2,
-   "h": 2,
-   "kind": "bathroom"
-  },
-  {
-   "level": 2,
-   "x": 23,
-   "y": 11,
-   "w": 5,
-   "h": 3,
-   "kind": "livingroom"
-  },
-  {
-   "level": 2,
-   "x": 23,
-   "y": 0,
-   "w": 5,
-   "h": 3,
-   "kind": "livingroom"
-  },
-  {
-   "level": 2,
-   "x": 23,
-   "y": 3,
-   "w": 5,
-   "h": 3,
-   "kind": "bedroom"
-  },
-  {
-   "level": 2,
-   "x": 23,
-   "y": 4,
-   "w": 2,
-   "h": 2,
-   "kind": "bathroom"
-  },
-  {
-   "level": 2,
-   "x": 5,
+   "x": 3,
    "y": 13,
-   "w": 6,
+   "w": 4,
    "h": 1,
    "kind": ""
   },
   {
    "level": 2,
-   "x": 17,
+   "x": 13,
    "y": 13,
-   "w": 6,
+   "w": 4,
    "h": 1,
    "kind": ""
   },
@@ -689,13 +689,13 @@
    "level": 3,
    "x": 0,
    "y": 6,
-   "w": 28,
+   "w": 20,
    "h": 2,
    "kind": "hall"
   },
   {
    "level": 3,
-   "x": 11,
+   "x": 7,
    "y": 0,
    "w": 6,
    "h": 14,
@@ -705,7 +705,7 @@
    "level": 3,
    "x": 0,
    "y": 8,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -721,7 +721,7 @@
    "level": 3,
    "x": 0,
    "y": 11,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -729,7 +729,7 @@
    "level": 3,
    "x": 0,
    "y": 0,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -737,7 +737,7 @@
    "level": 3,
    "x": 0,
    "y": 3,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -751,15 +751,15 @@
   },
   {
    "level": 3,
-   "x": 5,
+   "x": 3,
    "y": 8,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "bedroom"
   },
   {
    "level": 3,
-   "x": 5,
+   "x": 3,
    "y": 8,
    "w": 2,
    "h": 2,
@@ -767,31 +767,79 @@
   },
   {
    "level": 3,
-   "x": 5,
+   "x": 3,
    "y": 11,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "livingroom"
   },
   {
    "level": 3,
-   "x": 5,
+   "x": 3,
    "y": 0,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "livingroom"
   },
   {
    "level": 3,
-   "x": 5,
+   "x": 3,
    "y": 3,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "bedroom"
   },
   {
    "level": 3,
-   "x": 5,
+   "x": 3,
+   "y": 4,
+   "w": 2,
+   "h": 2,
+   "kind": "bathroom"
+  },
+  {
+   "level": 3,
+   "x": 13,
+   "y": 8,
+   "w": 4,
+   "h": 3,
+   "kind": "bedroom"
+  },
+  {
+   "level": 3,
+   "x": 13,
+   "y": 8,
+   "w": 2,
+   "h": 2,
+   "kind": "bathroom"
+  },
+  {
+   "level": 3,
+   "x": 13,
+   "y": 11,
+   "w": 4,
+   "h": 3,
+   "kind": "livingroom"
+  },
+  {
+   "level": 3,
+   "x": 13,
+   "y": 0,
+   "w": 4,
+   "h": 3,
+   "kind": "livingroom"
+  },
+  {
+   "level": 3,
+   "x": 13,
+   "y": 3,
+   "w": 4,
+   "h": 3,
+   "kind": "bedroom"
+  },
+  {
+   "level": 3,
+   "x": 13,
    "y": 4,
    "w": 2,
    "h": 2,
@@ -801,7 +849,7 @@
    "level": 3,
    "x": 17,
    "y": 8,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -817,7 +865,7 @@
    "level": 3,
    "x": 17,
    "y": 11,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -825,7 +873,7 @@
    "level": 3,
    "x": 17,
    "y": 0,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -833,7 +881,7 @@
    "level": 3,
    "x": 17,
    "y": 3,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -847,65 +895,17 @@
   },
   {
    "level": 3,
-   "x": 23,
-   "y": 8,
-   "w": 5,
-   "h": 3,
-   "kind": "bedroom"
-  },
-  {
-   "level": 3,
-   "x": 23,
-   "y": 8,
-   "w": 2,
-   "h": 2,
-   "kind": "bathroom"
-  },
-  {
-   "level": 3,
-   "x": 23,
-   "y": 11,
-   "w": 5,
-   "h": 3,
-   "kind": "livingroom"
-  },
-  {
-   "level": 3,
-   "x": 23,
-   "y": 0,
-   "w": 5,
-   "h": 3,
-   "kind": "livingroom"
-  },
-  {
-   "level": 3,
-   "x": 23,
-   "y": 3,
-   "w": 5,
-   "h": 3,
-   "kind": "bedroom"
-  },
-  {
-   "level": 3,
-   "x": 23,
-   "y": 4,
-   "w": 2,
-   "h": 2,
-   "kind": "bathroom"
-  },
-  {
-   "level": 3,
-   "x": 5,
+   "x": 3,
    "y": 13,
-   "w": 6,
+   "w": 4,
    "h": 1,
    "kind": ""
   },
   {
    "level": 3,
-   "x": 17,
+   "x": 13,
    "y": 13,
-   "w": 6,
+   "w": 4,
    "h": 1,
    "kind": ""
   },
@@ -913,13 +913,13 @@
    "level": 4,
    "x": 0,
    "y": 6,
-   "w": 28,
+   "w": 20,
    "h": 2,
    "kind": "hall"
   },
   {
    "level": 4,
-   "x": 11,
+   "x": 7,
    "y": 0,
    "w": 6,
    "h": 14,
@@ -929,7 +929,7 @@
    "level": 4,
    "x": 0,
    "y": 8,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -945,7 +945,7 @@
    "level": 4,
    "x": 0,
    "y": 11,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -953,7 +953,7 @@
    "level": 4,
    "x": 0,
    "y": 0,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -961,7 +961,7 @@
    "level": 4,
    "x": 0,
    "y": 3,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -975,15 +975,15 @@
   },
   {
    "level": 4,
-   "x": 5,
+   "x": 3,
    "y": 8,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "bedroom"
   },
   {
    "level": 4,
-   "x": 5,
+   "x": 3,
    "y": 8,
    "w": 2,
    "h": 2,
@@ -991,31 +991,79 @@
   },
   {
    "level": 4,
-   "x": 5,
+   "x": 3,
    "y": 11,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "livingroom"
   },
   {
    "level": 4,
-   "x": 5,
+   "x": 3,
    "y": 0,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "livingroom"
   },
   {
    "level": 4,
-   "x": 5,
+   "x": 3,
    "y": 3,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "bedroom"
   },
   {
    "level": 4,
-   "x": 5,
+   "x": 3,
+   "y": 4,
+   "w": 2,
+   "h": 2,
+   "kind": "bathroom"
+  },
+  {
+   "level": 4,
+   "x": 13,
+   "y": 8,
+   "w": 4,
+   "h": 3,
+   "kind": "bedroom"
+  },
+  {
+   "level": 4,
+   "x": 13,
+   "y": 8,
+   "w": 2,
+   "h": 2,
+   "kind": "bathroom"
+  },
+  {
+   "level": 4,
+   "x": 13,
+   "y": 11,
+   "w": 4,
+   "h": 3,
+   "kind": "livingroom"
+  },
+  {
+   "level": 4,
+   "x": 13,
+   "y": 0,
+   "w": 4,
+   "h": 3,
+   "kind": "livingroom"
+  },
+  {
+   "level": 4,
+   "x": 13,
+   "y": 3,
+   "w": 4,
+   "h": 3,
+   "kind": "bedroom"
+  },
+  {
+   "level": 4,
+   "x": 13,
    "y": 4,
    "w": 2,
    "h": 2,
@@ -1025,7 +1073,7 @@
    "level": 4,
    "x": 17,
    "y": 8,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -1041,7 +1089,7 @@
    "level": 4,
    "x": 17,
    "y": 11,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -1049,7 +1097,7 @@
    "level": 4,
    "x": 17,
    "y": 0,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -1057,7 +1105,7 @@
    "level": 4,
    "x": 17,
    "y": 3,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -1071,65 +1119,17 @@
   },
   {
    "level": 4,
-   "x": 23,
-   "y": 8,
-   "w": 5,
-   "h": 3,
-   "kind": "bedroom"
-  },
-  {
-   "level": 4,
-   "x": 23,
-   "y": 8,
-   "w": 2,
-   "h": 2,
-   "kind": "bathroom"
-  },
-  {
-   "level": 4,
-   "x": 23,
-   "y": 11,
-   "w": 5,
-   "h": 3,
-   "kind": "livingroom"
-  },
-  {
-   "level": 4,
-   "x": 23,
-   "y": 0,
-   "w": 5,
-   "h": 3,
-   "kind": "livingroom"
-  },
-  {
-   "level": 4,
-   "x": 23,
-   "y": 3,
-   "w": 5,
-   "h": 3,
-   "kind": "bedroom"
-  },
-  {
-   "level": 4,
-   "x": 23,
-   "y": 4,
-   "w": 2,
-   "h": 2,
-   "kind": "bathroom"
-  },
-  {
-   "level": 4,
-   "x": 5,
+   "x": 3,
    "y": 13,
-   "w": 6,
+   "w": 4,
    "h": 1,
    "kind": ""
   },
   {
    "level": 4,
-   "x": 17,
+   "x": 13,
    "y": 13,
-   "w": 6,
+   "w": 4,
    "h": 1,
    "kind": ""
   },
@@ -1137,13 +1137,13 @@
    "level": 5,
    "x": 0,
    "y": 6,
-   "w": 28,
+   "w": 20,
    "h": 2,
    "kind": "hall"
   },
   {
    "level": 5,
-   "x": 11,
+   "x": 7,
    "y": 0,
    "w": 6,
    "h": 14,
@@ -1153,7 +1153,7 @@
    "level": 5,
    "x": 0,
    "y": 8,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -1169,7 +1169,7 @@
    "level": 5,
    "x": 0,
    "y": 11,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -1177,7 +1177,7 @@
    "level": 5,
    "x": 0,
    "y": 0,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -1185,7 +1185,7 @@
    "level": 5,
    "x": 0,
    "y": 3,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -1199,15 +1199,15 @@
   },
   {
    "level": 5,
-   "x": 5,
+   "x": 3,
    "y": 8,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "bedroom"
   },
   {
    "level": 5,
-   "x": 5,
+   "x": 3,
    "y": 8,
    "w": 2,
    "h": 2,
@@ -1215,31 +1215,79 @@
   },
   {
    "level": 5,
-   "x": 5,
+   "x": 3,
    "y": 11,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "livingroom"
   },
   {
    "level": 5,
-   "x": 5,
+   "x": 3,
    "y": 0,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "livingroom"
   },
   {
    "level": 5,
-   "x": 5,
+   "x": 3,
    "y": 3,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "bedroom"
   },
   {
    "level": 5,
-   "x": 5,
+   "x": 3,
+   "y": 4,
+   "w": 2,
+   "h": 2,
+   "kind": "bathroom"
+  },
+  {
+   "level": 5,
+   "x": 13,
+   "y": 8,
+   "w": 4,
+   "h": 3,
+   "kind": "bedroom"
+  },
+  {
+   "level": 5,
+   "x": 13,
+   "y": 8,
+   "w": 2,
+   "h": 2,
+   "kind": "bathroom"
+  },
+  {
+   "level": 5,
+   "x": 13,
+   "y": 11,
+   "w": 4,
+   "h": 3,
+   "kind": "livingroom"
+  },
+  {
+   "level": 5,
+   "x": 13,
+   "y": 0,
+   "w": 4,
+   "h": 3,
+   "kind": "livingroom"
+  },
+  {
+   "level": 5,
+   "x": 13,
+   "y": 3,
+   "w": 4,
+   "h": 3,
+   "kind": "bedroom"
+  },
+  {
+   "level": 5,
+   "x": 13,
    "y": 4,
    "w": 2,
    "h": 2,
@@ -1249,7 +1297,7 @@
    "level": 5,
    "x": 17,
    "y": 8,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -1265,7 +1313,7 @@
    "level": 5,
    "x": 17,
    "y": 11,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -1273,7 +1321,7 @@
    "level": 5,
    "x": 17,
    "y": 0,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -1281,7 +1329,7 @@
    "level": 5,
    "x": 17,
    "y": 3,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -1295,65 +1343,17 @@
   },
   {
    "level": 5,
-   "x": 23,
-   "y": 8,
-   "w": 5,
-   "h": 3,
-   "kind": "bedroom"
-  },
-  {
-   "level": 5,
-   "x": 23,
-   "y": 8,
-   "w": 2,
-   "h": 2,
-   "kind": "bathroom"
-  },
-  {
-   "level": 5,
-   "x": 23,
-   "y": 11,
-   "w": 5,
-   "h": 3,
-   "kind": "livingroom"
-  },
-  {
-   "level": 5,
-   "x": 23,
-   "y": 0,
-   "w": 5,
-   "h": 3,
-   "kind": "livingroom"
-  },
-  {
-   "level": 5,
-   "x": 23,
-   "y": 3,
-   "w": 5,
-   "h": 3,
-   "kind": "bedroom"
-  },
-  {
-   "level": 5,
-   "x": 23,
-   "y": 4,
-   "w": 2,
-   "h": 2,
-   "kind": "bathroom"
-  },
-  {
-   "level": 5,
-   "x": 5,
+   "x": 3,
    "y": 13,
-   "w": 6,
+   "w": 4,
    "h": 1,
    "kind": ""
   },
   {
    "level": 5,
-   "x": 17,
+   "x": 13,
    "y": 13,
-   "w": 6,
+   "w": 4,
    "h": 1,
    "kind": ""
   },
@@ -1361,13 +1361,13 @@
    "level": 6,
    "x": 0,
    "y": 6,
-   "w": 28,
+   "w": 20,
    "h": 2,
    "kind": "hall"
   },
   {
    "level": 6,
-   "x": 11,
+   "x": 7,
    "y": 0,
    "w": 6,
    "h": 14,
@@ -1377,7 +1377,7 @@
    "level": 6,
    "x": 0,
    "y": 8,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -1393,7 +1393,7 @@
    "level": 6,
    "x": 0,
    "y": 11,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -1401,7 +1401,7 @@
    "level": 6,
    "x": 0,
    "y": 0,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -1409,7 +1409,7 @@
    "level": 6,
    "x": 0,
    "y": 3,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -1423,15 +1423,15 @@
   },
   {
    "level": 6,
-   "x": 5,
+   "x": 3,
    "y": 8,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "bedroom"
   },
   {
    "level": 6,
-   "x": 5,
+   "x": 3,
    "y": 8,
    "w": 2,
    "h": 2,
@@ -1439,31 +1439,79 @@
   },
   {
    "level": 6,
-   "x": 5,
+   "x": 3,
    "y": 11,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "livingroom"
   },
   {
    "level": 6,
-   "x": 5,
+   "x": 3,
    "y": 0,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "livingroom"
   },
   {
    "level": 6,
-   "x": 5,
+   "x": 3,
    "y": 3,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "bedroom"
   },
   {
    "level": 6,
-   "x": 5,
+   "x": 3,
+   "y": 4,
+   "w": 2,
+   "h": 2,
+   "kind": "bathroom"
+  },
+  {
+   "level": 6,
+   "x": 13,
+   "y": 8,
+   "w": 4,
+   "h": 3,
+   "kind": "bedroom"
+  },
+  {
+   "level": 6,
+   "x": 13,
+   "y": 8,
+   "w": 2,
+   "h": 2,
+   "kind": "bathroom"
+  },
+  {
+   "level": 6,
+   "x": 13,
+   "y": 11,
+   "w": 4,
+   "h": 3,
+   "kind": "livingroom"
+  },
+  {
+   "level": 6,
+   "x": 13,
+   "y": 0,
+   "w": 4,
+   "h": 3,
+   "kind": "livingroom"
+  },
+  {
+   "level": 6,
+   "x": 13,
+   "y": 3,
+   "w": 4,
+   "h": 3,
+   "kind": "bedroom"
+  },
+  {
+   "level": 6,
+   "x": 13,
    "y": 4,
    "w": 2,
    "h": 2,
@@ -1473,7 +1521,7 @@
    "level": 6,
    "x": 17,
    "y": 8,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -1489,7 +1537,7 @@
    "level": 6,
    "x": 17,
    "y": 11,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -1497,7 +1545,7 @@
    "level": 6,
    "x": 17,
    "y": 0,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -1505,7 +1553,7 @@
    "level": 6,
    "x": 17,
    "y": 3,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -1519,65 +1567,17 @@
   },
   {
    "level": 6,
-   "x": 23,
-   "y": 8,
-   "w": 5,
-   "h": 3,
-   "kind": "bedroom"
-  },
-  {
-   "level": 6,
-   "x": 23,
-   "y": 8,
-   "w": 2,
-   "h": 2,
-   "kind": "bathroom"
-  },
-  {
-   "level": 6,
-   "x": 23,
-   "y": 11,
-   "w": 5,
-   "h": 3,
-   "kind": "livingroom"
-  },
-  {
-   "level": 6,
-   "x": 23,
-   "y": 0,
-   "w": 5,
-   "h": 3,
-   "kind": "livingroom"
-  },
-  {
-   "level": 6,
-   "x": 23,
-   "y": 3,
-   "w": 5,
-   "h": 3,
-   "kind": "bedroom"
-  },
-  {
-   "level": 6,
-   "x": 23,
-   "y": 4,
-   "w": 2,
-   "h": 2,
-   "kind": "bathroom"
-  },
-  {
-   "level": 6,
-   "x": 5,
+   "x": 3,
    "y": 13,
-   "w": 6,
+   "w": 4,
    "h": 1,
    "kind": ""
   },
   {
    "level": 6,
-   "x": 17,
+   "x": 13,
    "y": 13,
-   "w": 6,
+   "w": 4,
    "h": 1,
    "kind": ""
   },
@@ -1585,13 +1585,13 @@
    "level": 7,
    "x": 0,
    "y": 6,
-   "w": 28,
+   "w": 20,
    "h": 2,
    "kind": "hall"
   },
   {
    "level": 7,
-   "x": 11,
+   "x": 7,
    "y": 0,
    "w": 6,
    "h": 14,
@@ -1601,7 +1601,7 @@
    "level": 7,
    "x": 0,
    "y": 8,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -1617,7 +1617,7 @@
    "level": 7,
    "x": 0,
    "y": 11,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -1625,7 +1625,7 @@
    "level": 7,
    "x": 0,
    "y": 0,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -1633,7 +1633,7 @@
    "level": 7,
    "x": 0,
    "y": 3,
-   "w": 5,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -1647,15 +1647,15 @@
   },
   {
    "level": 7,
-   "x": 5,
+   "x": 3,
    "y": 8,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "bedroom"
   },
   {
    "level": 7,
-   "x": 5,
+   "x": 3,
    "y": 8,
    "w": 2,
    "h": 2,
@@ -1663,31 +1663,79 @@
   },
   {
    "level": 7,
-   "x": 5,
+   "x": 3,
    "y": 11,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "livingroom"
   },
   {
    "level": 7,
-   "x": 5,
+   "x": 3,
    "y": 0,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "livingroom"
   },
   {
    "level": 7,
-   "x": 5,
+   "x": 3,
    "y": 3,
-   "w": 6,
+   "w": 4,
    "h": 3,
    "kind": "bedroom"
   },
   {
    "level": 7,
-   "x": 5,
+   "x": 3,
+   "y": 4,
+   "w": 2,
+   "h": 2,
+   "kind": "bathroom"
+  },
+  {
+   "level": 7,
+   "x": 13,
+   "y": 8,
+   "w": 4,
+   "h": 3,
+   "kind": "bedroom"
+  },
+  {
+   "level": 7,
+   "x": 13,
+   "y": 8,
+   "w": 2,
+   "h": 2,
+   "kind": "bathroom"
+  },
+  {
+   "level": 7,
+   "x": 13,
+   "y": 11,
+   "w": 4,
+   "h": 3,
+   "kind": "livingroom"
+  },
+  {
+   "level": 7,
+   "x": 13,
+   "y": 0,
+   "w": 4,
+   "h": 3,
+   "kind": "livingroom"
+  },
+  {
+   "level": 7,
+   "x": 13,
+   "y": 3,
+   "w": 4,
+   "h": 3,
+   "kind": "bedroom"
+  },
+  {
+   "level": 7,
+   "x": 13,
    "y": 4,
    "w": 2,
    "h": 2,
@@ -1697,7 +1745,7 @@
    "level": 7,
    "x": 17,
    "y": 8,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -1713,7 +1761,7 @@
    "level": 7,
    "x": 17,
    "y": 11,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -1721,7 +1769,7 @@
    "level": 7,
    "x": 17,
    "y": 0,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "livingroom"
   },
@@ -1729,7 +1777,7 @@
    "level": 7,
    "x": 17,
    "y": 3,
-   "w": 6,
+   "w": 3,
    "h": 3,
    "kind": "bedroom"
   },
@@ -1743,65 +1791,17 @@
   },
   {
    "level": 7,
-   "x": 23,
-   "y": 8,
-   "w": 5,
-   "h": 3,
-   "kind": "bedroom"
-  },
-  {
-   "level": 7,
-   "x": 23,
-   "y": 8,
-   "w": 2,
-   "h": 2,
-   "kind": "bathroom"
-  },
-  {
-   "level": 7,
-   "x": 23,
-   "y": 11,
-   "w": 5,
-   "h": 3,
-   "kind": "livingroom"
-  },
-  {
-   "level": 7,
-   "x": 23,
-   "y": 0,
-   "w": 5,
-   "h": 3,
-   "kind": "livingroom"
-  },
-  {
-   "level": 7,
-   "x": 23,
-   "y": 3,
-   "w": 5,
-   "h": 3,
-   "kind": "bedroom"
-  },
-  {
-   "level": 7,
-   "x": 23,
-   "y": 4,
-   "w": 2,
-   "h": 2,
-   "kind": "bathroom"
-  },
-  {
-   "level": 7,
-   "x": 5,
+   "x": 3,
    "y": 13,
-   "w": 6,
+   "w": 4,
    "h": 1,
    "kind": ""
   },
   {
    "level": 7,
-   "x": 17,
+   "x": 13,
    "y": 13,
-   "w": 6,
+   "w": 4,
    "h": 1,
    "kind": ""
   }
