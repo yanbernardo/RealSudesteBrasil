@@ -2,9 +2,9 @@
   "_leia": "Pontos do menu de teleporte do modo debug (D-39). Cada ponto tem lat/lon reais OU 'localidade' (nome da sede/localidade no localidades_rj.csv). O script scripts/gerador/teleporte_debug.py converte pela grade (D-02) e gera o Lua. Grupo TESTE: locais de teste em tile do jogo (tile: [x, y]); o usuario pediu que cada local novo a testar entre aqui e saia quando ele der o OK. Para mudar a lista, edite aqui e rode o script de novo.",
   "grupos": [
     {"grupo": "TESTE (tirar depois do OK do usuario)", "pontos": [
-      {"nome": "Quartel copiado - Ipanema (U22)", "tile": [69570, 66254]},
-      {"nome": "Delegacia copiada - Leblon (U22)", "tile": [69517, 66257]},
-      {"nome": "Delegacia copiada - Catete (U22)", "tile": [69778, 65808]},
+      {"nome": "Quartel copiado (Louisville) - Ipanema (U22)", "tile": [69573, 66271]},
+      {"nome": "Delegacia copiada - Catete (U22)", "tile": [69790, 65808]},
+      {"nome": "Delegacia copiada - Copacabana (U22)", "tile": [69751, 66147]},
       {"nome": "Orla do Leblon emendada no Jardim de Alah (U30)", "tile": [69532, 66275]},
       {"nome": "Rua Santa Clara sem o X (U30)", "tile": [69696, 66132]},
       {"nome": "Tunel Zuzu Angel ligado (U28)", "tile": [69372, 66264]}

@@ -24,4 +24,11 @@ Regras e limites:
     <python do KnoxMap> -I scripts/gerador/copiar_predio_vanilla.py <KnoxMap> listar pharmacy gunstore
     <python do KnoxMap> -I scripts/gerador/copiar_predio_vanilla.py <KnoxMap> copiar 46_26 32 "Nome" kits/lojas/vanilla/x.tbx
 
-Copiadas: farmácia "Pharmahug" (14 × 19, frente a oeste), loja de armas (13 × 13, frente a oeste) e mercado de bairro (52_8, 11 × 14, frente ao sul; `shop=convenience`/`greengrocer`). Limites: a cópia não gira (precisa de uma loja original com a frente para cada lado, ou de uma tabela de tiles girados) e o terreno precisa ser maior que o prédio. O `.tbx` abre no BuildingEd, então o Kit Brasil pode redecorar a cópia.
+Copiadas: farmácia "Pharmahug" (14 × 19, frente a oeste), loja de armas (13 × 13, frente a oeste), mercado de bairro (52_8, 11 × 14, frente ao sul; `shop=convenience`/`greengrocer`), delegacia (9_54, prédio 40, 11 × 13, frente a **leste**; chave `police`) e quartel de Louisville (23_20, prédio 51, 26 × 20, portões ao sul; chave `fire`). Polícia e bombeiros não têm etiqueta `shop`: o gerador marca o lote com `rsb_copia`.
+
+Regras (K35):
+- **Conferir a frente no render do Knox County** (`render_lots --world`, com uns 15 tiles de entorno) antes de cadastrar: a porta e a rua do original dizem o lado. Não chutar.
+- O KnoxMap encosta a cópia no canto noroeste do lote e não estica nem gira: no gerador (`COPIAS`/`COPIAS_ESP` em `cidade.py`) o lote tem, no lado da rua, o tamanho exato do prédio; senão a cópia fica longe da calçada.
+- 3 tiles livres em volta (`VAO_COPIA`), senão o jogo junta a cópia com o vizinho num prédio só.
+- No retângulo do prédio a cópia leva tudo menos o chão (as paredes de fora podem ser de qualquer conjunto de peças, ex.: `industry_`).
+- A cópia não gira: para ter o mesmo tipo virado para outros lados, copiar outro prédio original virado para lá.

@@ -38,6 +38,6 @@
    "origem": "Knox County, célula 52_8, prédio 191 (mercearia: grocery + grocerystorage + bathroom, 11 x 14)"
   }
  },
-  "police": {"vanilla": {"arquivo": "vanilla/delegacia_9_54.tbx", "frente": "S", "origem": "Knox County, celula 9_54, predio 40 (delegacia pequena: policeoffice, policegunstorage, prisoncells; 11 x 13)"}},
-  "fire": {"vanilla": {"arquivo": "vanilla/quartel_47_27.tbx", "frente": "S", "origem": "Knox County, celula 47_27, predio 20 (quartel: firegarage, firestorage, gym, kitchen; 14 x 23)"}}
+  "police": {"vanilla": {"arquivo": "vanilla/delegacia_9_54.tbx", "frente": "E", "origem": "Knox County, celula 9_54, predio 40 (delegacia pequena: policeoffice, policegunstorage, prisoncells; 11 x 13)"}},
+  "fire": {"vanilla": {"arquivo": "vanilla/quartel_23_20.tbx", "frente": "S", "origem": "Knox County, celula 23_20, predio 51 (quartel de Louisville: firegarage, firestorage, alojamento, academia; 26 x 20, portoes da garagem ao sul)"}}
 }

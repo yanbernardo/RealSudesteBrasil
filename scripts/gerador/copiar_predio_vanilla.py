@@ -26,9 +26,9 @@ MAPAS = Path("C:/Program Files (x86)/Steam/steamapps/common/ProjectZomboid/media
 # Cômodos que podem existir numa loja "sozinha" além do tipo procurado.
 APOIO = {"bathroom", "storage", "office", "janitor", "breakroom", "hall", "hallway", "empty",
          "closet", "stockroom", "backroom"}
-# Fora dos cômodos (na faixa da parede de fora) só vem o que é do prédio.
-DO_PREDIO = ("walls_", "fixtures_", "roofs_", "location_shop", "location_business",
-             "lighting_outdoor", "fixtures_signs", "signs_")
+# Peças de chão/terreno: ficam de fora da cópia (o KnoxMap faz o terreno em volta).
+CHAO = ("blends_", "floors_exterior", "vegetation_", "e_", "d_", "f_", "overlay_grime_floor",
+        "street_", "natural_")
 
 
 def _predios(cab: Path):
@@ -90,11 +90,11 @@ def copiar(celula: str, indice: int, nome: str, saida: str) -> None:
                     continue
                 if (x, y) not in dentro.get(z, set()) and not (z == topo and dentro.get(z - 1, set())
                                                                  and (x, y) in dentro[z - 1]):
-                    # fora dos cômodos: só parede, porta, janela, telhado, letreiro
-                    vizinho = any((x + a, y + b) in dentro.get(z, set()) or (x + a, y + b) in dentro.get(max(z - 1, 0), set())
-                                  for a in (-1, 0) for b in (-1, 0))
-                    ts = [t for t in ts if t.startswith(DO_PREDIO)] if vizinho else \
-                         [t for t in ts if t.startswith("roofs_")]
+                    # Fora dos cômodos, mas no retângulo do prédio (com a faixa das paredes
+                    # de fora a leste e ao sul): fica tudo menos o chão. As paredes de fora
+                    # podem ser de qualquer conjunto de peças (o quartel 47_27 usa "industry_",
+                    # que não estava na lista antiga, e as paredes sumiam: U22).
+                    ts = [t for t in ts if not t.startswith(CHAO)]
                 if ts:
                     pz[(x, y)] = ts
         pilhas[z] = pz

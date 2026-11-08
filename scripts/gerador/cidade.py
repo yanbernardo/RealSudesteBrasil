@@ -849,10 +849,15 @@ LADOS = {"N": (0, -1), "S": (0, 1), "W": (-1, 0), "E": (1, 0)}
 # a cópia não gira, então só entram com a rua do lado da porta, num lote maior
 # que o prédio (frente x fundo, em tiles). As outras lojas cabem em qualquer lado.
 COPIAS = {"chemist": ("W", 21, 16), "pharmacy": ("W", 21, 16), "weapons": ("W", 15, 15),
-          "convenience": ("S", 13, 16), "greengrocer": ("S", 13, 16)}
+          "convenience": ("S", 13, 14), "greengrocer": ("S", 13, 14)}
 # Serviços especiais com cópia do mapa original (U22): tipo -> (lado da rua, frente, fundo).
 # Se a cópia não couber no quarteirão, o serviço sai no tamanho do ESPECIAIS (gerador do KnoxMap).
-COPIAS_ESP = {"police": ("S", 14, 16), "fire": ("S", 16, 25)}
+# O KnoxMap encosta a cópia no canto noroeste do lote: o lado da rua tem de ter
+# exatamente o tamanho do prédio, senão a sobra fica entre o prédio e a rua (usuário,
+# 08/11/2026: delegacia e quartel longe da calçada). Frente: lado da porta, conferido
+# no render do Knox County (a delegacia 9_54 dá para leste; o quartel 23_20, para o sul).
+COPIAS_ESP = {"police": ("E", 13, 11), "fire": ("S", 26, 20)}
+VAO_COPIA = 3              # tiles livres em volta de uma cópia (a delegacia colada no vizinho virava um prédio só)
 
 
 class Quarteirao:
@@ -997,7 +1002,7 @@ def lotes(livre, corredor, ruas, bairro_de, kit, lojas, especiais, rnd):
                         else:
                             ret = B.encaixe(lado, r, c, w, d)
                         if ret:
-                            B.ocupar(*ret)
+                            B.ocupar(*ret, vao=VAO_COPIA if copia else 1)
                             lote = B.caixa(*ret)
                             if tipo == "fuel":
                                 registrar("shop", lote, {"name": "Posto"}, 1, "posto")
@@ -1015,7 +1020,11 @@ def lotes(livre, corredor, ruas, bairro_de, kit, lojas, especiais, rnd):
     # 2) O resto, em duas passadas por quarteirão (U19): primeiro só lojas e
     #    prédios, pela mistura do bairro (o lote grande raramente cabe no primeiro
     #    tile tentado, e a casa pegava o lugar); depois as casas no que sobrou.
+    base = rnd.getrandbits(32)
     for k, (q, B) in enumerate(zip(quarteiroes, Q)):
+        # U26: sorteio próprio de cada quarteirão (semente pela posição dele), para uma
+        # mudança de rua num canto do mapa não embaralhar os prédios do resto
+        rnd = random.Random(f"{base}:{round(q.centroid.x / 4)}:{round(q.centroid.y / 4)}")
         mix = kit["mistura"].get(bairro_de(q.centroid), kit["mistura"]["misto"])
         pl, pp, _pc = mix["lote"]
         # Cota da 1ª passada: lotes que cabem no quarteirão (tiles de frente,
@@ -1070,7 +1079,7 @@ def lotes(livre, corredor, ruas, bairro_de, kit, lojas, especiais, rnd):
                     shop = (tags or {}).get("shop")
                     if shop in COPIAS and rua_mais_perto(lote) != lado:
                         continue      # K32: a cópia só vale se esta rua for a mais perto
-                    B.ocupar(*ret)
+                    B.ocupar(*ret, vao=VAO_COPIA if shop in COPIAS else 1)
                     if tipo in cota:
                         cota[tipo] -= 1
                     if tipo == "loja":
