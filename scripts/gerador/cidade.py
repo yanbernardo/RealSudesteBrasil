@@ -551,19 +551,22 @@ def esqueleto(dados, kit, recorte, terra_urbana_ou_mata):
         for l in linhas(linemerge(ls)):
             for p in linhas(l.intersection(lim)):
                 p = p.simplify(1.0)
-                if not tracado_real(h, nome):
+                real = tracado_real(h, nome)
+                if not real:
                     p = moldar(p)
                 if p.length >= (SECUNDARIA_MIN if h == "secondary" else TRECHO_MIN):
-                    cands.append((ordem, -p.length, h, nome, p))
+                    cands.append((ordem, -p.length, h, nome, p, real))
     cands.sort(key=lambda c: (c[0], c[1]))
-    aceitas, info = [], []
-    for ordem, _, h, nome, p in cands:
+    aceitas, info, moldadas = [], [], set()
+    for ordem, _, h, nome, p, real in cands:
         arvore = STRtree(aceitas) if aceitas else None
         for q in trechos_novos(p, aceitas, arvore):
             q = ligar_pontas(q, aceitas, arvore) if aceitas else q
+            if not real:
+                moldadas.add(len(aceitas))
             aceitas.append(q)
             info.append((CLASSES[h][1], CLASSES[h][2], nome))
-    return aceitas, info
+    return aceitas, info, moldadas
 
 
 def preenchimento(urbano, aceitas, sem=None):
@@ -899,7 +902,13 @@ COPIAS = {"chemist": ("W", 21, 16), "pharmacy": ("W", 21, 16), "weapons": ("W", 
 # exatamente o tamanho do prédio, senão a sobra fica entre o prédio e a rua (usuário,
 # 08/11/2026: delegacia e quartel longe da calçada). Frente: lado da porta, conferido
 # no render do Knox County (a delegacia 9_54 dá para leste; o quartel 23_20, para o sul).
-COPIAS_ESP = {"police": ("E", 29, 13), "fire": ("S", 26, 20)}
+# Lista: uma cópia por lado da rua (a cópia não gira), na ordem de preferência.
+# Delegacias: a 9_54 com estacionamento (leste, a aprovada pelo usuário) e, para
+# os outros lados, as do Knox County com a rua ao sul (46_26), ao norte (7_23) e
+# a oeste (41_40), medidas pelo lado da rua no mapa original. 2 tiles de folga no
+# comprimento (o KnoxMap apara o lote onde encosta em rua, K36).
+COPIAS_ESP = {"police": [("E", 29, 14), ("S", 28, 23), ("N", 28, 21), ("W", 25, 36)],
+              "fire": [("S", 26, 20)]}
 VAO_COPIA = 3              # tiles livres em volta de uma cópia (a delegacia colada no vizinho virava um prédio só)
 
 
@@ -977,7 +986,7 @@ class Quarteirao:
         return [(int(rs[i]), int(cs[i])) for i in ordem]
 
 
-def lotes(livre, corredor, ruas, bairro_de, kit, lojas, especiais, rnd):
+def lotes(livre, corredor, ruas, bairro_de, kit, lojas, especiais, rnd, orla=None):
     """Lotes encostados nas ruas, contornando cada quarteirão (frente para a rua
     de cima, de baixo e dos lados), com 1 tile de vão entre eles; o miolo fica
     de quintal. Serviços especiais primeiro, perto do lugar real."""
@@ -1059,21 +1068,23 @@ def lotes(livre, corredor, ruas, bairro_de, kit, lojas, especiais, rnd):
                 continue
             postos_esp.append(p)
             feito = False
-            for k in sorted(centros.query(p.buffer(80)), key=lambda k: quarteiroes[k].distance(p)):
+            # U19: a faixa da orla é do paredão de prédios; o serviço vai para o
+            # quarteirão mais perto fora dela (posto de gasolina também)
+            perto = [k for k in centros.query(p.buffer(80))
+                     if orla is None or orla.is_empty or not orla.contains(quarteiroes[k].representative_point())]
+            for k in sorted(perto, key=lambda k: quarteiroes[k].distance(p)):
                 B = Q[k]
                 cand = [(math.dist((B.x0 + c, B.y0 + r), (p.x, p.y)), lado, r, c)
                         for lado in LADOS for r, c in B.frentes(lado)]
                 # 1ª volta: a cópia do mapa original (só com a rua do lado da frente dela);
                 # 2ª volta: o tamanho comum do ESPECIAIS (gerador do KnoxMap)
-                voltas = [COPIAS_ESP[tipo]] if tipo in COPIAS_ESP else []
+                voltas = list(COPIAS_ESP.get(tipo, []))
                 for copia in voltas + [None]:
                     for _d, lado, r, c in sorted(cand):
                         if copia:
                             if copia[0] != lado:
                                 continue
                             ret = B.encaixe(lado, r, c, copia[1], copia[2])
-                            if ret and rua_mais_perto(B.caixa(*ret)) != lado:
-                                ret = None        # K32: a cópia só vale se esta rua for a mais perto
                         else:
                             ret = B.encaixe(lado, r, c, w, d)
                         if ret:
@@ -1082,9 +1093,10 @@ def lotes(livre, corredor, ruas, bairro_de, kit, lojas, especiais, rnd):
                             if tipo == "fuel":
                                 registrar("shop", lote, {"name": "Posto"}, 1, "posto")
                             else:
-                                registrar(tipo, lote, {"rsb_copia": tipo} if copia else None, 1, tipo)
+                                registrar(tipo, lote, {"rsb_copia": tipo, "rsb_frente": lado} if copia else None, 1, tipo)
                             if copia:
-                                resumo["copias"][tipo] = resumo["copias"].get(tipo, 0) + 1
+                                chave = f"{tipo}_{lado}"
+                                resumo["copias"][chave] = resumo["copias"].get(chave, 0) + 1
                             feito = True
                             break
                     if feito:
@@ -1234,7 +1246,7 @@ def main() -> int:
             urb.append(tiles(g.buffer(0)))
     urbano = unary_union(urb).intersection(recorte).intersection(terra).buffer(-1).buffer(1)
 
-    aceitas, info = esqueleto(dados, kit, recorte, terra)
+    aceitas, info, moldadas = esqueleto(dados, kit, recorte, terra)
     # Areia também do lado da terra, da costa até a avenida da orla (o resto
     # depois da avenida é cidade). A avenida e a calçada dela são desenhadas por cima.
     areia = [faixas_mar]
@@ -1251,6 +1263,27 @@ def main() -> int:
     mata = clareiras(mata, kit, random.Random(semente + 7))
     area_urb = urbano.difference(nao_construir)
     sem_familia, orla_regs = ruas_da_orla(praias_, urbano)
+    # D-43 x U19: dentro da faixa da orla, a rua interna real moldada em escada
+    # cortava a faixa em quarteirões tortos e o paredão de prédios sumia (de 18
+    # para 8 prédios em Copacabana). Ali quem atravessa a faixa é a família de ruas
+    # retas da orla; a rua real sai da faixa e empresta o nome à rua da orla mais perto.
+    faixa_orla = unary_union([r for r, _f in orla_regs]) if orla_regs else Polygon()
+    nomes_orla = []
+    if not faixa_orla.is_empty:
+        a2, i2 = [], []
+        for k, (l, inf) in enumerate(zip(aceitas, info)):
+            if k not in moldadas or not l.intersects(faixa_orla):
+                a2.append(l)
+                i2.append(inf)
+                continue
+            dentro = l.intersection(faixa_orla)
+            if inf[2] and dentro.length > 0:
+                nomes_orla.append((dentro, inf[2]))
+            for q in linhas(l.difference(faixa_orla)):
+                if q.length >= TRECHO_MIN:
+                    a2.append(q)
+                    i2.append(inf)
+        aceitas, info = a2, i2
     infill, gx, gy = preenchimento(area_urb, aceitas, sem_familia)
     miolo = ruas_no_miolo(area_urb.difference(lagoas), aceitas + infill, len(aceitas), orlas=orla_regs)
     infill += miolo
@@ -1260,7 +1293,15 @@ def main() -> int:
     infill += ilhas
     print("ilhas de ruas:", relatorio_ilhas, flush=True)
     aceitas, info = sem_sobrepor(aceitas, info)
-    ruas, tipos = sem_sobrepor(aceitas + infill, info + [("residential", 6, "")] * len(infill))
+
+    def nome_na_orla(l):
+        """Rua da grade na faixa da orla herda o nome da rua real que saiu dali (D-43)."""
+        if not nomes_orla or not l.intersects(faixa_orla):
+            return ""
+        d, n = min(((g.distance(l), n) for g, n in nomes_orla), key=lambda t: t[0])
+        return n if d < 20 else ""
+    ruas, tipos = sem_sobrepor(aceitas + infill,
+                               info + [("residential", 6, nome_na_orla(l)) for l in infill])
     ruas = com_cruzamentos(ruas)
     ruas, tipos, n_av, tocos = aparar_tocos(ruas, tipos, len(aceitas), recorte)
     for _ in range(3):      # cortar um toco pode deixar outro solto (o cruzamento sumiu junto)
@@ -1302,7 +1343,7 @@ def main() -> int:
         return tipo_de_nome.get(nomes_l[int(arv_b.nearest(p))], "misto")
 
     lojas, especiais = pontos_reais(dados, kit, recorte_ll)
-    lotes_, resumo = lotes(livre, corredor, ruas, bairro_de, kit, lojas, especiais, rnd)
+    lotes_, resumo = lotes(livre, corredor, ruas, bairro_de, kit, lojas, especiais, rnd, orla=faixa_orla)
 
     feats = []
     for p in poligonos(mar.simplify(0.5)):

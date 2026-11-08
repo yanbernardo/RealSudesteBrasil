@@ -1,0 +1,1132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<building version="4" width="26" height="23" ExteriorWall="0" ExteriorWallTrim="0" Door="0" DoorFrame="0" Window="0" Curtains="0" Shutters="0" Stairs="0" RoofCap="0" RoofSlope="0" RoofTop="0" GrimeWall="0">
+ <user_tiles>
+  <tile tile="appliances_com_01_0"/>
+  <tile tile="appliances_com_01_1"/>
+  <tile tile="appliances_com_01_2"/>
+  <tile tile="appliances_com_01_46"/>
+  <tile tile="appliances_com_01_72"/>
+  <tile tile="appliances_com_01_73"/>
+  <tile tile="appliances_com_01_74"/>
+  <tile tile="appliances_com_01_75"/>
+  <tile tile="appliances_cooking_01_13"/>
+  <tile tile="appliances_cooking_01_27"/>
+  <tile tile="appliances_cooking_01_28"/>
+  <tile tile="appliances_cooking_01_57"/>
+  <tile tile="appliances_cooking_01_59"/>
+  <tile tile="appliances_cooking_01_69"/>
+  <tile tile="appliances_refrigeration_01_10"/>
+  <tile tile="appliances_refrigeration_01_27"/>
+  <tile tile="appliances_television_01_7"/>
+  <tile tile="blends_street_01_0"/>
+  <tile tile="blends_street_01_1"/>
+  <tile tile="blends_street_01_10"/>
+  <tile tile="blends_street_01_11"/>
+  <tile tile="blends_street_01_2"/>
+  <tile tile="blends_street_01_3"/>
+  <tile tile="blends_street_01_4"/>
+  <tile tile="blends_street_01_48"/>
+  <tile tile="blends_street_01_54"/>
+  <tile tile="blends_street_01_8"/>
+  <tile tile="blends_street_01_9"/>
+  <tile tile="construction_01_5"/>
+  <tile tile="d_trash_1_9"/>
+  <tile tile="fencing_01_114"/>
+  <tile tile="fencing_01_115"/>
+  <tile tile="fencing_01_59"/>
+  <tile tile="fixtures_bathroom_01_1"/>
+  <tile tile="fixtures_bathroom_01_18"/>
+  <tile tile="fixtures_bathroom_01_19"/>
+  <tile tile="fixtures_bathroom_01_3"/>
+  <tile tile="fixtures_bathroom_01_30"/>
+  <tile tile="fixtures_bathroom_01_61"/>
+  <tile tile="fixtures_bathroom_01_62"/>
+  <tile tile="fixtures_bathroom_01_64"/>
+  <tile tile="fixtures_bathroom_01_9"/>
+  <tile tile="fixtures_bathroom_02_4"/>
+  <tile tile="fixtures_counters_01_0"/>
+  <tile tile="fixtures_counters_01_1"/>
+  <tile tile="fixtures_counters_01_2"/>
+  <tile tile="fixtures_counters_01_3"/>
+  <tile tile="fixtures_counters_01_33"/>
+  <tile tile="fixtures_counters_01_37"/>
+  <tile tile="fixtures_counters_01_7"/>
+  <tile tile="fixtures_doors_01_16"/>
+  <tile tile="fixtures_doors_01_17"/>
+  <tile tile="fixtures_doors_01_20"/>
+  <tile tile="fixtures_doors_01_21"/>
+  <tile tile="fixtures_doors_01_32"/>
+  <tile tile="fixtures_doors_01_33"/>
+  <tile tile="fixtures_doors_01_48"/>
+  <tile tile="fixtures_doors_01_49"/>
+  <tile tile="fixtures_doors_01_52"/>
+  <tile tile="fixtures_doors_01_53"/>
+  <tile tile="fixtures_doors_01_56"/>
+  <tile tile="fixtures_doors_01_57"/>
+  <tile tile="fixtures_doors_02_40"/>
+  <tile tile="fixtures_doors_02_44"/>
+  <tile tile="fixtures_doors_02_8"/>
+  <tile tile="fixtures_doors_frames_01_0"/>
+  <tile tile="fixtures_doors_frames_01_24"/>
+  <tile tile="fixtures_doors_frames_01_25"/>
+  <tile tile="fixtures_doors_frames_01_4"/>
+  <tile tile="fixtures_doors_frames_01_5"/>
+  <tile tile="fixtures_escalators_01_50"/>
+  <tile tile="fixtures_escalators_01_51"/>
+  <tile tile="fixtures_escalators_01_57"/>
+  <tile tile="fixtures_railings_01_112"/>
+  <tile tile="fixtures_railings_01_115"/>
+  <tile tile="fixtures_railings_01_13"/>
+  <tile tile="fixtures_railings_01_20"/>
+  <tile tile="fixtures_railings_01_21"/>
+  <tile tile="fixtures_railings_01_22"/>
+  <tile tile="fixtures_railings_01_23"/>
+  <tile tile="fixtures_railings_01_36"/>
+  <tile tile="fixtures_sinks_01_19"/>
+  <tile tile="fixtures_sinks_01_29"/>
+  <tile tile="fixtures_stairs_01_56"/>
+  <tile tile="fixtures_stairs_01_57"/>
+  <tile tile="fixtures_stairs_01_58"/>
+  <tile tile="floor_carpet_motif_11"/>
+  <tile tile="floor_carpet_motif_12"/>
+  <tile tile="floors_exterior_street_01_0"/>
+  <tile tile="floors_exterior_street_01_17"/>
+  <tile tile="floors_interior_tilesandwood_01_15"/>
+  <tile tile="floors_interior_tilesandwood_01_17"/>
+  <tile tile="floors_rugs_01_58"/>
+  <tile tile="floors_rugs_01_59"/>
+  <tile tile="furniture_seating_indoor_01_48"/>
+  <tile tile="furniture_seating_indoor_01_49"/>
+  <tile tile="furniture_seating_indoor_01_50"/>
+  <tile tile="furniture_seating_indoor_01_51"/>
+  <tile tile="furniture_seating_indoor_01_52"/>
+  <tile tile="furniture_seating_indoor_01_60"/>
+  <tile tile="furniture_seating_indoor_01_61"/>
+  <tile tile="furniture_seating_indoor_01_62"/>
+  <tile tile="furniture_seating_indoor_01_63"/>
+  <tile tile="furniture_seating_indoor_02_12"/>
+  <tile tile="furniture_seating_indoor_02_13"/>
+  <tile tile="furniture_seating_indoor_02_14"/>
+  <tile tile="furniture_seating_indoor_02_15"/>
+  <tile tile="furniture_seating_indoor_03_2"/>
+  <tile tile="furniture_seating_indoor_03_3"/>
+  <tile tile="furniture_seating_outdoor_01_20"/>
+  <tile tile="furniture_seating_outdoor_01_21"/>
+  <tile tile="furniture_seating_outdoor_01_22"/>
+  <tile tile="furniture_seating_outdoor_01_23"/>
+  <tile tile="furniture_seating_outdoor_01_32"/>
+  <tile tile="furniture_seating_outdoor_01_33"/>
+  <tile tile="furniture_shelving_01_40"/>
+  <tile tile="furniture_storage_02_0"/>
+  <tile tile="furniture_storage_02_1"/>
+  <tile tile="furniture_storage_02_11"/>
+  <tile tile="furniture_storage_02_4"/>
+  <tile tile="furniture_storage_02_9"/>
+  <tile tile="furniture_tables_high_01_17"/>
+  <tile tile="furniture_tables_high_01_18"/>
+  <tile tile="furniture_tables_high_01_19"/>
+  <tile tile="furniture_tables_high_01_20"/>
+  <tile tile="furniture_tables_high_01_32"/>
+  <tile tile="furniture_tables_high_01_33"/>
+  <tile tile="furniture_tables_high_01_34"/>
+  <tile tile="furniture_tables_high_01_35"/>
+  <tile tile="furniture_tables_high_01_48"/>
+  <tile tile="furniture_tables_high_01_49"/>
+  <tile tile="furniture_tables_high_01_50"/>
+  <tile tile="furniture_tables_high_01_51"/>
+  <tile tile="furniture_tables_low_01_16"/>
+  <tile tile="industry_01_4"/>
+  <tile tile="industry_01_5"/>
+  <tile tile="industry_02_14"/>
+  <tile tile="industry_02_141"/>
+  <tile tile="industry_02_143"/>
+  <tile tile="industry_02_144"/>
+  <tile tile="industry_02_145"/>
+  <tile tile="industry_02_146"/>
+  <tile tile="industry_02_147"/>
+  <tile tile="industry_02_148"/>
+  <tile tile="industry_02_149"/>
+  <tile tile="industry_02_150"/>
+  <tile tile="industry_02_17"/>
+  <tile tile="industry_02_176"/>
+  <tile tile="industry_02_19"/>
+  <tile tile="industry_02_192"/>
+  <tile tile="industry_02_193"/>
+  <tile tile="industry_02_194"/>
+  <tile tile="industry_02_195"/>
+  <tile tile="industry_railroad_05_37"/>
+  <tile tile="lighting_indoor_01_0"/>
+  <tile tile="lighting_indoor_01_1"/>
+  <tile tile="lighting_indoor_01_2"/>
+  <tile tile="lighting_indoor_01_24"/>
+  <tile tile="lighting_indoor_01_25"/>
+  <tile tile="lighting_indoor_01_3"/>
+  <tile tile="lighting_indoor_01_5"/>
+  <tile tile="lighting_indoor_02_0"/>
+  <tile tile="lighting_indoor_02_10"/>
+  <tile tile="lighting_indoor_02_2"/>
+  <tile tile="lighting_indoor_02_3"/>
+  <tile tile="lighting_indoor_02_44"/>
+  <tile tile="lighting_indoor_02_45"/>
+  <tile tile="lighting_indoor_02_48"/>
+  <tile tile="lighting_indoor_02_49"/>
+  <tile tile="lighting_indoor_02_50"/>
+  <tile tile="lighting_indoor_02_51"/>
+  <tile tile="lighting_indoor_03_16"/>
+  <tile tile="lighting_indoor_03_17"/>
+  <tile tile="lighting_indoor_03_18"/>
+  <tile tile="lighting_indoor_03_19"/>
+  <tile tile="lighting_indoor_03_20"/>
+  <tile tile="lighting_indoor_03_21"/>
+  <tile tile="lighting_outdoor_01_32"/>
+  <tile tile="lighting_outdoor_01_33"/>
+  <tile tile="location_business_bank_01_44"/>
+  <tile tile="location_business_office_generic_01_0"/>
+  <tile tile="location_business_office_generic_01_10"/>
+  <tile tile="location_business_office_generic_01_15"/>
+  <tile tile="location_business_office_generic_01_16"/>
+  <tile tile="location_business_office_generic_01_17"/>
+  <tile tile="location_business_office_generic_01_2"/>
+  <tile tile="location_business_office_generic_01_22"/>
+  <tile tile="location_business_office_generic_01_25"/>
+  <tile tile="location_business_office_generic_01_3"/>
+  <tile tile="location_business_office_generic_01_30"/>
+  <tile tile="location_business_office_generic_01_32"/>
+  <tile tile="location_business_office_generic_01_33"/>
+  <tile tile="location_business_office_generic_01_35"/>
+  <tile tile="location_business_office_generic_01_36"/>
+  <tile tile="location_business_office_generic_01_37"/>
+  <tile tile="location_business_office_generic_01_38"/>
+  <tile tile="location_business_office_generic_01_39"/>
+  <tile tile="location_business_office_generic_01_4"/>
+  <tile tile="location_business_office_generic_01_40"/>
+  <tile tile="location_business_office_generic_01_41"/>
+  <tile tile="location_business_office_generic_01_42"/>
+  <tile tile="location_business_office_generic_01_43"/>
+  <tile tile="location_business_office_generic_01_44"/>
+  <tile tile="location_business_office_generic_01_45"/>
+  <tile tile="location_business_office_generic_01_46"/>
+  <tile tile="location_business_office_generic_01_47"/>
+  <tile tile="location_business_office_generic_01_49"/>
+  <tile tile="location_business_office_generic_01_50"/>
+  <tile tile="location_business_office_generic_01_51"/>
+  <tile tile="location_business_office_generic_01_52"/>
+  <tile tile="location_business_office_generic_01_53"/>
+  <tile tile="location_business_office_generic_01_54"/>
+  <tile tile="location_business_office_generic_01_55"/>
+  <tile tile="location_business_office_generic_01_57"/>
+  <tile tile="location_business_office_generic_01_6"/>
+  <tile tile="location_business_office_generic_01_7"/>
+  <tile tile="location_business_office_generic_01_8"/>
+  <tile tile="location_business_office_generic_01_9"/>
+  <tile tile="location_business_office_generic_02_16"/>
+  <tile tile="location_business_office_generic_02_20"/>
+  <tile tile="location_business_office_generic_02_21"/>
+  <tile tile="location_business_office_generic_02_22"/>
+  <tile tile="location_business_office_generic_02_23"/>
+  <tile tile="location_business_office_generic_02_7"/>
+  <tile tile="location_community_medical_01_53"/>
+  <tile tile="location_community_medical_01_56"/>
+  <tile tile="location_community_medical_01_57"/>
+  <tile tile="location_community_medical_01_58"/>
+  <tile tile="location_community_medical_01_59"/>
+  <tile tile="location_community_medical_01_62"/>
+  <tile tile="location_community_medical_01_63"/>
+  <tile tile="location_community_medical_01_89"/>
+  <tile tile="location_community_police_01_0"/>
+  <tile tile="location_community_police_01_10"/>
+  <tile tile="location_community_police_01_11"/>
+  <tile tile="location_community_police_01_16"/>
+  <tile tile="location_community_police_01_17"/>
+  <tile tile="location_community_police_01_18"/>
+  <tile tile="location_community_police_01_19"/>
+  <tile tile="location_community_police_01_2"/>
+  <tile tile="location_community_police_01_20"/>
+  <tile tile="location_community_police_01_21"/>
+  <tile tile="location_community_police_01_26"/>
+  <tile tile="location_community_police_01_27"/>
+  <tile tile="location_community_police_01_28"/>
+  <tile tile="location_community_police_01_29"/>
+  <tile tile="location_community_police_01_34"/>
+  <tile tile="location_community_police_01_4"/>
+  <tile tile="location_community_police_01_5"/>
+  <tile tile="location_community_school_01_0"/>
+  <tile tile="location_community_school_01_1"/>
+  <tile tile="location_community_school_01_10"/>
+  <tile tile="location_community_school_01_2"/>
+  <tile tile="location_community_school_01_3"/>
+  <tile tile="location_community_school_01_32"/>
+  <tile tile="location_community_school_01_33"/>
+  <tile tile="location_entertainment_gallery_01_90"/>
+  <tile tile="location_entertainment_gallery_01_91"/>
+  <tile tile="location_shop_accessories_01_16"/>
+  <tile tile="location_shop_generic_01_26"/>
+  <tile tile="location_shop_generic_01_27"/>
+  <tile tile="location_shop_generic_01_72"/>
+  <tile tile="location_shop_generic_01_73"/>
+  <tile tile="location_shop_generic_01_76"/>
+  <tile tile="location_shop_generic_01_77"/>
+  <tile tile="location_shop_mall_01_12"/>
+  <tile tile="location_shop_mall_01_13"/>
+  <tile tile="location_shop_mall_01_14"/>
+  <tile tile="location_shop_mall_01_15"/>
+  <tile tile="location_shop_mall_01_4"/>
+  <tile tile="location_shop_mall_01_47"/>
+  <tile tile="location_shop_mall_01_5"/>
+  <tile tile="location_shop_mall_01_6"/>
+  <tile tile="location_shop_mall_01_7"/>
+  <tile tile="overlay_grime_floor_01_0"/>
+  <tile tile="overlay_grime_floor_01_1"/>
+  <tile tile="overlay_grime_floor_01_12"/>
+  <tile tile="overlay_grime_floor_01_13"/>
+  <tile tile="overlay_grime_floor_01_14"/>
+  <tile tile="overlay_grime_floor_01_16"/>
+  <tile tile="overlay_grime_floor_01_17"/>
+  <tile tile="overlay_grime_floor_01_18"/>
+  <tile tile="overlay_grime_floor_01_19"/>
+  <tile tile="overlay_grime_floor_01_20"/>
+  <tile tile="overlay_grime_floor_01_21"/>
+  <tile tile="overlay_grime_floor_01_22"/>
+  <tile tile="overlay_grime_floor_01_23"/>
+  <tile tile="overlay_grime_floor_01_24"/>
+  <tile tile="overlay_grime_floor_01_25"/>
+  <tile tile="overlay_grime_floor_01_26"/>
+  <tile tile="overlay_grime_floor_01_27"/>
+  <tile tile="overlay_grime_floor_01_28"/>
+  <tile tile="overlay_grime_floor_01_29"/>
+  <tile tile="overlay_grime_floor_01_30"/>
+  <tile tile="overlay_grime_floor_01_31"/>
+  <tile tile="overlay_grime_floor_01_32"/>
+  <tile tile="overlay_grime_floor_01_33"/>
+  <tile tile="overlay_grime_floor_01_34"/>
+  <tile tile="overlay_grime_floor_01_35"/>
+  <tile tile="overlay_grime_floor_01_36"/>
+  <tile tile="overlay_grime_floor_01_37"/>
+  <tile tile="overlay_grime_floor_01_38"/>
+  <tile tile="overlay_grime_floor_01_39"/>
+  <tile tile="overlay_grime_floor_01_40"/>
+  <tile tile="overlay_grime_floor_01_41"/>
+  <tile tile="overlay_grime_floor_01_42"/>
+  <tile tile="overlay_grime_floor_01_51"/>
+  <tile tile="overlay_grime_floor_01_69"/>
+  <tile tile="overlay_grime_wall_01_0"/>
+  <tile tile="overlay_grime_wall_01_1"/>
+  <tile tile="overlay_grime_wall_01_11"/>
+  <tile tile="overlay_grime_wall_01_14"/>
+  <tile tile="overlay_grime_wall_01_16"/>
+  <tile tile="overlay_grime_wall_01_17"/>
+  <tile tile="overlay_grime_wall_01_18"/>
+  <tile tile="overlay_grime_wall_01_19"/>
+  <tile tile="overlay_grime_wall_01_20"/>
+  <tile tile="overlay_grime_wall_01_21"/>
+  <tile tile="overlay_grime_wall_01_26"/>
+  <tile tile="overlay_grime_wall_01_27"/>
+  <tile tile="overlay_grime_wall_01_28"/>
+  <tile tile="overlay_grime_wall_01_3"/>
+  <tile tile="overlay_grime_wall_01_31"/>
+  <tile tile="overlay_grime_wall_01_32"/>
+  <tile tile="overlay_grime_wall_01_33"/>
+  <tile tile="overlay_grime_wall_01_4"/>
+  <tile tile="overlay_grime_wall_01_40"/>
+  <tile tile="overlay_grime_wall_01_41"/>
+  <tile tile="overlay_grime_wall_01_43"/>
+  <tile tile="overlay_grime_wall_01_5"/>
+  <tile tile="overlay_grime_wall_01_6"/>
+  <tile tile="papernotices_01_0"/>
+  <tile tile="papernotices_01_1"/>
+  <tile tile="papernotices_01_2"/>
+  <tile tile="papernotices_01_3"/>
+  <tile tile="papernotices_01_4"/>
+  <tile tile="papernotices_01_6"/>
+  <tile tile="papernotices_01_7"/>
+  <tile tile="papernotices_01_8"/>
+  <tile tile="papernotices_01_9"/>
+  <tile tile="recreational_sports_01_34"/>
+  <tile tile="recreational_sports_01_35"/>
+  <tile tile="recreational_sports_01_36"/>
+  <tile tile="recreational_sports_01_37"/>
+  <tile tile="recreational_sports_01_40"/>
+  <tile tile="recreational_sports_01_41"/>
+  <tile tile="recreational_sports_01_77"/>
+  <tile tile="recreational_sports_01_78"/>
+  <tile tile="recreational_sports_01_79"/>
+  <tile tile="roofs_02_54"/>
+  <tile tile="rooftop_furniture_0"/>
+  <tile tile="rooftop_furniture_1"/>
+  <tile tile="rooftop_furniture_10"/>
+  <tile tile="rooftop_furniture_12"/>
+  <tile tile="rooftop_furniture_13"/>
+  <tile tile="rooftop_furniture_15"/>
+  <tile tile="rooftop_furniture_17"/>
+  <tile tile="rooftop_furniture_18"/>
+  <tile tile="rooftop_furniture_2"/>
+  <tile tile="rooftop_furniture_20"/>
+  <tile tile="rooftop_furniture_22"/>
+  <tile tile="rooftop_furniture_23"/>
+  <tile tile="rooftop_furniture_3"/>
+  <tile tile="rooftop_furniture_5"/>
+  <tile tile="rooftop_furniture_6"/>
+  <tile tile="rooftop_furniture_9"/>
+  <tile tile="security_01_0"/>
+  <tile tile="security_01_4"/>
+  <tile tile="street_curbs_01_8"/>
+  <tile tile="street_decoration_01_14"/>
+  <tile tile="street_decoration_01_38"/>
+  <tile tile="trash_01_1"/>
+  <tile tile="trash_01_12"/>
+  <tile tile="trash_01_24"/>
+  <tile tile="trash_01_25"/>
+  <tile tile="trash_01_26"/>
+  <tile tile="trash_01_27"/>
+  <tile tile="trash_01_28"/>
+  <tile tile="trash_01_29"/>
+  <tile tile="trash_01_3"/>
+  <tile tile="trash_01_30"/>
+  <tile tile="trash_01_31"/>
+  <tile tile="trash_01_6"/>
+  <tile tile="trash_01_9"/>
+  <tile tile="trash_walls_01_2"/>
+  <tile tile="trash_walls_01_6"/>
+  <tile tile="trashcontainers_01_17"/>
+  <tile tile="trashcontainers_01_20"/>
+  <tile tile="walls_commercial_01_26"/>
+  <tile tile="walls_commercial_01_27"/>
+  <tile tile="walls_commercial_01_40"/>
+  <tile tile="walls_commercial_01_41"/>
+  <tile tile="walls_commercial_01_48"/>
+  <tile tile="walls_commercial_01_49"/>
+  <tile tile="walls_commercial_01_50"/>
+  <tile tile="walls_commercial_01_51"/>
+  <tile tile="walls_commercial_01_52"/>
+  <tile tile="walls_commercial_01_55"/>
+  <tile tile="walls_commercial_01_58"/>
+  <tile tile="walls_commercial_01_59"/>
+  <tile tile="walls_commercial_02_36"/>
+  <tile tile="walls_commercial_02_37"/>
+  <tile tile="walls_commercial_02_39"/>
+  <tile tile="walls_commercial_02_40"/>
+  <tile tile="walls_commercial_02_41"/>
+  <tile tile="walls_commercial_02_8"/>
+  <tile tile="walls_commercial_02_9"/>
+  <tile tile="walls_decoration_01_22"/>
+  <tile tile="walls_decoration_01_23"/>
+  <tile tile="walls_detailing_01_32"/>
+  <tile tile="walls_detailing_01_33"/>
+  <tile tile="walls_detailing_01_34"/>
+  <tile tile="walls_detailing_01_43"/>
+  <tile tile="walls_detailing_01_88"/>
+  <tile tile="walls_detailing_01_89"/>
+  <tile tile="walls_detailing_01_91"/>
+  <tile tile="walls_exterior_house_02_16"/>
+  <tile tile="walls_exterior_house_02_17"/>
+  <tile tile="walls_exterior_house_02_19"/>
+  <tile tile="walls_exterior_house_02_27"/>
+  <tile tile="walls_exterior_house_10_25"/>
+  <tile tile="walls_exterior_house_10_29"/>
+  <tile tile="walls_exterior_house_low_01_48"/>
+  <tile tile="walls_exterior_house_low_01_49"/>
+  <tile tile="walls_exterior_house_low_01_50"/>
+  <tile tile="walls_exterior_house_low_01_51"/>
+  <tile tile="walls_exterior_house_low_01_56"/>
+  <tile tile="walls_exterior_house_low_01_57"/>
+  <tile tile="walls_exterior_house_low_01_59"/>
+  <tile tile="walls_garage_01_36"/>
+  <tile tile="walls_garage_01_37"/>
+  <tile tile="walls_garage_01_38"/>
+  <tile tile="walls_garage_01_39"/>
+  <tile tile="walls_garage_01_46"/>
+  <tile tile="walls_interior_detailing_01_107"/>
+  <tile tile="walls_interior_detailing_01_36"/>
+  <tile tile="walls_interior_detailing_01_37"/>
+  <tile tile="walls_interior_detailing_01_38"/>
+  <tile tile="walls_interior_detailing_01_84"/>
+  <tile tile="walls_interior_detailing_01_85"/>
+  <tile tile="walls_interior_detailing_01_86"/>
+  <tile tile="walls_interior_detailing_01_96"/>
+  <tile tile="walls_interior_detailing_01_97"/>
+  <tile tile="walls_interior_detailing_01_98"/>
+  <tile tile="walls_interior_house_01_20"/>
+  <tile tile="walls_interior_house_01_21"/>
+  <tile tile="walls_interior_house_01_22"/>
+  <tile tile="walls_interior_house_01_31"/>
+  <tile tile="walls_interior_house_02_32"/>
+  <tile tile="walls_interior_house_02_33"/>
+  <tile tile="walls_interior_house_02_34"/>
+  <tile tile="walls_interior_house_03_20"/>
+  <tile tile="walls_interior_house_03_21"/>
+  <tile tile="walls_interior_house_03_22"/>
+  <tile tile="walls_interior_house_03_23"/>
+  <tile tile="walls_interior_house_03_30"/>
+  <tile tile="walls_interior_house_03_31"/>
+ </user_tiles>
+ <used_tiles></used_tiles>
+ <used_furniture></used_furniture>
+ <room Name="policeoffice" InternalName="policeoffice" Color="176 92 195" InteriorWall="0" InteriorWallTrim="0" Floor="0" GrimeFloor="0" GrimeWall="0" Ceiling="0"/>
+ <room Name="bathroom" InternalName="bathroom" Color="176 92 195" InteriorWall="0" InteriorWallTrim="0" Floor="0" GrimeFloor="0" GrimeWall="0" Ceiling="0"/>
+ <room Name="hall" InternalName="hall" Color="176 92 195" InteriorWall="0" InteriorWallTrim="0" Floor="0" GrimeFloor="0" GrimeWall="0" Ceiling="0"/>
+ <room Name="meeting" InternalName="meeting" Color="176 92 195" InteriorWall="0" InteriorWallTrim="0" Floor="0" GrimeFloor="0" GrimeWall="0" Ceiling="0"/>
+ <room Name="evidenceroom" InternalName="evidenceroom" Color="176 92 195" InteriorWall="0" InteriorWallTrim="0" Floor="0" GrimeFloor="0" GrimeWall="0" Ceiling="0"/>
+ <room Name="kitchen" InternalName="kitchen" Color="176 92 195" InteriorWall="0" InteriorWallTrim="0" Floor="0" GrimeFloor="0" GrimeWall="0" Ceiling="0"/>
+ <room Name="empty" InternalName="empty" Color="176 92 195" InteriorWall="0" InteriorWallTrim="0" Floor="0" GrimeFloor="0" GrimeWall="0" Ceiling="0"/>
+ <room Name="emptyoutside" InternalName="emptyoutside" Color="176 92 195" InteriorWall="0" InteriorWallTrim="0" Floor="0" GrimeFloor="0" GrimeWall="0" Ceiling="0"/>
+ <room Name="policestorage" InternalName="policestorage" Color="176 92 195" InteriorWall="0" InteriorWallTrim="0" Floor="0" GrimeFloor="0" GrimeWall="0" Ceiling="0"/>
+ <room Name="policegunstorage" InternalName="policegunstorage" Color="176 92 195" InteriorWall="0" InteriorWallTrim="0" Floor="0" GrimeFloor="0" GrimeWall="0" Ceiling="0"/>
+ <room Name="prisoncells" InternalName="prisoncells" Color="176 92 195" InteriorWall="0" InteriorWallTrim="0" Floor="0" GrimeFloor="0" GrimeWall="0" Ceiling="0"/>
+ <room Name="policelocker" InternalName="policelocker" Color="176 92 195" InteriorWall="0" InteriorWallTrim="0" Floor="0" GrimeFloor="0" GrimeWall="0" Ceiling="0"/>
+ <room Name="gym" InternalName="gym" Color="176 92 195" InteriorWall="0" InteriorWallTrim="0" Floor="0" GrimeFloor="0" GrimeWall="0" Ceiling="0"/>
+ <room Name="elevator" InternalName="elevator" Color="176 92 195" InteriorWall="0" InteriorWallTrim="0" Floor="0" GrimeFloor="0" GrimeWall="0" Ceiling="0"/>
+ <room Name="janitor" InternalName="janitor" Color="176 92 195" InteriorWall="0" InteriorWallTrim="0" Floor="0" GrimeFloor="0" GrimeWall="0" Ceiling="0"/>
+ <floor>
+  <tiles layer="Camada0">
+90,90,90,90,91,91,91,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,417,
+90,90,90,90,91,91,91,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,417,
+90,90,90,90,91,91,91,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,391,
+90,90,90,90,91,91,91,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,417,
+90,90,90,90,91,91,91,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,417,
+90,90,90,90,91,91,91,87,87,87,87,87,88,88,88,88,87,87,87,87,87,87,87,87,87,87,391,
+90,90,90,90,91,91,91,87,87,87,87,87,88,88,88,88,87,87,87,87,87,87,87,87,87,87,417,
+90,90,90,90,91,91,91,89,89,91,91,91,88,88,88,88,87,87,87,87,87,87,87,87,87,87,417,
+90,90,90,90,91,91,91,89,89,91,91,91,88,88,88,88,87,87,87,87,87,87,87,87,87,87,391,
+90,90,90,90,91,91,91,91,91,91,91,91,88,88,88,88,87,87,87,87,87,87,87,87,87,87,417,
+90,90,90,90,91,91,91,91,91,91,91,91,88,88,88,88,87,87,87,87,87,87,87,87,87,87,417,
+90,90,90,90,91,91,91,91,91,91,91,91,88,88,88,88,87,87,87,87,87,87,87,87,87,87,372,
+90,90,90,90,90,90,393,91,91,91,91,91,88,88,88,88,87,87,87,87,87,87,87,87,87,87,417,
+90,90,90,90,90,90,393,91,91,91,91,91,88,88,88,88,87,87,87,87,87,87,87,87,87,87,417,
+90,90,90,90,90,90,393,91,91,91,91,91,88,88,88,88,87,87,87,87,87,87,87,87,87,87,417,
+90,90,90,90,90,90,91,91,91,91,91,91,88,88,88,88,88,88,88,88,88,88,88,88,88,25,417,
+90,90,90,90,90,90,91,91,91,91,91,91,88,88,88,88,88,88,88,88,88,88,88,88,88,418,419,
+90,90,90,90,90,90,91,91,91,91,91,91,88,88,88,88,88,88,88,88,88,88,88,88,88,391,410,
+91,91,91,91,91,91,91,91,91,91,91,91,88,88,88,88,88,88,88,88,88,88,88,88,88,68,410,
+91,91,91,91,91,91,91,91,91,91,91,91,88,88,88,88,88,88,88,88,88,88,88,88,88,67,410,
+91,91,91,91,91,91,91,91,91,91,91,91,88,88,88,88,88,88,88,88,88,88,88,88,88,391,410,
+91,91,91,91,91,91,91,91,91,91,91,91,88,88,88,88,88,88,88,88,88,88,88,88,88,391,410,
+91,91,91,91,91,91,91,91,91,91,91,91,88,88,88,88,88,88,88,88,88,88,88,88,88,26,417,
+418,418,418,418,418,418,418,418,418,418,418,418,418,418,418,392,418,418,392,418,418,392,418,418,418,418,419
+</tiles>
+  <tiles layer="Camada1">
+275,276,276,276,292,293,293,292,293,293,293,293,292,293,293,293,292,293,293,293,293,293,292,293,293,293,410,
+275,397,0,0,292,0,0,292,104,127,106,0,292,0,97,0,292,97,0,0,97,376,292,206,0,99,410,
+275,398,0,0,292,0,0,292,0,126,106,0,292,217,218,182,292,203,204,388,203,204,292,205,0,0,404,
+275,0,245,246,292,0,0,292,0,0,0,0,292,102,0,0,307,376,102,278,279,0,292,0,0,160,410,
+275,276,276,276,292,0,0,292,293,293,293,293,292,0,160,0,292,0,0,0,190,187,293,293,293,293,410,
+275,397,0,0,292,0,0,292,0,126,0,0,292,308,293,293,292,0,176,0,0,98,281,282,176,0,404,
+275,398,0,0,292,0,0,292,0,0,0,0,292,0,0,0,292,0,177,0,0,177,280,283,177,127,410,
+275,0,245,246,292,0,0,292,293,292,293,293,292,0,176,0,292,0,175,378,0,175,0,100,175,126,410,
+275,276,276,276,292,0,0,292,0,292,0,83,292,0,177,0,292,0,377,201,202,0,201,202,0,188,404,
+275,397,279,0,292,0,292,294,72,292,41,157,292,0,175,0,292,129,16,0,98,287,98,284,378,188,410,
+275,398,0,0,292,0,292,0,0,292,41,0,292,0,0,0,292,293,293,293,293,293,293,293,293,293,410,
+275,0,245,246,292,157,292,0,0,292,293,293,292,0,0,0,292,0,176,0,0,176,0,0,176,103,417,
+275,275,276,276,275,276,313,292,0,292,41,0,292,0,0,0,292,102,177,102,0,177,102,102,177,0,404,
+275,275,0,0,275,0,313,292,0,292,41,83,292,0,176,0,292,0,102,102,102,175,102,102,102,0,410,
+275,398,281,282,275,0,313,292,0,292,41,83,292,0,177,375,292,0,0,0,0,0,0,0,0,0,410,
+275,0,280,283,275,0,292,294,0,293,293,293,292,0,175,0,293,293,293,293,293,293,293,293,293,293,410,
+275,0,0,0,275,0,292,0,0,0,0,0,292,284,0,0,47,98,0,0,97,0,50,0,0,391,410,
+275,111,110,111,275,157,292,0,0,0,0,157,292,0,0,0,46,45,0,45,45,45,44,0,0,404,0,
+292,293,293,293,292,293,293,292,293,293,293,293,292,0,0,0,0,0,374,0,0,0,306,298,290,63,0,
+292,0,0,193,292,0,0,292,0,0,4,95,292,306,298,290,0,0,0,172,174,284,305,297,289,64,0,
+292,293,293,293,294,0,0,292,0,0,0,160,292,305,297,289,0,286,0,285,174,173,304,296,288,404,0,
+292,0,0,0,0,0,0,293,293,293,293,293,292,304,296,288,0,0,0,0,0,0,299,291,0,404,0,
+292,231,230,231,0,0,0,0,0,0,0,0,252,299,291,214,230,231,230,231,230,231,230,231,0,395,410,
+411,411,411,411,411,411,411,411,411,411,411,411,411,411,411,405,411,411,405,411,411,405,411,411,411,411,412
+</tiles>
+  <tiles layer="Camada2">
+276,394,394,394,293,394,394,293,453,453,453,453,293,392,392,453,293,453,453,453,453,453,293,453,453,453,309,
+393,313,0,0,233,0,0,452,0,0,0,0,452,0,0,0,452,0,0,0,0,0,452,165,0,0,309,
+393,0,0,0,234,0,0,456,0,0,0,0,452,162,0,7,452,162,7,0,222,7,452,8,0,0,410,
+393,0,0,0,393,0,0,452,0,0,0,0,452,0,0,0,456,0,0,0,0,0,452,0,0,0,309,
+276,394,394,394,393,0,0,293,453,453,453,453,452,0,0,0,452,0,0,0,201,202,453,407,390,453,309,
+393,313,0,0,233,0,0,456,0,0,0,0,293,390,392,251,452,0,0,0,0,176,0,0,0,0,410,
+393,0,0,0,234,0,0,452,0,0,0,0,252,0,0,0,452,0,0,0,0,0,0,0,0,0,309,
+393,0,0,0,393,0,0,293,431,293,394,394,250,0,0,0,406,0,0,100,0,0,0,0,0,0,309,
+276,394,394,394,393,0,0,430,0,393,0,408,250,0,0,0,389,0,388,219,5,0,5,163,0,0,410,
+393,313,0,0,233,0,293,433,0,393,40,0,250,0,0,0,452,13,0,0,0,0,0,0,0,0,309,
+393,0,0,0,234,0,399,0,0,393,40,0,252,0,0,0,293,453,453,453,453,453,453,453,457,453,309,
+393,0,0,0,393,0,393,0,0,293,394,394,250,0,0,0,389,0,0,0,0,0,0,0,0,0,410,
+276,276,394,394,276,235,86,78,0,393,40,0,252,0,0,0,406,0,0,0,0,0,0,0,0,0,410,
+393,397,0,0,234,0,85,79,0,393,40,157,250,0,0,0,406,0,175,0,0,0,0,0,175,0,309,
+393,316,0,0,233,0,84,80,0,393,40,408,250,0,0,0,452,0,0,0,0,0,0,0,0,0,309,
+393,0,0,0,233,0,293,75,0,394,394,394,250,0,0,0,251,251,392,392,392,392,392,251,251,395,309,
+393,0,0,0,233,0,399,0,0,0,0,0,252,0,0,0,12,0,0,0,0,0,221,0,0,404,322,
+393,0,0,0,233,0,393,0,0,0,0,0,250,0,0,0,0,223,0,0,7,222,162,0,0,324,0,
+293,394,394,394,293,394,293,293,400,394,394,394,250,0,0,0,0,0,0,0,0,0,0,0,94,0,0,
+393,0,0,157,393,0,0,393,0,0,0,0,250,0,176,0,0,0,0,0,0,173,0,0,93,0,0,
+293,421,422,394,396,0,0,393,0,0,0,0,250,0,177,0,0,0,0,172,0,0,0,0,0,324,0,
+399,0,0,0,0,0,0,394,394,394,400,394,250,0,175,0,0,0,0,0,0,0,0,0,0,324,0,
+393,0,0,0,0,0,0,0,0,0,0,0,319,0,0,0,0,0,0,0,0,0,0,0,0,0,309,
+310,310,310,310,310,310,310,310,310,310,310,310,310,310,310,411,310,310,411,310,310,411,310,310,310,310,322
+</tiles>
+  <tiles layer="Camada3">
+395,397,314,314,395,314,314,454,415,415,415,415,454,437,437,437,454,437,437,437,437,437,454,437,437,437,363,
+313,284,0,0,0,0,0,414,0,0,0,0,436,0,0,0,436,0,0,0,0,0,436,0,0,0,0,
+313,0,0,0,313,0,0,66,0,0,0,0,436,0,0,0,436,0,0,0,0,0,436,0,0,0,324,
+313,0,0,0,313,0,0,414,0,0,0,0,436,0,0,0,436,0,0,0,0,0,436,0,0,0,0,
+395,397,314,314,313,0,0,454,415,415,415,415,436,0,0,0,436,0,0,0,0,0,437,0,54,437,357,
+313,0,0,0,0,0,0,319,0,0,0,0,253,320,328,314,436,0,0,0,0,0,0,0,0,0,324,
+313,0,0,0,248,0,0,414,0,0,0,0,319,0,0,0,436,0,0,0,0,0,0,0,0,0,0,
+313,0,0,0,313,0,0,432,0,395,0,83,313,0,0,0,101,0,0,0,0,0,0,0,0,0,357,
+395,397,314,314,313,0,0,0,0,0,0,0,313,0,0,0,53,0,0,0,0,0,0,0,0,0,324,
+313,278,0,0,0,0,395,316,0,39,0,0,313,0,0,0,436,0,0,0,0,0,0,0,0,0,0,
+313,0,0,0,313,0,319,0,0,39,0,0,319,0,0,0,454,415,415,415,415,415,415,415,54,415,0,
+317,0,0,0,313,0,313,0,0,395,0,0,313,0,0,0,53,0,0,0,0,0,0,0,0,0,309,
+395,394,314,314,240,314,0,74,0,39,0,0,319,0,0,0,0,0,0,0,0,0,0,0,0,0,309,
+313,313,0,0,248,0,0,74,0,39,0,409,313,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+313,0,0,0,0,0,0,74,0,39,0,0,313,0,0,0,414,0,0,0,0,0,0,0,0,0,385,
+313,0,0,0,0,0,393,403,0,314,314,314,313,0,0,0,314,272,272,272,272,272,328,314,314,0,179,
+313,0,0,0,0,0,319,0,0,0,0,0,319,0,0,0,0,0,0,0,0,0,0,0,0,324,0,
+313,0,0,0,0,0,313,0,0,0,0,0,313,0,0,0,0,0,0,0,0,0,0,0,0,168,0,
+395,314,314,314,394,272,400,395,320,314,314,314,313,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+313,0,0,0,270,0,0,313,0,0,0,0,313,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+395,272,272,272,274,0,0,313,0,0,0,0,313,0,0,0,0,0,0,0,0,0,0,0,0,169,0,
+268,0,0,0,0,0,0,272,272,272,269,272,313,0,0,0,0,0,0,0,0,0,0,0,0,168,0,
+270,0,0,0,0,0,0,0,0,0,0,0,59,0,0,0,0,0,0,0,0,0,0,0,0,0,179,
+413,365,32,413,352,352,413,0,0,413,29,0,413,355,0,325,115,114,325,0,0,325,0,0,0,0,0
+</tiles>
+  <tiles layer="Camada4">
+331,313,243,244,315,0,0,416,358,0,0,0,438,0,0,116,438,216,196,197,207,184,438,0,216,99,0,
+357,0,0,0,0,0,0,156,0,0,0,0,258,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,248,0,0,61,0,0,0,0,0,0,0,0,256,0,0,0,0,0,96,0,0,0,0,
+0,0,0,0,169,0,0,0,0,0,0,0,257,0,0,0,53,0,0,0,0,0,0,0,0,0,0,
+315,313,243,244,168,0,0,416,314,314,314,314,0,0,0,0,210,0,0,0,0,0,377,0,0,95,0,
+357,0,0,0,0,0,0,66,0,0,0,0,315,54,171,0,209,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,313,0,0,0,0,312,0,0,0,377,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,169,0,0,0,0,42,0,409,261,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+315,313,243,244,183,0,0,0,0,0,0,0,260,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+357,0,0,0,0,0,315,71,0,34,0,0,156,0,0,0,161,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,248,0,53,0,0,34,0,0,65,0,0,0,416,211,212,213,255,211,212,213,0,103,0,
+313,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,158,0,0,0,0,0,0,0,0,0,386,
+315,397,110,155,233,249,0,401,0,34,0,0,65,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,112,0,0,0,0,0,401,0,34,0,0,374,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,401,0,34,0,0,371,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,313,329,0,0,0,0,0,0,0,0,155,314,328,328,328,328,50,255,155,0,0,
+357,0,0,0,0,0,53,0,0,0,0,0,312,0,0,0,0,0,0,0,0,0,0,0,0,310,0,
+110,0,0,0,0,0,0,0,0,0,0,0,259,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+315,196,197,0,272,255,269,315,54,184,128,129,195,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+199,0,0,0,232,0,0,0,0,0,0,0,194,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+273,247,247,0,0,0,0,0,0,0,0,0,195,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+69,0,0,0,0,0,0,190,187,0,62,0,194,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+230,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,31,0,0,356,356,0,0,0,29,0,0,33,0,0,114,0,0,115,0,0,0,0,0,0,0,0
+</tiles>
+  <tiles layer="Camada5">
+315,314,0,0,0,0,0,388,0,0,0,0,116,0,0,0,379,340,334,335,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,256,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+43,314,0,0,0,0,0,315,358,127,106,0,0,0,0,0,333,0,0,0,0,0,388,0,0,0,0,
+0,0,0,0,0,0,0,61,0,0,0,0,0,170,0,0,332,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,388,0,0,0,0,53,0,0,0,208,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+43,314,0,0,168,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,73,0,0,0,0,0,35,0,0,0,128,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,161,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+43,313,0,111,314,0,0,327,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,327,0,0,0,0,36,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,327,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,47,368,0,0,0,96,8,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,53,0,0,0,0,0,0,0,0,0,0,0,0,169,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+200,95,0,0,399,0,70,0,0,0,163,5,227,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+223,0,0,0,0,0,0,0,0,0,0,0,226,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+156,0,0,0,0,0,0,0,0,0,0,0,227,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+57,0,0,0,0,0,0,0,0,0,0,0,226,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</tiles>
+  <tiles layer="Camada6">
+43,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,185,0,277,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,156,104,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,10,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,314,0,0,0,0,0,176,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,177,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,175,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2,367,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,166,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+6,0,0,0,268,0,58,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+207,0,0,0,0,0,0,0,0,0,0,0,333,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+158,0,0,0,0,0,0,0,0,0,0,0,332,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</tiles>
+  <tiles layer="Camada7">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,113,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,61,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</tiles>
+  <rooms>
+11,11,11,11,3,3,3,4,4,4,4,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+11,11,11,11,3,3,3,4,4,4,4,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+11,11,11,11,3,3,3,4,4,4,4,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+11,11,11,11,3,3,3,4,4,4,4,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+11,11,11,11,3,3,3,4,4,4,4,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+11,11,11,11,3,3,3,4,4,4,4,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+11,11,11,11,3,3,3,4,4,4,4,4,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+11,11,11,11,3,3,3,14,14,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+11,11,11,11,3,3,3,14,14,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+11,11,11,11,3,3,3,3,3,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+11,11,11,11,3,3,3,3,3,2,2,2,1,1,1,1,4,4,4,4,4,4,4,4,4,4,
+11,11,11,11,3,3,3,3,3,2,2,2,1,1,1,1,4,4,4,4,4,4,4,4,4,4,
+11,11,11,11,11,11,7,3,3,2,2,2,1,1,1,1,4,4,4,4,4,4,4,4,4,4,
+11,11,11,11,11,11,7,3,3,2,2,2,1,1,1,1,4,4,4,4,4,4,4,4,4,4,
+11,11,11,11,11,11,7,3,3,2,2,2,1,1,1,1,4,4,4,4,4,4,4,4,4,4,
+11,11,11,11,11,11,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,1,7,
+11,11,11,11,11,11,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,1,0,
+11,11,11,11,11,11,3,3,3,3,3,3,1,1,1,1,1,1,1,1,1,1,1,1,1,0,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,
+1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,7
+  </rooms>
+ </floor>
+ <floor>
+  <tiles layer="Camada0">
+87,87,87,87,87,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,417,
+87,87,87,87,87,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,417,
+87,87,87,87,87,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,391,
+87,87,87,87,87,91,91,90,90,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,417,
+87,87,87,87,87,91,91,90,90,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,417,
+87,87,87,87,87,91,91,90,90,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,391,
+87,87,87,87,87,91,91,90,90,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,91,417,
+91,91,91,91,91,91,91,89,89,91,91,91,91,91,91,91,91,91,91,91,91,91,87,87,87,87,417,
+91,91,91,91,91,91,91,89,89,91,91,91,91,91,91,91,91,91,91,91,91,91,87,87,87,87,391,
+91,91,91,91,91,91,91,91,91,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,417,
+91,91,91,91,91,91,91,91,91,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,417,
+91,91,91,91,91,91,91,91,91,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,391,
+91,91,91,91,91,91,81,91,91,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,417,
+91,91,91,91,92,91,81,91,91,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,417,
+91,91,91,91,92,91,81,91,91,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,87,417,
+418,418,418,418,418,418,392,418,420,418,418,418,418,418,418,418,418,418,418,418,418,418,392,418,418,418,419,
+423,0,0,0,0,144,0,0,0,0,0,0,423,359,0,0,0,144,359,0,0,0,0,361,0,90,427,
+423,0,0,0,0,144,0,0,0,0,0,0,423,0,0,0,0,144,0,0,0,0,0,0,0,90,427,
+425,424,424,424,426,146,139,0,0,0,0,0,426,0,0,0,138,143,0,0,0,0,0,0,0,90,427,
+423,0,144,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,90,427,
+423,352,143,0,0,0,0,0,0,0,0,0,423,0,0,0,0,0,0,0,0,0,0,0,0,90,427,
+423,0,0,0,0,0,0,424,424,424,424,424,423,0,0,0,0,0,0,0,0,0,0,361,0,90,429,
+423,0,0,0,0,0,0,0,0,0,0,0,423,0,0,0,0,0,0,0,0,0,0,0,0,0,423,
+424,424,424,424,424,424,424,424,424,424,424,424,424,350,350,350,350,350,350,350,350,350,350,350,350,424,426
+</tiles>
+  <tiles layer="Camada1">
+292,293,293,293,293,292,293,293,293,293,293,293,293,293,293,293,293,293,293,293,293,293,454,453,453,453,266,
+292,341,345,0,345,292,0,172,174,173,0,0,172,174,173,0,0,172,174,173,0,0,456,0,0,0,266,
+292,341,0,0,0,292,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,157,447,446,448,446,442,
+292,344,0,0,0,292,0,292,293,292,293,293,293,293,293,293,293,293,293,293,292,0,445,0,0,119,266,
+292,344,0,0,113,292,0,292,0,292,380,0,107,107,0,0,0,0,0,0,292,0,445,0,0,119,266,
+292,344,0,0,112,292,0,292,0,292,106,174,173,0,0,0,172,174,173,0,292,0,445,0,0,123,442,
+292,344,0,0,0,292,0,292,0,292,106,0,105,105,0,0,0,0,0,0,292,0,445,0,0,122,266,
+292,293,293,293,293,292,0,292,293,292,106,0,132,133,0,0,0,0,0,0,292,0,292,293,293,293,266,
+292,0,109,0,292,292,0,292,0,292,106,0,107,107,0,0,48,48,48,15,292,0,292,182,0,0,442,
+292,0,108,0,292,292,0,293,293,292,293,293,292,293,293,293,293,293,293,293,292,381,294,187,0,0,266,
+292,0,109,0,292,294,0,0,0,292,0,0,292,0,0,0,0,0,0,0,292,382,0,0,0,0,266,
+292,0,108,0,292,0,0,0,0,292,0,0,292,0,264,265,264,265,264,265,292,0,375,0,0,193,442,
+292,0,0,0,292,0,0,77,131,292,0,0,292,0,128,129,262,263,262,263,292,198,215,0,0,134,266,
+292,292,292,292,293,292,0,76,130,292,0,0,292,0,0,0,0,0,0,0,292,95,0,0,96,206,266,
+295,294,294,294,292,292,0,81,0,292,0,0,292,180,180,180,264,265,264,265,292,0,0,0,0,205,266,
+423,267,267,267,267,267,443,267,269,267,267,267,423,267,267,267,267,267,267,267,267,267,443,267,267,267,423,
+0,0,0,0,0,0,0,0,0,0,0,0,0,353,0,0,0,0,364,0,0,0,0,0,0,27,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,301,242,
+0,0,141,145,145,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,301,241,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,301,239,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,18,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,18,423,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,424,424,428,428,428,428,428,428,428,429,424,424,0,0
+</tiles>
+  <tiles layer="Camada2">
+293,392,450,392,450,293,392,251,251,251,392,251,251,251,392,251,251,251,392,251,251,251,315,314,314,314,313,
+449,0,0,0,0,250,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,319,0,0,0,313,
+449,0,0,0,0,250,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,444,443,435,443,266,
+449,0,0,0,0,250,0,293,431,293,400,394,394,394,394,394,394,394,394,394,250,0,442,0,0,0,313,
+449,0,0,0,0,250,0,430,0,393,0,0,0,0,0,0,0,0,0,0,250,0,442,0,0,0,313,
+449,0,0,0,0,250,0,434,0,393,172,0,0,0,0,0,0,0,0,0,252,0,442,0,0,0,266,
+449,0,0,0,0,252,0,430,0,393,0,0,0,0,0,0,0,0,0,0,250,0,442,0,0,162,313,
+293,394,400,394,394,250,0,293,431,393,0,0,0,0,0,0,0,0,0,0,250,0,293,453,453,453,313,
+393,0,0,0,393,250,0,430,0,393,0,0,0,0,0,0,0,82,13,0,250,0,452,224,0,0,266,
+393,0,0,0,393,252,0,71,72,293,453,453,293,394,394,394,394,394,394,394,293,293,455,0,0,0,313,
+393,0,0,0,293,254,0,0,0,391,0,0,393,0,0,0,0,0,0,0,456,0,0,0,0,0,313,
+393,0,0,0,250,0,0,0,0,389,0,0,389,0,0,0,0,0,0,0,452,0,0,0,0,0,266,
+393,0,0,0,250,0,0,81,0,391,0,0,391,0,0,0,0,0,0,0,452,1,220,0,0,17,313,
+301,301,301,393,394,250,0,81,0,391,0,0,393,0,0,0,0,0,0,0,452,0,0,0,0,0,313,
+292,295,295,396,393,250,0,0,0,452,0,0,393,0,0,0,0,0,0,0,452,0,0,0,0,0,313,
+267,314,314,314,314,314,267,314,311,314,314,314,267,314,314,314,314,314,314,314,314,314,267,314,314,314,412,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,301,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,301,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,301,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,236,237,238,0,0,424,0,0,0,0
+</tiles>
+  <tiles layer="Camada3">
+451,402,440,402,440,253,328,314,314,314,328,314,314,314,328,314,314,314,328,314,314,314,156,124,125,191,410,
+439,0,0,0,0,313,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,55,0,0,0,410,
+439,0,0,0,0,313,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,118,155,56,0,327,
+439,0,0,0,0,313,0,432,148,395,52,0,340,337,338,225,49,49,9,49,313,0,121,0,0,0,410,
+439,0,0,0,0,313,0,156,0,30,0,0,0,0,0,0,0,0,0,0,313,0,118,0,0,0,410,
+439,0,0,0,0,313,0,61,0,131,0,0,0,0,0,0,0,0,0,0,319,0,121,0,0,0,327,
+439,0,0,0,0,319,0,149,0,130,0,0,0,0,0,0,0,0,0,0,313,0,118,0,0,0,410,
+395,0,54,0,0,313,0,432,0,131,0,0,0,0,0,0,0,0,0,0,313,0,454,272,272,272,410,
+120,0,0,0,156,313,0,0,0,130,0,0,0,0,0,0,0,0,0,0,313,0,270,0,0,0,327,
+120,0,0,0,0,319,0,314,314,454,437,437,395,151,151,151,151,151,151,151,454,457,274,0,0,0,410,
+120,0,0,0,253,316,0,0,0,327,0,0,152,0,0,0,0,0,0,0,268,0,0,0,0,0,410,
+120,0,0,0,313,0,0,0,0,319,0,0,53,0,0,0,0,0,0,0,270,0,0,0,0,0,313,
+120,0,0,0,313,0,0,0,0,327,0,0,168,0,0,0,0,0,0,0,270,0,0,0,0,0,410,
+370,370,370,0,399,313,0,0,0,327,0,0,0,0,0,0,0,0,0,0,270,0,0,0,0,0,410,
+393,398,398,0,37,313,0,0,0,436,0,0,180,0,0,0,0,0,0,0,270,0,0,0,0,0,410,
+314,411,411,411,411,411,314,411,411,411,411,411,314,411,411,411,411,411,411,411,411,411,314,411,411,411,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</tiles>
+  <tiles layer="Camada4">
+441,342,346,167,346,315,207,228,229,228,229,271,0,0,0,0,0,0,0,0,0,0,0,0,0,0,354,
+347,0,0,0,0,101,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,166,0,0,0,317,
+347,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,410,
+347,0,0,0,0,0,0,153,0,155,0,0,255,133,0,0,11,0,14,0,0,0,0,0,0,0,0,
+347,0,0,0,0,339,0,150,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+347,0,0,0,0,336,0,166,0,0,0,0,0,0,0,0,0,0,0,0,51,0,0,0,0,0,410,
+348,0,0,0,0,51,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,326,
+120,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,273,197,0,116,0,
+168,0,0,0,0,332,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,217,0,0,0,410,
+169,0,0,0,0,51,0,0,73,438,314,314,153,263,262,263,117,117,262,263,273,269,190,0,0,0,0,
+168,0,0,0,315,0,0,0,0,102,0,0,156,0,0,0,0,0,0,0,61,0,0,0,0,0,0,
+169,0,0,0,192,0,0,0,0,53,0,0,169,0,0,0,0,0,0,0,183,0,0,0,0,0,410,
+168,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,189,0,0,0,0,0,179,
+395,394,394,0,155,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,186,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,313,0,0,0,0,0,0,0,0,0,0,181,0,0,0,0,0,136,
+411,318,0,0,360,144,411,178,323,0,154,0,411,351,0,360,0,141,351,318,0,0,411,0,360,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</tiles>
+  <tiles layer="Camada5">
+349,167,0,0,0,271,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+341,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,179,
+341,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+343,0,0,0,0,0,0,352,0,387,0,0,132,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+343,0,0,0,0,0,0,359,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+343,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+343,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+169,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,196,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,0,0,0,321,
+0,0,0,0,0,0,0,0,0,315,129,191,262,0,0,0,0,0,0,0,155,52,0,0,0,0,0,
+0,0,0,0,192,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,164,0,0,0,0,0,0,
+38,397,397,0,61,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+135,0,0,0,0,0,0,0,60,0,0,0,330,0,0,0,0,0,0,147,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</tiles>
+  <tiles layer="Camada6">
+342,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+169,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+168,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+169,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+168,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,97,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,156,0,0,0,0,0,0,0,0,0,0,192,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,38,38,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+360,0,0,0,0,0,0,0,159,0,0,0,138,0,0,0,0,0,0,137,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</tiles>
+  <tiles layer="Camada7">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,128,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</tiles>
+  <rooms>
+13,13,13,13,13,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9,9,9,9,
+13,13,13,13,13,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,9,9,9,9,
+13,13,13,13,13,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,10,10,10,10,
+13,13,13,13,13,1,1,15,15,6,6,6,6,6,6,6,6,6,6,6,1,1,10,10,10,10,
+13,13,13,13,13,1,1,15,15,6,6,6,6,6,6,6,6,6,6,6,1,1,10,10,10,10,
+13,13,13,13,13,1,1,15,15,6,6,6,6,6,6,6,6,6,6,6,1,1,10,10,10,10,
+13,13,13,13,13,1,1,15,15,6,6,6,6,6,6,6,6,6,6,6,1,1,10,10,10,10,
+12,12,12,12,12,1,1,14,14,6,6,6,6,6,6,6,6,6,6,6,1,1,1,1,1,1,
+12,12,12,12,12,1,1,14,14,6,6,6,6,6,6,6,6,6,6,6,1,1,1,1,1,1,
+12,12,12,12,12,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,1,1,1,1,1,1,
+12,12,12,12,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,1,1,1,1,1,1,
+12,12,12,12,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,1,1,1,1,1,1,
+12,12,12,12,1,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,1,1,1,1,1,1,
+12,12,12,12,2,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,1,1,1,1,1,1,
+12,12,12,12,2,1,1,1,1,1,1,1,5,5,5,5,5,5,5,5,1,1,1,1,1,1,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,8,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+  </rooms>
+ </floor>
+ <floor>
+  <tiles layer="Camada0">
+90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,423,
+90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,423,
+90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,427,
+90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,427,
+90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,427,
+90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,427,
+90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,427,
+90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,427,
+90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,427,
+90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,429,
+90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,423,
+90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,423,
+90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,423,
+90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,423,
+90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,90,423,
+424,424,424,424,424,424,424,424,424,424,0,424,424,424,424,424,424,424,424,424,424,424,424,424,424,424,426,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</tiles>
+  <tiles layer="Camada1">
+293,293,293,293,293,18,18,18,19,293,293,293,293,293,293,293,293,293,293,293,293,293,293,293,293,293,0,
+292,138,352,363,301,18,19,27,0,0,0,0,0,0,0,352,301,292,0,287,0,301,300,303,0,301,0,
+292,286,144,372,295,27,0,0,0,0,306,298,290,0,0,300,300,292,0,302,303,301,293,294,0,293,0,
+292,0,140,142,0,0,0,292,0,292,305,297,289,0,0,293,293,294,0,301,292,301,292,281,282,301,0,
+292,0,0,144,0,0,0,292,0,292,304,296,288,0,0,144,0,0,0,21,292,301,292,280,283,301,0,
+292,138,352,143,0,0,0,292,0,292,299,291,0,0,0,144,0,0,22,18,292,301,292,0,0,301,0,
+300,300,300,300,300,303,0,292,0,292,0,0,0,281,282,144,0,20,18,18,292,301,300,303,0,369,0,
+293,293,21,293,293,294,0,292,0,292,352,145,145,145,145,143,0,0,24,18,292,295,293,294,0,293,0,
+292,22,18,23,0,0,0,292,0,292,355,0,0,0,0,0,0,0,20,18,300,300,303,0,0,301,0,
+20,18,18,18,28,303,0,293,293,293,293,293,293,293,293,293,293,293,293,293,293,293,294,0,0,301,423,
+20,18,19,27,293,294,0,0,0,0,0,0,372,0,0,0,0,0,0,0,0,0,306,298,290,301,0,
+292,27,0,0,292,281,282,0,0,292,0,0,292,0,0,286,0,0,0,0,292,0,305,297,289,301,0,
+292,0,0,0,292,280,283,0,0,292,0,0,292,0,0,0,0,0,0,0,292,0,304,296,288,301,0,
+292,354,0,0,292,0,0,0,0,292,384,0,292,361,0,0,0,0,361,0,292,0,299,291,0,301,0,
+300,300,300,300,300,300,300,300,300,303,0,302,300,300,300,300,300,300,300,300,300,300,300,300,300,300,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</tiles>
+  <tiles layer="Camada2">
+292,424,424,424,301,293,293,293,293,424,424,424,424,424,424,424,424,424,424,424,424,301,292,424,424,301,0,
+423,0,356,0,0,292,0,0,0,0,0,0,0,0,0,356,352,366,0,0,0,0,292,384,0,0,0,
+423,0,0,0,0,294,0,0,0,0,0,0,0,0,0,352,301,354,0,0,0,0,292,426,0,301,0,
+423,0,0,0,0,0,0,423,0,423,0,0,0,0,0,144,0,0,0,0,423,0,423,0,0,0,0,
+423,0,0,0,0,0,0,423,0,423,0,0,0,0,0,0,0,0,0,301,423,0,423,0,0,0,0,
+423,0,362,0,0,0,0,423,0,423,0,0,0,0,0,0,0,0,0,301,423,0,423,0,0,0,0,
+292,0,355,0,0,0,0,423,0,423,0,0,0,0,0,0,0,277,0,301,423,0,292,0,0,301,0,
+292,424,293,424,424,426,0,423,0,423,356,0,0,0,0,0,0,0,0,301,423,0,424,426,0,301,0,
+423,287,0,0,0,0,0,423,0,423,0,0,0,0,0,0,0,0,0,301,292,0,0,0,0,0,0,
+292,0,0,0,300,0,0,424,424,424,424,424,424,424,424,424,424,424,424,424,424,424,426,0,0,0,0,
+292,0,0,0,292,426,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+423,0,0,0,423,0,0,0,0,423,0,0,423,0,0,0,0,0,0,0,423,0,0,0,0,0,0,
+423,0,0,0,423,0,0,0,0,423,0,0,423,0,0,0,0,0,0,0,423,0,0,0,0,0,0,
+423,0,0,0,423,0,0,0,0,423,0,0,423,0,0,0,0,0,0,0,423,0,0,0,0,0,0,
+292,363,0,0,292,0,0,0,0,292,0,0,292,0,0,0,0,0,0,0,292,0,0,0,0,301,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</tiles>
+  <tiles layer="Camada3">
+425,0,0,0,424,292,424,424,424,0,0,0,0,0,0,0,0,0,0,0,0,424,425,0,0,424,0,
+0,0,0,0,0,423,0,0,0,0,0,0,0,0,0,0,356,0,0,0,0,0,423,0,0,0,0,
+0,0,0,0,0,426,0,0,0,0,0,0,0,0,0,0,352,0,0,0,0,0,425,0,0,424,0,
+0,0,0,0,0,0,0,383,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+423,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,423,0,0,0,0,
+425,145,424,139,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,424,0,
+144,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,423,0,0,0,0,0,0,
+423,0,0,0,0,0,0,0,0,0,0,0,0,373,0,0,0,0,0,0,0,0,0,0,0,0,0,
+423,0,0,0,425,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+144,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+144,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+352,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+423,0,0,0,423,0,0,0,0,423,0,0,423,0,0,0,0,0,0,0,423,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</tiles>
+  <tiles layer="Camada4">
+0,0,0,0,0,425,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,361,0,0,361,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+141,0,145,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+144,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+144,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+356,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+352,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</tiles>
+  <tiles layer="Camada5">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+356,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</tiles>
+  <rooms>
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+  </rooms>
+ </floor>
+</building>

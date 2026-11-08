@@ -40,6 +40,34 @@ Tamanho em tiles (1 tile = 15 m no mapa, mas a construção é feita em escala d
 | 14 | **Casarão antigo** (Santa Teresa, Laranjeiras, Petrópolis) | Santa Teresa, Glória, Serra | 12–16 × 14 | casa grande: `livingroom`, `bedroom`, `kitchen`… | uma casa grande do Knox County |
 | 15 | **Casa de favela** (alvenaria aparente, empilhada, laje) e a casa de "chefe do morro" (D-31) | Favelas do RJ | 5–7 × 6–8 | casa mínima | item 1, simplificado |
 
+### 3.1 Quantas plantas de cada uma, e para que lados
+
+**Por que os lados importam:** o gerador não gira os prédios (o KnoxMap usa o arquivo como foi desenhado). Um prédio desenhado com a porta para o sul só entra onde a rua fica ao sul do lote. Foi por isso que a delegacia sumiu do mapa quando as ruas mudaram: só havia a versão "porta para o leste". Então cada planta precisa de **uma versão para cada lado da rua (norte, sul, leste, oeste)**; prédio raro pode ter só 1 ou 2 lados.
+
+**Como fazer as versões sem redesenhar:** no BuildingEd, menu **Building → girar (rotate) / espelhar (mirror)**. Paredes, portas, janelas, escada e móveis colocados pelas ferramentas giram junto e ficam certos (cada móvel tem um desenho para cada direção). O que foi **pintado à mão no Tile Mode** mantém o mesmo desenho e pode ficar virado errado: confira esses itens depois de girar (placas, letreiros, peças de parede pintadas, móvel que não tem as 4 direções). Salve cada versão com o lado no nome: `casa_laje_01_S.tbx`, `casa_laje_01_N.tbx`, `casa_laje_01_E.tbx`, `casa_laje_01_W.tbx` (o lado é onde fica a rua, a porta da frente).
+
+**Cores e acabamentos ficam comigo:** você faz uma planta e eu gero as variações de cor da fachada (trocando as peças de parede no arquivo, como fiz no hotel), para a rua não ficar com casas todas iguais.
+
+| # | Construção | Plantas diferentes (ideal) | Lados |
+|---|---|---|---|
+| 1 | Casa de laje térrea | **5 a 6**: pequena (7×9), média (9×11), com garagem, sobrado de 2 andares, com "puxadinho" na laje, de esquina | 4 lados cada |
+| 2 | Sobrado de rua comercial | 3 (loja estreita, loja larga, duas lojas embaixo) | 4 |
+| 3 | Prédio de bairro (só o térreo: portaria e lojas) | 2 a 3 | 4 |
+| 4 | Botequim de esquina | 2 a 3 | 4 |
+| 5 | Padaria | 2 | 4 |
+| 6 | Farmácia de rede | 2 | 4 |
+| 7 | Prédio de orla (térreo com lojas) | 2 | 4 (a orla muda de direção ao longo da praia) |
+| 8 | Quiosque de praia | 1 a 2 | 2 (virado para a areia) |
+| 9 | CIEP | **1** (na vida real são todos iguais) | 4 |
+| 10 | Delegacia (DP) | 1 a 2 (já temos cópias do jogo original) | 4 |
+| 11 | Quartel do Corpo de Bombeiros | 1 | 4 |
+| 12 | UPA 24h | **1** (projeto padrão do governo) | 4 |
+| 13 | Igreja / templo evangélico | 2 a 3 | 4 |
+| 14 | Casarão antigo | 2 | 2 a 4 |
+| 15 | Casa de favela | 4 a 6 bem pequenas | 4 |
+
+Somando: cerca de 35 plantas, cada uma com até 4 lados (os lados saem pelo giro, não precisam ser desenhados de novo). Comece pela casa de laje: com 2 plantas nos 4 lados já dá para testar no gerador.
+
 Mais tarde (não urgente): banca de jornal, orelhão e ponto de ônibus (calçadões vazios, U15), posto de gasolina brasileiro, supermercado de rede, feira livre, estação de trem (SuperVia), lojas do Saara.
 
 ## 4. Fotos de referência reais (Wikimedia Commons, fotos livres)
