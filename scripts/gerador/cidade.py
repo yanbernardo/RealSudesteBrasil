@@ -909,6 +909,8 @@ COPIAS = {"chemist": ("W", 21, 16), "pharmacy": ("W", 21, 16), "weapons": ("W", 
 # comprimento (o KnoxMap apara o lote onde encosta em rua, K36).
 COPIAS_ESP = {"police": [("E", 29, 14), ("S", 28, 23), ("N", 28, 21), ("W", 25, 36)],
               "fire": [("S", 26, 20)]}
+PRACA_MIN = 30              # tiles²: sobra da orla menor que isto fica de grama
+PARQUE_MIN = 250           # tiles²: sobra maior que isto vira parque (menor: praça calçada)
 VAO_COPIA = 3              # tiles livres em volta de uma cópia (a delegacia colada no vizinho virava um prédio só)
 
 
@@ -1187,6 +1189,36 @@ def lotes(livre, corredor, ruas, bairro_de, kit, lojas, especiais, rnd, orla=Non
                         usados.add(idx)
                     registrar(kind, lote, tags, andares, {"loja": "lojas", "predio": "predios", "casa": "casas"}[tipo])
                     break
+        if mix.get("sem_casas"):
+            # U37: 3ª passada da orla (usuário, 08/11/2026: "continuar preenchendo
+            # com prédios"): nos cantos onde nada coube, prédio estreito ("palito",
+            # comum em Copacabana) e, se nem ele couber, lojinha de rua. Nada que já
+            # está no quarteirão sai.
+            for lado in ("N", "S", "W", "E"):
+                for r, c in B.frentes(lado):
+                    if B.occ[r, c]:
+                        continue
+                    for fr, fu, tipo, kind, andares in (
+                            (7, 8, "predio", "apartments", rnd.randint(*mix["andares"])),
+                            (6, 7, "predio", "apartments", rnd.randint(6, 10)),
+                            (6, 6, "loja", rnd.choice(("cafe", "restaurant", "shop")), 1),
+                            (5, 5, "loja", "cafe", 1)):
+                        ret = B.encaixe(lado, r, c, fr, fu)
+                        if ret:
+                            B.ocupar(*ret)
+                            registrar(kind, B.caixa(*ret), None, andares,
+                                      {"predio": "predios", "loja": "lojas"}[tipo])
+                            resumo["orla_3a_passada"] = resumo.get("orla_3a_passada", 0) + 1
+                            break
+            # O que sobrar (cantos em triângulo entre a avenida diagonal e as ruas
+            # retas) vira praça calçada; sobra grande vira parque.
+            rs, cs = np.nonzero(B.M & ~B.occ)
+            if len(rs):
+                sobra = unary_union([box(B.x0 + c, B.y0 + r, B.x0 + c + 1, B.y0 + r + 1) for r, c in zip(rs, cs)])
+                for g in poligonos(sobra.buffer(-0.5).buffer(0.5)):
+                    if g.area >= PRACA_MIN:
+                        out.append(("plaza" if g.area < PARQUE_MIN else "park", g, None))
+                        resumo["pracas_orla"] = resumo.get("pracas_orla", 0) + 1
     resumo["quarteiroes"] = len(quarteiroes)
     por_q = [0] * len(quarteiroes)
     for kind, g, _t in out:
@@ -1215,7 +1247,9 @@ def figura(caminho, mold, camadas, ruas, lotes_):
                 d.polygon(px(b.coords), fill=(70, 110, 60))
     for kind, l in ruas:
         d.line(px(l.coords), fill=(60, 60, 60), width={"primary": 9, "secondary": 7}.get(kind, 5))
-    cl = {"house": (200, 120, 90), "apartments": (150, 90, 160), "shop": (230, 160, 40)}
+    cl = {"house": (200, 120, 90), "apartments": (150, 90, 160), "shop": (230, 160, 40),
+          "restaurant": (230, 160, 40), "cafe": (230, 160, 40), "pub": (230, 160, 40),
+          "plaza": (185, 185, 175), "park": (110, 160, 80)}
     for kind, g, _t in lotes_:
         if g.geom_type == "Polygon":
             # -1: o PIL pinta a última linha também, e o vão de 1 tile entre lotes sumia
