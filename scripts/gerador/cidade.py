@@ -762,7 +762,7 @@ class Quarteirao:
         return [(int(rs[i]), int(cs[i])) for i in ordem]
 
 
-def lotes(livre, corredor, ruas, bairro_de, kit, lojas, especiais, rnd):
+def lotes(livre, corredor, ruas, bairro_de, kit, lojas, especiais, semente):
     """Lotes encostados nas ruas, contornando cada quarteirão (frente para a rua
     de cima, de baixo e dos lados), com 1 tile de vão entre eles; o miolo fica
     de quintal. Serviços especiais primeiro, perto do lugar real."""
@@ -834,6 +834,9 @@ def lotes(livre, corredor, ruas, bairro_de, kit, lojas, especiais, rnd):
     #    prédios, pela mistura do bairro (o lote grande raramente cabe no primeiro
     #    tile tentado, e a casa pegava o lugar); depois as casas no que sobrou.
     for k, (q, B) in enumerate(zip(quarteiroes, Q)):
+        # U26: sorteio próprio de cada quarteirão (semente pela posição dele),
+        # para uma mudança de rua não trocar os prédios do mapa todo.
+        rnd = random.Random(f"{semente}:{int(q.centroid.x)}:{int(q.centroid.y)}")
         mix = kit["mistura"].get(bairro_de(q.centroid), kit["mistura"]["misto"])
         pl, pp, _pc = mix["lote"]
         # Cota da 1ª passada: lotes que cabem no quarteirão (tiles de frente,
@@ -997,7 +1000,7 @@ def main() -> int:
         return tipo_de_nome.get(nomes_l[int(arv_b.nearest(p))], "misto")
 
     lojas, especiais = pontos_reais(dados, kit, recorte_ll)
-    lotes_, resumo = lotes(livre, corredor, ruas, bairro_de, kit, lojas, especiais, rnd)
+    lotes_, resumo = lotes(livre, corredor, ruas, bairro_de, kit, lojas, especiais, semente)
 
     feats = []
     for p in poligonos(mar.simplify(0.5)):
