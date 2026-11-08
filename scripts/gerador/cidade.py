@@ -971,6 +971,38 @@ def lotes(livre, corredor, ruas, bairro_de, kit, lojas, especiais, rnd):
         else:
             resumo["especiais"][chave] = resumo["especiais"].get(chave, 0) + 1
 
+    # 0) Prédios-marco desenhados (kit "predios_marco", ex.: o hotel inspirado no
+    #    Copacabana Palace): no quarteirão mais perto do lugar real, com a rua do lado
+    #    de uma das frentes que o prédio tem (a cópia não gira).
+    resumo["marcos"] = {}
+    for m in kit.get("predios_marco", []):
+        p = Point(grade.latlon_para_tile(m["lat"], m["lon"]))
+        cand = []
+        for k in centros.query(p.buffer(m.get("raio", 60))):     # perto do lugar real, não no bairro vizinho
+            B = Q[k]
+            for lado in m["frentes"]:
+                cand += [(math.dist((B.x0 + c, B.y0 + r), (p.x, p.y)), int(k), lado, r, c) for r, c in B.frentes(lado)]
+        resumo["marcos"][m["nome"]] = None
+        if m.get("sondar"):     # só para achar o maior prédio que cabe ali (ajuste do kit)
+            caber = {}
+            for lado in m["frentes"]:
+                for fr in range(50, 15, -2):
+                    for fu in (18, 16, 14):
+                        if any(Q[k].encaixe(lado, r, c, fr, fu) for _d, k, ld, r, c in cand if ld == lado):
+                            caber.setdefault(lado, []).append((fr, fu))
+                            break
+            print("marco", m["nome"], "cabe (frente, fundo):", {l: v[:4] for l, v in caber.items()}, flush=True)
+        for _d, k, lado, r, c in sorted(cand):
+            fr, fu = m["frentes"][lado]
+            ret = Q[k].encaixe(lado, r, c, fr, fu)
+            if ret:
+                Q[k].ocupar(*ret, vao=VAO_COPIA)
+                registrar(m.get("tipo", "hotel"), Q[k].caixa(*ret),
+                          {"rsb_copia": m["chave"], "rsb_frente": lado, "name": m["nome"],
+                           **({"rsb_legenda": m["legenda"]} if m.get("legenda") else {})}, m["andares"], "marco")
+                resumo["marcos"][m["nome"]] = [lado, [round(v) for v in Q[k].caixa(*ret).bounds]]
+                break
+
     # 1) Serviços especiais, no quarteirão mais perto do ponto real. Mesmo tipo
     #    (escola e faculdade, hospital e clínica) conta junto, e dois serviços
     #    quaisquer ficam a ESPECIAL_ENTRE tiles: em Copacabana, hospital, delegacia
@@ -1268,7 +1300,7 @@ def main() -> int:
         "settings": {"align_streets": 0, "straight_roads": 2, "forest_density": 0.3, "tree_density": 0.45,
                      "spawn_density": int(kit.get("teto_zumbis", 7)),
                      "max_levels": int(kit.get("andares_max", 6))},
-        "extraTags": ["shop", "amenity", "lanes", "width", "name", "rsb_copia"],
+        "extraTags": ["shop", "amenity", "lanes", "width", "name", "rsb_copia", "rsb_frente"],
         "kitLojas": "kits/lojas",
         "sketch": {"type": "FeatureCollection", "features": feats},
         # Praia: zonas "Beach" fixas na areia (U18); mata e lago, escolhidas pelo script

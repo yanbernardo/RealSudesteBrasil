@@ -39,5 +39,6 @@
   }
  },
   "police": {"vanilla": {"arquivo": "vanilla/delegacia_9_54_entorno.tbx", "frente": "E", "origem": "Knox County, celula 9_54, predio 40 (delegacia pequena: policeoffice, policegunstorage, prisoncells; 11 x 13)"}},
-  "fire": {"vanilla": {"arquivo": "vanilla/quartel_23_20.tbx", "frente": "S", "origem": "Knox County, celula 23_20, predio 51 (quartel de Louisville: firegarage, firestorage, alojamento, academia; 26 x 20, portoes da garagem ao sul)"}}
+  "fire": {"vanilla": {"arquivo": "vanilla/quartel_23_20.tbx", "frente": "S", "origem": "Knox County, celula 23_20, predio 51 (quartel de Louisville: firegarage, firestorage, alojamento, academia; 26 x 20, portoes da garagem ao sul)"}},
+  "hotel_atlantida": {"vanilla": [{"arquivo": "../marcos/hotel_atlantida_E.tbx", "frente": "E"}, {"arquivo": "../marcos/hotel_atlantida_S.tbx", "frente": "S"}], "origem": "Desenhado (scripts/gerador/predio_desenhado.py, kits/marcos/hotel_atlantida.json): inspirado no Copacabana Palace, nome ficticio"}
 }

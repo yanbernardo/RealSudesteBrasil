@@ -48,7 +48,8 @@ def main() -> int:
     # worldmap.xml de Muldraugh: delegacias 9_54 e 7_23, quartéis 23_20 e 47_27).
     from knoxbuild import worldmap as _wm
     _wm.BUILDING_VALUE.update({"police": "CommunityServices", "fire": "CommunityServices",
-                               "garage": "Industrial", "fuel": "RetailAndCommercial"})
+                               "garage": "Industrial", "fuel": "RetailAndCommercial",
+                               "hotel": "Hospitality"})
     # Farmácia é "Medical" no original (RoomTone Pharmacy), mas para o KnoxMap é uma
     # loja ("shop"), e o mapa só recebe o tipo e o contorno de cada prédio (o nome,
     # só de prédio "notável"). As farmácias são achadas pela posição: o prédio que
@@ -64,8 +65,15 @@ def main() -> int:
     def _mapa_com_legenda(out_dir, map_name, proj, info, buildings):
         from shapely.geometry import Point, Polygon
         pontos = [Point(proj.to_px(lat, lon)) for lat, lon in _farmacias]
+        # prédio-marco com legenda própria (ex.: hotel desenhado como "townhall" para
+        # o KnoxMap não dividir): pelo nome, que ele guarda por ser prédio público
+        legenda = {(f.get("properties", {}).get("tags") or {}).get("name"): (f.get("properties", {}).get("tags") or {}).get("rsb_legenda")
+                   for f in cfg.get("sketch", {}).get("features", [])
+                   if (f.get("properties", {}).get("tags") or {}).get("rsb_legenda")}
         novos = []
         for px, kind, nome in buildings:
+            if nome in legenda:
+                kind = legenda[nome]
             if kind == "shop" and len(px) >= 3 and any(Polygon(px).buffer(0.5).contains(q) for q in pontos):
                 kind = "medical"
             novos.append((px, kind, nome))

@@ -147,10 +147,11 @@ def instalar_plantas(kit: Path) -> dict[str, str]:
     for shop, cfg in _ler(kit / "lojas.json").items():
         if shop.startswith("_") or "vanilla" not in cfg:
             continue
-        v = cfg["vanilla"]
-        nome = "RSB Vanilla " + Path(v["arquivo"]).stem
-        P.save(knoxpaths.BASE_DIR, nome, (kit / v["arquivo"]).read_text(encoding="utf-8"), kind="shop")
-        out[f"vanilla:{shop}:{v['frente']}"] = nome
+        # uma cópia ou uma lista delas, cada uma virada para um lado (prédio-marco)
+        for v in (cfg["vanilla"] if isinstance(cfg["vanilla"], list) else [cfg["vanilla"]]):
+            nome = "RSB Vanilla " + Path(v["arquivo"]).stem
+            P.save(knoxpaths.BASE_DIR, nome, (kit / v["arquivo"]).read_text(encoding="utf-8"), kind="shop")
+            out[f"vanilla:{shop}:{v['frente']}"] = nome
     return out
 
 
@@ -192,7 +193,9 @@ def zonas(sketch: dict, kit: Path, presets: dict[str, str]) -> list[dict]:
             continue
         anel = f["geometry"]["coordinates"][0]
         lado = _lado_da_rua(anel, ruas)
-        if tags.get("rsb_copia") and mapa[shop].get("vanilla"):
+        if tags.get("rsb_frente"):
+            lado = tags["rsb_frente"]       # o gerador já escolheu a versão pelo lado da rua
+        elif tags.get("rsb_copia") and isinstance(mapa[shop].get("vanilla"), dict):
             # o gerador já escolheu o lote pela rua do lado da frente da cópia; o lote
             # fundo (25 tiles) faz a "rua mais perto do centro" mudar (quartel, U22)
             lado = mapa[shop]["vanilla"]["frente"]
