@@ -429,6 +429,7 @@ Construção especial e rara nas favelas do RJ, para dar história e um bom pont
   - ✔ **Ruas da orla de Copacabana (escolha do usuário depois do 2º teste; Opus):** na faixa atrás da praia só fica a família de ruas da grade que atravessa a faixa, escolhida trecho a trecho pela costa (`"ruas_orla"` no kit), rua no miolo a partir de 16 tiles, `PARALELA_GRADE` 30 e prédios da orla largos (14–20 tiles de frente, 10–14 andares). Resultado: fileira de prédios altos de frente para a Atlântica (`saida/rio_piloto/vista_orla.png`); mapa com 381 prédios. Limite: a faixa de Copacabana tem ~13 mil tiles² a 1:15 (cabem ~30 prédios). Ideia do usuário para depois: guarda-sóis e quiosques na areia (Kit Brasil).
   - ✔ **Ruas "vazando" para a praia (U25, notado pelo usuário na figura):** acabamento de cruzamento do KnoxMap; limpo por `scripts/gerador/limpar_orla.py` depois de gerar (a areia volta além da pista da avenida da orla) e pontas de rua < 12 tiles cortadas. Mapa reinstalado e conferido (`saida/rio_piloto/vista_orla.png`). Prédios mudam entre versões porque os sorteios se deslocam (U26; ideia: sorteio por quarteirão).
   - ✔ **Quartel e delegacia copiados do jogo original (U22, 08/11/2026):** 3 delegacias e 1 quartel do Rio piloto são cópias (`kits/lojas/vanilla/`, `COPIAS_ESP`); os outros quartéis, sem espaço, ficam genéricos. Falta conferir em jogo a direção da porta.
+  - ✔ **Pedidos do usuário (08/11/2026):** (1) grupo TESTE no menu de teleporte debug para cada local novo a testar (sai quando ele der o OK); (2) ruas soltas (túnel) ligadas à rede mais perto por `ligar_ilhas` (U28); **túnel de concreto fica como acabamento final**; (3) ruas que acabam em morro: levar a rua até o fim real e usar o **Terrain Relief do Viewpoint** (Etapa 2.7); lembrar o usuário disso sempre que o assunto voltar (U27); (4) lag ao teleportar no notebook (U29): sandbox com pouco loot/zumbi nos testes e `-Xmx4096m`.
   - **Próximos passos:** conferir em jogo as ruas da orla, a areia limpa e a mata com clareiras; copiar quartel e delegacia do mapa original (U22, como D-38); praias de Botafogo, Flamengo e Vermelha; (c) calçada em degraus nas avenidas diagonais e cruzamentos remendados (K15/U20, confirmado em jogo); zonas de estrada nas diagonais; teste em jogo do usuário (isométrico): só o mod `rsb_rio_piloto` ativo (J3), jogo novo, e conferir o menu de teleporte no modo debug (D-39); depois, D-37 (assinatura do KnoxMap uma vez só).
 - Ferramentas de estudo usadas (fora do Git, refazer se precisar): leitura das peças de rua do mapa original com `tools/render_lots.py` (`read_header`/`read_squares`) nas células 41–43 × 36–41 de `media/maps/Muldraugh, KY`; meio-fio diagonal em 41_36 perto de (102, 114).
 
@@ -457,6 +458,8 @@ Construção especial e rara nas favelas do RJ, para dar história e um bom pont
 **Pronto quando:** o RJ inteiro carregar, for jogável e a beta estiver publicada.
 
 ### Etapa 5: Kit Brasil (tiles novas + 3D)
+
+- **Lembrete (U28, 08/11/2026):** fazer o túnel de concreto nas ruas hoje ligadas por `ligar_ilhas` (Túnel Zuzu Angel e semelhantes).
 
 Pode começar logo depois da beta; cada melhoria sai como atualização.
 

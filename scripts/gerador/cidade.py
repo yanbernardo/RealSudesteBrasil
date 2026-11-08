@@ -535,6 +535,66 @@ def ligar_tocos(aceitas, outras, terra):
     return out
 
 
+LIGAR_ILHA = 150           # tiles: ilha de ruas solta (ex.: túnel pela mata, U28) liga à rede até esta distância
+
+
+def ligar_ilhas(linhas, terra, recorte, relatorio):
+    """Rede de ruas em pedaços soltos (U28: o túnel real passa por baixo do morro e o
+    trecho que sobra na mata não encontra as outras ruas): cada pedaço pequeno ganha
+    uma rua reta até o ponto mais perto da rede maior, sem cruzar água. Ponta na
+    borda do recorte não conta (a rua continua fora do pedaço). Ligação provisória;
+    o túnel de concreto de verdade fica para o acabamento final (plano, Etapa 5)."""
+    n = len(linhas)
+    arvore = STRtree(linhas)
+    pai = list(range(n))
+
+    def raiz(i):
+        while pai[i] != i:
+            pai[i] = pai[pai[i]]
+            i = pai[i]
+        return i
+
+    for i, l in enumerate(linhas):
+        for j in arvore.query(l.buffer(0.6)):
+            if j != i and linhas[j].distance(l) < 0.6:
+                pai[raiz(int(j))] = raiz(i)
+    comps = {}
+    for i in range(n):
+        comps.setdefault(raiz(i), []).append(i)
+    if len(comps) < 2:
+        return []
+    comp_len = {r: sum(linhas[i].length for i in m) for r, m in comps.items()}
+    principal = max(comp_len, key=comp_len.get)
+    seca = terra.buffer(1.0)
+    shapely.prepare(seca)
+    borda = recorte.exterior
+    novas = []
+    for r in sorted(comps, key=lambda r: -comp_len[r]):
+        if r == principal:
+            continue
+        pontas = [Point(l.coords[k]) for i in comps[r] for l in [linhas[i]] for k in (0, -1)]
+        pontas = [p for p in pontas if p.distance(borda) > TOCO_BORDA]
+        if not pontas:
+            relatorio.append(("na borda", round(comp_len[r])))
+            continue
+        melhor = None
+        for p in pontas:
+            for j in comps[principal]:
+                d = linhas[j].distance(p)
+                if d < LIGAR_ILHA and (melhor is None or d < melhor[0]):
+                    q = linhas[j].interpolate(linhas[j].project(p))
+                    if seca.contains(LineString([p, q])):
+                        melhor = (d, p, q)
+        if melhor is None:
+            relatorio.append(("sem ligacao", round(comp_len[r])))
+            continue
+        _d, p, q = melhor
+        novas.append(LineString([(p.x, p.y), (q.x, q.y)]))
+        relatorio.append(("ligada", round(comp_len[r]), round(_d)))
+        comps[principal] += comps[r]          # já faz parte da rede principal
+    return novas
+
+
 def aparar_tocos(ruas, tipos, n_av, recorte):
     """Avenida com ponta solta no meio da cidade (sobra do filtro de paralelas:
     o resto dela foi descartado) volta até o último cruzamento; sem cruzamento,
@@ -995,6 +1055,10 @@ def main() -> int:
     miolo = ruas_no_miolo(area_urb.difference(lagoas), aceitas + infill, len(aceitas), orlas=orla_regs)
     infill += miolo
     aceitas = ligar_tocos(aceitas, infill, terra)
+    relatorio_ilhas = []
+    ilhas = ligar_ilhas(aceitas + infill, terra, recorte, relatorio_ilhas)
+    infill += ilhas
+    print("ilhas de ruas:", relatorio_ilhas, flush=True)
     ruas = com_cruzamentos(aceitas + infill)
     tipos = info + [("residential", 6, "")] * len(infill)
     ruas, tipos, n_av, tocos = aparar_tocos(ruas, tipos, len(aceitas), recorte)
