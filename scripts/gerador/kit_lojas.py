@@ -187,7 +187,7 @@ def zonas(sketch: dict, kit: Path, presets: dict[str, str]) -> list[dict]:
     for f in feats:
         p = f.get("properties", {})
         tags = p.get("tags") or {}
-        shop = tags.get("shop")
+        shop = tags.get("shop") or tags.get("rsb_copia")   # serviços especiais (polícia, bombeiros) usam rsb_copia
         if shop not in mapa or f["geometry"]["type"] != "Polygon":
             continue
         anel = f["geometry"]["coordinates"][0]

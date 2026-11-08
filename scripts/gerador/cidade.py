@@ -686,6 +686,9 @@ LADOS = {"N": (0, -1), "S": (0, 1), "W": (-1, 0), "E": (1, 0)}
 # que o prédio (frente x fundo, em tiles). As outras lojas cabem em qualquer lado.
 COPIAS = {"chemist": ("W", 21, 16), "pharmacy": ("W", 21, 16), "weapons": ("W", 15, 15),
           "convenience": ("S", 13, 16), "greengrocer": ("S", 13, 16)}
+# Serviços especiais com cópia do mapa original (U22): tipo -> (lado da rua, frente, fundo).
+# Se a cópia não couber no quarteirão, o serviço sai no tamanho do ESPECIAIS (gerador do KnoxMap).
+COPIAS_ESP = {"police": ("S", 14, 16), "fire": ("S", 16, 25)}
 
 
 class Quarteirao:
@@ -817,14 +820,24 @@ def lotes(livre, corredor, ruas, bairro_de, kit, lojas, especiais, rnd):
                 cand = [(math.dist((B.x0 + c, B.y0 + r), (p.x, p.y)), lado, r, c)
                         for lado in LADOS for r, c in B.frentes(lado)]
                 for _d, lado, r, c in sorted(cand):
-                    ret = B.encaixe(lado, r, c, w, d)
+                    copia = COPIAS_ESP.get(tipo)
+                    ret = lote = None
+                    if copia and copia[0] == lado:
+                        ret = B.encaixe(lado, r, c, copia[1], copia[2])
+                        if ret and rua_mais_perto(B.caixa(*ret)) != lado:
+                            ret = None            # K32: a cópia só vale se esta rua for a mais perto
+                        if ret:
+                            resumo["copias"][tipo] = resumo["copias"].get(tipo, 0) + 1
+                    if not ret:
+                        copia = None
+                        ret = B.encaixe(lado, r, c, w, d)
                     if ret:
                         B.ocupar(*ret)
                         lote = B.caixa(*ret)
                         if tipo == "fuel":
                             registrar("shop", lote, {"name": "Posto"}, 1, "posto")
                         else:
-                            registrar(tipo, lote, None, 1, tipo)
+                            registrar(tipo, lote, {"rsb_copia": tipo} if copia else None, 1, tipo)
                         feito = True
                         break
                 if feito:
@@ -1036,7 +1049,7 @@ def main() -> int:
         "settings": {"align_streets": 0, "straight_roads": 2, "forest_density": 0.3, "tree_density": 0.45,
                      "spawn_density": int(kit.get("teto_zumbis", 7)),
                      "max_levels": int(kit.get("andares_max", 6))},
-        "extraTags": ["shop", "amenity", "lanes", "width", "name"],
+        "extraTags": ["shop", "amenity", "lanes", "width", "name", "rsb_copia"],
         "kitLojas": "kits/lojas",
         "sketch": {"type": "FeatureCollection", "features": feats},
         # Praia: zonas "Beach" fixas na areia (U18); mata e lago, escolhidas pelo script
