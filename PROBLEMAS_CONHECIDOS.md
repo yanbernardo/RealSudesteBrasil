@@ -59,6 +59,13 @@ Status: **Resolvido** (já está evitado no fluxo), **Contornado** (há um jeito
 | K34 | A cópia de prédio do mapa original foi gravada dentro da pasta do KnoxMap e o pipeline não a achou | `copiar_predio_vanilla.py` muda de pasta (para a do KnoxMap) antes de gravar; caminho relativo de saída ia para lá | O script guarda a pasta de origem e grava o caminho de saída a partir dela | Resolvido |
 | K9 | Baixar um bairro pela Overpass leva ~10 min | Internet móvel e servidores públicos lentos | Paciência, ou usar o extrato no PC potente. O KnoxMap guarda o que baixou: gerar a mesma área de novo não baixa outra vez. | Contornado |
 
+## Dados e grade
+
+| # | Problema | Causa | Como evitar / resolver | Status |
+|---|---|---|---|---|
+| G1 | A projeção do plano antigo (EPSG:5880) giraria o Rio 4,2° e esticaria o norte–sul em 1,5% (achado antes de gerar, 08/11/2026) | A EPSG:5880 tem o meridiano central em 54° W (MS), longe do Sudeste; o giro cresce com a distância desse meridiano | D-02: policônica centrada em 45° W. **Toda conversão lat/lon → tile passa por `scripts/grade.py`**; nunca projetar dados com a EPSG:5880 ou outra projeção por conta própria | Resolvido |
+| G2 | `pyproj`/`shapely` "não encontrado" no Python 3.12 do sistema | Essas bibliotecas só estão instaladas no `.venv` do KnoxMap | Rodar os scripts de dados com `ferramentas/knoxmap-1.8.5.2/.venv/Scripts/python.exe` | Contornado |
+
 ## Achados no jogo: teste da Urca (T1, 07/11/2026, jogo 42.21, 2 m/tile, prédios reais do OSM)
 
 Na coluna "Onde se resolve": **Gerador** = nosso gerador de cidades a 1:15 (T7c/Etapa 2); **Kit Brasil** = tiles novas (Etapa 5); **Ajuste** = opção do KnoxMap ou do nosso processo; **Investigar** = causa ainda desconhecida.

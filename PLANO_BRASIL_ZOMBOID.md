@@ -16,7 +16,7 @@ Criado em 05/11/2026 (planejamento feito pelo celular). Última atualização: 0
 
 - **Fase:** planejamento encerrado em 05/11/2026 → próxima: Etapa 0 (fundação e testes técnicos).
 - **Lançamento (D-33):** RJ primeiro (beta pública só com o RJ, fim da Etapa 4); depois SP, MG e ES entram como atualizações do mesmo mod (Etapa 7).
-- **Próxima ação (atualizada em 08/11/2026, fim da noite):** Etapa 0.2 quase fechada. Passaram T1, T2, T4, T7/T7c e **T8** (catálogo, loot de loja, D-38, histórias de casa/estrada/zona em jogo, viagem de rodovia: combustível não aperta a 1:15, D-35 decidido só como sabor). T9 respondido (curvas nossas, K15). **Faltam:** T5 (Viewpoint: (a) prédios gerados em 3D, (b) tile nova com 3D, (c) Cristo), T6 (tamanho e desempenho, PC potente) e T3 (só se o T6 pedir); confirmar D-13 (KnoxMap como montador do nosso gerador) e, com o T6, D-11; D-02 fecha na Etapa 1. **Sugestão de próximo passo no notebook:** T5a, teste pequeno do Viewpoint com o mapa do T8c (ver em 3D os prédios gerados, as lojas copiadas e os carros); depois começar a Etapa 1 (grade e dados leves) enquanto o T6 espera o PC potente. O teste da Dutra (T8d) está pausado pelo usuário. **Escolha do usuário (08/11/2026, fim da sessão): começar já a Etapa 1**; T5a, D-13 e T6 ficam pendentes da Etapa 0 (não bloqueiam a Etapa 1, que é só dados). Trabalho da sessão juntado ao `main`. O projeto vive em `C:\Users\yanbe\Zomboid\RealSudesteBrasil\`.
+- **Próxima ação (atualizada em 08/11/2026, fim da noite):** Etapa 0.2 quase fechada. Passaram T1, T2, T4, T7/T7c e **T8** (catálogo, loot de loja, D-38, histórias de casa/estrada/zona em jogo, viagem de rodovia: combustível não aperta a 1:15, D-35 decidido só como sabor). T9 respondido (curvas nossas, K15). **Faltam:** T5 (Viewpoint: (a) prédios gerados em 3D, (b) tile nova com 3D, (c) Cristo), T6 (tamanho e desempenho, PC potente) e T3 (só se o T6 pedir); confirmar D-13 (KnoxMap como montador do nosso gerador) e, com o T6, D-11; D-02 fecha na Etapa 1. **Sugestão de próximo passo no notebook:** T5a, teste pequeno do Viewpoint com o mapa do T8c (ver em 3D os prédios gerados, as lojas copiadas e os carros); depois começar a Etapa 1 (grade e dados leves) enquanto o T6 espera o PC potente. O teste da Dutra (T8d) está pausado pelo usuário. **Escolha do usuário (08/11/2026, fim da sessão): começar já a Etapa 1**; T5a, D-13 e T6 ficam pendentes da Etapa 0 (não bloqueiam a Etapa 1, que é só dados). Trabalho da sessão juntado ao `main`. **Etapa 1 começou (08/11/2026):** D-02 decidido (policônica centrada em 45° W; origem na seção 6; `scripts/grade.py`) e lista de dados do RJ com tamanhos (Etapa 1, "Andamento"). **Próximo:** com a autorização do usuário (~70–85 MB), baixar os dados 1–5 e montar o mapa-guia do RJ e a 1ª versão das regras de localidades (D-22). O projeto vive em `C:\Users\yanbe\Zomboid\RealSudesteBrasil\`.
 - **Ambiente atual (07/11/2026):** estamos no **notebook Acer Nitro V15** (8 GB de RAM, RTX 3050), **não no PC potente** (Ryzen 7 5700X3D, RTX 5060 Ti 16 GB, 32 GB de RAM, NVMe de 2 TB). Aqui só se adianta o que é leve: preparar ferramentas e dados, documentos, modelos pelo Tripo (na nuvem), testes minúsculos (T1 e T7 num bairro) e, no jogo, **testar só a visão isométrica por enquanto** (o 3D do Viewpoint e o T6 podem não rodar bem). Gerar e compilar o RJ inteiro, rodar mapa grande no jogo e IA 3D local ficam para o PC potente. A pasta do projeto está na Área de Trabalho do notebook; para levar ao PC potente, usar o Git (0.1) ou copiar a pasta.
 - **Pendente do usuário:** nada que bloqueie a Etapa 0. Todas as perguntas do planejamento foram respondidas (a P7, sobre o hardware, Claude verifica na Etapa 0).
 - **Ainda PROPOSTO (aguardam confirmação ou teste):** D-30 (Pão de Açúcar visitável) e a escolha da altura do relevo, 1:10 ou 1:15 (D-26/D-27), saem depois de ver em jogo, na Etapa 2.7; D-32 (tiles e modelos de drogas decorativos) depende de conferir as regras de conteúdo da Workshop antes de implementar; D-34 (atualização que muda o mapa pede save novo) o usuário confirma antes da beta pública. (D-35 foi decidido em 08/11/2026: níveis de recursos só como sabor, sem trava.)
@@ -137,7 +137,7 @@ O retângulo que envolve o Sudeste dá ~7.700 km² no jogo, contando mar e parte
 | ID | Decisão | Status | Motivo / observação |
 |---|---|---|---|
 | D-01 | Escala **1:15** (1 tile = 15 m), só para o Sudeste | DECIDIDO | Escolha do usuário em 06/11/2026 (antes: 1:20 para o Brasil inteiro). Mudar depois = refazer tudo. Ver risco R1. Se o usuário quiser mais detalhe só no RJ, dá para fazer uma versão 1:10 do RJ à parte (ideia futura, não decidida). |
-| D-02 | Grade fixa: projeção SIRGAS 2000 / Brazil Polyconic (EPSG:5880), norte para cima, origem cobrindo o Sudeste | PROPOSTO | Escopo só do Sudeste (D-01). A origem exata sai do teste T2. |
+| D-02 | Grade fixa: SIRGAS 2000, **policônica (a do IBGE) com o meridiano central em 45° W** (meio do Sudeste), norte para cima, origem no canto noroeste do Sudeste com folga. Números na seção 6; script `scripts/grade.py` | DECIDIDO | Escolha do usuário em 08/11/2026 (Etapa 1), depois de ver as implicações. A EPSG:5880 do plano antigo tem o centro em 54° W (MS): giraria o Rio 4,2° e Vitória 4,7° e esticaria o norte–sul em 1,5–2,8%. Centrada em 45° W: Rio 0,7°, SP 0,6°, BH 0,4°, Vitória 1,6°, erro de distância < 0,1% nas capitais. O T2 provou que o canto sudeste cabe. **Não mudar depois que o mapa começar a ser gerado** (tudo muda de lugar). |
 | D-03 | Cidades genéricas: contorno real em 1:15, preenchido com ruas e prédios em escala de jogo, mais marcos feitos à parte | DECIDIDO | Igual ao Real USA. |
 | D-04 | Publicar na Workshop → só conteúdo nosso, de dados abertos ou com permissão; créditos corretos (OSM/ODbL etc.) | DECIDIDO | Por isso o Building Pool V3 (de terceiros) fica de fora sem permissão. |
 | D-05 | Cidade piloto: Rio de Janeiro | DECIDIDO | |
@@ -190,7 +190,14 @@ Camadas, de baixo para cima:
    célula = tile // 256
    ```
 
-   E0, N0 e os OFFSETs serão gravados aqui na Etapa 1.
+   **Valores fixos (D-02, gravados em 08/11/2026; script `scripts/grade.py`):**
+   - Projeção: `+proj=poly +lat_0=0 +lon_0=-45 +x_0=0 +y_0=0 +ellps=GRS80 +units=m` (SIRGAS 2000, policônica centrada em 45° W). Entrada em lat/lon SIRGAS 2000 (EPSG:4674; para o nosso uso, igual ao WGS84 do OSM).
+   - **E0 = −860.000 m** (26 km a oeste do Pontal do Paranapanema, ponto mais a oeste de SP).
+   - **N0 = −1.550.000 m** (24 km ao norte do ponto mais ao norte de MG).
+   - **OFFSET_X = 0, OFFSET_Y = 0.** 1 tile = 15 m; célula = 256 tiles. Para o KnoxMap, `"cell"` = tile // 300 (K16).
+   - Resultado: o Sudeste ocupa as células **6–369 (x) × 6–326 (y)**; no KnoxMap, até 315 × 278 (teto 400). As ilhas de Trindade e Martim Vaz (ES, ~1.100 km mar adentro) ficam fora.
+   - Pontos de conferência (`python scripts/grade.py --conferir`): Rio (Centro) tile 69.829 × 65.691 = célula 272 × 256; São Paulo (Sé) 46.216 × 70.430 = célula 180 × 275; BH 64.770 × 43.566 = célula 253 × 170; Vitória 89.963 × 46.949 = célula 351 × 183. Rio–SP em linha reta: ~24.080 tiles = 361 km (real ~357 km).
+   - Observação: a célula mais ao sul (Ilha do Cardoso, y 326) fica um pouco além da testada no T2 (y 319–321), mas bem abaixo do teto do KnoxMap (469); o RJ ocupa as células ~226–333 (x) × ~195–269 (y).
 3. **Macro:** costa, rios, lagos, rodovias, ferrovias e tipo de campo (pasto, cana, eucalipto, Mata Atlântica, cerrado).
 4. **Cidades:** contorno real + malha de jogo (ruas, quadras, lotes, prédios). O kit é trocável: começa com os prédios do jogo e depois ganha os brasileiros, só rodando o gerador de novo.
 5. **Marcos:** carimbos feitos à mão, cada um com versão 3D para o Viewpoint.
@@ -364,6 +371,24 @@ Construção especial e rara nas favelas do RJ, para dar história e um bom pont
 - Catálogo de células com conteúdo, separado por estado (para gerar o RJ primeiro e os outros depois).
 
 **Pronto quando:** o usuário aprovar o mapa-guia e as regras.
+
+**Andamento (08/11/2026, notebook):**
+- ✔ **Grade (D-02 decidido):** `scripts/grade.py` converte lat/lon ↔ tile, dá a célula do jogo e a do KnoxMap; ida e volta conferida. Origem na seção 6.
+- ✔ **Lista de dados do RJ (tamanhos conferidos no servidor, sem baixar):**
+
+| # | Dado | Para quê | Fonte | Tamanho | Quando |
+|---|---|---|---|---|---|
+| 1 | Malha municipal do RJ 2024 (contorno do estado e dos 92 municípios) | Contorno do estado, limites, nomes dos municípios | IBGE, `RJ_Municipios_2024.zip` | 5,1 MB | Agora |
+| 2 | Localidades 2022 (cidades, vilas, povoados, lugarejos, com coordenadas) | Lista de localidades para a regra D-22 | IBGE, `Localidades_Brasil_gpkg.zip` (Brasil todo; serve depois para SP, MG e ES) | 6,2 MB | Agora |
+| 3 | Áreas urbanizadas 2019 (manchas urbanas desenhadas sobre satélite) | Contornos urbanos (D-03) e tamanho de cada cidade | IBGE, `AreasUrbanizadas2019_Brasil.zip` (Brasil todo) | 37 MB | Agora |
+| 4 | População do Censo 2022 por município | Categoria das cidades e zumbis | IBGE (API SIDRA, tabela pequena) | < 0,2 MB | Agora |
+| 5 | OSM do RJ, só o que o mapa-guia usa: rodovias (25.552 trechos motorway/trunk/primary/secondary), rios (2.629), linha da costa (1.443) e nomes de lugares (3.370 pontos) | Costa, rios, rodovias, nomes; pousadas e cachoeiras (bônus turístico, D-22) | Overpass (contagem feita; consulta só do RJ) | ~20–35 MB (estimativa pela contagem) | Agora |
+| 6 | Relevo Copernicus GLO-90 (90 m por ponto ≈ 6 tiles) | Relevo visual (D-26/D-27) | AWS, ~12 blocos de 1° × 1° de ~5,5 MB | ~65 MB | Depois (só serve na Etapa 2.7; não entra no mapa-guia) |
+| 6b | Relevo Copernicus GLO-30 (30 m ≈ 2 tiles) | Idem, mais fino | AWS, ~12 blocos de ~46 MB | ~550 MB | Só no PC potente, se o 90 m não bastar |
+| 7 | Cobertura do solo (MapBiomas ou ESA WorldCover) | Tipo de campo (Etapa 3) | — | a medir | Depois (Etapa 3) |
+| — | Extrato OSM do Sudeste inteiro (Geofabrik) | Tudo do OSM | Geofabrik | 863 MB | Só no PC potente |
+
+  Total para o mapa-guia do RJ (itens 1–5): **~70–85 MB**. Espera a autorização do usuário (internet móvel).
 
 ### Etapa 2: Cidade piloto, Rio de Janeiro (ponta a ponta)
 
@@ -665,6 +690,11 @@ A **beta do RJ** (fim da Etapa 4) fica em ~37–73 sessões: cerca de 3 a 6 mese
   - **T8d corrigido no jogo (usuário):** o quarteirão da farmácia ficou grande demais para só a farmácia e 2 casas, e todo cimentado em volta. Causa: o gerador simples dos testes (quarteirão aumentado para caber a cópia da Pharmahug com a rua a oeste, com folga em volta) e o pátio de concreto que o KnoxMap põe em volta de lojas (K12). **Para o gerador da Etapa 2:** quarteirões densos, lote do tamanho de cada prédio (cópia original ou casa), lojas misturadas às casas e sem pátio de concreto onde não houver estacionamento de verdade.
   - **Ideia do usuário: estacionamento no lugar do concreto vazio.** Testado no T8d: área "parking" do KnoxMap ao lado da farmácia (ele põe vagas dentro, e o jogo põe carros nelas); o preenchimento de casas agora só pula o pedaço da loja que está na fileira da casa (a casa de trás da farmácia voltou). Conferido no compilado (`saida/rsb_t8d_dutra/farmacia_estacionamento.png`). Falta: entrada rebaixada ligando o estacionamento à rua e faixas pintadas das vagas (o KnoxMap não desenha). **Regra para o gerador (Etapa 2, junto com a P13):** comércio com sobra de terreno ganha estacionamento com vagas, ligado à rua, em vez de pátio de concreto (K12).
   - **Correção do usuário:** o estacionamento ficou solto no quarteirão (a 2 tiles da farmácia); a ideia é ser **o estacionamento da loja**, colado nela, como o do Gigamart do jogo original. **Regra do gerador (Etapa 2):** o estacionamento encosta na loja (de preferência na frente ou na lateral da frente), tem entrada pela rua da frente e fica no mesmo lote dela; a cópia original continua escolhida pela rua da frente (D-38). **O usuário pausou o teste da Dutra (T8d)** antes desta correção: o mapa instalado ainda tem o estacionamento solto; a regra vale para o gerador, não vale a pena refazer o teste agora.
+
+- **08/11/2026 (notebook) — Etapa 1 começou.**
+  - Conferido: o `main` tinha o commit "Fim da sessao: proximo passo Etapa 1"; trabalho no ramo `claude/etapa-1-sudeste-grid-c51de8`.
+  - **D-02 decidido (usuário):** comparadas três projeções (EPSG:5880, policônica centrada em 45° W, transversa de Mercator em 46,5° W). A EPSG:5880 giraria o Rio 4,2° e esticaria o norte–sul em 1,5% (Vitória: 4,7° e 2,8%); a policônica centrada em 45° W deixa as capitais com menos de 1° de giro (Vitória 1,6°) e erro de distância < 0,1%. O usuário pediu as implicações de cada opção e escolheu a centrada. Origem gravada na seção 6 (E0 = −860.000 m, N0 = −1.550.000 m, OFFSET 0): Sudeste nas células 6–369 × 6–326; o Rio (Centro) na célula 272 × 256. Script `scripts/grade.py` (ida e volta conferida; rodar com o Python do `.venv` do KnoxMap, que tem o `pyproj`).
+  - **Lista de dados do RJ** com tamanhos conferidos no servidor (tabela na Etapa 1): ~70–85 MB para o mapa-guia; relevo (~65 MB a 90 m) adiado para quando servir (Etapa 2.7); extrato do Sudeste (863 MB) só no PC potente. Espera autorização.
 
 ---
 
