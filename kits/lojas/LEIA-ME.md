@@ -24,4 +24,4 @@ Regras e limites:
     <python do KnoxMap> -I scripts/gerador/copiar_predio_vanilla.py <KnoxMap> listar pharmacy gunstore
     <python do KnoxMap> -I scripts/gerador/copiar_predio_vanilla.py <KnoxMap> copiar 46_26 32 "Nome" kits/lojas/vanilla/x.tbx
 
-Copiadas: farmácia "Pharmahug" (14 × 19, frente a oeste) e loja de armas (13 × 13, frente a oeste). Limites: a cópia não gira (precisa de uma loja original com a frente para cada lado, ou de uma tabela de tiles girados) e o terreno precisa ser maior que o prédio. O `.tbx` abre no BuildingEd, então o Kit Brasil pode redecorar a cópia.
+Copiadas: farmácia "Pharmahug" (14 × 19, frente a oeste), loja de armas (13 × 13, frente a oeste) e mercado de bairro (52_8, 11 × 14, frente ao sul; `shop=convenience`/`greengrocer`). Limites: a cópia não gira (precisa de uma loja original com a frente para cada lado, ou de uma tabela de tiles girados) e o terreno precisa ser maior que o prédio. O `.tbx` abre no BuildingEd, então o Kit Brasil pode redecorar a cópia.
