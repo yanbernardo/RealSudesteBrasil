@@ -57,7 +57,8 @@ def lotes_de_casas(q, rnd_semente, pular=None):
                     else box(x, qy1 - 1 - d, x + w, qy1 - 1))
             if pular is not None and lote.intersects(pular):
                 # pula a loja e continua do outro lado dela (casas em volta das lojas)
-                fim = max(g.bounds[2] for g in getattr(pular, "geoms", [pular]) if g.intersects(lote))
+                faixa = pular.intersection(box(qx0, lote.bounds[1], qx1, lote.bounds[3]))
+                fim = max(g.bounds[2] for g in getattr(faixa, "geoms", [faixa]) if g.intersects(lote))
                 x = max(x + 1, int(fim) + 1)
                 continue
             out.append((lote, rnd.choice((1, 1, 2))))
@@ -87,7 +88,11 @@ def vila(cx, cy, completa, proj, semente):
     if completa:
         lojas[(1, 0)] = [("shop", box(xs[1] + 8, ys[0] + 11, xs[1] + 28, ys[0] + 35),
                           {"shop": "chemist", "name": "Farmacia", "building:levels": "1"},
-                          box(xs[1] + 4, ys[0] + 4, xs[1] + 30, ys[0] + 40), "farmacia (Pharmahug, rua a oeste)")]
+                          box(xs[1] + 4, ys[0] + 4, xs[1] + 30, ys[0] + 40), "farmacia (Pharmahug, rua a oeste)"),
+                         # Estacionamento da farmácia (ideia do usuário: em vez de concreto
+                         # vazio, vagas de verdade, onde o jogo põe carros; P13).
+                         ("estacionamento", box(xs[1] + 30, ys[0] + 7, xs[2] - 3, ys[0] + 25), {},   # encosta no asfalto da rua (entrada)
+                          box(xs[1] + 29, ys[0] + 4, xs[2], ys[0] + 27), "estacionamento da farmacia")]
         lojas[(0, 1)] = [("shop", box(xs[0] + 12, ys[1] + 7, xs[0] + 26, ys[1] + 24),
                           {"shop": "convenience", "name": "Mercadinho", "building:levels": "1"},
                           box(xs[0] + 8, ys[1] + 4, xs[0] + 29, ys[1] + 27), "mercadinho (mercearia 52_8, rua ao sul)")]
@@ -102,7 +107,8 @@ def vila(cx, cy, completa, proj, semente):
             feats.append(feature("houses_land", q, proj))
             reserva = None
             for tipo, lote, tags, res, nome in lojas.get((i, j), []):
-                feats.append(feature("shop", lote, proj, tags))
+                feats.append(feature("parking" if tipo == "estacionamento" else "shop", lote, proj,
+                                     tags or None))
                 if tipo == "posto":
                     c = lote.centroid
                     feats.append({"type": "Feature", "properties": {"kind": "fuel"},
