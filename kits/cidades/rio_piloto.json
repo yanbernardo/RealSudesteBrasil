@@ -17,6 +17,8 @@
               "Silvestre", "Vidigal", "Catumbi", "Estácio", "Santa Marta", "Pico", "Segunda mina",
               "Primeira Mina", "Cocheira", "Vila Rica", "Estradinha", "Mangueirinha", "Barro", "Figueira"]
   },
+  "_teto_zumbis": "P19: nenhum pedaço de 8x8 tiles passa do máximo do centro de Louisville no jogo original (medido nos .lotheader em 08/11/2026: 7; o 10 só aparece em poucos pontos especiais)",
+  "teto_zumbis": 7,
   "_mistura": "chance de cada tipo de lote [loja, prédio, casa] e andares dos prédios [mín, máx]",
   "mistura": {
     "centro": {"lote": [0.35, 0.45, 0.20], "andares": [4, 8]},

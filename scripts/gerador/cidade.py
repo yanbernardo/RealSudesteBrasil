@@ -48,12 +48,17 @@ LIGAR = 14                 # tiles: ponta de rua até esta distância de outra s
 PASSO_X, PASSO_Y = 50, 44  # grade do preenchimento (quarteirão livre de ~38 x 32)
 RECUO = 6                  # da linha central da rua até o lote
 FAIXA_AVENIDA = 8          # da linha central da avenida até o lote
+MIOLO = 22                 # tiles: quarteirão com o centro mais longe que isto da rua ganha rua no meio
+TOCO_BORDA = 8             # tiles: ponta de avenida mais perto que isto da borda do recorte não é toco
+LIGAR_TOCO = 40            # tiles: ponta solta de avenida vai até a rua mais perto, se estiver a menos disto
+AVENIDA_SOLTA = 60         # tiles: avenida sem cruzamento nenhum, mas longa, fica (caminho próprio)
+PARALELA_GRADE = 22       # tiles: linha da grade paralela e mais perto que isto de uma rua some
 
 # highway do OSM -> (ordem, tipo no KnoxMap, largura em tiles). Sem "tertiary":
 # a 1:15 as ruas reais ficam 15 vezes mais juntas e picotavam os quarteirões
 # (1ª rodada: 83 avenidas, 69 prédios). Secundária só se for longa.
 CLASSES = {"motorway": (0, "primary", 10), "trunk": (0, "primary", 10),
-           "primary": (1, "primary", 9), "secondary": (2, "secondary", 8)}
+           "primary": (1, "primary", 10), "secondary": (2, "secondary", 8)}   # larguras pares: faixa no meio (U13)
 SECUNDARIA_MIN = 60        # tiles
 
 # Áreas do OSM -> tipo no KnoxMap (paleta do sketch)
@@ -322,10 +327,127 @@ def preenchimento(urbano, aceitas):
             if p.length < TRECHO_MIN:
                 continue
             arvore = STRtree(todas)
-            for q in trechos_novos(p, todas, arvore, limite=12):
+            for q in trechos_novos(p, todas, arvore, limite=PARALELA_GRADE):
                 q = ligar_pontas(q, todas, arvore)
                 novas.append(q)
     return novas, gx, gy
+
+
+def ruas_no_miolo(area, ruas, n_avenidas, rodadas=3):
+    """Quarteirão grande demais (o centro a mais de MIOLO tiles da rua, porque
+    uma linha da grade caiu perto de uma avenida ou o quarteirão é torto) ganha
+    uma rua reta no meio, ligada às ruas dos dois lados (cruzamento com vértice)."""
+    novas = []
+    for _ in range(rodadas):
+        todas = ruas + novas
+        corredor = unary_union([l.buffer(FAIXA_AVENIDA if i < n_avenidas else RECUO - 0.5)
+                                for i, l in enumerate(todas)])
+        arvore = STRtree(todas)
+        achou = False
+        for q in poligonos(area.difference(corredor)):
+            if q.area < 1200:
+                continue
+            circ = shapely.maximum_inscribed_circle(q, 1.0)
+            if circ.length < MIOLO:
+                continue
+            cx, cy = (round(v) for v in circ.coords[0])
+            x0, y0, x1, y1 = q.bounds
+            if x1 - x0 >= y1 - y0:          # largo: rua norte-sul
+                L = LineString([(cx, y0 - 20), (cx, y1 + 20)])
+            else:                           # comprido: rua leste-oeste
+                L = LineString([(x0 - 20, cy), (x1 + 20, cy)])
+            pedacos = linhas(L.intersection(q.buffer(RECUO + 1.5)))
+            if not pedacos:
+                continue
+            p = min(pedacos, key=lambda s: s.distance(Point(cx, cy)))
+            if p.length < TRECHO_MIN:
+                continue
+            novas.append(ligar_pontas(p, todas, arvore))
+            achou = True
+        if not achou:
+            break
+    return novas
+
+
+def ligar_tocos(aceitas, outras, terra):
+    """Ponta solta de avenida (o resto dela caiu no filtro de paralelas) vai até
+    a rua mais perto, até LIGAR_TOCO tiles, sem atravessar água."""
+    todas = aceitas + outras
+    arvore = STRtree(todas)
+    seca = terra.buffer(1.0)
+    shapely.prepare(seca)
+    out = []
+    for i, l in enumerate(aceitas):
+        cs = list(l.coords)
+        for idx in (0, -1):
+            p = Point(cs[idx])
+            if any(j != i and todas[j].distance(p) < 0.01 for j in arvore.query(p.buffer(0.5))):
+                continue                                   # já encosta noutra rua
+            melhor = None
+            for j in arvore.query(p.buffer(LIGAR_TOCO)):
+                if j == i:
+                    continue
+                d = todas[j].distance(p)
+                if d < LIGAR_TOCO and (melhor is None or d < melhor[0]):
+                    melhor = (d, int(j))
+            if melhor is None:
+                continue
+            L = todas[melhor[1]]
+            q = L.interpolate(L.project(p))
+            if not seca.contains(LineString([p, q])):
+                continue
+            if idx == 0:
+                cs.insert(0, (q.x, q.y))
+            else:
+                cs.append((q.x, q.y))
+        out.append(LineString(cs))
+    return out
+
+
+def aparar_tocos(ruas, tipos, n_av, recorte):
+    """Avenida com ponta solta no meio da cidade (sobra do filtro de paralelas:
+    o resto dela foi descartado) volta até o último cruzamento; sem cruzamento,
+    some. Ponta na borda do recorte fica (a avenida continua fora do pedaço).
+    Devolve (ruas, tipos, nº de avenidas, nº de avenidas mexidas)."""
+    borda = recorte.exterior
+    usos = {}
+    for l in ruas:
+        for c in l.coords:
+            usos[c] = usos.get(c, 0) + 1
+
+    def solta(c):
+        return usos[c] == 1 and Point(c).distance(borda) > TOCO_BORDA
+
+    out, tps, n_novo, mexidas = [], [], 0, 0
+    for k, (l, t) in enumerate(zip(ruas, tipos)):
+        if k >= n_av:
+            out.append(l)
+            tps.append(t)
+            continue
+        cs = list(l.coords)
+        a, b = 0, len(cs) - 1
+        if solta(cs[a]):
+            a = next((j for j in range(1, len(cs)) if usos[cs[j]] >= 2), None)
+        if a is not None and solta(cs[b]):
+            b = next((j for j in range(len(cs) - 2, -1, -1) if usos[cs[j]] >= 2), None)
+        if a is None or b is None or b - a < 1:
+            if l.length >= AVENIDA_SOLTA:     # caminho próprio (ex.: túnel pela mata): fica inteira
+                out.append(l)
+                tps.append(t)
+                n_novo += 1
+            else:
+                mexidas += 1
+            continue
+        nova = LineString(cs[a:b + 1])
+        if (a, b) != (0, len(cs) - 1):
+            mexidas += 1
+            if nova.length < TRECHO_MIN:
+                continue
+        out.append(nova)
+        tps.append(t)
+        n_novo += 1
+    # as avenidas continuam na frente da lista (o corredor delas é mais largo)
+    return out, tps, n_novo, mexidas
 
 
 def com_cruzamentos(ruas):
@@ -399,93 +521,197 @@ def espalhar(pontos, minimo):
     return escolhidos
 
 
-def lotes(livre, corredor, gx, gy, bairro_de, kit, lojas, especiais, rnd):
-    """Duas fileiras de lotes por pedaço livre (frente para a rua de cima e de
-    baixo), varrendo de 1 em 1 tile onde o lote não cabe."""
-    frente = corredor.buffer(1.5)          # lote tem de encostar aqui (frente para a rua)
-    shapely.prepare(frente)
-    resumo = {"casas": 0, "predios": 0, "lojas": 0, "especiais": {}}
+LADOS = {"N": (0, -1), "S": (0, 1), "W": (-1, 0), "E": (1, 0)}
+# Lojas que viram cópia de uma loja original (D-38; kits/lojas/lojas.json):
+# a cópia não gira, então só entram com a rua do lado da porta, num lote maior
+# que o prédio (frente x fundo, em tiles). As outras lojas cabem em qualquer lado.
+COPIAS = {"chemist": ("W", 21, 16), "pharmacy": ("W", 21, 16), "weapons": ("W", 15, 15),
+          "convenience": ("S", 13, 16), "greengrocer": ("S", 13, 16)}
+
+
+class Quarteirao:
+    """Um quarteirão em tiles inteiros: onde cabe lote (M), quais tiles têm a
+    rua logo ao lado em cada direção (F) e o que já está ocupado (occ)."""
+
+    def __init__(self, q, corredor):
+        x0, y0, x1, y1 = q.bounds
+        self.x0, self.y0 = math.floor(x0), math.floor(y0)
+        W, H = math.ceil(x1) - self.x0, math.ceil(y1) - self.y0
+        xs, ys = np.meshgrid(np.arange(W) + self.x0 + 0.5, np.arange(H) + self.y0 + 0.5)
+        self.M = shapely.contains_xy(q, xs, ys)
+        self.F = {}
+        for k, (dx, dy) in LADOS.items():
+            perto = np.zeros_like(self.M)
+            for passo in (1, 2):
+                perto |= shapely.contains_xy(corredor, xs + dx * passo, ys + dy * passo)
+            self.F[k] = self.M & perto
+        self.occ = np.zeros_like(self.M)
+
+    def retangulo(self, lado, r, c, frente, fundo):
+        """Lote com a frente no tile (r, c), virado para a rua do `lado`."""
+        if lado == "N":
+            return r, c, fundo, frente
+        if lado == "S":
+            return r - fundo + 1, c, fundo, frente
+        if lado == "W":
+            return r, c, frente, fundo
+        return r, c - fundo + 1, frente, fundo
+
+    def cabe(self, lado, r0, c0, h, w):
+        if r0 < 0 or c0 < 0 or r0 + h > self.M.shape[0] or c0 + w > self.M.shape[1]:
+            return False
+        if not self.M[r0:r0 + h, c0:c0 + w].all() or self.occ[r0:r0 + h, c0:c0 + w].any():
+            return False
+        # a frente encosta na rua (numa avenida diagonal, só a quina do lote
+        # encosta: os lotes ficam em degraus, sempre alinhados ao grid, U2)
+        if lado == "N":
+            linha = self.F["N"][r0, c0:c0 + w]
+        elif lado == "S":
+            linha = self.F["S"][r0 + h - 1, c0:c0 + w]
+        elif lado == "W":
+            linha = self.F["W"][r0:r0 + h, c0]
+        else:
+            linha = self.F["E"][r0:r0 + h, c0 + w - 1]
+        return bool(linha.any())
+
+    def ocupar(self, r0, c0, h, w, vao=1):
+        self.occ[max(0, r0 - vao):r0 + h + vao, max(0, c0 - vao):c0 + w + vao] = True
+
+    def caixa(self, r0, c0, h, w):
+        return box(self.x0 + c0, self.y0 + r0, self.x0 + c0 + w, self.y0 + r0 + h)
+
+    def frentes(self, lado):
+        """Tiles de frente para a rua do `lado`, na ordem em que os lotes se encaixam."""
+        rs, cs = np.nonzero(self.F[lado])
+        if lado == "N":
+            ordem = np.lexsort((cs, rs))
+        elif lado == "S":
+            ordem = np.lexsort((cs, -rs))
+        elif lado == "W":
+            ordem = np.lexsort((rs, cs))
+        else:
+            ordem = np.lexsort((rs, -cs))
+        return [(int(rs[i]), int(cs[i])) for i in ordem]
+
+
+def lotes(livre, corredor, ruas, bairro_de, kit, lojas, especiais, rnd):
+    """Lotes encostados nas ruas, contornando cada quarteirão (frente para a rua
+    de cima, de baixo e dos lados), com 1 tile de vão entre eles; o miolo fica
+    de quintal. Serviços especiais primeiro, perto do lugar real."""
+    shapely.prepare(corredor)
+    arv_ruas = STRtree(ruas)
+    resumo = {"casas": 0, "predios": 0, "lojas": 0, "especiais": {}, "copias": {}}
     out = []
     usados = set()
     arv_lojas = STRtree([p for p, _ in lojas]) if lojas else None
-    # Quarteirões de verdade: o espaço livre entre as ruas (os cortados por uma
-    # avenida real são irregulares e também recebem lotes).
     quarteiroes = [p for p in poligonos(livre) if p.area >= 60]
+    Q = [Quarteirao(q, corredor) for q in quarteiroes]
     centros = STRtree([q.centroid for q in quarteiroes])
-    reservado = {}
+
+    def rua_mais_perto(lote):
+        """Lado da rua mais próxima do centro do lote (é o que o kit de lojas usa)."""
+        c = lote.centroid
+        L = ruas[int(arv_ruas.nearest(c))]
+        p = L.interpolate(L.project(c))
+        dx, dy = p.x - c.x, p.y - c.y
+        if abs(dy) >= abs(dx):
+            return "N" if dy < 0 else "S"
+        return "W" if dx < 0 else "E"
+
+    def registrar(kind, lote, tags, andares, chave):
+        t = dict(tags or {})
+        t["building:levels"] = str(andares)
+        out.append((kind, lote, t))
+        if chave == "posto":
+            out.append(("fuel", lote.centroid, None))
+        if chave in ("casas", "predios", "lojas"):
+            resumo[chave] += 1
+        else:
+            resumo["especiais"][chave] = resumo["especiais"].get(chave, 0) + 1
+
+    # 1) Serviços especiais, no quarteirão mais perto do ponto real.
     for a, pts in especiais.items():
         tipo, w, d, minimo = ESPECIAIS[a]
         for p in espalhar(pts, minimo):
-            k = int(centros.nearest(p))
-            if quarteiroes[k].centroid.distance(p) < 60:
-                reservado.setdefault(k, []).append((a, p))
-    for k, q in enumerate(quarteiroes):
-        qx0, qy0, qx1, qy1 = q.bounds
-        fundo = 16
-        tipo_b = bairro_de(q.centroid)
-        mix = kit["mistura"].get(tipo_b, kit["mistura"]["misto"])
-        fila = list(reservado.get(k, []))
-        postos = []                         # lotes já postos neste quarteirão
-        # Fileiras de 2 em 2 tiles, de cima para baixo; lote "pendurado" na
-        # fileira (lado 0) ou apoiado nela por baixo (lado 1). Só fica o lote que
-        # cabe, encosta numa rua e não sobrepõe outro.
-        for y in np.arange(qy0, qy1, 2.0):
-          for lado in (0, 1):
-            x = qx0
-            while x < qx1:
-                tags, ponto, fila_atual = None, None, None
-                if fila:
-                    fila_atual = fila.pop(0)
-                    a, _p = fila_atual
-                    kind, w, d, _ = ESPECIAIS[a]
-                    d = min(d, fundo - 1)
-                    andares = 1
-                    if kind == "fuel":
-                        kind, ponto = "shop", True
-                        tags = {"name": "Posto"}
-                else:
-                    r = rnd.random()
-                    pl, pp, _pc = mix["lote"]
-                    if r < pl:
-                        kind, w, d, andares = "shop", rnd.randint(8, 11), min(fundo - 1, 12), 1
-                    elif r < pl + pp:
-                        kind, w, d = "apartments", rnd.randint(10, 14), min(fundo - 1, 14)
-                        andares = rnd.randint(*mix["andares"])
-                    else:
-                        kind, w, d, andares = "house", rnd.randint(7, 9), min(fundo - 2, rnd.randint(8, 10)), rnd.choice((1, 1, 2))
-                if x + w > qx1 or d < 6:
-                    if fila_atual is not None:
-                        fila.insert(0, fila_atual)
+            feito = False
+            for k in sorted(centros.query(p.buffer(80)), key=lambda k: quarteiroes[k].distance(p)):
+                B = Q[k]
+                cand = [(math.dist((B.x0 + c, B.y0 + r), (p.x, p.y)), lado, r, c)
+                        for lado in LADOS for r, c in B.frentes(lado)]
+                for _d, lado, r, c in sorted(cand):
+                    ret = B.retangulo(lado, r, c, w, d)
+                    if B.cabe(lado, *ret):
+                        B.ocupar(*ret)
+                        lote = B.caixa(*ret)
+                        if tipo == "fuel":
+                            registrar("shop", lote, {"name": "Posto"}, 1, "posto")
+                        else:
+                            registrar(tipo, lote, None, 1, tipo)
+                        feito = True
+                        break
+                if feito:
                     break
-                lote = box(x, y, x + w, y + d) if lado == 0 else box(x, y - d, x + w, y)
-                # Todo lote cabe no pedaço livre, tem frente para uma rua e não sobrepõe outro.
-                if not (q.contains(lote) and frente.intersects(lote)
-                        and not any(lote.intersects(o) for o in postos)):
-                    if fila_atual is not None:
-                        fila.insert(0, fila_atual)   # o serviço tenta de novo mais adiante
-                    x += 1
+
+    # 2) O resto: lojas, prédios e casas pela mistura do bairro.
+    for k, (q, B) in enumerate(zip(quarteiroes, Q)):
+        mix = kit["mistura"].get(bairro_de(q.centroid), kit["mistura"]["misto"])
+        pl, pp, _pc = mix["lote"]
+        for lado in ("N", "S", "W", "E"):
+            for r, c in B.frentes(lado):
+                if B.occ[r, c]:
                     continue
-                if True:
-                    if kind == "shop" and not tags and arv_lojas is not None:
-                        for idx in arv_lojas.query(lote.buffer(40)):
-                            if idx not in usados:
-                                usados.add(int(idx))
-                                kind, tags = lojas[idx][1]
-                                tags = dict(tags) if tags else None
-                                break
-                    t = dict(tags or {})
-                    t["building:levels"] = str(andares)
-                    out.append((kind, lote, t))
-                    postos.append(lote.buffer(0.9, join_style="mitre"))   # 1 tile de vão entre lotes
-                    if ponto:
-                        out.append(("fuel", lote.centroid, None))
-                    nome = {"house": "casas", "apartments": "predios"}.get(kind, "lojas")
-                    if kind in ("school", "church", "police", "hospital", "fire") or ponto:
-                        resumo["especiais"][kind if not ponto else "posto"] = resumo["especiais"].get(kind if not ponto else "posto", 0) + 1
-                    else:
-                        resumo[nome] += 1
-                x += w + rnd.randint(1, 2)
+                x = rnd.random()
+                tentativas = []
+                if x < pl and arv_lojas is not None:
+                    # a loja real mais perto que caiba deste lado da rua
+                    p = Point(B.x0 + c, B.y0 + r)
+                    for idx in sorted(arv_lojas.query(p.buffer(40)), key=lambda i: lojas[i][0].distance(p)):
+                        if idx in usados:
+                            continue
+                        kind, tags = lojas[idx][1]
+                        shop = (tags or {}).get("shop")
+                        if shop in COPIAS:
+                            frente_copia, fr, fu = COPIAS[shop]
+                            if frente_copia != lado:
+                                continue
+                            tentativas.append(("loja", int(idx), kind, tags, fr, fu, 1))
+                        else:
+                            # tamanho flexível: encolhe antes de dar a vez a uma casa
+                            for fr, fu in ((rnd.randint(8, 11), 12), (8, 10)):
+                                tentativas.append(("loja", int(idx), kind, tags, fr, fu, 1))
+                        break
+                elif x < pl + pp:
+                    andares = rnd.randint(*mix["andares"])
+                    fr = rnd.randint(10, 14)
+                    for f, fu in ((fr, 14), (fr, 12), (10, 11)):
+                        tentativas.append(("predio", None, "apartments", None, f, fu, andares))
+                # casa: sempre a última tentativa (é o lote menor); se a sorteada
+                # não couber, a menor casa (7 x 8) ainda tenta no mesmo lugar
+                andares_casa = rnd.choice((1, 1, 2))
+                tentativas.append(("casa", None, "house", None, rnd.randint(7, 9), rnd.randint(8, 10), andares_casa))
+                tentativas.append(("casa", None, "house", None, 7, 8, andares_casa))
+                for tipo, idx, kind, tags, fr, fu, andares in tentativas:
+                    ret = B.retangulo(lado, r, c, fr, fu)
+                    if not B.cabe(lado, *ret):
+                        continue
+                    lote = B.caixa(*ret)
+                    shop = (tags or {}).get("shop")
+                    if shop in COPIAS and rua_mais_perto(lote) != lado:
+                        continue      # K32: a cópia só vale se esta rua for a mais perto
+                    B.ocupar(*ret)
+                    if tipo == "loja":
+                        usados.add(idx)
+                        if shop in COPIAS:
+                            resumo["copias"][shop] = resumo["copias"].get(shop, 0) + 1
+                    registrar(kind, lote, tags, andares, {"loja": "lojas", "predio": "predios", "casa": "casas"}[tipo])
+                    break
     resumo["quarteiroes"] = len(quarteiroes)
+    por_q = [0] * len(quarteiroes)
+    for kind, g, _t in out:
+        if g.geom_type == "Polygon":
+            por_q[int(centros.nearest(g.centroid))] += 1
+    resumo["quarteiroes_sem_lote"] = sum(1 for n in por_q if n == 0)
+    resumo["ocupacao"] = round(sum(g.area for _k, g, _t in out if g.geom_type == "Polygon") / livre.area, 3)
     return out, resumo
 
 
@@ -510,7 +736,8 @@ def figura(caminho, mold, camadas, ruas, lotes_):
     cl = {"house": (200, 120, 90), "apartments": (150, 90, 160), "shop": (230, 160, 40)}
     for kind, g, _t in lotes_:
         if g.geom_type == "Polygon":
-            d.rectangle([g.bounds[0] - mold.X0, g.bounds[1] - mold.Y0, g.bounds[2] - mold.X0, g.bounds[3] - mold.Y0],
+            # -1: o PIL pinta a última linha também, e o vão de 1 tile entre lotes sumia
+            d.rectangle([g.bounds[0] - mold.X0, g.bounds[1] - mold.Y0, g.bounds[2] - mold.X0 - 1, g.bounds[3] - mold.Y0 - 1],
                         fill=cl.get(kind, (220, 40, 40)))
     img.save(caminho)
 
@@ -537,11 +764,16 @@ def main() -> int:
     mata = terra.difference(urbano).difference(areas.get("sand", Polygon()))
 
     aceitas, info = esqueleto(dados, kit, recorte, terra)
-    infill, gx, gy = preenchimento(urbano.difference(nao_construir), aceitas)
+    area_urb = urbano.difference(nao_construir)
+    infill, gx, gy = preenchimento(area_urb, aceitas)
+    miolo = ruas_no_miolo(area_urb.difference(lagoas), aceitas + infill, len(aceitas))
+    infill += miolo
+    aceitas = ligar_tocos(aceitas, infill, terra)
     ruas = com_cruzamentos(aceitas + infill)
     tipos = info + [("residential", 6, "")] * len(infill)
+    ruas, tipos, n_av, tocos = aparar_tocos(ruas, tipos, len(aceitas), recorte)
 
-    corredor = unary_union([l.buffer(FAIXA_AVENIDA if i < len(aceitas) else RECUO - 0.5)
+    corredor = unary_union([l.buffer(FAIXA_AVENIDA if i < n_av else RECUO - 0.5)
                             for i, l in enumerate(ruas)])
     livre = urbano.difference(nao_construir).difference(corredor).difference(lagoas)
 
@@ -557,7 +789,7 @@ def main() -> int:
         return tipo_de_nome.get(nomes_l[int(arv_b.nearest(p))], "misto")
 
     lojas, especiais = pontos_reais(dados, kit, recorte_ll)
-    lotes_, resumo = lotes(livre, corredor, gx, gy, bairro_de, kit, lojas, especiais, rnd)
+    lotes_, resumo = lotes(livre, corredor, ruas, bairro_de, kit, lojas, especiais, rnd)
 
     feats = []
     for p in poligonos(mar.simplify(0.5)):
@@ -586,11 +818,15 @@ def main() -> int:
         "south": mold.bbox[0], "west": mold.bbox[1], "north": mold.bbox[2], "east": mold.bbox[3],
         "metersPerTile": 1.0, "drawnOnly": True, "standalone": True,
         "cell": [mold.kx, mold.ky],
-        "settings": {"align_streets": 0, "straight_roads": 2, "forest_density": 0.5, "tree_density": 0.7},
+        # spawn_density = teto de zumbis por pedaço do mapa (P19: o máximo do
+        # centro de Louisville no jogo original; medido em 08/11/2026 = 7)
+        "settings": {"align_streets": 0, "straight_roads": 2, "forest_density": 0.5, "tree_density": 0.7,
+                     "spawn_density": int(kit.get("teto_zumbis", 7))},
         "extraTags": ["shop", "amenity", "lanes", "width", "name"],
         "kitLojas": "kits/lojas",
         "sketch": {"type": "FeatureCollection", "features": feats},
         "zonasHistorias": {"engarrafamento": False},
+        "centrarFaixas": True,          # U13 (scripts/gerador/faixas.py)
     }
     saida.write_text(json.dumps(cfg, ensure_ascii=False), encoding="utf-8")
     figura(png, mold, [("mar", mar), ("forest", mata), ("urbano", urbano)]
@@ -598,7 +834,7 @@ def main() -> int:
            + [("lagoa", lagoas)],
            [(k, l) for (k, _w, _n), l in zip(tipos, ruas)], lotes_)
     resumo.update({"moldura_tiles": [mold.X0, mold.Y0, mold.W, mold.H], "cell_knoxmap": [mold.kx, mold.ky],
-                   "avenidas": len(aceitas), "ruas_preenchimento": len(infill),
+                   "avenidas": n_av, "tocos_aparados": tocos, "ruas_preenchimento": len(infill), "ruas_miolo": len(miolo),
                    "lojas_reais": len(lojas), "desenhos": len(feats)})
     print(json.dumps(resumo, ensure_ascii=False))
     return 0

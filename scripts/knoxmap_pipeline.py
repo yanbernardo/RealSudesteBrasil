@@ -131,6 +131,14 @@ def main() -> int:
     post("/api/generate", gen)
     drawn_as_download()   # antes dos prédios: é nessa etapa que o mapa de papel é escrito
 
+    # U13: no modo de ruas 2 o asfalto sai 1 tile deslocado da faixa amarela;
+    # a faixa volta para o meio antes dos prédios (eles releem o _veg_base.bmp).
+    if cfg.get("centrarFaixas"):
+        from pathlib import Path
+        sys.path.insert(0, str(Path(__file__).resolve().parent / "gerador"))
+        import faixas
+        print("faixas:", faixas.centrar(Path(knox) / "output" / name, name), flush=True)
+
     # Mapa independente (D-36): o mapa fica sozinho no mundo, na célula 0,0,
     # sem o Knox County do jogo base.
     if "standalone" in cfg:
