@@ -25,13 +25,14 @@
   "clareiras": {"fracao": 0.5, "raio": [8, 18], "fixas_tiles": [[69568, 66021, 32]]},
   "_praias": "U18: praia em escala de jogo. A costa entre 'de' e 'ate' (lon, lat; o ponto vai para a costa mais perto) ganha uma faixa de areia de 'largura' tiles para o lado do mar (o mar recua) e areia até a avenida da orla; zonas de história 'Beach' (13 x 13) espalhadas na areia. Copacabana não vem como praia no OSM baixado.",
   "praias": [
-    {"nome": "Leme e Copacabana", "de": [-43.18930, -22.98300], "ate": [-43.16446, -22.96277], "largura": 22},
+    {"nome": "Leme e Copacabana", "de": [-43.18930, -22.98300], "ate": [-43.16446, -22.96277], "largura": 22,
+     "ruas_orla": {"profundidade": 60, "_leia": "U19: na faixa atrás da praia, só a família de ruas da grade que atravessa a faixa (escolhida trecho a trecho pela direção da costa) e ruas no miolo a partir de 16 tiles"}},
     {"nome": "Arpoador, Ipanema e Leblon", "de": [-43.22733, -22.98907], "ate": [-43.19124, -22.98951], "largura": 22}
   ],
-  "_mistura": "chance de cada tipo de lote [loja, prédio, casa] e andares dos prédios [mín, máx]; 'orla' = paredão de prédios altos (U19)",
+  "_mistura": "chance de cada tipo de lote [loja, prédio, casa] e andares dos prédios [mín, máx]; opcional 'predio_frente' [mín, máx] e 'predio_fundo' (tiles; padrão 10-14 e 14); 'orla' = paredão de prédios altos e largos (U19)",
   "mistura": {
     "centro": {"lote": [0.35, 0.45, 0.20], "andares": [4, 10]},
-    "orla":   {"lote": [0.12, 0.80, 0.08], "andares": [10, 14]},
+    "orla":   {"lote": [0.12, 0.80, 0.08], "andares": [10, 14], "predio_frente": [14, 20], "predio_fundo": 16},
     "denso":  {"lote": [0.18, 0.55, 0.27], "andares": [5, 10]},
     "misto":  {"lote": [0.15, 0.35, 0.50], "andares": [3, 6]},
     "casas":  {"lote": [0.10, 0.20, 0.70], "andares": [2, 4]}

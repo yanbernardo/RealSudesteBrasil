@@ -49,10 +49,11 @@ PASSO_X, PASSO_Y = 50, 44  # grade do preenchimento (quarteirão livre de ~38 x 
 RECUO = 6                  # da linha central da rua até o lote
 FAIXA_AVENIDA = 8          # da linha central da avenida até o lote
 MIOLO = 22                 # tiles: quarteirão com o centro mais longe que isto da rua ganha rua no meio
+MIOLO_ORLA = 16            # tiles: o mesmo, na faixa da orla (U19: ali todo espaço conta)
 TOCO_BORDA = 8             # tiles: ponta de avenida mais perto que isto da borda do recorte não é toco
 LIGAR_TOCO = 40            # tiles: ponta solta de avenida vai até a rua mais perto, se estiver a menos disto
 AVENIDA_SOLTA = 60         # tiles: avenida sem cruzamento nenhum, mas longa, fica (caminho próprio)
-PARALELA_GRADE = 22       # tiles: linha da grade paralela e mais perto que isto de uma rua some
+PARALELA_GRADE = 30       # tiles: linha da grade paralela e mais perto que isto de uma rua some
 
 # highway do OSM -> (ordem, tipo no KnoxMap, largura em tiles). Sem "tertiary":
 # a 1:15 as ruas reais ficam 15 vezes mais juntas e picotavam os quarteirões
@@ -228,8 +229,46 @@ def praias(kit, mar):
         else:
             faixa, sinal_terra = dir_.intersection(mar), 1
         out.append({"nome": pr["nome"], "costa": S, "faixa_mar": faixa, "sinal_terra": sinal_terra,
-                    "largura": larg})
+                    "largura": larg, "ruas_orla": pr.get("ruas_orla")})
     return out
+
+
+def ruas_da_orla(praias_, urbano):
+    """U19: faixa da cidade atrás de uma praia com `"ruas_orla"` no kit. Devolve
+    ({"v"|"h": área onde essa família de ruas da grade some}, [áreas da orla]).
+    A família que fica é a que atravessa a faixa (a mais perpendicular à costa):
+    com uma família só, os quarteirões viram paralelogramos com dois lados retos,
+    onde os prédios cabem inteiros, e o lado da praia em degraus."""
+    sem, regs = {}, []
+    for p in praias_:
+        cfg = p.get("ruas_orla")
+        if not cfg:
+            continue
+        S = p["costa"]
+        prof = cfg.get("profundidade", 60)
+        faixa = S.buffer(p["sinal_terra"] * prof, single_sided=True)
+        reg = unary_union([g for g in poligonos(faixa.intersection(urbano)) if g.distance(S) < 25])
+        if reg.is_empty:
+            continue
+        # Trecho a trecho da costa (a orla é curva: em Copacabana o Leme é quase
+        # horizontal e o Posto 6 quase vertical): some a família paralela à costa ali.
+        passo = cfg.get("trecho", 30)
+        for d in np.arange(0, S.length, passo):
+            t = shapely.ops.substring(S, d, min(S.length, d + passo))
+            if t.length < 2:
+                continue
+            (ax, ay), (bx, by) = t.coords[0], t.coords[-1]
+            fam = "v" if abs(by - ay) > abs(bx - ax) else "h"
+            pedaco = reg.intersection(t.buffer(p["sinal_terra"] * (prof + 10), single_sided=True))
+            if pedaco.is_empty:
+                continue
+            fica = "h" if fam == "v" else "v"
+            if not cfg.get("so_medir"):                  # so_medir: só conta os lotes (comparação)
+                sem[fam] = unary_union([sem.get(fam, Polygon()), pedaco])
+                regs.append((pedaco, fica))
+            else:
+                regs.append((pedaco, None))
+    return sem, regs
 
 
 def zonas_de_praia(pr, tam=13, passo=55):
@@ -389,20 +428,25 @@ def esqueleto(dados, kit, recorte, terra_urbana_ou_mata):
     return aceitas, info
 
 
-def preenchimento(urbano, aceitas):
-    """Ruas em grade alinhada ao grid, só na mancha urbana, ligadas às avenidas."""
+def preenchimento(urbano, aceitas, sem=None):
+    """Ruas em grade alinhada ao grid, só na mancha urbana, ligadas às avenidas.
+    `sem` = {"v": área, "h": área}: onde NÃO pôr as linhas verticais (ou
+    horizontais). Numa orla inclinada (Copacabana), só a família que atravessa a
+    faixa fica: a outra cortava a faixa em triângulos onde não cabe prédio (U19)."""
     x0, y0, x1, y1 = urbano.bounds
     gx = [math.floor(x0 / PASSO_X) * PASSO_X + PASSO_X * i for i in range(int((x1 - x0) / PASSO_X) + 3)]
     gy = [math.floor(y0 / PASSO_Y) * PASSO_Y + PASSO_Y * j for j in range(int((y1 - y0) / PASSO_Y) + 3)]
+    sem = sem or {}
+    area = {k: urbano.difference(sem[k]) if k in sem and not sem[k].is_empty else urbano for k in ("v", "h")}
     brutas = []
     for x in gx:   # com um vértice em cada cruzamento da grade
-        brutas.append(LineString([(x, y) for y in gy]))
+        brutas.append(("v", LineString([(x, y) for y in gy])))
     for y in gy:
-        brutas.append(LineString([(x, y) for x in gx]))
+        brutas.append(("h", LineString([(x, y) for x in gx])))
     novas = []
     todas = list(aceitas)
-    for L in brutas:
-        for p in linhas(L.intersection(urbano)):
+    for fam, L in brutas:
+        for p in linhas(L.intersection(area[fam])):
             if p.length < TRECHO_MIN:
                 continue
             arvore = STRtree(todas)
@@ -412,10 +456,12 @@ def preenchimento(urbano, aceitas):
     return novas, gx, gy
 
 
-def ruas_no_miolo(area, ruas, n_avenidas, rodadas=3):
+def ruas_no_miolo(area, ruas, n_avenidas, rodadas=3, orlas=()):
     """Quarteirão grande demais (o centro a mais de MIOLO tiles da rua, porque
     uma linha da grade caiu perto de uma avenida ou o quarteirão é torto) ganha
-    uma rua reta no meio, ligada às ruas dos dois lados (cruzamento com vértice)."""
+    uma rua reta no meio, ligada às ruas dos dois lados (cruzamento com vértice).
+    Na orla (`orlas` = [(área, família que fica)]) o limite é MIOLO_ORLA e a rua
+    nova é sempre da família que atravessa a faixa (U19: miolo vazio no Leme)."""
     novas = []
     for _ in range(rodadas):
         todas = ruas + novas
@@ -424,14 +470,19 @@ def ruas_no_miolo(area, ruas, n_avenidas, rodadas=3):
         arvore = STRtree(todas)
         achou = False
         for q in poligonos(area.difference(corredor)):
-            if q.area < 1200:
+            na_orla = next((fam for reg, fam in orlas if reg.contains(q.representative_point())), None)
+            if q.area < (500 if na_orla else 1200):
                 continue
             circ = shapely.maximum_inscribed_circle(q, 1.0)
-            if circ.length < MIOLO:
+            if circ.length < (MIOLO_ORLA if na_orla else MIOLO):
                 continue
             cx, cy = (round(v) for v in circ.coords[0])
             x0, y0, x1, y1 = q.bounds
-            if x1 - x0 >= y1 - y0:          # largo: rua norte-sul
+            if na_orla:
+                norte_sul = na_orla == "v"
+            else:
+                norte_sul = x1 - x0 >= y1 - y0      # largo: rua norte-sul
+            if norte_sul:
                 L = LineString([(cx, y0 - 20), (cx, y1 + 20)])
             else:                           # comprido: rua leste-oeste
                 L = LineString([(x0 - 20, cy), (x1 + 20, cy)])
@@ -788,8 +839,11 @@ def lotes(livre, corredor, ruas, bairro_de, kit, lojas, especiais, rnd):
                         break
                 elif x < pl + pp:
                     andares = rnd.randint(*mix["andares"])
-                    fr = rnd.randint(10, 14)
-                    for f, fu in ((fr, 14), (fr, 12), (10, 11)):
+                    # tamanho do prédio por bairro (U19: na orla, prédios maiores
+                    # fazem o "paredão"; o espaço não dá para muitos prédios a 1:15)
+                    fr = rnd.randint(*mix.get("predio_frente", [10, 14]))
+                    fu_max = mix.get("predio_fundo", 14)
+                    for f, fu in ((fr, fu_max), (fr, 12), (min(fr, 14), 12), (10, 11)):
                         tentativas.append(("predio", None, "apartments", None, f, fu, andares))
                 # casa (só na 2ª passada): se a sorteada não couber, a menor
                 # casa (7 x 8) ainda tenta no mesmo lugar
@@ -889,8 +943,9 @@ def main() -> int:
     mata = terra.difference(urbano).difference(areas.get("sand", Polygon())).difference(praia)
     mata = clareiras(mata, kit, random.Random(semente + 7))
     area_urb = urbano.difference(nao_construir)
-    infill, gx, gy = preenchimento(area_urb, aceitas)
-    miolo = ruas_no_miolo(area_urb.difference(lagoas), aceitas + infill, len(aceitas))
+    sem_familia, orla_regs = ruas_da_orla(praias_, urbano)
+    infill, gx, gy = preenchimento(area_urb, aceitas, sem_familia)
+    miolo = ruas_no_miolo(area_urb.difference(lagoas), aceitas + infill, len(aceitas), orlas=orla_regs)
     infill += miolo
     aceitas = ligar_tocos(aceitas, infill, terra)
     ruas = com_cruzamentos(aceitas + infill)
@@ -971,7 +1026,10 @@ def main() -> int:
                    "lojas_reais": len(lojas), "desenhos": len(feats),
                    "praias": [{"nome": p["nome"], "costa_tiles": round(p["costa"].length),
                                "areia_nova_tiles2": round(p["faixa_mar"].area)} for p in praias_],
-                   "zonas_praia": len(zonas_praia)})
+                   "zonas_praia": len(zonas_praia),
+                   "lotes_orla": {k: sum(1 for kind, g, _t in lotes_ if g.geom_type == "Polygon"
+                                         and kind == k and any(r.contains(g.centroid) for r, _f in orla_regs))
+                                  for k in ("apartments", "house", "shop")}})
     print(json.dumps(resumo, ensure_ascii=False))
     return 0
 
