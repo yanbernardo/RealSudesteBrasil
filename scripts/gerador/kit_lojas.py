@@ -188,6 +188,8 @@ def zonas(sketch: dict, kit: Path, presets: dict[str, str]) -> list[dict]:
         p = f.get("properties", {})
         tags = p.get("tags") or {}
         shop = tags.get("shop")
+        if not shop and p.get("kind") in ("police", "fire"):
+            shop = "kind:" + p["kind"]        # serviços especiais copiados do jogo (U22)
         if shop not in mapa or f["geometry"]["type"] != "Polygon":
             continue
         anel = f["geometry"]["coordinates"][0]

@@ -686,6 +686,9 @@ LADOS = {"N": (0, -1), "S": (0, 1), "W": (-1, 0), "E": (1, 0)}
 # que o prédio (frente x fundo, em tiles). As outras lojas cabem em qualquer lado.
 COPIAS = {"chemist": ("W", 21, 16), "pharmacy": ("W", 21, 16), "weapons": ("W", 15, 15),
           "convenience": ("S", 13, 16), "greengrocer": ("S", 13, 16)}
+# Serviços especiais copiados do mapa original (U22; kits/lojas/lojas.json,
+# chaves "kind:..."): lado da porta, frente (ao longo da rua) e fundo do lote.
+COPIAS_ESPECIAIS = {"police": ("E", 15, 13), "fire": ("W", 25, 16)}
 
 
 class Quarteirao:
@@ -812,23 +815,33 @@ def lotes(livre, corredor, ruas, bairro_de, kit, lojas, especiais, semente):
                 continue
             postos_esp.append(p)
             feito = False
-            for k in sorted(centros.query(p.buffer(80)), key=lambda k: quarteiroes[k].distance(p)):
-                B = Q[k]
-                cand = [(math.dist((B.x0 + c, B.y0 + r), (p.x, p.y)), lado, r, c)
-                        for lado in LADOS for r, c in B.frentes(lado)]
-                for _d, lado, r, c in sorted(cand):
-                    ret = B.encaixe(lado, r, c, w, d)
-                    if ret:
-                        B.ocupar(*ret)
-                        lote = B.caixa(*ret)
-                        if tipo == "fuel":
-                            registrar("shop", lote, {"name": "Posto"}, 1, "posto")
-                        else:
-                            registrar(tipo, lote, None, 1, tipo)
-                        feito = True
-                        break
+            # polícia e bombeiros: primeiro a cópia do jogo (só com a rua do lado da
+            # porta, lote maior que o prédio); se não couber, o lote genérico
+            tentativas_esp = [(COPIAS_ESPECIAIS[tipo], True)] if tipo in COPIAS_ESPECIAIS else []
+            tentativas_esp.append((None, False))
+            for copia, _eh in tentativas_esp:
                 if feito:
                     break
+                for k in sorted(centros.query(p.buffer(80)), key=lambda k: quarteiroes[k].distance(p)):
+                    B = Q[k]
+                    cand = [(math.dist((B.x0 + c, B.y0 + r), (p.x, p.y)), lado, r, c)
+                            for lado in LADOS for r, c in B.frentes(lado)
+                            if copia is None or lado == copia[0]]
+                    for _d, lado, r, c in sorted(cand):
+                        ret = B.encaixe(lado, r, c, *(copia[1:] if copia else (w, d)))
+                        if ret and copia and rua_mais_perto(B.caixa(*ret)) != lado:
+                            continue
+                        if ret:
+                            B.ocupar(*ret)
+                            lote = B.caixa(*ret)
+                            if tipo == "fuel":
+                                registrar("shop", lote, {"name": "Posto"}, 1, "posto")
+                            else:
+                                registrar(tipo, lote, None, 1, tipo)
+                            feito = True
+                            break
+                    if feito:
+                        break
 
     # 2) O resto, em duas passadas por quarteirão (U19): primeiro só lojas e
     #    prédios, pela mistura do bairro (o lote grande raramente cabe no primeiro
