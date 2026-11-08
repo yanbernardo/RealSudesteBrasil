@@ -1,6 +1,6 @@
 {
   "versao": 1,
-  "status": "PROPOSTA (Etapa 1, 08/11/2026) - aguarda aprovacao do usuario",
+  "status": "v1 com as respostas do usuario (P19-P21, 08/11/2026); cortes de tamanho mantidos",
   "decisao": "D-22: entram todas as localidades possiveis; todo vilarejo ganha nucleo minimo; turisticos ganham bonus",
   "fontes": {
     "localidades": "IBGE, Localidades 2022 (BR_localidades_2022.gpkg)",
@@ -29,7 +29,10 @@
     "bairro": "Localidade dentro da mesma mancha urbana de uma sede vira bairro dessa cidade: nao ganha nucleo proprio, mas o nome vai para o bairro gerado ali.",
     "so_com_mancha": "'Outras Localidades' (condominios, loteamentos, fazendas) so entram como vilarejo se houver mancha urbana do IBGE no ponto; senao ficam so como nome no mapa.",
     "tamanho_cidade": "Sedes e distritos com mancha urbana usam o contorno real a 1:15 (D-03), preenchido pelo gerador em escala de jogo.",
-    "turistica": "Turistica = pelo menos 3 pousadas/hoteis/campings/cachoeiras do OSM a ate 2 km reais do ponto (ou 5 para sedes)."
+    "turistica": "Turistica = pelo menos 3 pousadas/hoteis/campings/cachoeiras do OSM a ate 2 km reais do ponto (ou 5 para sedes).",
+    "nomes_discretos": "P20 (usuario, 08/11/2026): 'so_nome' aparece com nome pequeno e cinza so se estiver a 3 km reais (200 tiles) ou mais de qualquer localidade construida; se o nome bater em nome de cidade maior, fica de fora.",
+    "aldeias_e_quilombos": "P21 (usuario, 08/11/2026): aldeias indigenas e comunidades quilombolas sao representadas como vilarejos, com o nome no mapa quando couber (sem brigar com nomes maiores).",
+    "zumbis": "P19 (usuario, 08/11/2026): a categoria influencia os zumbis, mas no equilibrio do jogo base. Densidade segue a populacao, com TETO = a densidade maxima de Louisville no mapa original (medir nos arquivos do jogo na Etapa 2.1). Cidades grandes e a metropole chegam no maximo a esse teto; o resto proporcionalmente menos."
   },
   "nucleo_minimo": {
     "vilarejo": {"tamanho_tiles": [60, 60], "pecas": ["praca", "igreja", "venda (mercadinho)", "bar", "6-12 casas"]},

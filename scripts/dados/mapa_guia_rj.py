@@ -164,8 +164,11 @@ def main(pasta_dados, pasta_saida, tpp=16):
     loc = pasta_saida / "localidades_rj.csv"
     if loc.exists():
         estilo = {"metropole": (9, 26, True), "grande": (7, 20, True), "media": (5, 16, True),
-                  "pequena": (4, 13, False), "distrito": (3, 11, False), "vilarejo": (2, 0, False)}
-        linhas = [r for r in csv.DictReader(open(loc, encoding="utf-8")) if r["categoria"] in estilo]
+                  "pequena": (4, 13, False), "distrito": (3, 11, False), "vilarejo": (2, 9, False),
+                  "so_nome": (0, 8, False)}
+        # Nomes menores so entram onde nao brigam com os maiores (P20): ordem de prioridade abaixo
+        linhas = [r for r in csv.DictReader(open(loc, encoding="utf-8"))
+                  if r["categoria"] in estilo and r.get("mostrar_nome", "sim") == "sim"]
         ordem_cat = list(estilo)
         linhas.sort(key=lambda r: -ordem_cat.index(r["categoria"]))
         ocupado = []
@@ -188,7 +191,8 @@ def main(pasta_dados, pasta_saida, tpp=16):
                 if not any(not (caixa[2] < o[0] or caixa[0] > o[2] or caixa[3] < o[1] or caixa[1] > o[3])
                            for o in ocupado):
                     ocupado.append(caixa)
-                    t.d.text((X, Y), r["nome"], fill=COR["texto"], font=f, stroke_width=2, stroke_fill=(255, 255, 255))
+                    cor_txt = (110, 110, 110) if r["categoria"] == "so_nome" else COR["texto"]
+                    t.d.text((X, Y), r["nome"], fill=cor_txt, font=f, stroke_width=2, stroke_fill=(255, 255, 255))
                     break
 
     # Legenda

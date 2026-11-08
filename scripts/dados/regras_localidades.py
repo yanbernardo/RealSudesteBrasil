@@ -40,6 +40,14 @@ def main(pasta_dados, pasta_saida):
     capitais = {a["CD_MUN"] for a, _ in locs if a["SCT_LOCALIDADE"] == "Capital Estadual"}
     locs = [(a, g) for a, g in locs
             if not (a["SCT_LOCALIDADE"] == "Sede Municipal" and a["CD_MUN"] in capitais)]
+    # Algumas localidades vem repetidas no IBGE (mesmo nome e municipio): fica a primeira
+    vistos, unicas = set(), []
+    for a, g in locs:
+        chave = (a["NM_LOCALIDADE"], a["CD_MUN"])
+        if chave not in vistos:
+            vistos.add(chave)
+            unicas.append((a, g))
+    locs = unicas
 
     # Manchas urbanas (so as de area urbanizada), juntadas em "grupos" continuos
     au = ler_shapefile_zip(pasta_dados / "ibge/areas_urbanizadas/AreasUrbanizadas2019_Brasil.zip",
@@ -108,6 +116,17 @@ def main(pasta_dados, pasta_saida):
         sede = r["tipo_ibge"] == "Cidade"
         r["turistica"] = "sim" if r["n_turismo"] >= (5 if sede else 3) else "nao"
         del r["grupo"]
+
+    # P20 (usuario): "so_nome" mostra o nome, discreto, so se estiver afastado (>= 3 km reais,
+    # 200 tiles) de qualquer localidade construida; perto de cidade, o nome fica de fora.
+    construidas = [(r["tile_x"], r["tile_y"]) for r in linhas if r["categoria"] not in ("so_nome", "bairro")]
+    for r in linhas:
+        r["mostrar_nome"] = "sim"
+        if r["categoria"] == "so_nome":
+            perto = any((x - r["tile_x"]) ** 2 + (y - r["tile_y"]) ** 2 < 200 ** 2 for x, y in construidas)
+            r["mostrar_nome"] = "nao" if perto else "sim"
+        elif r["categoria"] == "bairro":
+            r["mostrar_nome"] = "nao"  # o nome vai para o bairro dentro da cidade (Etapa 2)
 
     campos = list(linhas[0].keys())
     with open(pasta_saida / "localidades_rj.csv", "w", newline="", encoding="utf-8") as f:
