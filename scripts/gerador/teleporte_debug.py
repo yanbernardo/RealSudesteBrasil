@@ -130,6 +130,10 @@ def main():
                 tx, ty = int(r["tile_x"]), int(r["tile_y"])
                 lat, lon = grade.tile_para_latlon(tx + 0.5, ty + 0.5)
                 nome = p.get("nome", r["nome"])
+            elif "tile" in p:      # ponto de teste em tile do jogo (grupo "TESTE"; sai da lista depois do OK do usuario)
+                tx, ty = p["tile"]
+                lat, lon = grade.tile_para_latlon(tx + 0.5, ty + 0.5)
+                nome = p["nome"]
             else:
                 lat, lon = p["lat"], p["lon"]
                 tx, ty = grade.latlon_para_tile(lat, lon)

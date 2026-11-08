@@ -1,6 +1,12 @@
 {
-  "_leia": "Pontos do menu de teleporte do modo debug (D-39). Cada ponto tem lat/lon reais OU 'localidade' (nome da sede/localidade no localidades_rj.csv). O script scripts/gerador/teleporte_debug.py converte pela grade (D-02) e gera o Lua. Para mudar a lista, edite aqui e rode o script de novo.",
+  "_leia": "Pontos do menu de teleporte do modo debug (D-39). Cada ponto tem lat/lon reais OU 'localidade' (nome da sede/localidade no localidades_rj.csv). O script scripts/gerador/teleporte_debug.py converte pela grade (D-02) e gera o Lua. Grupo TESTE: locais de teste em tile do jogo (tile: [x, y]); o usuario pediu que cada local novo a testar entre aqui e saia quando ele der o OK. Para mudar a lista, edite aqui e rode o script de novo.",
   "grupos": [
+    {"grupo": "TESTE (tirar depois do OK do usuario)", "pontos": [
+      {"nome": "Quartel copiado (U22)", "tile": [69570, 66254]},
+      {"nome": "Delegacia 1 copiada - Copacabana (U22)", "tile": [69519, 66258]},
+      {"nome": "Delegacia 2 copiada - Centro (U22)", "tile": [69782, 65808]},
+      {"nome": "Delegacia 3 copiada - Botafogo (U22)", "tile": [69701, 66102]}
+    ]},
     {"grupo": "Rio de Janeiro - Marcos", "pontos": [
       {"nome": "Cristo Redentor (Corcovado)", "lat": -22.9519, "lon": -43.2105},
       {"nome": "Pao de Acucar (Praia Vermelha)", "lat": -22.9548, "lon": -43.1650},
