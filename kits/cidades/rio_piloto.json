@@ -21,6 +21,8 @@
   "teto_zumbis": 7,
   "_andares_max": "teto de andares de qualquer prédio (o KnoxMap corta em 6 se não disser; a B42 aguenta 31, mas andar demais pesa na memória)",
   "andares_max": 14,
+  "_clareiras": "U23: mata do KnoxMap já está no grau mais ralo e ainda é densa. 'fracao' da mata vira campo aberto em manchas de 'raio' tiles; 'fixas_tiles' = [x, y, raio] no mundo (Corcovado = onde fica o Cristo, D-28)",
+  "clareiras": {"fracao": 0.5, "raio": [8, 18], "fixas_tiles": [[69568, 66021, 32]]},
   "_praias": "U18: praia em escala de jogo. A costa entre 'de' e 'ate' (lon, lat; o ponto vai para a costa mais perto) ganha uma faixa de areia de 'largura' tiles para o lado do mar (o mar recua) e areia até a avenida da orla; zonas de história 'Beach' (13 x 13) espalhadas na areia. Copacabana não vem como praia no OSM baixado.",
   "praias": [
     {"nome": "Leme e Copacabana", "de": [-43.18930, -22.98300], "ate": [-43.16446, -22.96277], "largura": 22},

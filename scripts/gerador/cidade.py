@@ -256,6 +256,32 @@ def zonas_de_praia(pr, tam=13, passo=55):
     return out
 
 
+def clareiras(mata, kit, rnd):
+    """U23: a mata do KnoxMap já está no grau mais ralo (árvores esparsas em 100%
+    do morro) e ainda não se vê à frente. Abre clareiras: campo aberto em
+    `fracao` da mata, em manchas de `raio` tiles, mais as clareiras fixas do kit
+    (ex.: o topo do Corcovado, onde fica o Cristo). Devolve a mata que sobra."""
+    cfg = kit.get("clareiras")
+    if not cfg or mata.is_empty:
+        return mata
+    r0, r1 = cfg.get("raio", [8, 18])
+    alvo = cfg.get("fracao", 0.45) * mata.area
+    x0, y0, x1, y1 = mata.bounds
+    furos, area = [], 0.0
+    for _ in range(20000):
+        if area >= alvo:
+            break
+        p = Point(rnd.uniform(x0, x1), rnd.uniform(y0, y1))
+        if not mata.contains(p):
+            continue
+        r = rnd.uniform(r0, r1)
+        furos.append(p.buffer(r))
+        area += math.pi * r * r * 0.7          # 0,7: as manchas se sobrepõem um pouco
+    for x, y, r in cfg.get("fixas_tiles", []):
+        furos.append(Point(x, y).buffer(r))
+    return mata.difference(unary_union(furos).buffer(2).buffer(-2))
+
+
 def areas_osm(dados, kit, terra):
     out = {}
     for t, g in ler_overpass(dados / kit["dados"] / "areas.json"):
@@ -861,6 +887,7 @@ def main() -> int:
     nao_construir = unary_union([areas.get(k, Polygon()) for k in ("sand", "park", "cemetery", "pitch")]
                                 + [praia])
     mata = terra.difference(urbano).difference(areas.get("sand", Polygon())).difference(praia)
+    mata = clareiras(mata, kit, random.Random(semente + 7))
     area_urb = urbano.difference(nao_construir)
     infill, gx, gy = preenchimento(area_urb, aceitas)
     miolo = ruas_no_miolo(area_urb.difference(lagoas), aceitas + infill, len(aceitas))
