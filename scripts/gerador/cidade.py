@@ -1062,6 +1062,9 @@ def main() -> int:
     ruas = com_cruzamentos(aceitas + infill)
     tipos = info + [("residential", 6, "")] * len(infill)
     ruas, tipos, n_av, tocos = aparar_tocos(ruas, tipos, len(aceitas), recorte)
+    resto_ilhas = []
+    ligar_ilhas(ruas, terra, recorte, resto_ilhas)       # só para contar: o que ainda está solto depois de aparar
+    print("ilhas depois de aparar:", resto_ilhas, flush=True)
 
     corredor = unary_union([l.buffer(FAIXA_AVENIDA if i < n_av else RECUO - 0.5)
                             for i, l in enumerate(ruas)])
