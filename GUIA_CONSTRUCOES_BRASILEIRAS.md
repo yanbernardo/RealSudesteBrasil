@@ -106,7 +106,7 @@ O BuildingEd **já está no seu computador**: veio junto com o KnoxMap, em
 ### 5.4.1 Laje reta (em vez do telhado inclinado)
 O telhado não é o "Ceilings" (isso é o forro, visto por dentro). Use a **ferramenta de telhado (Roof Tool)** com o tipo **Flat Top** cobrindo a casa, com **profundidade (Depth) Three**: a laje vira o chão do andar de cima, onde dá para andar. Na janela **Tiles**, categoria **Roof Tops**, em **Expert Mode**, crie uma entrada com uma peça de concreto em todos os espaços (ex.: `floors_exterior_street_01_016`) e escolha essa entrada no telhado.
 
-**Exemplo pronto:** `kits\lojasrasil\casa_laje_exemplo.tbx` (abra no BuildingEd). Casa térrea 9 × 10 com laje de concreto, guarda-corpo branco em volta e caixa d'água; também está no mapa (teleporte TESTE: "Casa de laje exemplo - Humaita"). Foi gerada por `scripts/gerador/predio_desenhado.py` (planta `casa_laje_exemplo.json`) e `scripts/gerador/laje.py` (mureta e caixa d'água).
+**Exemplo pronto:** `kits\lojas\brasil\casa_laje_exemplo.tbx` (abra no BuildingEd). Casa térrea 9 × 10 com laje de concreto, guarda-corpo branco em volta e caixa d'água; também está no mapa (teleporte TESTE: "Casa de laje exemplo - Humaita"). Foi gerada por `scripts/gerador/predio_desenhado.py` (planta `casa_laje_exemplo.json`) e `scripts/gerador/laje.py` (mureta e caixa d'água).
 
 ### 5.4.2 Cercas, grades, guarda-corpos e outros objetos ("fixtures")
 - No BuildingEd, cerca, grade, guarda-corpo, caixa d'água, ar-condicionado etc. são **móveis (furniture)**: ferramenta **Furniture Tool**, escolher a peça no painel de móveis e clicar. Perto da parede ou da borda, ele escolhe sozinho para que lado a peça fica virada.
