@@ -51,6 +51,7 @@ FAIXA_AVENIDA = 8          # da linha central da avenida até o lote
 MIOLO = 22                 # tiles: quarteirão com o centro mais longe que isto da rua ganha rua no meio
 MIOLO_ORLA = 16            # tiles: o mesmo, na faixa da orla (U19: ali todo espaço conta)
 TOCO_BORDA = 8             # tiles: ponta de avenida mais perto que isto da borda do recorte não é toco
+TOCO_RUA = 12              # tiles: pedaço de rua comum depois do último cruzamento, menor que isto, é cortado
 LIGAR_TOCO = 40            # tiles: ponta solta de avenida vai até a rua mais perto, se estiver a menos disto
 AVENIDA_SOLTA = 60         # tiles: avenida sem cruzamento nenhum, mas longa, fica (caminho próprio)
 PARALELA_GRADE = 30       # tiles: linha da grade paralela e mais perto que isto de uma rua some
@@ -548,9 +549,37 @@ def aparar_tocos(ruas, tipos, n_av, recorte):
     def solta(c):
         return usos[c] == 1 and Point(c).distance(borda) > TOCO_BORDA
 
+    def toco_curto(cs, ponta):
+        """Índice do último cruzamento antes da ponta solta, se o pedaço solto for
+        menor que TOCO_RUA; senão None (rua sem saída de verdade fica)."""
+        idx = range(1, len(cs)) if ponta == 0 else range(len(cs) - 2, -1, -1)
+        anterior, comp = cs[ponta], 0.0
+        for j in idx:
+            comp += math.dist(anterior, cs[j])
+            anterior = cs[j]
+            if comp >= TOCO_RUA:
+                return None
+            if usos[cs[j]] >= 2:
+                return j
+        return None
+
     out, tps, n_novo, mexidas = [], [], 0, 0
     for k, (l, t) in enumerate(zip(ruas, tipos)):
         if k >= n_av:
+            # Rua comum: a ponta que passa poucos tiles do último cruzamento é
+            # cortada nele (a rua da grade atravessava a Av. Atlântica e "vazava"
+            # 5-8 tiles para o lado da praia; usuário, 08/11/2026).
+            cs = list(l.coords)
+            a, b = 0, len(cs) - 1
+            if solta(cs[0]):
+                a = toco_curto(cs, 0) or 0
+            if solta(cs[-1]):
+                b = toco_curto(cs, len(cs) - 1) or b
+            if (a, b) != (0, len(cs) - 1):
+                mexidas += 1
+                if b - a < 1 or LineString(cs[a:b + 1]).length < TRECHO_MIN:
+                    continue
+                l = LineString(cs[a:b + 1])
             out.append(l)
             tps.append(t)
             continue
@@ -1015,6 +1044,7 @@ def main() -> int:
         "zonasHistorias": {"engarrafamento": False, "areasFixas": zonas_praia, "vagasRua": True,
                            "historias": [["Forest", 16, 16, 6], ["Lake", 14, 14, 1]]},
         "centrarFaixas": True,          # U13 (scripts/gerador/faixas.py)
+        "limparOrla": True,             # U25 (scripts/gerador/limpar_orla.py)
     }
     saida.write_text(json.dumps(cfg, ensure_ascii=False), encoding="utf-8")
     figura(png, mold, [("mar", mar), ("forest", mata), ("urbano", urbano)]

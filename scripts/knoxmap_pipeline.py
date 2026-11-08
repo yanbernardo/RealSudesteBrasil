@@ -151,6 +151,14 @@ def main() -> int:
         import faixas
         print("faixas:", faixas.centrar(Path(knox) / "output" / name, name), flush=True)
 
+    # U25: o acabamento de cruzamento do KnoxMap faz a rua "vazar" para a areia
+    # da praia; a areia volta onde não é a pista da avenida da orla.
+    if cfg.get("limparOrla"):
+        from pathlib import Path
+        sys.path.insert(0, str(Path(__file__).resolve().parent / "gerador"))
+        import limpar_orla
+        print("orla:", limpar_orla.limpar(Path(knox), name, cfg), flush=True)
+
     # Mapa independente (D-36): o mapa fica sozinho no mundo, na célula 0,0,
     # sem o Knox County do jogo base.
     if "standalone" in cfg:
