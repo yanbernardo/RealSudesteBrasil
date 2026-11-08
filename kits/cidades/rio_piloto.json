@@ -32,7 +32,7 @@
   "_mistura": "chance de cada tipo de lote [loja, prédio, casa] e andares dos prédios [mín, máx]; opcional 'predio_frente' [mín, máx] e 'predio_fundo' (tiles; padrão 10-14 e 14); 'orla' = paredão de prédios altos e largos (U19)",
   "mistura": {
     "centro": {"lote": [0.35, 0.45, 0.20], "andares": [4, 10]},
-    "orla":   {"lote": [0.12, 0.80, 0.08], "andares": [10, 14], "predio_frente": [14, 20], "predio_fundo": 16},
+    "orla":   {"lote": [0.12, 0.80, 0.08], "andares": [10, 14], "predio_frente": [14, 20], "predio_fundo": 16, "sem_casas": true, "andares_pequeno": [4, 8]},
     "denso":  {"lote": [0.18, 0.55, 0.27], "andares": [5, 10]},
     "misto":  {"lote": [0.15, 0.35, 0.50], "andares": [3, 6]},
     "casas":  {"lote": [0.10, 0.20, 0.70], "andares": [2, 4]}

@@ -93,7 +93,9 @@ def loja_de(t):
     """Etiquetas de uma loja real -> (tipo no KnoxMap, etiquetas)."""
     a, s = t.get("amenity"), t.get("shop")
     if a == "pharmacy" or s in ("chemist", "pharmacy"):
-        return "shop", {"shop": "chemist"}          # K17: chemist = loja; vira cópia da Pharmahug (D-38)
+        # K17: chemist = loja; vira cópia da Pharmahug (D-38). O nome vai junto: é por
+        # ele que o pipeline põe a farmácia como "Medical" na legenda do mapa (D-42)
+        return "shop", {"shop": "chemist", "name": t.get("name") or "Farmácia"}
     if s in ("supermarket", "convenience", "greengrocer", "kiosk"):
         return "shop", {"shop": "convenience"}      # cópia do mercado 52_8 (D-38)
     if s in ("bakery", "pastry"):
@@ -1047,15 +1049,15 @@ def lotes(livre, corredor, ruas, bairro_de, kit, lojas, especiais, rnd):
                             continue
                         kind, tags = lojas[idx][1]
                         shop = (tags or {}).get("shop")
-                        if shop in COPIAS:
-                            frente_copia, fr, fu = COPIAS[shop]
-                            if frente_copia != lado:
-                                continue
+                        if shop in COPIAS and COPIAS[shop][0] == lado:
+                            _f, fr, fu = COPIAS[shop]
+                            tentativas.append(("copia", int(idx), kind, tags, fr, fu, 1))
+                        # sem a rua do lado da cópia (ou se ela não couber): a nossa planta
+                        # (farmácia, armas) ou a loja do KnoxMap. Antes a loja ficava de fora,
+                        # e o Rio piloto saía sem farmácia nem mercado nenhum.
+                        # tamanho flexível: encolhe antes de dar a vez a uma casa
+                        for fr, fu in ((rnd.randint(8, 11), 12), (8, 10)):
                             tentativas.append(("loja", int(idx), kind, tags, fr, fu, 1))
-                        else:
-                            # tamanho flexível: encolhe antes de dar a vez a uma casa
-                            for fr, fu in ((rnd.randint(8, 11), 12), (8, 10)):
-                                tentativas.append(("loja", int(idx), kind, tags, fr, fu, 1))
                         break
                 elif x < pl + pp:
                     andares = rnd.randint(*mix["andares"])
@@ -1067,7 +1069,18 @@ def lotes(livre, corredor, ruas, bairro_de, kit, lojas, especiais, rnd):
                         tentativas.append(("predio", None, "apartments", None, f, fu, andares))
                 # casa (só na 2ª passada): se a sorteada não couber, a menor
                 # casa (7 x 8) ainda tenta no mesmo lugar
-                if passada == 2:
+                if passada == 2 and mix.get("sem_casas"):
+                    # Bairro sem casas (orla de Copacabana, Ipanema e Leblon; usuário,
+                    # 08/11/2026: "não seria fidedigno"): o lote que sobra vira prédio
+                    # baixo ou comércio de rua (lanchonete, loja), do pequeno ao mínimo.
+                    fr, fu = rnd.randint(9, 12), rnd.randint(10, 12)
+                    pequeno = [("predio", None, "apartments", None, fr, fu, rnd.randint(*mix.get("andares_pequeno", [4, 8]))),
+                               ("loja", None, rnd.choice(("restaurant", "cafe", "shop")), None, rnd.randint(8, 10), 10, 1)]
+                    rnd.shuffle(pequeno)
+                    tentativas += pequeno
+                    tentativas.append(("predio", None, "apartments", None, 8, 9, rnd.randint(3, 5)))
+                    tentativas.append(("loja", None, "restaurant", None, 7, 8, 1))
+                elif passada == 2:
                     andares_casa = rnd.choice((1, 1, 2))
                     tentativas.append(("casa", None, "house", None, rnd.randint(7, 9), rnd.randint(8, 10), andares_casa))
                     tentativas.append(("casa", None, "house", None, 7, 8, andares_casa))
@@ -1077,15 +1090,16 @@ def lotes(livre, corredor, ruas, bairro_de, kit, lojas, especiais, rnd):
                         continue
                     lote = B.caixa(*ret)
                     shop = (tags or {}).get("shop")
-                    if shop in COPIAS and rua_mais_perto(lote) != lado:
+                    if tipo == "copia" and rua_mais_perto(lote) != lado:
                         continue      # K32: a cópia só vale se esta rua for a mais perto
-                    B.ocupar(*ret, vao=VAO_COPIA if shop in COPIAS else 1)
+                    B.ocupar(*ret, vao=VAO_COPIA if tipo == "copia" else 1)
+                    if tipo == "copia":
+                        resumo["copias"][shop] = resumo["copias"].get(shop, 0) + 1
+                        tipo = "loja"
                     if tipo in cota:
                         cota[tipo] -= 1
                     if tipo == "loja":
                         usados.add(idx)
-                        if shop in COPIAS:
-                            resumo["copias"][shop] = resumo["copias"].get(shop, 0) + 1
                     registrar(kind, lote, tags, andares, {"loja": "lojas", "predio": "predios", "casa": "casas"}[tipo])
                     break
     resumo["quarteiroes"] = len(quarteiroes)

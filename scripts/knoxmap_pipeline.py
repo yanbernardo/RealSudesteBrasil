@@ -42,6 +42,38 @@ def main() -> int:
         for _kind, _over in cfg["storeOverrides"].items():
             _it.STORES[_kind] = {**_it.STORES.get(_kind, {}), **_over}
 
+    # D-42: legenda do mapa do jogo igual à do Knox County. A tabela do KnoxMap
+    # não tem polícia nem bombeiros: caíam em "yes", que o mapa pinta como
+    # residencial. No original os dois são "CommunityServices" (conferido no
+    # worldmap.xml de Muldraugh: delegacias 9_54 e 7_23, quartéis 23_20 e 47_27).
+    from knoxbuild import worldmap as _wm
+    _wm.BUILDING_VALUE.update({"police": "CommunityServices", "fire": "CommunityServices",
+                               "garage": "Industrial", "fuel": "RetailAndCommercial"})
+    # Farmácia é "Medical" no original (RoomTone Pharmacy), mas para o KnoxMap é uma
+    # loja ("shop"), e o mapa só recebe o tipo e o contorno de cada prédio (o nome,
+    # só de prédio "notável"). As farmácias são achadas pela posição: o prédio que
+    # contém o centro de uma farmácia do nosso desenho vira "medical".
+    def _centro(f):
+        anel = f["geometry"]["coordinates"][0]
+        return (sum(p[1] for p in anel) / len(anel), sum(p[0] for p in anel) / len(anel))
+    _farmacias = [_centro(f) for f in cfg.get("sketch", {}).get("features", [])
+                  if f.get("geometry", {}).get("type") == "Polygon"
+                  and (f.get("properties", {}).get("tags") or {}).get("shop") in ("chemist", "pharmacy")]
+    _escrever_mapa = _wm.write
+
+    def _mapa_com_legenda(out_dir, map_name, proj, info, buildings):
+        from shapely.geometry import Point, Polygon
+        pontos = [Point(proj.to_px(lat, lon)) for lat, lon in _farmacias]
+        novos = []
+        for px, kind, nome in buildings:
+            if kind == "shop" and len(px) >= 3 and any(Polygon(px).buffer(0.5).contains(q) for q in pontos):
+                kind = "medical"
+            novos.append((px, kind, nome))
+        print(f"legenda: {sum(1 for _p, k, _n in novos if k == 'medical')} prédios médicos "
+              f"({len(pontos)} farmácias no desenho)", flush=True)
+        return _escrever_mapa(out_dir, map_name, proj, info, novos)
+    _wm.write = _mapa_com_legenda
+
     def post(route: str, body: dict) -> dict:
         t0 = time.time()
         r = client.post(route, json=body)
@@ -73,6 +105,27 @@ def main() -> int:
                               "modId": cfg.get("modId", name)})
         zonas_historias()
         teleporte_debug()
+        satelite()
+
+    def satelite() -> None:
+        """D-41: visão de satélite do mapa do jogo (pyramid.zip ao lado do worldmap.xml),
+        montada dos arquivos compilados por scripts/gerador/satelite.py."""
+        from pathlib import Path
+        sys.path.insert(0, str(Path(__file__).resolve().parent / "gerador"))
+        import satelite as _sat
+        out = Path(knox) / "output" / name
+        info = json.loads((out / f"{name}_info.json").read_text(encoding="utf-8"))
+        pl = json.loads((out / "placement.json").read_text(encoding="utf-8")) if (out / "placement.json").exists() else {}
+        x0, y0 = int(pl.get("cell_x") or 0) * 300, int(pl.get("cell_y") or 0) * 300
+        w, h = int(info["width_tiles"]), int(info["height_tiles"])
+        mapas = list((Path.home() / "Zomboid" / "mods" / cfg.get("modId", name) / "common/media/maps").glob("*/map.info"))
+        if not mapas:
+            print("satélite: pasta do mapa instalado não achada", flush=True)
+            return
+        img = _sat.montar(knox, str(out / "lots"), x0, y0, w, h)
+        os.chdir(knox)                      # montar() entra na pasta do KnoxMap; garante o mesmo lugar
+        n = _sat.gravar_piramide(img, x0, y0, str(mapas[0].parent / "pyramid.zip"))
+        print(f"satélite: {w} x {h} pixels, {n} quadros -> {mapas[0].parent / 'pyramid.zip'}", flush=True)
 
     def teleporte_debug() -> None:
         """D-39: todo mod RSB leva o menu de teleporte do modo debug (só aparece em debug).
