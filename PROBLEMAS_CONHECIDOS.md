@@ -103,6 +103,17 @@ Na coluna "Onde se resolve": **Gerador** = nosso gerador de cidades a 1:15 (T7c/
 | U17 | Lojas com o loot certo, mas construção e móveis que não condizem com o tipo, em quase todas (T8 lojas, usuário 08/11/2026): só a de roupas veio certa, e talvez por acaso; a de armas parece posto de gasolina; a farmácia parecia casa | O loot vem do nome do cômodo (certo). Já a planta e os móveis vêm das regras de decoração do KnoxMap (`interiors.py`): a loja de armas reaproveita as peças da loja de ferragens (prateleiras de metal, caixas), e todas as lojas são caixas de 8–10 × 12 tiles. A farmácia foi o K17 | Ajuste parcial por tipo (`storeOverrides` no `knoxmap_pipeline.py`, só peças que o jogo base já tem); acabamento de verdade (balcões de armas, vitrines, fachadas e plantas próprias de cada loja) vai para o Kit Brasil (Etapa 5) | Aberto |
 | U16 | Acabamento ainda americano (tijolo, telhados) | Estilos do jogo base (ver U5) | Gerador + Kit Brasil | Aberto |
 
+## Achados no jogo: Rio piloto (Etapa 2, 08/11/2026, jogo 42.21, `rsb_rio_piloto`, notebook)
+
+Aprovado pelo usuário: rua reta com faixa no meio (U13 corrigido), zumbis jogáveis com teto 7 (P19), travadas normais para o notebook (U11), menu de teleporte aparece (D-39).
+
+| # | Problema | Causa provável | Onde se resolve | Status |
+|---|---|---|---|---|
+| U18 | Praias não parecem praias: asfalto encostado na água | A 1:15 a areia real (100–150 m) vira 7–8 tiles, e o corredor da avenida da orla cobre ~90% dela (medido: Ipanema/Leblon 267 × 7,7 tiles, só 127 tiles² fora da avenida) | Gerador: praia em escala de jogo (largura mínima de areia, o mar recua), calçadão entre a avenida e a areia, zonas de história de praia. Precisa do OK do usuário (mexe na geografia) | Aberto (proposta) |
+| U19 | Copacabana com bem menos prédios que na vida real | A 1:15 Copacabana tem só ~30–60 tiles de largura; avenidas paralelas ocupam boa parte; prédios de 4–8 andares com vão entre eles | Gerador: "paredão" de prédios altos colados na orla e nas avenidas dos bairros densos (sem mudar a escala, D-01) | Aberto (proposta) |
+| U20 | Cruzamento de avenida diagonal com rua reta todo remendado: calçada e meio-fio em degraus, manchas de calçada no asfalto | É o K15 (sem as peças diagonais do jogo) somado ao encontro de larguras diferentes no cruzamento | Gerador/pós-processo do chão com as peças diagonais do jogo base (K15). Retas e cruzamentos retos ficaram bons | Aberto |
+| U21 | Teleporte do menu D-39 levou a um "lugar que não existe", tela preta | Investigar: pode ser só o notebook carregando o lugar novo (U11) ou um ponto num canto vazio das células. O menu já bloqueia pontos fora das células compiladas | Saída: tecla M (modo debug) → botão direito num pedaço de terra → "Teleportar para Cá". Saber qual ponto foi escolhido | Aberto (investigar) |
+
 ## Jogo / mod
 
 | # | Problema | Causa | Como evitar / resolver | Status |
