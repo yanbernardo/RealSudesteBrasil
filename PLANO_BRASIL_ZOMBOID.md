@@ -497,6 +497,7 @@ Sul, Centro-Oeste, Nordeste e Norte não fazem parte deste projeto (decisão de 
   6. Montar um exemplo no jogo e pedir feedback.
 - Teste pequeno antes de grande.
 - Fim de sessão: atualizar a seção 1 e o registro (e o `AGENTS.md`, se alguma decisão mudou).
+- **Qwen local (regra de 08/11/2026, pedido do usuário):** ao terminar uma tarefa, se a próxima estiver marcada como "Sim" na tabela "Qwen local" (seção 10), avisar o usuário na conversa e deixar escrito o comando ou o passo exato para ele fazer lá.
 - **Modelo e esforço (regra de 06/11/2026):** conferir a tabela da seção 10 no começo de cada tarefa, mas só avisar o usuário quando for **necessário trocar** o modelo ou o esforço (para um mais forte ou para um mais leve). Se o atual serve, trabalhar normalmente, sem pedir confirmação. Quando avisar, esperar o usuário trocar ou dizer "continue com o modelo atual" / "continue mesmo assim".
 
 ---
@@ -567,6 +568,26 @@ Sul, Centro-Oeste, Nordeste e Norte não fazem parte deste projeto (decisão de 
 | Etapas 4, 7 e 8: textos da Workshop, empacotar, publicar | Sonnet | Médio |
 | Qualquer etapa: conferir arquivos, atualizar o plano, traduções simples | Haiku | Baixo ou Médio |
 | Bug difícil que travou depois de 2 tentativas | Opus | Máximo (ou Fable, se disponível no plano) |
+
+### Qwen local: o que pode ir para ele (pedido do usuário, 08/11/2026)
+
+Para economizar os tokens do Claude, parte do trabalho pode ser feita com um modelo **Qwen rodando no PC do usuário** (Ollama ou LM Studio). Para mexer nos arquivos e rodar scripts, ele precisa de uma ferramenta de agente ligada ao modelo local (ex.: Qwen Code, Aider, Continue ou Cline); num chat simples ele só conversa. O `AGENTS.md` já serve de instrução para qualquer IA.
+
+- **Tamanho do modelo:** no notebook (6 GB de vídeo, 7,7 GB de RAM), só modelos de ~7–8 B quantizados (Q4). **Não rodar o Qwen com o jogo ou o KnoxMap abertos no notebook** (falta memória). No PC potente (16 GB de vídeo, 32 GB de RAM), modelos de 14 B, ou um MoE de ~30 B (com parte na RAM), rendem bem mais.
+- **Regras de segurança:** antes de cada tarefa no Qwen, commit (ponto de volta). Ele trabalha num ramo próprio e o Claude confere depois só o `git diff` (barato). O Qwen **não muda decisões** (D-xx), não edita o plano nem o `AGENTS.md` (A6: já houve texto corrompido por edição automática) e não apaga nada. Se travar duas vezes na mesma coisa, volta para o Claude.
+- O Claude avisa na conversa, ao fim de cada tarefa, quando a próxima for boa para o Qwen.
+
+| Tarefa | Qwen local? |
+|---|---|
+| Rodar comandos já prontos e escritos no plano: gerar (`cidade.py`), montar e instalar (`knoxmap_pipeline.py`, inclusive `--so-instalar` depois de fechar o jogo, K18), desenhar conferências (`render_lots`), gerar os PDFs | **Sim** |
+| Procurar erros no `Zomboid\console.txt` depois de um teste ("objects.lua", "ZONES", "ERROR", K30) e trazer só as linhas | **Sim** |
+| Mexer em números e listas dos kits e rodar de novo (ex.: mistura de lotes em `kits/cidades/*.json`, pontos do teleporte em `kits/marcos/teleporte.json`, nomes de bairros por tipo) | **Sim** |
+| Organizar o seu feedback de teste numa lista numerada, para colar ao Claude | **Sim** |
+| Prompts do Tripo, textos da Workshop, traduções simples | **Sim** (o Claude revisa no fim) |
+| Etapas 4 e 7: rodar o gerador em cidade após cidade, quando o kit estiver congelado | **Sim**, seguindo o roteiro do plano |
+| Pequenos ajustes de código já explicados pelo Claude (trocar um valor, uma regra simples) | **Com cuidado** (Claude confere o diff) |
+| Escrever partes novas do gerador, curvas (D-21), plantas de casas, zonas, Lua do jogo | **Não**: Claude |
+| Bugs difíceis, ler o Java do jogo, Viewpoint e relevo (Etapa 2.7), decisões, atualizar o plano | **Não**: Claude |
 
 ### Estimativa de esforço (inicial; revisar depois da Etapa 0)
 

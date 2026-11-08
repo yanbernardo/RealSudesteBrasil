@@ -25,6 +25,7 @@ Mod de mapa para Project Zomboid, inspirado no Real USA, que recria o Sudeste do
 ## Como trabalhar com o usuário
 - Ele não programa. Explique tudo em português simples, passo a passo, sem jargão.
 - Modelo e esforço: confira a tabela do plano (seção 10) no começo de cada tarefa, mas só avise o usuário quando for necessário trocar o modelo ou o esforço. Se o atual serve, trabalhe normalmente. Quando avisar, espere ele trocar ou dizer "continue com o modelo atual" / "continue mesmo assim".
+- Qwen local (08/11/2026): o usuário pode fazer tarefas mecânicas com um Qwen no PC dele (tabela "Qwen local" na seção 10 do plano). Ao fim de cada tarefa, se a próxima for boa para o Qwen, avise na conversa com o comando ou passo exato. **Se você for o Qwen:** não mude decisões, não edite o plano nem este arquivo, não apague nada, faça commit antes e trabalhe num ramo próprio.
 - Trabalhe em etapas, como no plano, para evitar retrabalho e economizar tokens. Não pule etapas sem combinar.
 - Se algo não estiver decidido no plano, pergunte antes de decidir.
 - Registre toda decisão nova no plano (tabela de decisões e Registro).
