@@ -1,0 +1,59 @@
+{
+  "_leia": "Pontos do menu de teleporte do modo debug (D-39). Cada ponto tem lat/lon reais OU 'localidade' (nome da sede/localidade no localidades_rj.csv). O script scripts/gerador/teleporte_debug.py converte pela grade (D-02) e gera o Lua. Para mudar a lista, edite aqui e rode o script de novo.",
+  "grupos": [
+    {"grupo": "Rio de Janeiro - Marcos", "pontos": [
+      {"nome": "Cristo Redentor (Corcovado)", "lat": -22.9519, "lon": -43.2105},
+      {"nome": "Pao de Acucar (Praia Vermelha)", "lat": -22.9548, "lon": -43.1650},
+      {"nome": "Igreja da Candelaria", "lat": -22.9009, "lon": -43.1776},
+      {"nome": "Maracana", "lat": -22.9122, "lon": -43.2302},
+      {"nome": "Central do Brasil", "lat": -22.9037, "lon": -43.1909},
+      {"nome": "Rodoviaria Novo Rio", "lat": -22.8988, "lon": -43.2094},
+      {"nome": "Aeroporto Santos Dumont", "lat": -22.9105, "lon": -43.1631},
+      {"nome": "Avenida Brasil (Penha)", "lat": -22.8420, "lon": -43.2770}
+    ]},
+    {"grupo": "Rio de Janeiro - Praias e bairros", "pontos": [
+      {"nome": "Copacabana", "lat": -22.9711, "lon": -43.1863},
+      {"nome": "Ipanema", "lat": -22.9838, "lon": -43.2049},
+      {"nome": "Barra da Tijuca", "lat": -23.0004, "lon": -43.3659},
+      {"nome": "Urca", "lat": -22.9490, "lon": -43.1600},
+      {"nome": "Botafogo", "lat": -22.9500, "lon": -43.1860},
+      {"nome": "Niteroi (MAC)", "lat": -22.9077, "lon": -43.1255}
+    ]},
+    {"grupo": "Regiao Serrana", "pontos": [
+      {"nome": "Petropolis (Museu Imperial)", "lat": -22.5072, "lon": -43.1773},
+      {"localidade": "Teresopolis"},
+      {"localidade": "Nova Friburgo"},
+      {"localidade": "Lumiar"},
+      {"localidade": "Sao Pedro da Serra"},
+      {"localidade": "Sana"}
+    ]},
+    {"grupo": "Costa Verde", "pontos": [
+      {"localidade": "Paraty"},
+      {"localidade": "Ponta da Trindade", "nome": "Trindade"},
+      {"localidade": "Angra dos Reis"},
+      {"localidade": "Abraao", "nome": "Ilha Grande (Abraao)"},
+      {"localidade": "Mangaratiba"}
+    ]},
+    {"grupo": "Regiao dos Lagos", "pontos": [
+      {"localidade": "Cabo Frio"},
+      {"localidade": "Arraial do Cabo"},
+      {"localidade": "Armacao dos Buzios", "nome": "Buzios"},
+      {"localidade": "Saquarema"},
+      {"localidade": "Macae"}
+    ]},
+    {"grupo": "Interior do RJ", "pontos": [
+      {"localidade": "Volta Redonda", "municipio": "Volta Redonda"},
+      {"localidade": "Resende"},
+      {"localidade": "Penedo"},
+      {"localidade": "Visconde de Maua"},
+      {"localidade": "Vassouras"},
+      {"localidade": "Campos dos Goytacazes"},
+      {"localidade": "Itaperuna"}
+    ]},
+    {"grupo": "Outros estados (ainda sem mapa)", "pontos": [
+      {"nome": "Sao Paulo (Se)", "lat": -23.5505, "lon": -46.6333},
+      {"nome": "Belo Horizonte", "lat": -19.9167, "lon": -43.9345},
+      {"nome": "Vitoria", "lat": -20.3155, "lon": -40.3128}
+    ]}
+  ]
+}

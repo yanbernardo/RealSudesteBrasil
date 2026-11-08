@@ -72,6 +72,21 @@ def main() -> int:
         post("/api/install", {"mapName": name, "title": cfg.get("title", name),
                               "modId": cfg.get("modId", name)})
         zonas_historias()
+        teleporte_debug()
+
+    def teleporte_debug() -> None:
+        """D-39: todo mod RSB leva o menu de teleporte do modo debug (só aparece em debug).
+        O Lua é gerado por scripts/gerador/teleporte_debug.py em saida/teleporte/."""
+        import shutil
+        from pathlib import Path
+        lua = Path(__file__).resolve().parent.parent / "saida" / "teleporte" / "RSB_TeleporteDebug.lua"
+        if not lua.exists():
+            print("teleporte debug: Lua ainda não gerado (rode scripts/gerador/teleporte_debug.py)", flush=True)
+            return
+        destino = Path.home() / "Zomboid" / "mods" / cfg.get("modId", name) / "common/media/lua/client/RSB"
+        destino.mkdir(parents=True, exist_ok=True)
+        shutil.copy(lua, destino / lua.name)
+        print("teleporte debug instalado:", destino / lua.name, flush=True)
 
     def zonas_historias() -> None:
         """T8 (eventos, D-17): o KnoxMap só grava vagas e área urbana. Aqui entram
