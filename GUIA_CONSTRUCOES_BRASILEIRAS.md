@@ -123,6 +123,39 @@ O telhado não é o "Ceilings" (isso é o forro, visto por dentro). Use a **ferr
 ### 5.6 Como me entregar
 Salve o `.tbx` na pasta `kits\lojas\brasil\` e me diga: o que é, o lado da porta da frente e em que bairros ele deve aparecer. Eu ligo no gerador, instalo e coloco o lugar no grupo TESTE do teleporte para você conferir em jogo.
 
-## 6. Fontes
+## 6. Peças novas (tiles brasileiras)
+
+Para o que o jogo base não tem: telha colonial, azulejo português, pedra portuguesa da calçada, fachada pintada, orelhão, placa em português. Regra do projeto: toda peça nova precisa aparecer em 3D no Viewpoint (D-07, D-09), então cada peça nova passa pelo teste do Viewpoint antes de ser usada em massa.
+
+### 6.1 O formato
+- Cada peça é um desenho isométrico de **128 × 256 pixels** (tamanho "2x"; o jogo também usa a metade, 64 × 128). As peças ficam juntas numa **folha** (PNG), em colunas de 8.
+- O nome da peça é o nome da folha + o número dela (ex.: `rsb_telhas_01_3`). Use o prefixo `rsb_` para nunca bater com o nome de uma peça do jogo.
+
+### 6.2 Fazer a folha: TileSetZ (já instalado, dentro do TileZed)
+1. Abra `ferramentas\knoxmap-1.8.5.2\vendor\PZMappingTools\bin\TileZed.exe` → **Tools → TileSetZ - Create and Edit Tiles**.
+2. **File → New Tilesheet**, peça de 128 × 256, 8 colunas.
+3. O jeito mais rápido é **gerar a partir de uma textura** (aba *Tilesheets, textures & masks* → **Open Source Texture**), escolhendo o método:
+   - **Roofs**: telhado a partir de uma foto ou textura reta de telha (é o caminho para a telha colonial ou de fibrocimento).
+   - **Wall masks**: parede a partir de uma textura reta (reboco pintado, azulejo, tijolo aparente). Use **Precut texture into wall tiles** para murais, letreiros e fachadas maiores que uma peça.
+   - **Floor masks**: piso (pedra portuguesa, lajota, cimento queimado).
+   - **Street curbs**: meio-fio.
+   - **Fit inside one tile**: um objeto só (placa, orelhão visto de frente).
+4. Confira o resultado (**Generate Preview**, *Assembly check*) e use **Append to Current Sheet** ou **Use as New Sheet**.
+5. Também dá para desenhar à mão na aba *Draw tiles* (lápis, borracha, balde, linhas, zoom até 32×).
+6. **File → Save As** dentro da pasta `Tiles\2x` das ferramentas (assim o BuildingEd e o TileZed enxergam a folha).
+
+As texturas de origem podem vir de fotos suas ou de bancos livres (o Wikimedia Commons tem texturas de azulejo e pedra portuguesa). Foto de terceiro com direitos não serve.
+
+### 6.3 Dizer ao jogo o que a peça é (propriedades)
+No TileZed: **Tools → Tile Definitions** (o editor das "TileDefs"). Ali cada peça recebe as propriedades: se é parede, chão, se bloqueia passagem, de que material é etc. A explicação de cada propriedade está em `vendor\PZMappingTools\docs\TileZed\TileProperties\index.html`. O jeito mais seguro é copiar as propriedades de uma peça parecida do jogo (ex.: a telha nova copia as de uma peça de telhado do jogo).
+
+### 6.4 O que fica comigo
+- Empacotar as folhas no formato do jogo (`.pack`), gravar o arquivo de propriedades (`.tiles`) e ligar tudo no mod (`mod.info`, com um número de arquivo de peças só nosso).
+- Registrar o 3D no Viewpoint (D-07) e testar no isométrico e no Viewpoint.
+- Usar a peça no gerador (estilos de fachada, telhado, calçada).
+
+Então o seu trabalho termina no passo 6.3: me mande a folha PNG e diga o que é cada peça. Comece por **uma** peça (sugestão: a telha colonial, pelo método **Roofs**), para testarmos o caminho inteiro antes de fazer muitas.
+
+## 7. Fontes
 - Fotos: Wikimedia Commons (links acima; cada foto tem a licença e o autor na página dela).
 - BuildingEd/TileZed/WorldEd: edição comunitária "PZTools Unofficial", que vem com o KnoxMap (`vendor\PZMappingTools\README.md`), continuação das ferramentas de Tim Baker ([pzworlded](https://github.com/timbaker/pzworlded), [tiled](https://github.com/timbaker/tiled)); outra edição comunitária: [Unjammer/TileZed](https://github.com/Unjammer/TileZed). A The Indie Stone anunciou que vai lançar as ferramentas oficiais da Build 42; quando sair, conferir.
