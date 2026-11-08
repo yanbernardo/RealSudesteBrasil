@@ -2,10 +2,12 @@
   "_leia": "Pontos do menu de teleporte do modo debug (D-39). Cada ponto tem lat/lon reais OU 'localidade' (nome da sede/localidade no localidades_rj.csv). O script scripts/gerador/teleporte_debug.py converte pela grade (D-02) e gera o Lua. Grupo TESTE: locais de teste em tile do jogo (tile: [x, y]); o usuario pediu que cada local novo a testar entre aqui e saia quando ele der o OK. Para mudar a lista, edite aqui e rode o script de novo.",
   "grupos": [
     {"grupo": "TESTE (tirar depois do OK do usuario)", "pontos": [
-      {"nome": "Quartel copiado (U22)", "tile": [69570, 66254]},
-      {"nome": "Delegacia 1 copiada - Copacabana (U22)", "tile": [69519, 66258]},
-      {"nome": "Delegacia 2 copiada - Centro (U22)", "tile": [69782, 65808]},
-      {"nome": "Delegacia 3 copiada - Botafogo (U22)", "tile": [69701, 66102]}
+      {"nome": "Quartel copiado - Ipanema (U22)", "tile": [69570, 66254]},
+      {"nome": "Delegacia copiada - Leblon (U22)", "tile": [69517, 66257]},
+      {"nome": "Delegacia copiada - Catete (U22)", "tile": [69778, 65808]},
+      {"nome": "Orla do Leblon emendada no Jardim de Alah (U30)", "tile": [69532, 66275]},
+      {"nome": "Rua Santa Clara sem o X (U30)", "tile": [69696, 66132]},
+      {"nome": "Tunel Zuzu Angel ligado (U28)", "tile": [69372, 66264]}
     ]},
     {"grupo": "Rio de Janeiro - Marcos", "pontos": [
       {"nome": "Cristo Redentor (Corcovado)", "lat": -22.9519, "lon": -43.2105},

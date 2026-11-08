@@ -51,10 +51,12 @@ FAIXA_AVENIDA = 8          # da linha central da avenida até o lote
 MIOLO = 22                 # tiles: quarteirão com o centro mais longe que isto da rua ganha rua no meio
 MIOLO_ORLA = 16            # tiles: o mesmo, na faixa da orla (U19: ali todo espaço conta)
 TOCO_BORDA = 8             # tiles: ponta de avenida mais perto que isto da borda do recorte não é toco
-TOCO_RUA = 12              # tiles: pedaço de rua comum depois do último cruzamento, menor que isto, é cortado
+TOCO_RUA = 22              # tiles: pedaço de rua comum (da grade) depois do último cruzamento, menor que isto, é cortado
+                           # (U30: 12 deixava espinhos de 13-20 tiles entrando no morro e cruzamentos em asterisco)
 LIGAR_TOCO = 40            # tiles: ponta solta de avenida vai até a rua mais perto, se estiver a menos disto
 AVENIDA_SOLTA = 60         # tiles: avenida sem cruzamento nenhum, mas longa, fica (caminho próprio)
 PARALELA_GRADE = 30       # tiles: linha da grade paralela e mais perto que isto de uma rua some
+CONTINUACAO_LADO = 2       # tiles: rua depois da ponta de outra, até isto de lado, é continuação dela (U30)
 
 # highway do OSM -> (ordem, tipo no KnoxMap, largura em tiles). Sem "tertiary":
 # a 1:15 as ruas reais ficam 15 vezes mais juntas e picotavam os quarteirões
@@ -350,6 +352,100 @@ def paralela(a1, a2):
     return min(d, math.pi - d) < math.radians(ANGULO_PARALELO)
 
 
+def continuacao(L, p):
+    """`p` fica depois da ponta de L, na mesma linha (U30): é a continuação dela,
+    não uma rua correndo ao lado. Sem isto, a Av. Delfim Moreira perdia os 30
+    tiles junto da Vieira Souto (mesma linha, nome diferente) e a orla do Leblon
+    ficava cortada no Jardim de Alah."""
+    t = L.project(p)
+    if 0.5 < t < L.length - 0.5:
+        return False
+    cs = L.coords
+    fim, antes = (cs[0], cs[1]) if t <= 0.5 else (cs[-1], cs[-2])
+    fx, fy = fim[0] - antes[0], fim[1] - antes[1]
+    n = math.hypot(fx, fy)
+    if n < 1e-6:
+        return False
+    vx, vy = p.x - fim[0], p.y - fim[1]
+    frente = (vx * fx + vy * fy) / n
+    lado = abs(vx * fy - vy * fx) / n
+    return frente >= -0.5 and lado <= CONTINUACAO_LADO
+
+
+def _dir_ponta(cs, idx):
+    """Direção (unitária) para fora da ponta `idx` (0 ou -1), ignorando vértices repetidos."""
+    seq = cs if idx == 0 else cs[::-1]
+    a = seq[0]
+    for b in seq[1:]:
+        dx, dy = a[0] - b[0], a[1] - b[1]
+        n = math.hypot(dx, dy)
+        if n >= 1.0:
+            return dx / n, dy / n
+    return None
+
+
+def ligacao(cs, idx, linhas_, candidatos, alcance, seca=None):
+    """Ponto onde a ponta `idx` da rua `cs` deve encostar noutra rua (U30), ou None.
+    1º a rua segue reto até a primeira rua à frente (até 1,5 x `alcance`): vira um
+    "T" de verdade. 2º a rua mais perto, mas só se a ligação for para a frente
+    (até 60 graus do rumo da rua): o "gancho" para trás fazia ruas em X e espinhos
+    (Rua Santa Clara) e a Vieira Souto voltar para trás no Jardim de Alah."""
+    p = Point(cs[idx])
+    rumo = _dir_ponta(cs, idx)
+    if rumo is None:
+        return None
+    raio = LineString([p, (p.x + rumo[0] * alcance * 1.5, p.y + rumo[1] * alcance * 1.5)])
+    angulo_raio = math.atan2(rumo[1], rumo[0])
+    melhor = None
+    for j in candidatos:
+        L = linhas_[j]
+        d = L.distance(p)
+        if d < 0.01:
+            return None                                   # já encosta
+        if d < 1.5 and (melhor is None or d < melhor[0]):
+            melhor = (d, L.interpolate(L.project(p)))     # quase encosta: só fecha o vão
+    if melhor is not None:
+        return melhor[1]
+    for j in candidatos:
+        # a mesma rua continua mais à frente depois de um vão (a grade cortada por
+        # um parque): emenda ponta com ponta
+        L = linhas_[j]
+        for e in (L.coords[0], L.coords[-1]):
+            vx, vy = e[0] - p.x, e[1] - p.y
+            frente = vx * rumo[0] + vy * rumo[1]
+            if 0.01 < frente <= alcance * 1.5 and abs(vx * rumo[1] - vy * rumo[0]) <= CONTINUACAO_LADO                     and (melhor is None or frente < melhor[0]):
+                melhor = (frente, Point(e))
+    for j in candidatos:
+        L = linhas_[j]
+        inter = raio.intersection(L)
+        for g in getattr(inter, "geoms", [inter]):
+            if g.is_empty:
+                continue
+            q = g if g.geom_type == "Point" else Point(g.coords[0])
+            if paralela(angulo_raio, direcao(L, L.project(q))):
+                continue      # rua quase paralela ao rumo: a ligação correria em cima dela
+            d = p.distance(q)
+            if d > 0.01 and (melhor is None or d < melhor[0]):
+                melhor = (d, q)
+    if melhor is None:
+        for j in candidatos:
+            L = linhas_[j]
+            d = L.distance(p)
+            if not 0.01 < d < alcance:
+                continue
+            q = L.interpolate(L.project(p))
+            if ((q.x - p.x) * rumo[0] + (q.y - p.y) * rumo[1]) / d < 0.5:
+                continue                                  # para trás ou de lado demais
+            if melhor is None or d < melhor[0]:
+                melhor = (d, q)
+    if melhor is None:
+        return None
+    q = melhor[1]
+    if seca is not None and not seca.contains(LineString([p, q])):
+        return None
+    return q
+
+
 def trechos_novos(cand, aceitas, arvore, limite=PARALELA):
     """Partes de `cand` que não correm paralelas e perto de uma rua aceita."""
     if not aceitas:
@@ -364,7 +460,7 @@ def trechos_novos(cand, aceitas, arvore, limite=PARALELA):
         bom = True
         for i in perto:
             L = aceitas[i]
-            if L.distance(p) < limite and paralela(direcao(cand, d), direcao(L, L.project(p))):
+            if L.distance(p) < limite and paralela(direcao(cand, d), direcao(L, L.project(p)))                     and not continuacao(L, p):
                 bom = False
                 break
         ok.append(bom)
@@ -383,22 +479,20 @@ def trechos_novos(cand, aceitas, arvore, limite=PARALELA):
 
 
 def ligar_pontas(linha, aceitas, arvore):
-    """Estica as pontas soltas de `linha` até a rua aceita mais perto (cruzamento)."""
+    """Estica as pontas soltas de `linha` até a rua aceita à frente (cruzamento)."""
     cs = list(linha.coords)
+    if not aceitas:
+        return linha
     for idx in (0, -1):
         p = Point(cs[idx])
-        melhor = None
-        for i in arvore.query(p.buffer(LIGAR)) if aceitas else []:
-            d = aceitas[i].distance(p)
-            if 0.01 < d < LIGAR and (melhor is None or d < melhor[0]):
-                melhor = (d, i)
-        if melhor:
-            L = aceitas[melhor[1]]
-            q = L.interpolate(L.project(p))
-            if idx == 0:
-                cs.insert(0, (q.x, q.y))
-            else:
-                cs.append((q.x, q.y))
+        cand = [int(j) for j in arvore.query(p.buffer(LIGAR * 1.5))]
+        q = ligacao(cs, idx, aceitas, cand, LIGAR)
+        if q is None:
+            continue
+        if idx == 0:
+            cs.insert(0, (q.x, q.y))
+        else:
+            cs.append((q.x, q.y))
     return LineString(cs)
 
 
@@ -502,7 +596,7 @@ def ruas_no_miolo(area, ruas, n_avenidas, rodadas=3, orlas=()):
 
 def ligar_tocos(aceitas, outras, terra):
     """Ponta solta de avenida (o resto dela caiu no filtro de paralelas) vai até
-    a rua mais perto, até LIGAR_TOCO tiles, sem atravessar água."""
+    a rua à frente, até LIGAR_TOCO tiles, sem atravessar água."""
     todas = aceitas + outras
     arvore = STRtree(todas)
     seca = terra.buffer(1.0)
@@ -512,20 +606,9 @@ def ligar_tocos(aceitas, outras, terra):
         cs = list(l.coords)
         for idx in (0, -1):
             p = Point(cs[idx])
-            if any(j != i and todas[j].distance(p) < 0.01 for j in arvore.query(p.buffer(0.5))):
-                continue                                   # já encosta noutra rua
-            melhor = None
-            for j in arvore.query(p.buffer(LIGAR_TOCO)):
-                if j == i:
-                    continue
-                d = todas[j].distance(p)
-                if d < LIGAR_TOCO and (melhor is None or d < melhor[0]):
-                    melhor = (d, int(j))
-            if melhor is None:
-                continue
-            L = todas[melhor[1]]
-            q = L.interpolate(L.project(p))
-            if not seca.contains(LineString([p, q])):
+            cand = [int(j) for j in arvore.query(p.buffer(LIGAR_TOCO * 1.5)) if j != i]
+            q = ligacao(cs, idx, todas, cand, LIGAR_TOCO, seca)
+            if q is None:
                 continue
             if idx == 0:
                 cs.insert(0, (q.x, q.y))
@@ -590,9 +673,30 @@ def ligar_ilhas(linhas, terra, recorte, relatorio):
             continue
         _d, p, q = melhor
         novas.append(LineString([(p.x, p.y), (q.x, q.y)]))
-        relatorio.append(("ligada", round(comp_len[r]), round(_d)))
+        relatorio.append(("ligada", round(comp_len[r]), round(_d), (round(p.x), round(p.y))))
         comps[principal] += comps[r]          # já faz parte da rede principal
     return novas
+
+
+SOBREPOR = 3              # tiles: trecho de rua correndo paralelo a menos disto de outra é a mesma rua desenhada 2 vezes
+
+
+def sem_sobrepor(linhas_, tipos):
+    """Tira os trechos de rua desenhados em cima de outra (U30): as duas pistas da
+    Rua Humaitá, ganchos de ligação correndo ao longo de uma avenida, a Rio 450 por
+    cima da Rio Branco. A rua que vem antes na lista (avenida mais importante) fica;
+    os pedaços que sobram da outra se ligam a ela."""
+    out, tps = [], []
+    for l, t in zip(linhas_, tipos):
+        if not out:
+            out.append(l)
+            tps.append(t)
+            continue
+        arv = STRtree(out)
+        for q in trechos_novos(l, out, arv, limite=SOBREPOR):
+            out.append(ligar_pontas(q, out, arv))
+            tps.append(t)
+    return out, tps
 
 
 def aparar_tocos(ruas, tipos, n_av, recorte):
@@ -1059,12 +1163,32 @@ def main() -> int:
     ilhas = ligar_ilhas(aceitas + infill, terra, recorte, relatorio_ilhas)
     infill += ilhas
     print("ilhas de ruas:", relatorio_ilhas, flush=True)
-    ruas = com_cruzamentos(aceitas + infill)
-    tipos = info + [("residential", 6, "")] * len(infill)
+    aceitas, info = sem_sobrepor(aceitas, info)
+    ruas, tipos = sem_sobrepor(aceitas + infill, info + [("residential", 6, "")] * len(infill))
+    ruas = com_cruzamentos(ruas)
     ruas, tipos, n_av, tocos = aparar_tocos(ruas, tipos, len(aceitas), recorte)
+    for _ in range(3):      # cortar um toco pode deixar outro solto (o cruzamento sumiu junto)
+        antes = len(ruas)
+        ruas, tipos, n_av, mais = aparar_tocos(ruas, tipos, n_av, recorte)
+        tocos += mais
+        if len(ruas) == antes and not mais:
+            break
     resto_ilhas = []
-    ligar_ilhas(ruas, terra, recorte, resto_ilhas)       # só para contar: o que ainda está solto depois de aparar
+    pontes = ligar_ilhas(ruas, terra, recorte, resto_ilhas)   # cortar tocos pode isolar um pedaço: liga de novo
+    if pontes:
+        ruas = com_cruzamentos(ruas + pontes)
+        tipos = tipos + [("residential", 6, "")] * len(pontes)
     print("ilhas depois de aparar:", resto_ilhas, flush=True)
+    sobra = []
+    ligar_ilhas(ruas, terra, recorte, sobra)
+    print("ilhas no fim:", sobra, flush=True)
+    # conferência (fora do Git): cada rua com tipo, nome e coordenadas em tiles
+    (png.parent / "ruas_debug.json").write_text(json.dumps(
+        {"esqueleto": [{"nome": nm, "tipo": k, "coords": [[round(x, 1), round(y, 1)] for x, y in l.coords]}
+                       for l, (k, _w, nm) in zip(aceitas, info)],
+         "final": [{"i": i, "tipo": t[0], "nome": t[2], "avenida": i < n_av,
+                    "coords": [[round(x, 1), round(y, 1)] for x, y in l.coords]}
+                   for i, (l, t) in enumerate(zip(ruas, tipos))]}, ensure_ascii=False), encoding="utf-8")
 
     corredor = unary_union([l.buffer(FAIXA_AVENIDA if i < n_av else RECUO - 0.5)
                             for i, l in enumerate(ruas)])
