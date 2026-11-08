@@ -1,0 +1,43 @@
+{
+  "versao": 1,
+  "status": "PROPOSTA (Etapa 1, 08/11/2026) - aguarda aprovacao do usuario",
+  "decisao": "D-22: entram todas as localidades possiveis; todo vilarejo ganha nucleo minimo; turisticos ganham bonus",
+  "fontes": {
+    "localidades": "IBGE, Localidades 2022 (BR_localidades_2022.gpkg)",
+    "populacao": "IBGE, Censo 2022, tabela SIDRA 4709 (populacao do municipio)",
+    "manchas_urbanas": "IBGE, Areas Urbanizadas 2019",
+    "turismo": "OSM: tourism=guest_house/hotel/hostel/chalet/camp_site/motel, waterway=waterfall, natural=beach"
+  },
+  "categorias_sede": [
+    {"categoria": "metropole", "pop_min": 1000000},
+    {"categoria": "grande", "pop_min": 300000},
+    {"categoria": "media", "pop_min": 50000},
+    {"categoria": "pequena", "pop_min": 0}
+  ],
+  "tipos_ibge": {
+    "Vila": "distrito",
+    "Nucleo Urbano": "vilarejo",
+    "Povoado": "vilarejo",
+    "Lugarejo": "vilarejo",
+    "Nucleo Rural": "vilarejo",
+    "Agrovila do PA": "vilarejo",
+    "Localidade Quilombola": "vilarejo",
+    "Localidade Indigena": "vilarejo",
+    "Outras Localidades": "so_com_mancha"
+  },
+  "regras": {
+    "bairro": "Localidade dentro da mesma mancha urbana de uma sede vira bairro dessa cidade: nao ganha nucleo proprio, mas o nome vai para o bairro gerado ali.",
+    "so_com_mancha": "'Outras Localidades' (condominios, loteamentos, fazendas) so entram como vilarejo se houver mancha urbana do IBGE no ponto; senao ficam so como nome no mapa.",
+    "tamanho_cidade": "Sedes e distritos com mancha urbana usam o contorno real a 1:15 (D-03), preenchido pelo gerador em escala de jogo.",
+    "turistica": "Turistica = pelo menos 3 pousadas/hoteis/campings/cachoeiras do OSM a ate 2 km reais do ponto (ou 5 para sedes)."
+  },
+  "nucleo_minimo": {
+    "vilarejo": {"tamanho_tiles": [60, 60], "pecas": ["praca", "igreja", "venda (mercadinho)", "bar", "6-12 casas"]},
+    "distrito": {"tamanho_tiles": "contorno real, minimo 100 x 100", "pecas": ["praca", "igreja", "venda", "bar", "padaria", "escola", "posto de saude", "20-40 casas"]},
+    "pequena": {"pecas_extra": ["mercado", "farmacia", "posto de combustivel", "delegacia", "hospital pequeno", "prefeitura"]},
+    "media": {"pecas_extra": ["supermercado", "loja de material de construcao", "oficina", "batalhao da PM", "hospital", "rodoviaria"]},
+    "grande": {"pecas_extra": ["shopping", "varios hospitais e mercados", "distritos industriais"]},
+    "metropole": {"pecas_extra": ["marcos (secao 6.1)", "favelas (D-31)", "cenas caracteristicas (D-18)"]}
+  },
+  "bonus_turistico": {"pecas_extra": ["+2 pousadas", "+1 restaurante", "+1 loja de artesanato/conveniencia", "camping ou cachoeira com trilha quando houver no OSM"]}
+}
