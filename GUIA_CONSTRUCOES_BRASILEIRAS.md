@@ -142,6 +142,17 @@ O telhado não é o "Ceilings" (isso é o forro, visto por dentro). Use a **ferr
 - Camada (**Layer**, embaixo da lista): "Furniture" é o normal; "Walls" troca a parede por aquela peça (portão de garagem, vitrine larga); "WallOverlay" é para o que fica pintado na parede.
 - **Cerca e muro do quintal (fora da casa)** não fazem parte do prédio no BuildingEd: são terreno. Faça a casa sem eles; eu levo o quintal junto como "entorno", como fiz com o estacionamento da delegacia. Se quiser desenhar o quintal você mesmo, dá para fazer a casa com uns tiles a mais e a cerca nessa borda; me avise que eu ajusto o gerador.
 
+### 5.4.3 Casa com muro, portão e garagem a céu aberto (o "combo" da Baixada)
+O BuildingEd não junta dois arquivos de prédio num só. O jeito certo é fazer **um arquivo só, do tamanho do terreno inteiro**:
+1. *File → New* com o tamanho do lote todo (ex.: 12 × 15 para uma casa de 9 × 10 com quintal e garagem).
+2. Pinte os cômodos só onde fica a casa. O resto (quintal, garagem) fica **sem cômodo**: é área de fora, mas dentro do arquivo.
+3. **Piso da garagem e do quintal:** no **Tile Mode**, pinte o chão de cimento ou lajota nos quadrados sem cômodo (camada de chão, "Floor").
+4. **Muro:** peças de muro ou cerca (ex.: folha `fencing_01`) como móveis ou no Tile Mode, na borda do terreno. **Portão:** `fixtures_doors_fences_01` ou um portão de garagem na camada "Walls".
+5. Garagem coberta é um cômodo `garage`; garagem a céu aberto é só o piso, sem cômodo e sem telhado.
+6. Salve como uma versão "com muro" da casa (ex.: `casa_laje_01_muro_S.tbx`). Vale ter as duas: com muro (Baixada, subúrbio) e sem muro.
+
+Funciona: o estacionamento da delegacia copiada já é exatamente isso (prédio + terreno com chão e cerca num arquivo só) e saiu certo no mapa. Se preferir fazer a casa e o terreno em arquivos separados, me mande os dois que eu junto por script, mas é mais seguro fazer num arquivo só.
+
 ### 5.5 Regras para o gerador conseguir usar
 - **A porta da frente define o lado da rua.** Faça a porta da frente virada para baixo/esquerda da tela (lado sul) ou avise qual lado é; o gerador não gira o prédio (K35).
 - **Tamanho fixo:** anote o tamanho; o gerador reserva um lote exatamente desse tamanho.

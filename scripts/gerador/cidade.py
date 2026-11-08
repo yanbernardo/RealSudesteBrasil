@@ -277,6 +277,37 @@ def ruas_da_orla(praias_, urbano):
     return sem, regs
 
 
+def quadras_de_praia(pr, zonas, passo=110):
+    """Quadras de vôlei na areia (usuário, 08/11/2026): retângulo de 12 x 6 tiles
+    (o lado comprido ao longo da costa) no meio da faixa nova de areia, entre as
+    zonas de história de praia, com a rede no meio. Devolve as quadras e as redes
+    ("W": rede na borda oeste dos quadrados x, de y0 a y1; "N": borda norte, de x0 a x1)."""
+    S, faixa = pr["costa"], pr["faixa_mar"].buffer(-1.0)
+    shapely.prepare(faixa)
+    ocupado = unary_union([box(*z[1:3], z[1] + z[3], z[2] + z[4]) if isinstance(z, (list, tuple)) and len(z) == 5
+                           else Polygon() for z in zonas])
+    out = []
+    for d in np.arange(47, S.length - 20, passo):
+        p, q = S.interpolate(d - 3), S.interpolate(d + 3)
+        tx, ty = q.x - p.x, q.y - p.y
+        n = math.hypot(tx, ty) or 1.0
+        c = S.interpolate(d)
+        ao_longo_x = abs(tx) >= abs(ty)
+        w, h = (12, 6) if ao_longo_x else (6, 12)
+        for nx, ny in ((-ty / n, tx / n), (ty / n, -tx / n)):
+            cx, cy = c.x + nx * 11, c.y + ny * 11
+            x0, y0 = round(cx - w / 2), round(cy - h / 2)
+            r = box(x0, y0, x0 + w, y0 + h)
+            if faixa.contains(r) and not r.intersects(ocupado):
+                if ao_longo_x:
+                    rede = {"tipo": "W", "x": x0 + w // 2, "y0": y0, "y1": y0 + h - 1}
+                else:
+                    rede = {"tipo": "N", "y": y0 + h // 2, "x0": x0, "x1": x0 + w - 1}
+                out.append((r, rede))
+                break
+    return out
+
+
 def zonas_de_praia(pr, tam=13, passo=55):
     """Retângulos 'Beach' (histórias de praia: churrasco, festa, pescaria) na
     faixa nova de areia, sem água dentro, de passo em passo ao longo da costa."""
@@ -741,6 +772,77 @@ def sem_sobrepor(linhas_, tipos):
         arv = STRtree(out)
         for q in trechos_novos(l, out, arv, limite=SOBREPOR):
             out.append(ligar_pontas(q, out, arv))
+            tps.append(t)
+    return out, tps
+
+
+COLADA = 13              # tiles: rua sem saída a menos disto de outra rua (ao longo) é a mesma rua em dobro
+PROLONGAR = 55           # tiles: rua sem saída segue reto até achar outra rua (até 1,5 x isto), só por cidade
+
+
+def resolver_sem_saida(ruas, tipos, n_av, recorte, mata, relatorio):
+    """U38 (usuário, 08/11/2026: "em Copacabana não temos muitas ruas sem saída, a
+    não ser que tenham morros na frente"). Para cada ponta solta de rua comum:
+    (a) se o trecho solto corre colado a outra rua (até COLADA tiles quase todo o
+    caminho), ele sai: era rua em dobro e tomava o lugar de um lote;
+    (b) senão, a rua segue reto até a próxima rua, desde que o caminho não
+    atravesse mata (morro); se atravessa, fica como está (rua que acaba no morro,
+    a ser mostrada com o Terrain Relief do Viewpoint).
+    Avenidas não mudam."""
+    from collections import Counter
+    borda = recorte.exterior
+    usos = Counter(c for l in ruas for c in l.coords)
+    arv = STRtree(ruas)
+    morro_ = mata.buffer(-1.0)          # a beirada da mata (1 tile) não conta como morro
+    shapely.prepare(morro_)
+    novas = [list(l.coords) for l in ruas]
+    cortadas = prolongadas = morro = 0
+    for i in range(len(ruas)):
+        # avenida, túnel e rodovia (traçado real, D-43) não mudam; rua real moldada sim
+        if i < n_av and (tipos[i][0] == "primary" and not tipos[i][2] or TRACADO_REAL.match(tipos[i][2] or "")):
+            continue
+        for idx in (0, -1):
+            cs = novas[i]
+            if len(cs) < 2:
+                break
+            p = cs[idx]
+            if usos[p] != 1 or Point(p).distance(borda) <= TOCO_BORDA:
+                continue
+            seq = cs if idx == 0 else cs[::-1]
+            k = next((j for j in range(1, len(seq)) if usos[seq[j]] >= 2), None)
+            if k is not None:
+                toco = LineString(seq[:k + 1])
+                cruz = Point(seq[k])
+                outros = [int(j) for j in arv.query(toco.buffer(COLADA)) if j != i]
+                amostra = [toco.interpolate(d) for d in np.arange(0, toco.length, 2.0)]
+                amostra = [q for q in amostra if q.distance(cruz) > 6]
+                if amostra and outros:
+                    perto = sum(1 for q in amostra if min(ruas[j].distance(q) for j in outros) < COLADA)
+                    if perto >= 0.8 * len(amostra):
+                        resto = seq[k:]
+                        novas[i] = resto if idx == 0 else resto[::-1]
+                        cortadas += 1
+                        continue
+            cand = [int(j) for j in arv.query(Point(p).buffer(PROLONGAR * 1.5)) if j != i]
+            q = ligacao(cs, idx, ruas, cand, PROLONGAR)
+            if q is None:
+                continue
+            if LineString([p, (q.x, q.y)]).intersection(morro_).length > 2:
+                morro += 1                        # havia rua à frente, mas o caminho atravessa o morro
+                continue
+            if idx == 0:
+                cs.insert(0, (q.x, q.y))
+            else:
+                cs.append((q.x, q.y))
+            prolongadas += 1
+    relatorio.update({"cortadas_coladas": cortadas, "prolongadas": prolongadas, "ficaram_no_morro": morro})
+    out, tps = [], []
+    for k, (cs, t) in enumerate(zip(novas, tipos)):
+        if len(cs) >= 2 and (k < n_av or LineString(cs).length >= TRECHO_MIN):
+            out.append(LineString(cs))
+            tps.append(t)
+        elif k < n_av:
+            out.append(ruas[k])
             tps.append(t)
     return out, tps
 
@@ -1291,6 +1393,7 @@ def main() -> int:
         areia += [g for g in poligonos(resto) if g.distance(p["costa"]) < 1.0]
     praia = unary_union(areia)
     zonas_praia = [z for p in praias_ for z in zonas_de_praia(p)]
+    quadras = [qd for p in praias_ for qd in quadras_de_praia(p, zonas_praia)]
     nao_construir = unary_union([areas.get(k, Polygon()) for k in ("sand", "park", "cemetery", "pitch")]
                                 + [praia])
     mata = terra.difference(urbano).difference(areas.get("sand", Polygon())).difference(praia)
@@ -1344,6 +1447,16 @@ def main() -> int:
         tocos += mais
         if len(ruas) == antes and not mais:
             break
+    sem_saida = {}
+    for _volta in range(2):     # cortar um toco pode deixar outra rua solta: segunda volta
+        rel = {}
+        ruas, tipos = resolver_sem_saida(ruas, tipos, n_av, recorte, mata, rel)
+        ruas = com_cruzamentos(ruas)
+        ruas, tipos, n_av, mais = aparar_tocos(ruas, tipos, n_av, recorte)
+        for k_, v_ in rel.items():
+            sem_saida[k_] = sem_saida.get(k_, 0) + (v_ if k_ != "ficaram_no_morro" else 0)
+        sem_saida["ficaram_no_morro"] = rel.get("ficaram_no_morro", 0)
+    print("ruas sem saída:", sem_saida, flush=True)
     resto_ilhas = []
     pontes = ligar_ilhas(ruas, terra, recorte, resto_ilhas)   # cortar tocos pode isolar um pedaço: liga de novo
     if pontes:
@@ -1426,6 +1539,9 @@ def main() -> int:
         "centrarFaixas": True,          # U13 (scripts/gerador/faixas.py)
         "limparOrla": True,             # U25 (scripts/gerador/limpar_orla.py)
         "semCalcadaDiagonal": True,     # K15/U20 (scripts/gerador/diagonais.py)
+        # quadras de vôlei na areia (scripts/gerador/praia_quadras.py), em pixels do desenho
+        "quadrasPraia": [{k: (v - (mold.X0 if k in ("x", "x0", "x1") else mold.Y0) if k != "tipo" else v)
+                          for k, v in rede.items()} for _r, rede in quadras],
     }
     saida.write_text(json.dumps(cfg, ensure_ascii=False), encoding="utf-8")
     figura(png, mold, [("mar", mar), ("forest", mata), ("urbano", urbano)]

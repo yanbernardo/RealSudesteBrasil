@@ -227,6 +227,13 @@ def main() -> int:
         import diagonais
         print("diagonais:", diagonais.tirar(Path(knox), name, cfg), flush=True)
 
+    # quadras de vôlei na areia (scripts/gerador/praia_quadras.py)
+    if cfg.get("quadrasPraia"):
+        from pathlib import Path
+        sys.path.insert(0, str(Path(__file__).resolve().parent / "gerador"))
+        import praia_quadras
+        print("quadras na praia:", praia_quadras.colocar(Path(knox), name, cfg), flush=True)
+
     # Mapa independente (D-36): o mapa fica sozinho no mundo, na célula 0,0,
     # sem o Knox County do jogo base.
     if "standalone" in cfg:
