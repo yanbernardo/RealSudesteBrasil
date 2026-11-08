@@ -23,6 +23,25 @@ def caixa(rooms, ids):
     return min(xs), min(ys), max(xs), max(ys)
 
 
+def portas(sq, x0, y0, x1, y1):
+    """Lados do perímetro (andar 0) que têm porta de entrada."""
+    lados = set()
+    for (x, y, z), ts in sq.items():
+        if z != 0 or not any(t.startswith(("fixtures_doors_01", "fixtures_doors_frames")) for t in ts):
+            continue
+        if not (x0 - 1 <= x <= x1 and y0 - 1 <= y <= y1):
+            continue
+        if x in (x0 - 1, x0) and y0 <= y < y1:
+            lados.add("W")
+        if x in (x1 - 1, x1) and y0 <= y < y1:
+            lados.add("E")
+        if y in (y0 - 1, y0) and x0 <= x < x1:
+            lados.add("N")
+        if y in (y1 - 1, y1) and x0 <= x < x1:
+            lados.add("S")
+    return lados
+
+
 def frente(sq, x0, y0, x1, y1, faixa=7):
     """Devolve (lado, contagens). Lados: N (y menor), S, W (x menor), E."""
     cont = {"N": 0, "S": 0, "W": 0, "E": 0}
@@ -39,8 +58,10 @@ def frente(sq, x0, y0, x1, y1, faixa=7):
                 cont["W" if x < x0 else "E"] += 1
             if dy >= dx:
                 cont["N" if y < y0 else "S"] += 1
-    lado = max(cont, key=cont.get)
-    return lado, cont
+    p = portas(sq, x0, y0, x1, y1)
+    cands = {k: v for k, v in cont.items() if k in p} or cont
+    lado = max(cands, key=cands.get)
+    return lado, {**cont, "portas": "".join(sorted(p))}
 
 
 if __name__ == "__main__":
