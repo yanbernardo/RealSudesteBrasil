@@ -11,18 +11,26 @@
   "_bairros": "tipo de cada bairro (ponto do OSM mais próximo); o que não estiver aqui usa 'misto'",
   "bairros": {
     "centro": ["Centro", "Saúde", "Gamboa", "Lapa", "Castelo", "Saara", "Cidade Nova", "Bairro de Fátima", "Glória"],
-    "denso": ["Copacabana", "Leme", "Ipanema", "Leblon", "Flamengo", "Botafogo", "Catete", "Arpoador",
-              "Bairro Peixoto", "Lagoa", "Humaitá"],
+    "orla": ["Copacabana", "Leme", "Ipanema", "Leblon", "Arpoador", "Bairro Peixoto"],
+    "denso": ["Flamengo", "Botafogo", "Catete", "Lagoa", "Humaitá"],
     "casas": ["Gávea", "Jardim Botânico", "Urca", "Santa Teresa", "Cosme Velho", "Laranjeiras", "Horto",
               "Silvestre", "Vidigal", "Catumbi", "Estácio", "Santa Marta", "Pico", "Segunda mina",
               "Primeira Mina", "Cocheira", "Vila Rica", "Estradinha", "Mangueirinha", "Barro", "Figueira"]
   },
   "_teto_zumbis": "P19: nenhum pedaço de 8x8 tiles passa do máximo do centro de Louisville no jogo original (medido nos .lotheader em 08/11/2026: 7; o 10 só aparece em poucos pontos especiais)",
   "teto_zumbis": 7,
-  "_mistura": "chance de cada tipo de lote [loja, prédio, casa] e andares dos prédios [mín, máx]",
+  "_andares_max": "teto de andares de qualquer prédio (o KnoxMap corta em 6 se não disser; a B42 aguenta 31, mas andar demais pesa na memória)",
+  "andares_max": 14,
+  "_praias": "U18: praia em escala de jogo. A costa entre 'de' e 'ate' (lon, lat; o ponto vai para a costa mais perto) ganha uma faixa de areia de 'largura' tiles para o lado do mar (o mar recua) e areia até a avenida da orla; zonas de história 'Beach' (13 x 13) espalhadas na areia. Copacabana não vem como praia no OSM baixado.",
+  "praias": [
+    {"nome": "Leme e Copacabana", "de": [-43.18930, -22.98300], "ate": [-43.16446, -22.96277], "largura": 22},
+    {"nome": "Arpoador, Ipanema e Leblon", "de": [-43.22733, -22.98907], "ate": [-43.19124, -22.98951], "largura": 22}
+  ],
+  "_mistura": "chance de cada tipo de lote [loja, prédio, casa] e andares dos prédios [mín, máx]; 'orla' = paredão de prédios altos (U19)",
   "mistura": {
-    "centro": {"lote": [0.35, 0.45, 0.20], "andares": [4, 8]},
-    "denso":  {"lote": [0.18, 0.55, 0.27], "andares": [4, 8]},
+    "centro": {"lote": [0.35, 0.45, 0.20], "andares": [4, 10]},
+    "orla":   {"lote": [0.12, 0.80, 0.08], "andares": [10, 14]},
+    "denso":  {"lote": [0.18, 0.55, 0.27], "andares": [5, 10]},
     "misto":  {"lote": [0.15, 0.35, 0.50], "andares": [3, 6]},
     "casas":  {"lote": [0.10, 0.20, 0.70], "andares": [2, 4]}
   }

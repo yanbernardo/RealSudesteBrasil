@@ -82,6 +82,7 @@ ESPECIAIS = {"school": ("school", 16, 12, 130), "college": ("school", 16, 12, 13
              "place_of_worship": ("church", 10, 13, 120), "police": ("police", 12, 10, 220),
              "hospital": ("hospital", 14, 12, 240), "clinic": ("hospital", 12, 10, 240),
              "fire_station": ("fire", 12, 10, 320), "fuel": ("fuel", 10, 8, 170)}
+ESPECIAL_ENTRE = 50        # tiles entre dois serviços especiais quaisquer
 
 
 def loja_de(t):
@@ -201,6 +202,58 @@ def chao(dados, kit, mold, recorte):
     lagoas = unary_union([g for g in agua if g.area > 200]).intersection(caixa)
     terra = caixa.difference(mar).difference(lagoas)
     return mar, lagoas, terra
+
+
+def praias(kit, mar):
+    """U18: praia em escala de jogo. A 1:15 a areia real (100–150 m) vira 7–8
+    tiles e some debaixo da avenida da orla. Para cada praia do kit, a costa
+    entre 'de' e 'ate' ganha uma faixa de areia de 'largura' tiles do lado do
+    mar (o mar recua). Devolve [{nome, costa, faixa_mar, sinal_terra, largura}]."""
+    if not kit.get("praias"):
+        return []
+    costas = linhas(linemerge(linhas(mar.boundary)))
+    out = []
+    for pr in kit["praias"]:
+        a = Point(tiles(Point(*pr["de"])).coords[0])
+        b = Point(tiles(Point(*pr["ate"])).coords[0])
+        L = min(costas, key=lambda l: l.distance(a) + l.distance(b))
+        da, db = sorted((L.project(a), L.project(b)))
+        S = shapely.ops.substring(L, da, db)
+        if L.is_ring and L.length - S.length < S.length:      # o outro arco é o mais curto
+            S = linemerge([shapely.ops.substring(L, db, L.length), shapely.ops.substring(L, 0, da)])
+        larg = float(pr.get("largura", 22))
+        esq, dir_ = S.buffer(larg, single_sided=True), S.buffer(-larg, single_sided=True)
+        if esq.intersection(mar).area >= dir_.intersection(mar).area:
+            faixa, sinal_terra = esq.intersection(mar), -1
+        else:
+            faixa, sinal_terra = dir_.intersection(mar), 1
+        out.append({"nome": pr["nome"], "costa": S, "faixa_mar": faixa, "sinal_terra": sinal_terra,
+                    "largura": larg})
+    return out
+
+
+def zonas_de_praia(pr, tam=13, passo=55):
+    """Retângulos 'Beach' (histórias de praia: churrasco, festa, pescaria) na
+    faixa nova de areia, sem água dentro, de passo em passo ao longo da costa."""
+    S, faixa = pr["costa"], pr["faixa_mar"].buffer(-1.0)
+    shapely.prepare(faixa)
+    out = []
+    for d in np.arange(20, S.length - 20, passo):
+        p, q = S.interpolate(d - 2), S.interpolate(d + 2)
+        tx, ty = q.x - p.x, q.y - p.y
+        n = math.hypot(tx, ty) or 1.0
+        c = S.interpolate(d)
+        for nx, ny in ((-ty / n, tx / n), (ty / n, -tx / n)):
+            if not faixa.contains(Point(c.x + nx * 5, c.y + ny * 5)):
+                continue                                # esse lado é a terra
+            for k in (0, -2, 2, -4, 4):
+                m = pr["largura"] / 2 + k
+                x0, y0 = round(c.x + nx * m - tam / 2), round(c.y + ny * m - tam / 2)
+                if faixa.contains(box(x0, y0, x0 + tam, y0 + tam)):
+                    out.append(["Beach", int(x0), int(y0), tam, tam])
+                    break
+            break
+    return out
 
 
 def areas_osm(dados, kit, terra):
@@ -547,15 +600,24 @@ class Quarteirao:
             self.F[k] = self.M & perto
         self.occ = np.zeros_like(self.M)
 
-    def retangulo(self, lado, r, c, frente, fundo):
-        """Lote com a frente no tile (r, c), virado para a rua do `lado`."""
-        if lado == "N":
-            return r, c, fundo, frente
-        if lado == "S":
-            return r - fundo + 1, c, fundo, frente
-        if lado == "W":
-            return r, c, frente, fundo
-        return r, c - fundo + 1, frente, fundo
+    def retangulo(self, lado, r, c, frente, fundo, para_tras=False):
+        """Lote com a frente no tile (r, c), virado para a rua do `lado`. A frente
+        cresce para a direita (N/S) ou para baixo (W/E); com `para_tras`, para o
+        outro lado: numa avenida diagonal em degraus, só um dos dois cabe (U19:
+        sem isso, a orla de Copacabana, que desce para a esquerda, ficava vazia)."""
+        if lado in ("N", "S"):
+            r0 = r if lado == "N" else r - fundo + 1
+            return r0, (c - frente + 1 if para_tras else c), fundo, frente
+        c0 = c if lado == "W" else c - fundo + 1
+        return (r - frente + 1 if para_tras else r), c0, frente, fundo
+
+    def encaixe(self, lado, r, c, frente, fundo):
+        """O retângulo que cabe com a frente no tile (r, c), ou None."""
+        for tras in (False, True):
+            ret = self.retangulo(lado, r, c, frente, fundo, tras)
+            if self.cabe(lado, *ret):
+                return ret
+        return None
 
     def cabe(self, lado, r0, c0, h, w):
         if r0 < 0 or c0 < 0 or r0 + h > self.M.shape[0] or c0 + w > self.M.shape[1]:
@@ -629,18 +691,28 @@ def lotes(livre, corredor, ruas, bairro_de, kit, lojas, especiais, rnd):
         else:
             resumo["especiais"][chave] = resumo["especiais"].get(chave, 0) + 1
 
-    # 1) Serviços especiais, no quarteirão mais perto do ponto real.
+    # 1) Serviços especiais, no quarteirão mais perto do ponto real. Mesmo tipo
+    #    (escola e faculdade, hospital e clínica) conta junto, e dois serviços
+    #    quaisquer ficam a ESPECIAL_ENTRE tiles: em Copacabana, hospital, delegacia
+    #    e igreja caíam no mesmo quarteirão da orla e tiravam o lugar dos prédios (U19).
+    por_tipo = {}
     for a, pts in especiais.items():
-        tipo, w, d, minimo = ESPECIAIS[a]
+        por_tipo.setdefault(ESPECIAIS[a], []).extend(pts)
+    postos_esp = []
+    prioridade = ["police", "hospital", "fire", "fuel", "school", "church"]   # o mais raro e útil primeiro
+    for (tipo, w, d, minimo), pts in sorted(por_tipo.items(), key=lambda kv: prioridade.index(kv[0][0])):
         for p in espalhar(pts, minimo):
+            if any(p.distance(q) < ESPECIAL_ENTRE for q in postos_esp):
+                continue
+            postos_esp.append(p)
             feito = False
             for k in sorted(centros.query(p.buffer(80)), key=lambda k: quarteiroes[k].distance(p)):
                 B = Q[k]
                 cand = [(math.dist((B.x0 + c, B.y0 + r), (p.x, p.y)), lado, r, c)
                         for lado in LADOS for r, c in B.frentes(lado)]
                 for _d, lado, r, c in sorted(cand):
-                    ret = B.retangulo(lado, r, c, w, d)
-                    if B.cabe(lado, *ret):
+                    ret = B.encaixe(lado, r, c, w, d)
+                    if ret:
                         B.ocupar(*ret)
                         lote = B.caixa(*ret)
                         if tipo == "fuel":
@@ -652,15 +724,23 @@ def lotes(livre, corredor, ruas, bairro_de, kit, lojas, especiais, rnd):
                 if feito:
                     break
 
-    # 2) O resto: lojas, prédios e casas pela mistura do bairro.
+    # 2) O resto, em duas passadas por quarteirão (U19): primeiro só lojas e
+    #    prédios, pela mistura do bairro (o lote grande raramente cabe no primeiro
+    #    tile tentado, e a casa pegava o lugar); depois as casas no que sobrou.
     for k, (q, B) in enumerate(zip(quarteiroes, Q)):
         mix = kit["mistura"].get(bairro_de(q.centroid), kit["mistura"]["misto"])
         pl, pp, _pc = mix["lote"]
-        for lado in ("N", "S", "W", "E"):
+        # Cota da 1ª passada: lotes que cabem no quarteirão (tiles de frente,
+        # que vêm em 2 fileiras e contam a quina duas vezes) x mistura.
+        n_est = sum(int(B.F[l].sum()) for l in LADOS) / 2 / 18   # calibrado no Rio piloto
+        cota = {"loja": round(pl * n_est), "predio": round(pp * n_est)}
+        for passada, lado in [(1, l) for l in ("N", "S", "W", "E")] + [(2, l) for l in ("N", "S", "W", "E")]:
             for r, c in B.frentes(lado):
                 if B.occ[r, c]:
                     continue
-                x = rnd.random()
+                x = rnd.random() if passada == 1 else 1.0
+                if passada == 1 and (x >= pl + pp or cota["loja" if x < pl else "predio"] <= 0):
+                    continue                      # este tile fica para as casas
                 tentativas = []
                 if x < pl and arv_lojas is not None:
                     # a loja real mais perto que caiba deste lado da rua
@@ -685,20 +765,23 @@ def lotes(livre, corredor, ruas, bairro_de, kit, lojas, especiais, rnd):
                     fr = rnd.randint(10, 14)
                     for f, fu in ((fr, 14), (fr, 12), (10, 11)):
                         tentativas.append(("predio", None, "apartments", None, f, fu, andares))
-                # casa: sempre a última tentativa (é o lote menor); se a sorteada
-                # não couber, a menor casa (7 x 8) ainda tenta no mesmo lugar
-                andares_casa = rnd.choice((1, 1, 2))
-                tentativas.append(("casa", None, "house", None, rnd.randint(7, 9), rnd.randint(8, 10), andares_casa))
-                tentativas.append(("casa", None, "house", None, 7, 8, andares_casa))
+                # casa (só na 2ª passada): se a sorteada não couber, a menor
+                # casa (7 x 8) ainda tenta no mesmo lugar
+                if passada == 2:
+                    andares_casa = rnd.choice((1, 1, 2))
+                    tentativas.append(("casa", None, "house", None, rnd.randint(7, 9), rnd.randint(8, 10), andares_casa))
+                    tentativas.append(("casa", None, "house", None, 7, 8, andares_casa))
                 for tipo, idx, kind, tags, fr, fu, andares in tentativas:
-                    ret = B.retangulo(lado, r, c, fr, fu)
-                    if not B.cabe(lado, *ret):
+                    ret = B.encaixe(lado, r, c, fr, fu)
+                    if not ret:
                         continue
                     lote = B.caixa(*ret)
                     shop = (tags or {}).get("shop")
                     if shop in COPIAS and rua_mais_perto(lote) != lado:
                         continue      # K32: a cópia só vale se esta rua for a mais perto
                     B.ocupar(*ret)
+                    if tipo in cota:
+                        cota[tipo] -= 1
                     if tipo == "loja":
                         usados.add(idx)
                         if shop in COPIAS:
@@ -752,6 +835,9 @@ def main() -> int:
     recorte = tiles(recorte_ll)
     mold = Moldura(knox, *recorte.bounds)
     mar, lagoas, terra = chao(dados, kit, mold, recorte)
+    praias_ = praias(kit, mar)
+    faixas_mar = unary_union([p["faixa_mar"] for p in praias_]) if praias_ else Polygon()
+    mar, terra = mar.difference(faixas_mar), terra.union(faixas_mar)       # o mar recua na praia
     areas = areas_osm(dados, kit, terra)
 
     urb = []
@@ -759,11 +845,22 @@ def main() -> int:
                                   bbox=recorte_ll.bounds):
         if a.get("Tipo") in ("Área urbanizada", "Outros equipamentos urbanos") and g.intersects(recorte_ll):
             urb.append(tiles(g.buffer(0)))
-    nao_construir = unary_union([areas.get(k, Polygon()) for k in ("sand", "park", "cemetery", "pitch")])
     urbano = unary_union(urb).intersection(recorte).intersection(terra).buffer(-1).buffer(1)
-    mata = terra.difference(urbano).difference(areas.get("sand", Polygon()))
 
     aceitas, info = esqueleto(dados, kit, recorte, terra)
+    # Areia também do lado da terra, da costa até a avenida da orla (o resto
+    # depois da avenida é cidade). A avenida e a calçada dela são desenhadas por cima.
+    areia = [faixas_mar]
+    for p in praias_:
+        perto = p["costa"].buffer(p["sinal_terra"] * 12, single_sided=True).intersection(terra)
+        orla = [l for l in aceitas if l.distance(p["costa"]) < 20]
+        resto = perto.difference(unary_union([l.buffer(5) for l in orla])) if orla else perto
+        areia += [g for g in poligonos(resto) if g.distance(p["costa"]) < 1.0]
+    praia = unary_union(areia)
+    zonas_praia = [z for p in praias_ for z in zonas_de_praia(p)]
+    nao_construir = unary_union([areas.get(k, Polygon()) for k in ("sand", "park", "cemetery", "pitch")]
+                                + [praia])
+    mata = terra.difference(urbano).difference(areas.get("sand", Polygon())).difference(praia)
     area_urb = urbano.difference(nao_construir)
     infill, gx, gy = preenchimento(area_urb, aceitas)
     miolo = ruas_no_miolo(area_urb.difference(lagoas), aceitas + infill, len(aceitas))
@@ -802,7 +899,10 @@ def main() -> int:
     for k in ("sand", "park", "cemetery", "pitch", "scrub"):
         for p in poligonos(areas.get(k, Polygon()).simplify(0.5)):
             feats.append(mold.feature(k, p))
-    for p in poligonos(urbano.simplify(1.0)):
+    for p in poligonos(praia.simplify(0.5)):
+        if p.area > 20:
+            feats.append(mold.feature("sand", p))
+    for p in poligonos(urbano.difference(praia).simplify(1.0)):
         if p.area > 400:
             feats.append(mold.feature("houses_land", p))
     for (kind, largura, nome), l in zip(tipos, ruas):
@@ -820,22 +920,31 @@ def main() -> int:
         "cell": [mold.kx, mold.ky],
         # spawn_density = teto de zumbis por pedaço do mapa (P19: o máximo do
         # centro de Louisville no jogo original; medido em 08/11/2026 = 7)
-        "settings": {"align_streets": 0, "straight_roads": 2, "forest_density": 0.5, "tree_density": 0.7,
-                     "spawn_density": int(kit.get("teto_zumbis", 7))},
+        # max_levels: o KnoxMap corta qualquer prédio em 6 andares se não disser (U19)
+        # mata mais rala (U9: usuário achou densa de novo no Rio piloto; antes 0.5 / 0.7)
+        "settings": {"align_streets": 0, "straight_roads": 2, "forest_density": 0.3, "tree_density": 0.45,
+                     "spawn_density": int(kit.get("teto_zumbis", 7)),
+                     "max_levels": int(kit.get("andares_max", 6))},
         "extraTags": ["shop", "amenity", "lanes", "width", "name"],
         "kitLojas": "kits/lojas",
         "sketch": {"type": "FeatureCollection", "features": feats},
-        "zonasHistorias": {"engarrafamento": False},
+        # Praia: zonas "Beach" fixas na areia (U18); mata e lago, escolhidas pelo script
+        # vagasRua: vagas de carro no meio-fio (K11: o KnoxMap só cria ~120 na cidade toda)
+        "zonasHistorias": {"engarrafamento": False, "areasFixas": zonas_praia, "vagasRua": True,
+                           "historias": [["Forest", 16, 16, 6], ["Lake", 14, 14, 1]]},
         "centrarFaixas": True,          # U13 (scripts/gerador/faixas.py)
     }
     saida.write_text(json.dumps(cfg, ensure_ascii=False), encoding="utf-8")
     figura(png, mold, [("mar", mar), ("forest", mata), ("urbano", urbano)]
            + [(k, v) for k, v in areas.items() if k in ("sand", "park", "cemetery", "pitch", "scrub")]
-           + [("lagoa", lagoas)],
+           + [("sand", praia), ("lagoa", lagoas)],
            [(k, l) for (k, _w, _n), l in zip(tipos, ruas)], lotes_)
     resumo.update({"moldura_tiles": [mold.X0, mold.Y0, mold.W, mold.H], "cell_knoxmap": [mold.kx, mold.ky],
                    "avenidas": n_av, "tocos_aparados": tocos, "ruas_preenchimento": len(infill), "ruas_miolo": len(miolo),
-                   "lojas_reais": len(lojas), "desenhos": len(feats)})
+                   "lojas_reais": len(lojas), "desenhos": len(feats),
+                   "praias": [{"nome": p["nome"], "costa_tiles": round(p["costa"].length),
+                               "areia_nova_tiles2": round(p["faixa_mar"].area)} for p in praias_],
+                   "zonas_praia": len(zonas_praia)})
     print(json.dumps(resumo, ensure_ascii=False))
     return 0
 

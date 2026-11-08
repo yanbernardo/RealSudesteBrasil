@@ -211,6 +211,31 @@ def faixas(rua: set, horizontal: bool, cfg) -> list[tuple[int, int, int, int]]:
     return out
 
 
+def vagas_de_rua(rua: set, cfg) -> list[tuple[int, int, int, int]]:
+    """K11: vagas de carro (ParkingStall de 5 x 3, como as 7 mil do mapa
+    original) encostadas no meio-fio, de 7 em 7 tiles. Rua estreita (< 8) só
+    de um lado, para sobrar pista; nunca dentro de cruzamento (o lado de fora
+    da vaga tem de ser calçada, não asfalto)."""
+    out = []
+    passo, longe = cfg.get("vagasPasso", 7), 4
+    for horizontal in (True, False):
+        for x, y, w, h in faixas(rua, horizontal, cfg):
+            comp, larg = (w, h) if horizontal else (h, w)
+            a0, b0 = (x, y) if horizontal else (y, x)
+            lados = [(b0, b0 - 1)] + ([(b0 + larg - 3, b0 + larg)] if larg >= 8 else [])
+            for b, fora in lados:
+                for a in range(a0 + longe, a0 + comp - longe - 5, passo):
+                    if horizontal:
+                        calcada = all((a + i, fora) not in rua for i in range(-2, 7))
+                        r = (a, b, 5, 3)
+                    else:
+                        calcada = all((fora, a + i) not in rua for i in range(-2, 7))
+                        r = (b, a, 3, 5)
+                    if calcada:
+                        out.append(r)
+    return out
+
+
 def picotar(r, horizontal: bool, trecho: int):
     """Divide uma faixa longa em trechos (> 30 cada): uma história por trecho."""
     x, y, w, h = r
@@ -510,6 +535,9 @@ def aplicar(lots: Path, objects: Path, png: Path | None = None, cfg: dict | None
     if cfg["historias"]:
         centro = (sum(x for x, _ in rua) // max(1, len(rua)), sum(y for _, y in rua) // max(1, len(rua)))
         areas = escolher_areas(chao, cfg["historias"], cfg["margem"], centro, cidade)
+    # Zonas postas pelo gerador onde elas fazem sentido (ex.: "Beach" na areia
+    # da praia, U18): [[nome, x, y, largura, altura], ...] em tiles do mundo.
+    areas += [(x, y, w, h, nome) for nome, x, y, w, h in cfg.get("areasFixas", [])]
     # Rodovias: zonas de estrada em forma de linha (como as 265 do mapa
     # original), em pedaços, e mata dos lados para as histórias rurais.
     polis, matas = [], []
@@ -532,6 +560,8 @@ def aplicar(lots: Path, objects: Path, png: Path | None = None, cfg: dict | None
     linhas += [linha_lua("", "Forest", *r) for r in matas]
     linhas += [linha_lua(nome, "ZoneStory", x, y, w, h) for (x, y, w, h, nome) in areas]
     linhas += [linha_lua(nome, "ParkingStall", x, y, w, h) for (x, y, w, h, nome) in jams]
+    vagas = vagas_de_rua(rua, cfg) if cfg.get("vagasRua") else []
+    linhas += [linha_lua("", "ParkingStall", *v) for v in vagas]
     gravar(objects, linhas)
     if png:
         desenhar(png, chao, ocupado, nav, areas, jams, polis, matas)
@@ -546,7 +576,8 @@ def aplicar(lots: Path, objects: Path, png: Path | None = None, cfg: dict | None
     return {"nav": len(nav), "nav_linhas": len(polis),
             "nav_linhas_sobre_asfalto": round(min(sobre), 2) if sobre else None,
             "matas": len(matas), "historias": [(n, x, y, w, h) for (x, y, w, h, n) in areas],
-            "engarrafamento": [(n, x, y, w, h) for (x, y, w, h, n) in jams], "casas": casas}
+            "engarrafamento": [(n, x, y, w, h) for (x, y, w, h, n) in jams], "vagas_rua": len(vagas),
+            "casas": casas}
 
 
 if __name__ == "__main__":

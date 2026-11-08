@@ -44,8 +44,15 @@ local function podeUsar(playerObj)
 end
 
 function RSB_Teleporte.dentroDoMapa(x, y)
-    -- mesma conferencia do mapa do jogo (ISWorldMap usa isValidChunk); na B42 o pedaco tem 8 tiles,
-    -- mas o mapa do jogo ainda divide por 10: aceita se qualquer das duas contas disser que vale
+    -- U21: o contorno exato do mapa instalado vem de RSB_TeleporteArea.lua (gravado pelo
+    -- knoxmap_pipeline.py em cada mod). A conta do jogo (isValidChunk) deixou passar Arraial do Cabo.
+    if RSB_Teleporte.areas then
+        for _, a in ipairs(RSB_Teleporte.areas) do
+            if x >= a[1] + 2 and x < a[3] - 2 and y >= a[2] + 2 and y < a[4] - 2 then return true end
+        end
+        return false
+    end
+    -- mod antigo, sem o arquivo de area: mesma conferencia do mapa do jogo
     local ok, valido = pcall(function()
         local mg = getWorld():getMetaGrid()
         return mg:isValidChunk(math.floor(x / 8), math.floor(y / 8)) or mg:isValidChunk(math.floor(x / 10), math.floor(y / 10))
@@ -89,6 +96,48 @@ function RSB_Teleporte.menu(player, context, worldobjects, test)
 end
 
 Events.OnFillWorldObjectContextMenu.Add(RSB_Teleporte.menu)
+
+-- Tecla F7 (so no modo debug): caixa para digitar a coordenada "x,y" (ou "x,y,andar").
+-- Funciona ate no vazio, onde o menu do chao e o mapa nao abrem. Vazio = volta ao 1o ponto do mapa.
+local function aviso(texto)
+    local p = getPlayer()
+    if p then p:setHaloNote(texto, 255, 120, 120, 400) end
+end
+
+local function digitou(_, botao)
+    if botao.internal ~= "OK" then return end
+    local nums = {}
+    for n in string.gmatch(botao.parent.entry:getText(), "[^, ;]+") do
+        nums[#nums + 1] = tonumber(n)
+    end
+    local x, y, z = nums[1], nums[2], nums[3] or 0
+    if not x or not y then
+        -- sem coordenada: o primeiro ponto do menu que existe neste mapa
+        for _, g in ipairs(RSB_Teleporte.grupos) do
+            for _, p in ipairs(g.pontos) do
+                if not x and RSB_Teleporte.dentroDoMapa(p[2], p[3]) then x, y, z = p[2], p[3], p[4] end
+            end
+        end
+        if not x then aviso("Nenhum ponto do menu existe neste mapa") return end
+    end
+    if not RSB_Teleporte.dentroDoMapa(x, y) then
+        aviso("Fora do mapa carregado: " .. x .. "," .. y)
+        return
+    end
+    RSB_Teleporte.ir(nil, math.floor(x), math.floor(y), math.floor(z))
+end
+
+function RSB_Teleporte.tecla(key)
+    if key ~= Keyboard.KEY_F7 or not podeUsar(getPlayer()) then return end
+    local p = getPlayer()
+    local atual = p and (math.floor(p:getX()) .. "," .. math.floor(p:getY())) or ""
+    local caixa = ISTextBox:new(0, 0, 320, 180, "RSB: ir para a coordenada x,y (vazio = 1o ponto do mapa)",
+        atual, nil, digitou, 0)
+    caixa:initialise()
+    caixa:addToUIManager()
+end
+
+Events.OnKeyPressed.Add(RSB_Teleporte.tecla)
 '''
 
 

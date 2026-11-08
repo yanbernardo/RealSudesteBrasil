@@ -86,6 +86,18 @@ def main() -> int:
         destino = Path.home() / "Zomboid" / "mods" / cfg.get("modId", name) / "common/media/lua/client/RSB"
         destino.mkdir(parents=True, exist_ok=True)
         shutil.copy(lua, destino / lua.name)
+        # U21: o contorno exato deste mapa (tiles do mundo), para o menu e a tecla F7
+        # nunca mandarem para o vazio (a conta do jogo deixou passar Arraial do Cabo).
+        out = Path(knox) / "output" / name
+        info = json.loads((out / f"{name}_info.json").read_text(encoding="utf-8"))
+        pl = json.loads((out / "placement.json").read_text(encoding="utf-8")) if (out / "placement.json").exists() else {}
+        x0, y0 = int(pl.get("cell_x") or 0) * 300, int(pl.get("cell_y") or 0) * 300
+        area = (x0, y0, x0 + int(info["width_tiles"]), y0 + int(info["height_tiles"]))
+        (destino / "RSB_TeleporteArea.lua").write_text(
+            "-- Gerado pelo knoxmap_pipeline.py: contorno do mapa deste mod (x0, y0, x1, y1 em tiles do mundo).\n"
+            "RSB_Teleporte = RSB_Teleporte or {}\n"
+            f"RSB_Teleporte.areas = {{ {{ {area[0]}, {area[1]}, {area[2]}, {area[3]} }} }}\n", encoding="utf-8")
+        print("teleporte debug: área do mapa", area, flush=True)
         print("teleporte debug instalado:", destino / lua.name, flush=True)
 
     def zonas_historias() -> None:
