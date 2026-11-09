@@ -489,6 +489,20 @@ Construção especial e rara nas favelas do RJ, para dar história e um bom pont
 
 ### Etapa 5: Kit Brasil (tiles novas + 3D)
 
+**Folhas do Kit Brasil prontas (09/11/2026; 599 peças em 21 folhas, todas em `kits/tiles/`, com filtro D-46, paredes limpas D-47, empacotadas por `kit_tiles.py` e registradas no BuildingEd):**
+
+| Folha | O que tem | Gerador |
+|---|---|---|
+| `rsb_calcadao_01` | calçadão de Copacabana, 66 peças (D-45) | `calcadao.py` |
+| `rsb_paredes_favela_01`, `rsb_pisos_favela_01`, `rsb_escadas_favela_01` | paredes de favela (10 estilos), pisos e laje, escadas de concreto | `kit_favela.py` |
+| `rsb_lajes_01`, `rsb_muretas_favela_01`, `rsb_objetos_laje_01` | lajes e terraços, muretas da laje, caixa d'água, churrasqueira, ferro de espera, antena, varal, tijolos | `kit_laje.py` |
+| `rsb_paredes_botequim_01`, `rsb_pisos_botequim_01`, `rsb_botequim_01` | botequim "Bar Ponto Certo": azulejo e fachadas, 4 pisos, balcões, estufa, freezer, cervejeira, cadeiras e mesas de plástico, letreiro, lousa, porta de enrolar | `kit_botequim.py` |
+| `rsb_paredes_casa_01`, `rsb_muros_casa_01`, `rsb_portoes_casa_01`, `rsb_pisos_casa_01`, `rsb_objetos_casa_01` | casa de laje: grafiato, pedra miracema, cerâmica de filete; muros de 2 m e com grade; portão social e de garagem; pisos de quintal e casa; tanque, botijão, cadeira de fio, relógio de luz, interfone, grades | `kit_casa_laje.py` |
+| `rsb_overlay_grime_wall_01`, `rsb_desgaste_parede_01` | manchas por cima da parede: sujeira removível e desgaste permanente (D-47) | `kit_grime.py` |
+| `rsb_paredes_ciep_01`, `rsb_janelas_ciep_01`, `rsb_pisos_ciep_01`, `rsb_objetos_ciep_01` | CIEP: fachada com peitoril, janela larga de vidro de 2 tiles (WindowShape 1/2), arcos vazados de 1 e 2 tiles, barra a óleo, paviflex, carteira, quadro, bebedouro, letreiro de 3 tiles | `kit_ciep.py` |
+
+Prédios escritos à mão (sem o desenhador do KnoxMap): `tbx_mao.py` (escritor de .tbx) e `ciep_tbx.py` (CIEP, `kits/lojas/brasil/ciep_01_S.tbx` e `OneDrive\Área de Trabalho\RealSudesteBrasil\Construcoes BuildingEd\CIEP\`). Nada disso foi visto em jogo ainda; falta também o Viewpoint (T5a).
+
 - **Lembrete (U28, 08/11/2026):** fazer o túnel de concreto nas ruas hoje ligadas por `ligar_ilhas` (Túnel Zuzu Angel e semelhantes).
 
 Pode começar logo depois da beta; cada melhoria sai como atualização.

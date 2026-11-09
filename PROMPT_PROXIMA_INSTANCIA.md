@@ -4,6 +4,13 @@ Leia primeiro `AGENTS.md`, `PLANO_BRASIL_ZOMBOID.md` (as decisões D-41 a D-44 s
 
 Regras de trabalho: o usuário não programa; explique em português simples. **Feche o jogo antes de instalar o mapa** (J4: instalar com o jogo aberto quebra o mapa). Só instale quando ele pedir; use `--sem-instalar` do `knoxmap_pipeline.py` para compilar sem instalar. Todo local novo a testar entra no grupo TESTE do teleporte debug (`kits/marcos/teleporte.json`) até o OK dele.
 
+## Kit Brasil e construções (09/11/2026, fim da semana; o usuário volta na sexta)
+- Ramo `claude/kit-brasil-construcoes-4e4308`, enviado ao GitHub, **não juntado ao `main`**: perguntar ao usuário se junta.
+- Feito: 21 folhas do Kit Brasil (tabela em "Etapa 5" no plano), guia com editor do KnoxMap x BuildingEd, ordem de prioridade e regra de nomes (`GUIA_CONSTRUCOES_BRASILEIRAS.md`, seções 1.1, 2, 5.6 a 5.10), CIEP escrito à mão em .tbx.
+- Regras do usuário: D-46 (filtro de estilo), D-47 (paredes limpas; sujeira removível em folha `overlay_grime`, desgaste permanente em outra); prédios escritos à mão com `tbx_mao.py`, **nunca** com o desenhador do KnoxMap; janelas e arcos largos em 2 tiles (WindowShape 1/2), com as versões de 1 tile mantidas.
+- A conferir com o usuário: abrir `ciep_01_S.tbx` no BuildingEd (ferramentas\knoxmap-1.8.5.2\vendor\PZMappingTools\bin\BuildingEd.exe) e ver em jogo: arcos vazados passáveis, janela larga (quebra, sem vidro), loot das salas, portões da casa de laje, tanque com água, limpeza da sujeira (removeGrime).
+- O `TileZed.ini` das ferramentas agora lista `saida\kit_tiles\rsb_kitbrasil.tiles` em TilePropertiesFiles (para o BuildingEd achar o WindowShape); refazer o pacote com `kit_tiles.montar` antes de abrir o BuildingEd se as folhas mudarem.
+
 ## Estado do Rio piloto (`rsb_rio_piloto`, Centro + Zona Sul)
 Feito e aprovado pelo usuário em jogo: legenda do mapa como a original (D-42), visão de satélite (D-41), ruas internas moldadas em trechos retos com calçada e avenidas no traçado real (D-43), ruas soltas ligadas (túneis), orla sem casas, quadra de vôlei na areia, quartel de Louisville, delegacias copiadas com estacionamento.
 
