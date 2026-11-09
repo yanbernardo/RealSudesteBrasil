@@ -1356,6 +1356,38 @@ def lotes(livre, corredor, ruas, bairro_de, kit, lojas, especiais, rnd, orla=Non
 
 
 # ---------------------------------------------------------------- figura
+def zonas_nav_diagonais(avenidas, tipos, mata, min_graus=4, comp_min=40):
+    """Zonas de estrada (Nav) em linha nas avenidas diagonais.
+
+    O `zonas_historias.py` só acha asfalto em retângulos retos; a avenida em
+    diagonal (ex.: Atlântica) ficava sem histórias de estrada. Aqui sai uma
+    polilinha por trecho seguido de segmentos a mais de `min_graus` dos eixos,
+    com a largura da avenida (o jogo pede de 5 a 12), sem passar por mata."""
+    out = []
+    for lin, (_k, larg, _n) in zip(avenidas, tipos):
+        pts = list(lin.coords)
+        corrente = []
+
+        def fechar():
+            if len(corrente) >= 2:
+                g = LineString(corrente)
+                if g.length >= comp_min and not mata.contains(g.interpolate(0.5, normalized=True)):
+                    out.append({"pontos": [[round(x, 1), round(y, 1)] for x, y in corrente],
+                                "largura": int(min(12, max(5, round(larg)))), "sem_repetir": True})
+            corrente.clear()
+
+        for (x0, y0), (x1, y1) in zip(pts, pts[1:]):
+            ang = abs(math.degrees(math.atan2(y1 - y0, x1 - x0))) % 90
+            if min(ang, 90 - ang) > min_graus:
+                if not corrente:
+                    corrente.append((x0, y0))
+                corrente.append((x1, y1))
+            else:
+                fechar()
+        fechar()
+    return out
+
+
 def figura(caminho, mold, camadas, ruas, lotes_):
     from PIL import Image, ImageDraw
     img = Image.new("RGB", (mold.W, mold.H), (70, 110, 60))
@@ -1541,6 +1573,10 @@ def main() -> int:
     for kind, g, t in lotes_:
         feats.append(mold.feature(kind, g, t))
 
+    nav_diag = zonas_nav_diagonais(ruas[:n_av], tipos[:n_av], mata)
+    print("zonas de estrada nas diagonais:", len(nav_diag), "trechos,",
+          round(sum(LineString(p["pontos"]).length for p in nav_diag)), "tiles", flush=True)
+
     cfg = {
         "mapName": kit["mapName"], "title": kit["title"], "modId": kit["mapName"],
         "south": mold.bbox[0], "west": mold.bbox[1], "north": mold.bbox[2], "east": mold.bbox[3],
@@ -1559,6 +1595,7 @@ def main() -> int:
         # Praia: zonas "Beach" fixas na areia (U18); mata e lago, escolhidas pelo script
         # vagasRua: vagas de carro no meio-fio (K11: o KnoxMap só cria ~120 na cidade toda)
         "zonasHistorias": {"engarrafamento": False, "areasFixas": zonas_praia, "vagasRua": True,
+                           "navPolilinhas": nav_diag,
                            "historias": [["Forest", 16, 16, 6], ["Lake", 14, 14, 1]]},
         "centrarFaixas": True,          # U13 (scripts/gerador/faixas.py)
         "limparOrla": True,             # U25 (scripts/gerador/limpar_orla.py)

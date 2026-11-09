@@ -466,6 +466,28 @@ def desenhar(png: Path, chao, ocupado, nav, areas, jams, polis=(), matas=()):
 
 
 # ------------------------------------------------- rodovias (linhas com largura)
+def _quase_todo_em(pontos, retangulos, fracao=0.5) -> bool:
+    """Mais de `fracao` da linha (amostras de 2 em 2 tiles) cai dentro de algum retângulo?"""
+    from shapely.geometry import LineString
+    g = LineString(pontos)
+    n = dentro = 0
+    for t in range(0, int(g.length) + 1, 2):
+        p = g.interpolate(t)
+        n += 1
+        if any(x <= p.x < x + w and y <= p.y < y + h for x, y, w, h in retangulos):
+            dentro += 1
+    return n > 0 and dentro / n > fracao
+
+
+def _sobre_asfalto(pontos, rua, passo=2) -> float:
+    """Fração da linha (amostras a cada `passo` tiles) a até 1 tile de asfalto."""
+    from shapely.geometry import LineString
+    g = LineString(pontos)
+    am = [g.interpolate(t) for t in range(0, int(g.length) + 1, passo)]
+    return sum(1 for a in am if any((int(a.x) + i, int(a.y) + j) in rua
+                                    for i in (-1, 0, 1) for j in (-1, 0, 1))) / max(1, len(am))
+
+
 def picotar_linha(pontos, trecho: int):
     """Divide a linha da rodovia em pedaços de ~`trecho` tiles (uma história cada)."""
     from shapely.geometry import LineString
@@ -543,6 +565,11 @@ def aplicar(lots: Path, objects: Path, png: Path | None = None, cfg: dict | None
     polis, matas = [], []
     for r in cfg.get("navPolilinhas", []):
         for pedaco in picotar_linha(r["pontos"], cfg["navTrecho"]):
+            if r.get("sem_repetir"):
+                if _quase_todo_em(pedaco, nav):
+                    continue    # a faixa reta já cobre esse pedaço (zona sobre zona = 2 histórias)
+                if _sobre_asfalto(pedaco, rua) < 0.85:
+                    continue    # o KnoxMap moldou a avenida diferente do desenho: zona fora da pista
             polis.append((pedaco, r["largura"]))
         if cfg.get("matasRurais"):
             m, h = matas_rurais(r["pontos"], r["largura"], chao, rua, cidade)
