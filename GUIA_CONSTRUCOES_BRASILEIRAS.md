@@ -274,6 +274,19 @@ Desde 09/11/2026 (D-47) todas as paredes do Kit Brasil são **limpas**. Mancha �
 
 Como pôr: no BuildingEd, a sujeira do prédio inteiro se escolhe em **Grime** (as 8 opções novas estão na lista); para pôr só num pedaço, use o modo de peças e pinte a peça da mancha por cima da parede (oeste, norte, quina, janela ou porta, como a parede embaixo). Dá para usar uma de cada folha na mesma parede (desgaste + sujeira).
 
+### 5.10 CIEP pronto e peças do CIEP
+
+O CIEP já foi desenhado (09/11/2026): `OneDrive\Área de Trabalho\RealSudesteBrasil\Construcoes BuildingEd\CIEP\ciep_01_S.tbx`, com a prévia `ciep_01_S_previa.png` ao lado. Abra no BuildingEd para ver e mexer.
+
+Peças do CIEP no BuildingEd:
+- **Paredes de fora:** concreto com peitoril verde, vermelho com faixa amarela, ou azul. A porta nessas paredes vira arco.
+- **Paredes de dentro:** barra a óleo verde ou azul até 1,3 m.
+- **Janela larga de 2 tiles** (folha `rsb_janelas_ciep_01`): ponha a metade 1 (peças 0 e 1) num tile e a metade 2 (peças 2 e 3) no tile seguinte, à direita na parede norte ou mais ao sul na parede oeste. A parede de concreto do CIEP abre o recorte certo sozinha.
+- **Pisos:** paviflex bege e marrom, paviflex cinza, cimentado do pátio.
+- **Objetos:** carteira universitária (4 lados), bebedouro, quadro verde e letreiro "CIEP 501" (2 peças, parede norte ou oeste).
+
+**Onde fica o BuildingEd:** `C:\Users\yanbe\Zomboid\RealSudesteBrasil\ferramentas\knoxmap-1.8.5.2\vendor\PZMappingTools\bin\BuildingEd.exe`.
+
 ## 6. Peças novas (tiles brasileiras)
 
 Para o que o jogo base não tem: telha colonial, azulejo português, pedra portuguesa da calçada, fachada pintada, orelhão, placa em português. Regra do projeto: toda peça nova precisa aparecer em 3D no Viewpoint (D-07, D-09), então cada peça nova passa pelo teste do Viewpoint antes de ser usada em massa.

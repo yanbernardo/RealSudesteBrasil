@@ -94,6 +94,7 @@ Como cada peça é feita (coluna "Como"):
 | Fachada de casa de laje, de casa com muro e garagem | **pronto** (Script, `kit_casa_laje.py`, 09/11/2026) |
 | Sobrado geminado | Desenho |
 | Bar de esquina | **pronto** (Script) |
+| CIEP (fachada, janela larga de 2 tiles, sala de aula) | **pronto** (Script, `kit_ciep.py`; prédio em `ciep_tbx.py`) |
 | Padaria, lanchonete, açougue, quitanda | Desenho |
 | Placa de loja em português (letreiros sem marca) | Desenho |
 | Toldo de comércio | Desenho |
