@@ -90,6 +90,13 @@ Como cada peça é feita (coluna "Como"):
 | Toldo de comércio | Desenho |
 
 ## 8. Morro e favela
+**Feito em 08/11/2026 (peças para construir casas; só as peças):** `scripts/gerador/kit_favela.py` → `kits/tiles/`, já registradas no BuildingEd (listas de parede externa e interna, piso, telhado plano, telhado inclinado, escada):
+- Paredes, 10 estilos × 8 peças (oeste, norte, quina, pilar, janela e porta nos dois lados): tijolo baiano limpo e sujo, bloco de concreto, reboco cru, reboco desbotado e descascando (rosa, azul, verde-água, amarelo, branco encardido), tábuas de barraco (`rsb_paredes_favela_01`).
+- Pisos: contrapiso (2), laje de concreto (2, uma também como telhado plano), cimento queimado vermelho e verde, cerâmica barata vermelha e bege (`rsb_pisos_favela_01`).
+- Telhado inclinado de fibrocimento e de zinco enferrujado, todas as peças do telhado do jogo (`rsb_telhado_fibrocimento_01`, `rsb_telhado_zinco_01`).
+- Escada maciça de concreto e de cimento queimado vermelho (`rsb_escadas_favela_01`).
+- Portas e janelas: as do jogo. **Falta:** os triângulos de parede embaixo do telhado inclinado (empena) nos estilos novos; por enquanto, telhado inclinado usa a empena do jogo (ou laje plana, o mais comum na favela).
+
 | Peça | Como |
 |---|---|
 | Escadaria de concreto no morro (degraus em patamar) | Desenho |

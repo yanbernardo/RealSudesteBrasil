@@ -1,0 +1,182 @@
+{
+ "folha": "rsb_pisos_favela_01",
+ "tipo": "piso",
+ "pecas": [
+  {
+   "peca": "rsb_pisos_favela_01_0",
+   "nome": "contrapiso_a",
+   "descricao": "contrapiso de cimento grosso (sem acabamento)",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ],
+    [
+     "exterior",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_pisos_favela_01_1",
+   "nome": "contrapiso_b",
+   "descricao": "contrapiso de cimento, variação",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ],
+    [
+     "exterior",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_pisos_favela_01_2",
+   "nome": "laje_a",
+   "descricao": "laje de concreto (chão do andar de cima e telhado plano)",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ],
+    [
+     "exterior",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_pisos_favela_01_3",
+   "nome": "laje_b",
+   "descricao": "laje de concreto com mancha de água",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ],
+    [
+     "exterior",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_pisos_favela_01_4",
+   "nome": "cimento_queimado_vermelho",
+   "descricao": "cimento queimado vermelho",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_pisos_favela_01_5",
+   "nome": "cimento_queimado_verde",
+   "descricao": "cimento queimado verde",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_pisos_favela_01_6",
+   "nome": "ceramica_vermelha_barata",
+   "descricao": "cerâmica vermelha barata 30 x 30",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_pisos_favela_01_7",
+   "nome": "ceramica_bege_barata",
+   "descricao": "cerâmica bege barata 30 x 30",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ]
+   ]
+  }
+ ],
+ "buildingtiles": {
+  "floors": [
+   {
+    "Floor": 0
+   },
+   {
+    "Floor": 1
+   },
+   {
+    "Floor": 2
+   },
+   {
+    "Floor": 3
+   },
+   {
+    "Floor": 4
+   },
+   {
+    "Floor": 5
+   },
+   {
+    "Floor": 6
+   },
+   {
+    "Floor": 7
+   }
+  ],
+  "roof_tops": [
+   {
+    "West1": 2,
+    "West2": 2,
+    "West3": 2,
+    "North1": 2,
+    "North2": 2,
+    "North3": 2,
+    "_offset": true
+   }
+  ]
+ },
+ "bt_nomes_prontos": false
+}

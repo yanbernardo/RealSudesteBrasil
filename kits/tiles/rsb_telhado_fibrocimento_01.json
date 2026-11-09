@@ -1,0 +1,2934 @@
+{
+ "folha": "rsb_telhado_fibrocimento_01",
+ "tipo": "telhado",
+ "pecas": [
+  {
+   "peca": "rsb_telhado_fibrocimento_01_0",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_0"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_0"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_1",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_1"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_1"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_2",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_2"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_2"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_3",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_3"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_3"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_4",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_4"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_4"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_5",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_5"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_5"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_6",
+   "props": [
+    [
+     "BurntTile",
+     "roofs_burnt_01_6"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_6"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ],
+    [
+     "isEave",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_7",
+   "props": [
+    [
+     "BurntTile",
+     "roofs_burnt_01_7"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_7"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ],
+    [
+     "isEave",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_8",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_8"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_8"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_9",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_9"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_9"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_10",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_10"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_10"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_11",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_11"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_11"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_12",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_12"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_12"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_13",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_13"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_13"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_14",
+   "props": [
+    [
+     "BurntTile",
+     "roofs_burnt_01_14"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_14"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_15",
+   "props": [
+    [
+     "BurntTile",
+     "roofs_burnt_01_15"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_15"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_16",
+   "props": [
+    [
+     "BurntTile",
+     "roofs_burnt_01_104"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_104"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_17",
+   "props": [
+    [
+     "BurntTile",
+     "roofs_burnt_01_105"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_105"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_18",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_19",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_20",
+   "props": [
+    [
+     "BurntTile",
+     "roofs_burnt_01_20"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_20"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ],
+    [
+     "isEave",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_21",
+   "props": [
+    [
+     "BurntTile",
+     "roofs_burnt_01_21"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_21"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ],
+    [
+     "attachedE",
+     ""
+    ],
+    [
+     "isEave",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_22",
+   "props": [
+    [
+     "BurntTile",
+     "roofs_burnt_01_22"
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_22"
+    ],
+    [
+     "attachedFloor",
+     ""
+    ],
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "exterior",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_23",
+   "props": [
+    [
+     "BurntTile",
+     "roofs_burnt_01_23"
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_23"
+    ],
+    [
+     "attachedFloor",
+     ""
+    ],
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "exterior",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_24",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_24"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_24"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_25",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_25"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_25"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_26",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_26"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_26"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_27",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_27"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_27"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_28",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_28"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_28"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_29",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_29"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_29"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_30",
+   "props": [
+    [
+     "BurntTile",
+     "roofs_burnt_01_30"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_30"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ],
+    [
+     "isEave",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_31",
+   "props": [
+    [
+     "BurntTile",
+     "roofs_burnt_01_31"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_31"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ],
+    [
+     "isEave",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_32",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_0"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_0"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_33",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_1"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_1"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_34",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_2"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_2"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_35",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_3"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_3"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_36",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_4"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_4"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_37",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_5"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_5"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_38",
+   "props": [
+    [
+     "BurntTile",
+     "roofs_burnt_01_6"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_6"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ],
+    [
+     "isEave",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_39",
+   "props": [
+    [
+     "BurntTile",
+     "roofs_burnt_01_7"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_7"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ],
+    [
+     "isEave",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_40",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_8"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_8"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_41",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_9"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_9"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_42",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_10"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_10"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_43",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_11"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_11"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_44",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_12"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_12"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_45",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_13"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_13"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_46",
+   "props": [
+    [
+     "BurntTile",
+     "roofs_burnt_01_14"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_14"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_47",
+   "props": [
+    [
+     "BurntTile",
+     "roofs_burnt_01_15"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_15"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_48",
+   "props": [
+    [
+     "BurntTile",
+     "roofs_burnt_01_104"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_104"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_49",
+   "props": [
+    [
+     "BurntTile",
+     "roofs_burnt_01_105"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_105"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_50",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_51",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_52",
+   "props": [
+    [
+     "BurntTile",
+     "roofs_burnt_01_20"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_20"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ],
+    [
+     "isEave",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_53",
+   "props": [
+    [
+     "BurntTile",
+     "roofs_burnt_01_21"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_21"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ],
+    [
+     "attachedE",
+     ""
+    ],
+    [
+     "isEave",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_54",
+   "props": [
+    [
+     "BurntTile",
+     "roofs_burnt_01_22"
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_22"
+    ],
+    [
+     "attachedFloor",
+     ""
+    ],
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "exterior",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_55",
+   "props": [
+    [
+     "BurntTile",
+     "roofs_burnt_01_23"
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_23"
+    ],
+    [
+     "attachedFloor",
+     ""
+    ],
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "exterior",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_56",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_24"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_24"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_57",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_25"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_25"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_58",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_26"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_26"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_59",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_27"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_27"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_60",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_28"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_28"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_61",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_29"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_29"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_62",
+   "props": [
+    [
+     "BurntTile",
+     "roofs_burnt_01_30"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_30"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ],
+    [
+     "isEave",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_63",
+   "props": [
+    [
+     "BurntTile",
+     "roofs_burnt_01_31"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_31"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ],
+    [
+     "isEave",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_64",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_65",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_66",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_67",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_68",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_69",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_70",
+   "props": [
+    [
+     "BurntTile",
+     "roofs_burnt_01_70"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_70"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_71",
+   "props": [
+    [
+     "BurntTile",
+     "roofs_burnt_01_71"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_71"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_72",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_112"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_112"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_73",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_113"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_113"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_74",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_114"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_114"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_75",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_115"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_115"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_76",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_116"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_116"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_77",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_117"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_117"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_78",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_118"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_118"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_79",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_119"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_119"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_80",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_81",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_82",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_83",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_84",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_85",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_86",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_87",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_88",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_89",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_90",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_90"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_90"
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_91",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_91"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_91"
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_92",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_92"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_92"
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_93",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_93"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "5"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_93"
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_94",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_95",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_96",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_97",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_98",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_99",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_100",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_101",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_102",
+   "props": [
+    [
+     "BurntTile",
+     "roofs_burnt_01_70"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_70"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_103",
+   "props": [
+    [
+     "BurntTile",
+     "roofs_burnt_01_71"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_71"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_104",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_112"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_112"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_105",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_113"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_113"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_106",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_114"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_114"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_107",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_115"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_115"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_108",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_116"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_116"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_109",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_117"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_117"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_110",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_118"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_118"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_111",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_119"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_119"
+    ],
+    [
+     "WestRoofT",
+     ""
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_112",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_113",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_114",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_115",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_116",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_117",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_118",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_119",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_120",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_121",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_122",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_90"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_90"
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_123",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_91"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_91"
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_124",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_92"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_92"
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_125",
+   "props": [
+    [
+     "BlockRain",
+     ""
+    ],
+    [
+     "BurntTile",
+     "roofs_burnt_01_93"
+    ],
+    [
+     "ForceAmbient",
+     ""
+    ],
+    [
+     "RoofGroup",
+     "6"
+    ],
+    [
+     "SnowTile",
+     "e_roof_snow_1_93"
+    ]
+   ],
+   "descricao": "telha ondulada de fibrocimento (cinza)"
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_126",
+   "props": []
+  },
+  {
+   "peca": "rsb_telhado_fibrocimento_01_127",
+   "props": []
+  }
+ ],
+ "buildingtiles": {
+  "roof_slopes": [
+   {
+    "SlopeS1": "rsb_telhado_fibrocimento_01_032",
+    "SlopeS2": "rsb_telhado_fibrocimento_01_033",
+    "SlopeS3": "rsb_telhado_fibrocimento_01_034",
+    "SlopeE1": "rsb_telhado_fibrocimento_01_037",
+    "SlopeE2": "rsb_telhado_fibrocimento_01_036",
+    "SlopeE3": "rsb_telhado_fibrocimento_01_035",
+    "SlopePt5S": "rsb_telhado_fibrocimento_01_047",
+    "SlopePt5E": "rsb_telhado_fibrocimento_01_046",
+    "SlopeOnePt5S": "rsb_telhado_fibrocimento_01_047",
+    "SlopeOnePt5E": "rsb_telhado_fibrocimento_01_046",
+    "SlopeTwoPt5S": "",
+    "SlopeTwoPt5E": "",
+    "ShallowSlopeW1": "",
+    "ShallowSlopeW2": "",
+    "ShallowSlopeE1": "",
+    "ShallowSlopeE2": "",
+    "ShallowSlopeN1": "",
+    "ShallowSlopeN2": "",
+    "ShallowSlopeS1": "",
+    "ShallowSlopeS2": "",
+    "Slope30S1": "",
+    "Slope30S2": "",
+    "Slope30S3": "",
+    "Slope30S4": "",
+    "Slope30S5": "",
+    "Slope30S6": "",
+    "Slope30E1": "",
+    "Slope30E2": "",
+    "Slope30E3": "",
+    "Slope30E4": "",
+    "Slope30E5": "",
+    "Slope30E6": "",
+    "Slope30W1": "",
+    "Slope30W2": "",
+    "Slope30W3": "",
+    "Slope30W4": "",
+    "Slope30W5": "",
+    "Slope30W6": "",
+    "Slope30N1": "",
+    "Slope30N2": "",
+    "Slope30N3": "",
+    "Slope30N4": "",
+    "Slope30N5": "",
+    "Slope30N6": "",
+    "Peak30NS1": "",
+    "Peak30NS2": "",
+    "Peak30NS3": "",
+    "Peak30NS4": "",
+    "Peak30NS5": "",
+    "Peak30NS6": "",
+    "Peak30WE1": "",
+    "Peak30WE2": "",
+    "Peak30WE3": "",
+    "Peak30WE4": "",
+    "Peak30WE5": "",
+    "Peak30WE6": "",
+    "Peak30Quad1": "",
+    "Peak30Quad2": "",
+    "Peak30Quad3": "",
+    "Peak30Quad4": "",
+    "Peak30Quad5": "",
+    "Peak30Quad6": "",
+    "Inner1": "rsb_telhado_fibrocimento_01_043",
+    "Inner2": "rsb_telhado_fibrocimento_01_044",
+    "Inner3": "rsb_telhado_fibrocimento_01_045",
+    "Outer1": "rsb_telhado_fibrocimento_01_040",
+    "Outer2": "rsb_telhado_fibrocimento_01_041",
+    "Outer3": "rsb_telhado_fibrocimento_01_042",
+    "InnerPt5": "",
+    "InnerOnePt5": "",
+    "InnerTwoPt5": "",
+    "OuterPt5": "",
+    "OuterOnePt5": "",
+    "OuterTwoPt5": "",
+    "CornerSW1": "rsb_telhado_fibrocimento_01_056",
+    "CornerSW2": "rsb_telhado_fibrocimento_01_057",
+    "CornerSW3": "rsb_telhado_fibrocimento_01_058",
+    "CornerNE1": "rsb_telhado_fibrocimento_01_061",
+    "CornerNE2": "rsb_telhado_fibrocimento_01_060",
+    "CornerNE3": "rsb_telhado_fibrocimento_01_059",
+    "InnerSlope30SE1": "",
+    "InnerSlope30SE2": "",
+    "InnerSlope30SE3": "",
+    "InnerSlope30SE4": "",
+    "InnerSlope30SE5": "",
+    "InnerSlope30SE6": "",
+    "InnerSlope30NE1": "",
+    "InnerSlope30NE2": "",
+    "InnerSlope30NE3": "",
+    "InnerSlope30NE4": "",
+    "InnerSlope30NE5": "",
+    "InnerSlope30NE6": "",
+    "InnerSlope30NW1": "",
+    "InnerSlope30NW2": "",
+    "InnerSlope30NW3": "",
+    "InnerSlope30NW4": "",
+    "InnerSlope30NW5": "",
+    "InnerSlope30NW6": "",
+    "InnerSlope30SW1": "",
+    "InnerSlope30SW2": "",
+    "InnerSlope30SW3": "",
+    "InnerSlope30SW4": "",
+    "InnerSlope30SW5": "",
+    "InnerSlope30SW6": "",
+    "OuterSlope30SE1": "",
+    "OuterSlope30SE2": "",
+    "OuterSlope30SE3": "",
+    "OuterSlope30SE4": "",
+    "OuterSlope30SE5": "",
+    "OuterSlope30SE6": "",
+    "OuterSlope30NE1": "",
+    "OuterSlope30NE2": "",
+    "OuterSlope30NE3": "",
+    "OuterSlope30NE4": "",
+    "OuterSlope30NE5": "",
+    "OuterSlope30NE6": "",
+    "OuterSlope30NW1": "",
+    "OuterSlope30NW2": "",
+    "OuterSlope30NW3": "",
+    "OuterSlope30NW4": "",
+    "OuterSlope30NW5": "",
+    "OuterSlope30NW6": "",
+    "OuterSlope30SW1": "",
+    "OuterSlope30SW2": "",
+    "OuterSlope30SW3": "",
+    "OuterSlope30SW4": "",
+    "OuterSlope30SW5": "",
+    "OuterSlope30SW6": "",
+    "offset": ""
+   }
+  ]
+ },
+ "bt_nomes_prontos": true
+}

@@ -52,8 +52,9 @@ def folhas(kit: Path) -> list[tuple[Path, dict]]:
     return out
 
 
-def pacote(lista, destino: Path) -> int:
-    """Grava o .floor.pack. Cada peça entra recortada (só o losango do piso)."""
+def pacote(lista, destino: Path, prefixo: str = NOME) -> int:
+    """Grava um .pack. Cada peça entra recortada pela parte visível (alfa), com a
+    posição dentro da peça de 128 x 256, como nos pacotes do jogo."""
     pecas = []
     for png, man in lista:
         im = Image.open(png).convert("RGBA")
@@ -80,7 +81,7 @@ def pacote(lista, destino: Path) -> int:
     for i, pag in enumerate(paginas):
         altura = max(py + img.size[1] for _n, img, _c, _px, py in pag)
         folha = Image.new("RGBA", (1024, altura), (0, 0, 0, 0))
-        out += _s(f"{NOME}{i}") + struct.pack("<2i", len(pag), 1)
+        out += _s(f"{prefixo}{i}") + struct.pack("<2i", len(pag), 1)
         for nome, img, (bx, by, _bx2, _by2), px, py in pag:
             folha.paste(img, (px, py))
             out += _s(nome) + struct.pack("<8i", px, py, img.size[0], img.size[1], bx, by, 128, 256)
@@ -100,7 +101,10 @@ def definicoes(lista, destino: Path) -> None:
         out += f"{man['folha']}\n{man['folha']}.png\n".encode("latin-1")
         out += struct.pack("<4i", cols, linhas, num, cols * linhas)
         for n in range(cols * linhas):
-            props = (man["pecas"][n].get("props") or PISO) if n < len(man["pecas"]) else []
+            p = man["pecas"][n] if n < len(man["pecas"]) else {}
+            props = p.get("props")
+            if props is None:            # folha antiga sem propriedades: piso de calçada
+                props = PISO if p else []
             out += struct.pack("<i", len(props))
             for k, v in props:
                 out += f"{k}\n{v}\n".encode("latin-1")
@@ -138,7 +142,13 @@ def ler_definicoes(path: Path) -> list:
 def montar(kit: Path, saida: Path) -> dict:
     saida.mkdir(parents=True, exist_ok=True)
     lista = folhas(kit)
-    n = pacote(lista, saida / f"{NOME}.floor.pack")
+    pisos = [(p, m) for p, m in lista if m.get("tipo", "piso") == "piso"]
+    outros = [(p, m) for p, m in lista if m.get("tipo", "piso") != "piso"]
+    # pisos sem compressão (".floor", como os do jogo); paredes, telhados e escadas no pacote normal
+    n = pacote(pisos, saida / f"{NOME}.floor.pack", f"{NOME}_piso")
+    (saida / f"{NOME}.pack").unlink(missing_ok=True)
+    if outros:
+        n += pacote(outros, saida / f"{NOME}.pack", f"{NOME}_")
     definicoes(lista, saida / f"{NOME}.tiles")
     # conferências: o .tiles relido e o .pack relido pelo leitor do KnoxMap
     defs = ler_definicoes(saida / f"{NOME}.tiles")
@@ -149,9 +159,16 @@ def montar(kit: Path, saida: Path) -> dict:
 def instalar(saida: Path, mod: Path) -> list[str]:
     media = mod / "common" / "media"
     (media / "texturepacks").mkdir(parents=True, exist_ok=True)
-    shutil.copy2(saida / f"{NOME}.floor.pack", media / "texturepacks" / f"{NOME}.floor.pack")
+    linhas = []
+    for pac in (f"{NOME}.floor", NOME):
+        destino = media / "texturepacks" / f"{pac}.pack"
+        if (saida / f"{pac}.pack").exists():
+            shutil.copy2(saida / f"{pac}.pack", destino)
+            linhas.append(f"pack={pac}")
+        else:
+            destino.unlink(missing_ok=True)
     shutil.copy2(saida / f"{NOME}.tiles", media / f"{NOME}.tiles")
-    linhas = [f"pack={NOME}.floor", f"tiledef={NOME} {NUMERO_ARQUIVO}"]
+    linhas.append(f"tiledef={NOME} {NUMERO_ARQUIVO}")
     mexidos = []
     for info in (mod / "mod.info", mod / "42" / "mod.info", mod / "common" / "mod.info"):
         if not info.exists():
@@ -161,6 +178,70 @@ def instalar(saida: Path, mod: Path) -> list[str]:
         info.write_text("\n".join(velhas + linhas) + "\n", encoding="utf-8")
         mexidos.append(str(info))
     return mexidos
+
+
+def _sem_rsb(texto: str, bloco: str) -> str:
+    """Tira de um arquivo de config do TileZed os blocos `bloco { ... }` que citam rsb_."""
+    out, i = [], 0
+    linhas = texto.splitlines(keepends=True)
+    while i < len(linhas):
+        if linhas[i].strip() == bloco and i + 1 < len(linhas) and linhas[i + 1].strip() == "{":
+            prof, j = 0, i + 1
+            while j < len(linhas):
+                prof += linhas[j].count("{") - linhas[j].count("}")
+                j += 1
+                if prof == 0:
+                    break
+            trecho = "".join(linhas[i:j])
+            if "rsb_" not in trecho:
+                out.append(trecho)
+            i = j
+            continue
+        out.append(linhas[i])
+        i += 1
+    return "".join(out)
+
+
+def buildinged(kit: Path, config: Path) -> dict:
+    """Registra as folhas no TileZed/BuildingEd: `Tilesets.txt` (a folha existe) e
+    `BuildingTiles.txt` (estilos nas listas de parede, piso, telhado e escada, a
+    partir de "buildingtiles" no .json de cada folha). Pode rodar de novo: tira as
+    entradas rsb_ antigas antes. Guarda uma cópia `.antes_rsb` na 1ª vez."""
+    feito = {}
+    for arq in ("Tilesets.txt", "BuildingTiles.txt"):
+        bak = config / f"{arq}.antes_rsb"
+        if not bak.exists():
+            shutil.copy2(config / arq, bak)
+    ts = _sem_rsb((config / "Tilesets.txt").read_text(encoding="utf-8"), "tileset")
+    bt = _sem_rsb((config / "BuildingTiles.txt").read_text(encoding="utf-8"), "entry")
+    novos_ts, por_cat = [], {}
+    for png, man in folhas(kit):
+        linhas = (len(man["pecas"]) + 7) // 8
+        novos_ts.append(f"tileset\n{{\n    file = {man['folha']}\n    size = 8,{linhas}\n}}\n")
+        for cat, entradas in (man.get("buildingtiles") or {}).items():
+            for e in entradas:
+                corpo = []
+                for k, v in e.items():
+                    if k.startswith("_"):
+                        continue
+                    nome = v if isinstance(v, str) else f"{man['folha']}_{v:03d}"
+                    if isinstance(v, str) and v and not man.get("bt_nomes_prontos"):
+                        nome = v
+                    corpo.append(f"        {k} = {nome}")
+                if e.get("_offset"):
+                    corpo += ["        offset = West1 -1 -1", "        offset = West2 -2 -2",
+                              "        offset = North1 -1 -1", "        offset = North2 -2 -2"]
+                por_cat.setdefault(cat, []).append("    entry\n    {\n" + "\n".join(corpo) + "\n    }\n")
+    ts = ts.rstrip("\n") + "\n" + "".join(novos_ts)
+    for cat, ents in por_cat.items():
+        ini = bt.index(f"    name = {cat}\n")
+        fim = bt.index("\n}\n", ini) + 1            # chave que fecha a categoria
+        bt = bt[:fim] + "".join(ents) + bt[fim:]
+        feito[cat] = len(ents)
+    (config / "Tilesets.txt").write_text(ts, encoding="utf-8")
+    (config / "BuildingTiles.txt").write_text(bt, encoding="utf-8")
+    feito["folhas"] = len(novos_ts)
+    return feito
 
 
 def ferramentas(kit: Path, tiles2x: Path) -> list[str]:

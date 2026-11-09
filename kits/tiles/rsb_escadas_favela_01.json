@@ -1,0 +1,355 @@
+{
+ "folha": "rsb_escadas_favela_01",
+ "tipo": "escada",
+ "pecas": [
+  {
+   "peca": "rsb_escadas_favela_01_0",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "Material",
+     "Stone"
+    ],
+    [
+     "Material2",
+     "Stone"
+    ],
+    [
+     "MaterialType",
+     "Stone"
+    ],
+    [
+     "stairsBW",
+     ""
+    ]
+   ],
+   "descricao": "escada maciça de concreto"
+  },
+  {
+   "peca": "rsb_escadas_favela_01_1",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "Material",
+     "Stone"
+    ],
+    [
+     "Material2",
+     "Stone"
+    ],
+    [
+     "MaterialType",
+     "Stone"
+    ],
+    [
+     "stairsMW",
+     ""
+    ]
+   ],
+   "descricao": "escada maciça de concreto"
+  },
+  {
+   "peca": "rsb_escadas_favela_01_2",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "Material",
+     "Stone"
+    ],
+    [
+     "Material2",
+     "Stone"
+    ],
+    [
+     "MaterialType",
+     "Stone"
+    ],
+    [
+     "stairsTW",
+     ""
+    ]
+   ],
+   "descricao": "escada maciça de concreto"
+  },
+  {
+   "peca": "rsb_escadas_favela_01_3",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "Material",
+     "Stone"
+    ],
+    [
+     "Material2",
+     "Stone"
+    ],
+    [
+     "MaterialType",
+     "Stone"
+    ],
+    [
+     "stairsBW",
+     ""
+    ]
+   ],
+   "descricao": "escada maciça de concreto"
+  },
+  {
+   "peca": "rsb_escadas_favela_01_4",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "Material",
+     "Stone"
+    ],
+    [
+     "Material2",
+     "Stone"
+    ],
+    [
+     "MaterialType",
+     "Stone"
+    ],
+    [
+     "stairsMW",
+     ""
+    ]
+   ],
+   "descricao": "escada maciça de concreto"
+  },
+  {
+   "peca": "rsb_escadas_favela_01_5",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "Material",
+     "Stone"
+    ],
+    [
+     "Material2",
+     "Stone"
+    ],
+    [
+     "MaterialType",
+     "Stone"
+    ],
+    [
+     "stairsTW",
+     ""
+    ]
+   ],
+   "descricao": "escada maciça de concreto"
+  },
+  {
+   "peca": "rsb_escadas_favela_01_6",
+   "props": []
+  },
+  {
+   "peca": "rsb_escadas_favela_01_7",
+   "props": []
+  },
+  {
+   "peca": "rsb_escadas_favela_01_8",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "Material",
+     "Stone"
+    ],
+    [
+     "Material2",
+     "Stone"
+    ],
+    [
+     "MaterialType",
+     "Stone"
+    ],
+    [
+     "stairsBN",
+     ""
+    ]
+   ],
+   "descricao": "escada maciça de concreto"
+  },
+  {
+   "peca": "rsb_escadas_favela_01_9",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "Material",
+     "Stone"
+    ],
+    [
+     "Material2",
+     "Stone"
+    ],
+    [
+     "MaterialType",
+     "Stone"
+    ],
+    [
+     "stairsMN",
+     ""
+    ]
+   ],
+   "descricao": "escada maciça de concreto"
+  },
+  {
+   "peca": "rsb_escadas_favela_01_10",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "Material",
+     "Stone"
+    ],
+    [
+     "Material2",
+     "Stone"
+    ],
+    [
+     "MaterialType",
+     "Stone"
+    ],
+    [
+     "stairsTN",
+     ""
+    ]
+   ],
+   "descricao": "escada maciça de concreto"
+  },
+  {
+   "peca": "rsb_escadas_favela_01_11",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "Material",
+     "Stone"
+    ],
+    [
+     "Material2",
+     "Stone"
+    ],
+    [
+     "MaterialType",
+     "Stone"
+    ],
+    [
+     "stairsBN",
+     ""
+    ]
+   ],
+   "descricao": "escada maciça de concreto"
+  },
+  {
+   "peca": "rsb_escadas_favela_01_12",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "Material",
+     "Stone"
+    ],
+    [
+     "Material2",
+     "Stone"
+    ],
+    [
+     "MaterialType",
+     "Stone"
+    ],
+    [
+     "stairsMN",
+     ""
+    ]
+   ],
+   "descricao": "escada maciça de concreto"
+  },
+  {
+   "peca": "rsb_escadas_favela_01_13",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "Material",
+     "Stone"
+    ],
+    [
+     "Material2",
+     "Stone"
+    ],
+    [
+     "MaterialType",
+     "Stone"
+    ],
+    [
+     "stairsTN",
+     ""
+    ]
+   ],
+   "descricao": "escada maciça de concreto"
+  },
+  {
+   "peca": "rsb_escadas_favela_01_14",
+   "props": []
+  },
+  {
+   "peca": "rsb_escadas_favela_01_15",
+   "props": []
+  }
+ ],
+ "buildingtiles": {
+  "stairs": [
+   {
+    "West1": 0,
+    "West2": 1,
+    "West3": 2,
+    "North1": 8,
+    "North2": 9,
+    "North3": 10
+   },
+   {
+    "West1": 3,
+    "West2": 4,
+    "West3": 5,
+    "North1": 11,
+    "North2": 12,
+    "North3": 13
+   }
+  ]
+ },
+ "bt_nomes_prontos": false
+}
