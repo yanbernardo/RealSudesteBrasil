@@ -47,6 +47,7 @@ Mod de mapa para Project Zomboid, inspirado no Real USA, que recria o Sudeste do
 - Praias (D-44, DECIDIDO em 08/11/2026): toda praia do Rio com areia na vida real ganha faixa de areia, com a ponta afinando até a terra. Sem meios-tiles em triângulo nas diagonais (voltou à calçada em degraus).
 - Calçadão de Copacabana (D-45, DECIDIDO em 08/11/2026): pedra portuguesa com listras transversais em ondas, 8 direções, 66 peças (`rsb_calcadao_01`, `scripts/gerador/calcadao.py`, folha em `kits/tiles/`). 1ª peça nova do Kit Brasil; falta o teste do Viewpoint.
 - Estilo das peças do Kit Brasil (D-46, DECIDIDO em 09/11/2026): toda folha nova passa pelo filtro de estilo do jogo (`scripts/gerador/estilo_pz.py`, já ligado no `kit_favela._gravar` e no `calcadao.py`), para não parecer "HD" perto das peças originais.
+- Paredes limpas, manchas por cima (D-47, DECIDIDO em 09/11/2026): parede do Kit Brasil nunca leva mancha; sujeira removível vai em folha com `overlay_grime` no nome (sai com a limpeza do jogo), reboco estragado em folha sem esse nome (permanente). `scripts/gerador/kit_grime.py`.
 - Praias em escala de jogo (D-40, DECIDIDO em 08/11/2026): as praias importantes ganham ~20 tiles de areia (o mar recua) e zonas de história de praia; lista no kit da cidade (`"praias"`).
 - Dados atuais, não 1993 (D-08).
 - Ordem dos estados: RJ → SP → MG → ES (D-24). Cidade piloto: Rio de Janeiro (D-05). Beta pública: só o RJ (D-33).

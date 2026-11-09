@@ -1,0 +1,564 @@
+{
+ "folha": "rsb_overlay_grime_wall_01",
+ "tipo": "sobreposicao",
+ "pecas": [
+  {
+   "peca": "rsb_overlay_grime_wall_01_0",
+   "nome": "lama_base WallW",
+   "descricao": "sujeira de rua na base (respingo de lama)",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_1",
+   "nome": "lama_base WallN",
+   "descricao": "sujeira de rua na base (respingo de lama)",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_2",
+   "nome": "lama_base WallNW",
+   "descricao": "sujeira de rua na base (respingo de lama)",
+   "props": [
+    [
+     "CornerNorthWall",
+     "overlay_grime_wall_01_1"
+    ],
+    [
+     "CornerWestWall",
+     "overlay_grime_wall_01_0"
+    ],
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_3",
+   "nome": "lama_base WallSE",
+   "descricao": "sujeira de rua na base (respingo de lama)",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedE",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_4",
+   "nome": "escorrido_chuva WallW",
+   "descricao": "escorrido de chuva",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_5",
+   "nome": "escorrido_chuva WallN",
+   "descricao": "escorrido de chuva",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_6",
+   "nome": "escorrido_chuva WallNW",
+   "descricao": "escorrido de chuva",
+   "props": [
+    [
+     "CornerNorthWall",
+     "overlay_grime_wall_01_1"
+    ],
+    [
+     "CornerWestWall",
+     "overlay_grime_wall_01_0"
+    ],
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_7",
+   "nome": "escorrido_chuva WallSE",
+   "descricao": "escorrido de chuva",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedE",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_8",
+   "nome": "lama_base WindowW",
+   "descricao": "sujeira de rua na base (respingo de lama)",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_9",
+   "nome": "lama_base WindowN",
+   "descricao": "sujeira de rua na base (respingo de lama)",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_10",
+   "nome": "lama_base DoorWallW",
+   "descricao": "sujeira de rua na base (respingo de lama)",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_11",
+   "nome": "lama_base DoorWallN",
+   "descricao": "sujeira de rua na base (respingo de lama)",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_12",
+   "nome": "escorrido_chuva WindowW",
+   "descricao": "escorrido de chuva",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_13",
+   "nome": "escorrido_chuva WindowN",
+   "descricao": "escorrido de chuva",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_14",
+   "nome": "escorrido_chuva DoorWallW",
+   "descricao": "escorrido de chuva",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_15",
+   "nome": "escorrido_chuva DoorWallN",
+   "descricao": "escorrido de chuva",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_16",
+   "nome": "mofo_base WallW",
+   "descricao": "mofo na base",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_17",
+   "nome": "mofo_base WallN",
+   "descricao": "mofo na base",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_18",
+   "nome": "mofo_base WallNW",
+   "descricao": "mofo na base",
+   "props": [
+    [
+     "CornerNorthWall",
+     "overlay_grime_wall_01_1"
+    ],
+    [
+     "CornerWestWall",
+     "overlay_grime_wall_01_0"
+    ],
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_19",
+   "nome": "mofo_base WallSE",
+   "descricao": "mofo na base",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedE",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_20",
+   "nome": "gordura_fuligem WallW",
+   "descricao": "gordura e fuligem (cozinha, bar)",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_21",
+   "nome": "gordura_fuligem WallN",
+   "descricao": "gordura e fuligem (cozinha, bar)",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_22",
+   "nome": "gordura_fuligem WallNW",
+   "descricao": "gordura e fuligem (cozinha, bar)",
+   "props": [
+    [
+     "CornerNorthWall",
+     "overlay_grime_wall_01_1"
+    ],
+    [
+     "CornerWestWall",
+     "overlay_grime_wall_01_0"
+    ],
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_23",
+   "nome": "gordura_fuligem WallSE",
+   "descricao": "gordura e fuligem (cozinha, bar)",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedE",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_24",
+   "nome": "mofo_base WindowW",
+   "descricao": "mofo na base",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_25",
+   "nome": "mofo_base WindowN",
+   "descricao": "mofo na base",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_26",
+   "nome": "mofo_base DoorWallW",
+   "descricao": "mofo na base",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_27",
+   "nome": "mofo_base DoorWallN",
+   "descricao": "mofo na base",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_28",
+   "nome": "gordura_fuligem WindowW",
+   "descricao": "gordura e fuligem (cozinha, bar)",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_29",
+   "nome": "gordura_fuligem WindowN",
+   "descricao": "gordura e fuligem (cozinha, bar)",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_30",
+   "nome": "gordura_fuligem DoorWallW",
+   "descricao": "gordura e fuligem (cozinha, bar)",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_wall_01_31",
+   "nome": "gordura_fuligem DoorWallN",
+   "descricao": "gordura e fuligem (cozinha, bar)",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  }
+ ],
+ "buildingtiles": {
+  "grime_wall": [
+   {
+    "West": 0,
+    "North": 1,
+    "NorthWest": 2,
+    "SouthEast": 3,
+    "WestWindow": 8,
+    "NorthWindow": 9,
+    "WestDoor": 10,
+    "NorthDoor": 11
+   },
+   {
+    "West": 4,
+    "North": 5,
+    "NorthWest": 6,
+    "SouthEast": 7,
+    "WestWindow": 12,
+    "NorthWindow": 13,
+    "WestDoor": 14,
+    "NorthDoor": 15
+   },
+   {
+    "West": 16,
+    "North": 17,
+    "NorthWest": 18,
+    "SouthEast": 19,
+    "WestWindow": 24,
+    "NorthWindow": 25,
+    "WestDoor": 26,
+    "NorthDoor": 27
+   },
+   {
+    "West": 20,
+    "North": 21,
+    "NorthWest": 22,
+    "SouthEast": 23,
+    "WestWindow": 28,
+    "NorthWindow": 29,
+    "WestDoor": 30,
+    "NorthDoor": 31
+   }
+  ]
+ },
+ "bt_nomes_prontos": false,
+ "estilo": "pz_v1"
+}

@@ -4,6 +4,7 @@ Lista só dos nomes, para o usuário escolher a ordem dos grupos (08/11/2026). N
 
 Como cada peça é feita (coluna "Como"):
 - **Estilo (D-46, 09/11/2026):** toda peça pronta passa pelo filtro de estilo do jogo (`scripts/gerador/estilo_pz.py`), para combinar com as peças originais.
+- **Manchas (D-47, 09/11/2026):** paredes sempre limpas; sujeira removível (`rsb_overlay_grime_wall_01`) e reboco estragado permanente (`rsb_desgaste_parede_01`) são peças por cima, feitas por `scripts/gerador/kit_grime.py`.
 - **Script**: piso desenhado por script, sem trabalho manual (como o calçadão).
 - **Textura**: sai de uma foto/textura livre pelo TileSetZ (guia, seção 6.2): parede, telhado, piso.
 - **Desenho**: peça de objeto (poste, banca, orelhão), desenhada à mão ou a partir de modelo 3D; a mais trabalhosa. Toda peça nova precisa também de 3D no Viewpoint (D-07).

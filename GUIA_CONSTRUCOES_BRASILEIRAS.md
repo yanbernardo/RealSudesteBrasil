@@ -266,6 +266,14 @@ Prontas desde 09/11/2026 e registradas no BuildingEd (feche e abra de novo). Pr�
 - **Portões** (folha `rsb_portoes_casa_01`, camada de paredes): portão social de grade preta, de chapa branca e de grade verde; use a peça **fechada** da parede certa (`_fechado_n` ou `_fechado_o`): o jogo abre e fecha sozinho. Portão de garagem de chapa branca ou marrom, com 3 peças lado a lado (`_1`, `_2`, `_3`), também fechado; ele abre como o portão de garagem do jogo.
 - **Objetos** (folha `rsb_objetos_casa_01`): tanque de lavar (tem água, como pia), botijão de gás, vaso de espada-de-são-jorge, cadeira de fio vermelha, azul e verde (4 lados). Peças de parede (norte e oeste): relógio de luz, número com interfone e caixa de correio (no muro, ao lado do portão), grade de janela reta ou de losangos (na frente da janela).
 
+### 5.9 Manchas e desgaste (por cima da parede)
+
+Desde 09/11/2026 (D-47) todas as paredes do Kit Brasil são **limpas**. Mancha é uma peça à parte, que você põe por cima:
+- **Sujeira** (sai quando o jogador limpa com água sanitária e pano, vassoura ou esfregão): lama na base, escorrido de chuva, mofo na base, gordura e fuligem (cozinha, bar). Folha `rsb_overlay_grime_wall_01`.
+- **Reboco estragado** (permanente, nenhuma limpeza tira): tinta descascando, reboco caído mostrando o tijolo, rachaduras, buraco grande no reboco. Folha `rsb_desgaste_parede_01`. Servem em parede de qualquer cor.
+
+Como pôr: no BuildingEd, a sujeira do prédio inteiro se escolhe em **Grime** (as 8 opções novas estão na lista); para pôr só num pedaço, use o modo de peças e pinte a peça da mancha por cima da parede (oeste, norte, quina, janela ou porta, como a parede embaixo). Dá para usar uma de cada folha na mesma parede (desgaste + sujeira).
+
 ## 6. Peças novas (tiles brasileiras)
 
 Para o que o jogo base não tem: telha colonial, azulejo português, pedra portuguesa da calçada, fachada pintada, orelhão, placa em português. Regra do projeto: toda peça nova precisa aparecer em 3D no Viewpoint (D-07, D-09), então cada peça nova passa pelo teste do Viewpoint antes de ser usada em massa.

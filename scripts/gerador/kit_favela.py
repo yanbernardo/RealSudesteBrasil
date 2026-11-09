@@ -129,13 +129,13 @@ def madeira(u, z, seed=0):
 TIJOLO = lambda u, z: tijolos(u, z, 3, 14, (184, 106, 70), (148, 140, 126), 0.07, 1)
 ESTILOS = [
     ("tijolo_baiano", "tijolo baiano aparente (laranja), argamassa grossa", "Brick", TIJOLO),
-    ("tijolo_baiano_sujo", "tijolo baiano aparente, escurecido e sujo embaixo", "Brick",
+    ("tijolo_baiano_sujo", "tijolo baiano aparente mais escuro", "Brick",
      lambda u, z: tijolos(u, z, 3, 14, (166, 92, 60), (126, 120, 110), 0.08, 2, sujo=0.7)),
     ("bloco_concreto", "bloco de concreto aparente (cinza)", "Stone",
      lambda u, z: tijolos(u, z, 2, 12, (150, 148, 142), (118, 114, 108), 0.03, 3)),
     ("reboco_cru", "reboco cru / chapisco cinza, sem pintura", "Plaster",
      lambda u, z: reboco(u, z, (156, 152, 144), 4, 0.35)),
-    ("reboco_rosa", "reboco pintado de rosa, desbotado e descascando", "Plaster",
+    ("reboco_rosa", "reboco pintado de rosa, desbotado", "Plaster",
      lambda u, z: reboco(u, z, (206, 150, 150), 5, 0.3, 0.12, TIJOLO)),
     ("reboco_azul", "reboco pintado de azul, desbotado", "Plaster",
      lambda u, z: reboco(u, z, (130, 164, 196), 6, 0.3, 0.08, TIJOLO)),

@@ -73,6 +73,8 @@ def _azulejos(U, Z, cor, por_tile, linha_px, seed, junta=(196, 194, 186)):
 
 
 def _sujo(U, Z, cor, h, seed, forca):
+    if not tf.MANCHAS:          # gordura e sujeira: folha rsb_overlay_grime_wall_01
+        return cor, h
     v = Z / 192
     gordura = tf.sstep(0.6, 0.85, tf.fbm(U, v, 3, 4, 4, seed)) * forca
     cor = tf.mistura(cor, np.array([150, 126, 84.0]), gordura * 0.35)

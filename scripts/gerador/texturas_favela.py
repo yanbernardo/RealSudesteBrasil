@@ -129,8 +129,17 @@ def grade_parede():
     return np.meshgrid(u, z)          # U, Z com forma (WALL_Z, WALL_U)
 
 
+# Regra do usuário (09/11/2026): parede é sempre LIMPA; manchas, sujeira e reboco
+# estragado ficam em folhas de sobreposição separadas (kit_grime.py): sujeira que
+# sai com limpeza ("overlay_grime" no nome) e desgaste permanente (outro nome).
+MANCHAS = False
+
+
 def _sujeira_base(U, Z, cor, h, seed, forca=1.0):
-    """Sujeira de chão (respingo de lama), mofo e escorrido de chuva."""
+    """Sujeira de chão (respingo de lama), mofo e escorrido de chuva.
+    Desligada (MANCHAS = False): a sujeira agora é a folha rsb_overlay_grime_wall_01."""
+    if not MANCHAS:
+        return cor, h
     v = Z / 192
     m = Z / PX_M
     lama = sstep(0.55, 0.0, m) * (0.55 + 0.45 * fbm(U, v, 6, 3, 4, seed)) * forca
@@ -195,7 +204,9 @@ def tijolo_baiano(seed=1, sujo=False):
     cor = mistura(cor, arg_cor, borrao * 0.55 * tijolo)
     h = h + 0.2 * borrao * tijolo
     cor, h = _sujeira_base(U, Z, cor, h, seed + 20, 1.0 if sujo else 0.35)
-    if sujo:
+    if sujo and not MANCHAS:
+        cor = cor * 0.86                     # tijolo mais escuro (queimado), sem sujeira
+    if sujo and MANCHAS:
         eflo = sstep(0.62, 0.72, fbm(U, v, 8, 6, 4, seed + 30)) * sstep(1.1, 0.2, Z / PX_M)
         cor = mistura(cor, np.array([214, 210, 198.0]), eflo * 0.5)
         cor = cor * 0.9
@@ -252,10 +263,11 @@ def reboco_cru(seed=4):
     chap, _ = pontos(U, v, 70, 210, 0.5, 0.55, seed + 6)
     cor = cor * (1 - 0.22 * chap)[..., None]
     h = h + 0.6 * chap
-    rac = rachaduras(U, v, 63, 192, 1, 14, seed + 7, galhos=False)
-    fio = np.clip(1 - rac / 0.55, 0, 1)
-    cor = cor * (1 - 0.28 * fio)[..., None]
-    h = h - 0.5 * fio
+    if MANCHAS:
+        rac = rachaduras(U, v, 63, 192, 1, 14, seed + 7, galhos=False)
+        fio = np.clip(1 - rac / 0.55, 0, 1)
+        cor = cor * (1 - 0.28 * fio)[..., None]
+        h = h - 0.5 * fio
     # remendos de massa mais nova (mais clara e lisa)
     rem = sstep(0.66, 0.7, fbm(U, v, 4, 6, 3, seed + 8))
     cor = mistura(cor, np.array([170, 166, 158.0]), rem * 0.6)
@@ -267,6 +279,8 @@ def reboco_cru(seed=4):
 def reboco_pintado(tinta, seed=5, descasca=0.12, tijolo=None):
     """Reboco com tinta barata desbotada, descascando em duas camadas: a tinta sai e
     mostra o reboco cinza; onde o reboco também caiu, aparece o tijolo."""
+    if not MANCHAS:
+        descasca = -1.0          # nada descasca: o descascado é a folha rsb_desgaste_parede_01
     U, Z = grade_parede()
     v = Z / 192
     reb, h_reb = _reboco_base(U, Z, seed, 0.7)
@@ -294,10 +308,11 @@ def reboco_pintado(tinta, seed=5, descasca=0.12, tijolo=None):
     lasca = (np.abs(n1 - (0.78 - descasca)) < 0.006)
     cor = np.where(lasca[..., None], np.minimum(cor * 1.25, 255), cor)
     # rachaduras finas e escorrido
-    rac = rachaduras(U, v, 63, 192, 1, 12, seed + 7, galhos=False)
-    fio = np.clip(1 - rac / 0.5, 0, 1)
-    cor = cor * (1 - 0.25 * fio)[..., None]
-    h = h - 0.5 * fio
+    if MANCHAS:
+        rac = rachaduras(U, v, 63, 192, 1, 12, seed + 7, galhos=False)
+        fio = np.clip(1 - rac / 0.5, 0, 1)
+        cor = cor * (1 - 0.25 * fio)[..., None]
+        h = h - 0.5 * fio
     cor, h = _sujeira_base(U, Z, cor, h, seed + 20, 0.9)
     return cor, h
 
