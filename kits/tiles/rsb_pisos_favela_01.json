@@ -24,7 +24,7 @@
   {
    "peca": "rsb_pisos_favela_01_1",
    "nome": "contrapiso_b",
-   "descricao": "contrapiso de cimento, variação",
+   "descricao": "contrapiso de cimento rachado",
    "props": [
     [
      "diamondFloor",
@@ -62,7 +62,7 @@
   {
    "peca": "rsb_pisos_favela_01_3",
    "nome": "laje_b",
-   "descricao": "laje de concreto com mancha de água",
+   "descricao": "laje de concreto com poça",
    "props": [
     [
      "diamondFloor",

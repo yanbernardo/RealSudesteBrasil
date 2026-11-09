@@ -5,7 +5,7 @@
   {
    "peca": "rsb_objetos_laje_01_0",
    "nome": "caixa_dagua_1000",
-   "descricao": "caixa d'água azul de 1000 L",
+   "descricao": "caixa d'água azul de 1000 L, com canos e registro",
    "props": [
     [
      "BlocksPlacement",
@@ -95,7 +95,7 @@
   {
    "peca": "rsb_objetos_laje_01_6",
    "nome": "ferro_espera",
-   "descricao": "ferro de espera saindo da laje",
+   "descricao": "ferro de espera saindo da laje quebrada",
    "props": []
   },
   {
@@ -123,7 +123,18 @@
   },
   {
    "peca": "rsb_objetos_laje_01_10",
-   "props": []
+   "nome": "pilha_tijolos",
+   "descricao": "pilha de tijolos baianos (obra)",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "solid",
+     ""
+    ]
+   ]
   },
   {
    "peca": "rsb_objetos_laje_01_11",

@@ -24,7 +24,7 @@
   {
    "peca": "rsb_lajes_01_1",
    "nome": "laje_crua_b",
-   "descricao": "laje de concreto crua com mancha de água",
+   "descricao": "laje crua com poça",
    "props": [
     [
      "diamondFloor",
@@ -42,8 +42,8 @@
   },
   {
    "peca": "rsb_lajes_01_2",
-   "nome": "laje_manta",
-   "descricao": "laje com manta asfáltica preta",
+   "nome": "laje_crua_c",
+   "descricao": "laje crua rachada, com musgo",
    "props": [
     [
      "diamondFloor",
@@ -61,8 +61,8 @@
   },
   {
    "peca": "rsb_lajes_01_3",
-   "nome": "laje_manta_remendo",
-   "descricao": "laje com manta e remendo de alumínio",
+   "nome": "laje_crua_d",
+   "descricao": "laje crua com entulho miúdo",
    "props": [
     [
      "diamondFloor",
@@ -80,6 +80,63 @@
   },
   {
    "peca": "rsb_lajes_01_4",
+   "nome": "laje_manta_a",
+   "descricao": "laje com manta asfáltica",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "exterior",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_lajes_01_5",
+   "nome": "laje_manta_b",
+   "descricao": "laje com manta asfáltica, sem bolhas",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "exterior",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_lajes_01_6",
+   "nome": "laje_manta_remendo",
+   "descricao": "manta com remendo de alumínio",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "exterior",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_lajes_01_7",
    "nome": "laje_ralo",
    "descricao": "laje com ralo",
    "props": [
@@ -98,8 +155,8 @@
    ]
   },
   {
-   "peca": "rsb_lajes_01_5",
-   "nome": "terraco_ceramica_vermelha",
+   "peca": "rsb_lajes_01_8",
+   "nome": "terraco_ceramica_vermelha_a",
    "descricao": "terraço de cerâmica vermelha",
    "props": [
     [
@@ -117,8 +174,27 @@
    ]
   },
   {
-   "peca": "rsb_lajes_01_6",
-   "nome": "terraco_ceramica_bege",
+   "peca": "rsb_lajes_01_9",
+   "nome": "terraco_ceramica_vermelha_b",
+   "descricao": "terraço de cerâmica vermelha, variação",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "exterior",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_lajes_01_10",
+   "nome": "terraco_ceramica_bege_a",
    "descricao": "terraço de cerâmica bege",
    "props": [
     [
@@ -134,6 +210,41 @@
      ""
     ]
    ]
+  },
+  {
+   "peca": "rsb_lajes_01_11",
+   "nome": "terraco_ceramica_bege_b",
+   "descricao": "terraço de cerâmica bege, variação",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "exterior",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_lajes_01_12",
+   "props": []
+  },
+  {
+   "peca": "rsb_lajes_01_13",
+   "props": []
+  },
+  {
+   "peca": "rsb_lajes_01_14",
+   "props": []
+  },
+  {
+   "peca": "rsb_lajes_01_15",
+   "props": []
   }
  ],
  "buildingtiles": {
@@ -158,6 +269,21 @@
    },
    {
     "Floor": 6
+   },
+   {
+    "Floor": 7
+   },
+   {
+    "Floor": 8
+   },
+   {
+    "Floor": 9
+   },
+   {
+    "Floor": 10
+   },
+   {
+    "Floor": 11
    }
   ],
   "roof_tops": [
@@ -222,6 +348,51 @@
     "North1": 6,
     "North2": 6,
     "North3": 6,
+    "_offset": true
+   },
+   {
+    "West1": 7,
+    "West2": 7,
+    "West3": 7,
+    "North1": 7,
+    "North2": 7,
+    "North3": 7,
+    "_offset": true
+   },
+   {
+    "West1": 8,
+    "West2": 8,
+    "West3": 8,
+    "North1": 8,
+    "North2": 8,
+    "North3": 8,
+    "_offset": true
+   },
+   {
+    "West1": 9,
+    "West2": 9,
+    "West3": 9,
+    "North1": 9,
+    "North2": 9,
+    "North3": 9,
+    "_offset": true
+   },
+   {
+    "West1": 10,
+    "West2": 10,
+    "West3": 10,
+    "North1": 10,
+    "North2": 10,
+    "North3": 10,
+    "_offset": true
+   },
+   {
+    "West1": 11,
+    "West2": 11,
+    "West3": 11,
+    "North1": 11,
+    "North2": 11,
+    "North3": 11,
     "_offset": true
    }
   ]

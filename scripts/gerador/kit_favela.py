@@ -31,6 +31,7 @@ from PIL import Image
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import kit_tiles  # noqa: E402
 import pisos_brasil as pb  # noqa: E402
+import texturas_favela as tf  # noqa: E402
 
 PX_M = 192 / 2.8          # pixels de altura por metro (um andar = 192 px)
 
@@ -185,6 +186,50 @@ def peca_parede(molde, face, tex):
     return cor, L, alfa
 
 
+SS = 3                    # amostras por pixel em cada eixo (antisserrilhado)
+
+
+def peca_parede_tex(molde, face, texs, Lref):
+    """Peça de parede: forma e luz grande do molde do jogo, textura com relevo
+    (`texs` = {"W": ..., "N": ...} de texturas_favela.parede_iluminada) lida
+    com SS x SS amostras por pixel."""
+    alfa = molde[..., 3]
+    L = _lum(molde)
+    acc = np.zeros((256, 128, 3))
+    Y0, X0 = np.mgrid[0:256, 0:128].astype(float)
+    for a in range(SS):
+        for b in range(SS):
+            X, Y = X0 + (a + 0.5) / SS, Y0 + (b + 0.5) / SS
+            uw = np.clip((63 - X) / 63, 0, 0.9999)
+            un = np.clip((X - 63) / 63, 0, 0.9999)
+            zw, zn = 192 + 32 * uw - Y, 192 + 32 * un - Y
+            if face == "W":
+                oeste = np.ones_like(X, dtype=bool)
+            elif face == "N":
+                oeste = np.zeros_like(X, dtype=bool)
+            else:
+                oeste = X < 63
+            # abaixo da linha do chão (espessura da parede) lê a textura espelhada
+            cw = tf.amostrar_parede(texs["W"], uw, np.clip(np.abs(zw), 0, 191.9))
+            cn = tf.amostrar_parede(texs["N"], un, np.clip(np.abs(zn), 0, 191.9))
+            acc += np.where(oeste[..., None], cw, cn)
+    cor = acc / (SS * SS)
+    razao = np.clip(L / Lref, 0.35, 1.7)[..., None]
+    img = np.zeros((256, 128, 4), dtype=np.uint8)
+    img[..., :3] = np.clip(cor * razao, 0, 255).astype(np.uint8)
+    img[..., 3] = alfa.astype(np.uint8)
+    return Image.fromarray(img, "RGBA")
+
+
+_TEX_CACHE: dict = {}
+
+
+def texturas_estilo(chave):
+    if chave not in _TEX_CACHE:
+        _TEX_CACHE[chave] = tf.parede_iluminada(chave)
+    return _TEX_CACHE[chave]
+
+
 def paredes(tiles2x: Path, defs: dict, saida: Path) -> dict:
     molde_im = Image.open(tiles2x / f"{MOLDE_PAREDE[0]}.png").convert("RGBA")
     base = MOLDE_PAREDE[1]
@@ -196,19 +241,14 @@ def paredes(tiles2x: Path, defs: dict, saida: Path) -> dict:
     folha = Image.new("RGBA", (1024, linhas * 256), (0, 0, 0, 0))
     pecas = [{"peca": f"{nome}_{i}", "props": []} for i in range(linhas * 8)]
     entradas = []
-    for k, (chave, desc, material, tex) in enumerate(ESTILOS):
+    for k, (chave, desc, material, _tex) in enumerate(ESTILOS):
+        texs = texturas_estilo(chave)
         b = (k // 2) * 16 + (k % 2) * 4
         papel_nome = {}
         for off, face, prop in PAPEIS:
-            molde = _celula(molde_im, base + off)
-            cor, L, alfa = peca_parede(molde, face, tex)
-            razao = np.clip(L / Lref, 0.35, 1.7)[..., None]
-            rgb = np.clip(cor * razao, 0, 255)
-            img = np.zeros((256, 128, 4), dtype=np.uint8)
-            img[..., :3] = rgb.astype(np.uint8)
-            img[..., 3] = alfa.astype(np.uint8)
             i = b + off
-            folha.alpha_composite(Image.fromarray(img, "RGBA"), ((i % 8) * 128, (i // 8) * 256))
+            folha.alpha_composite(peca_parede_tex(_celula(molde_im, base + off), face, texs, Lref),
+                                  ((i % 8) * 128, (i // 8) * 256))
             papel_nome[prop] = i
             props = [["MaterialType", material], [prop, ""], ["wall", ""]] if prop.startswith("Wall") else [[prop, ""], ["wall", ""]]
             pecas[i] = {"peca": f"{nome}_{i}", "nome": f"{chave} {prop}", "descricao": desc, "props": props}
@@ -224,35 +264,34 @@ def paredes(tiles2x: Path, defs: dict, saida: Path) -> dict:
 
 
 # ---------------------------------------------------------------- pisos e laje
-def contrapiso(s, t, seed):
-    n = fbm(s, t, seed)
-    cor = np.array([150, 146, 138.0]) * (0.88 + 0.24 * n)[..., None]
-    risco = (np.abs(np.sin((s * 0.8 + t * 0.3 + ruido(s, t, 3, 3, seed) * 0.4) * 2 * math.pi * 6)) < 0.04)
-    cor = np.where(risco[..., None], cor * 0.9, cor)
-    return cor + grao(s, t, 9, seed + 1)[..., None]
-
-
-def laje(s, t, seed, poca=False):
-    n = fbm(s, t, seed)
-    cor = np.array([164, 162, 156.0]) * (0.9 + 0.2 * n)[..., None]
-    if poca:
-        p = fbm(s, t, seed + 5) > 0.66
-        cor = np.where(p[..., None], cor * 0.72, cor)
-    # marca da forma de madeira (tábuas a cada 1/4 de tile)
-    marca = np.abs((t * 4) % 1 - 0.5) > 0.485
-    cor = np.where(marca[..., None], cor * 0.93, cor)
-    return cor + grao(s, t, 6, seed + 1)[..., None]
+def peca_piso(cor_h, tiles2x: Path) -> Image.Image:
+    """Piso do jogo (losango 126 x 64 na peça 128 x 256) a partir de (cor, altura)."""
+    tex = tf.piso_iluminado(*cor_h)
+    ys, xs = np.mgrid[192:256, 0:128].astype(float)
+    acc = np.zeros(xs.shape + (3,))
+    for a in range(SS):
+        for b in range(SS):
+            X, Y = xs + (a + 0.5) / SS, ys + (b + 0.5) / SS
+            u, v = (X - 63.0) / 63.0, (Y - 192.0) / 32.0
+            s, t = (u + v) / 2, (v - u) / 2
+            acc += tf.amostrar_piso(tex, s, t)
+    out = np.zeros((256, 128, 4), dtype=np.uint8)
+    out[192:256, :, :3] = np.clip(acc / (SS * SS), 0, 255).astype(np.uint8)
+    out[..., 3] = pb.cal.mascara(tiles2x)
+    return Image.fromarray(out, "RGBA")
 
 
 PISOS = [
-    ("contrapiso_a", "contrapiso de cimento grosso (sem acabamento)", lambda s, t: contrapiso(s, t, 21)),
-    ("contrapiso_b", "contrapiso de cimento, variação", lambda s, t: contrapiso(s, t, 22)),
-    ("laje_a", "laje de concreto (chão do andar de cima e telhado plano)", lambda s, t: laje(s, t, 23)),
-    ("laje_b", "laje de concreto com mancha de água", lambda s, t: laje(s, t, 24, True)),
-    ("cimento_queimado_vermelho", "cimento queimado vermelho", lambda s, t: pb.ruido(s, t, (172, 60, 50), 10, 25)),
-    ("cimento_queimado_verde", "cimento queimado verde", lambda s, t: pb.ruido(s, t, (78, 120, 84), 10, 26)),
-    ("ceramica_vermelha_barata", "cerâmica vermelha barata 30 x 30", lambda s, t: pb.blocos(s, t, 3, 3, [(150, 64, 48), (142, 60, 46), (158, 70, 52)], 0.04, False, 27, (176, 170, 156))),
-    ("ceramica_bege_barata", "cerâmica bege barata 30 x 30", lambda s, t: pb.blocos(s, t, 3, 3, [(206, 192, 164), (198, 184, 158)], 0.04, False, 28, (166, 160, 146))),
+    ("contrapiso_a", "contrapiso de cimento grosso (sem acabamento)", lambda: tf.contrapiso(21)),
+    ("contrapiso_b", "contrapiso de cimento rachado", lambda: tf.contrapiso(22, rachado=True)),
+    ("laje_a", "laje de concreto (chão do andar de cima e telhado plano)", lambda: tf.laje_crua(23)),
+    ("laje_b", "laje de concreto com poça", lambda: tf.laje_crua(24, poca=True)),
+    ("cimento_queimado_vermelho", "cimento queimado vermelho", lambda: tf.cimento_queimado((172, 62, 50), 25)),
+    ("cimento_queimado_verde", "cimento queimado verde", lambda: tf.cimento_queimado((80, 122, 86), 26)),
+    ("ceramica_vermelha_barata", "cerâmica vermelha barata 30 x 30",
+     lambda: tf.ceramica([(150, 66, 50), (142, 60, 46), (158, 72, 54)], 27, (176, 170, 156))),
+    ("ceramica_bege_barata", "cerâmica bege barata 30 x 30",
+     lambda: tf.ceramica([(208, 194, 166), (200, 186, 160)], 28, (160, 154, 140))),
 ]
 
 
@@ -261,7 +300,7 @@ def pisos(tiles2x: Path, saida: Path) -> dict:
     folha = Image.new("RGBA", (1024, 256), (0, 0, 0, 0))
     pecas = []
     for n, (chave, desc, f) in enumerate(PISOS):
-        folha.alpha_composite(pb.peca(f, tiles2x), ((n % 8) * 128, 0))
+        folha.alpha_composite(peca_piso(f(), tiles2x), ((n % 8) * 128, 0))
         interior = chave.startswith(("ceramica", "cimento"))
         props = [["diamondFloor", ""], ["solidfloor", ""]] + ([] if interior else [["exterior", ""]])
         pecas.append({"peca": f"{nome}_{n}", "nome": chave, "descricao": desc, "props": props})
@@ -333,9 +372,21 @@ def escadas(tiles2x: Path, defs: dict, saida: Path) -> dict:
     mapa = {0: 16, 1: 17, 2: 18, 8: 24, 9: 25, 10: 26, 3: 19, 4: 20, 5: 21, 11: 27, 12: 28, 13: 29}
 
     def cor_de(i, X, Y, r):
-        base = (158, 154, 146) if i in (0, 1, 2, 8, 9, 10) else (138, 58, 48)
-        c = np.array(base, dtype=float) * np.clip(r, 0.3, 1.5)[..., None]
-        return c + grao(X / 128, Y / 128, 7, 50 + i)[..., None]
+        cru = i in (0, 1, 2, 8, 9, 10)
+        base = np.array((158, 154, 146) if cru else (140, 60, 50), dtype=float)
+        u, v = X / 128.0, Y / 256.0
+        c = base * np.clip(r, 0.3, 1.5)[..., None]
+        c = c * (0.9 + 0.18 * tf.fbm(u, v, 4, 8, 4, 50 + i))[..., None]           # manchas
+        poro, _ = tf.pontos(u, v, 64, 128, 0.5, 0.45 if cru else 0.15, 60 + i)
+        c = c * (1 - 0.3 * poro)[..., None]                                        # poros
+        gasto = tf.sstep(1.15, 1.45, r)                                            # quina dos degraus gasta
+        c = tf.mistura(c, np.minimum(c * 1.25 + 12, 255), gasto * 0.6)
+        canto = tf.sstep(0.75, 0.45, r)                                            # sujeira nos cantos
+        c = c * (1 - 0.25 * canto)[..., None]
+        if not cru:                                                                # tinta vermelha gasta no meio do degrau
+            pe = tf.sstep(0.55, 0.75, tf.fbm(u, v, 3, 6, 4, 70 + i))
+            c = tf.mistura(c, np.array([150, 146, 138.0]) * np.clip(r, 0.3, 1.5)[..., None], pe * 0.5)
+        return c + grao(X / 128, Y / 128, 4, 50 + i)[..., None]
     nome = "rsb_escadas_favela_01"
     r = recolorir(tiles2x, defs, "fixtures_stairs_01", nome, "escada", cor_de, None, saida, mapa)
     for p in r["pecas"]:
