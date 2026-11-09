@@ -1172,5 +1172,295 @@
   }
  ],
  "buildingtiles": {},
- "bt_nomes_prontos": false
+ "bt_nomes_prontos": false,
+ "moveis": [
+  {
+   "grupo": "Kit Brasil - Muretas de laje: tijolo baiano aparente",
+   "camada": "Walls",
+   "itens": [
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 0
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 1
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 2
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 8
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 9
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 10
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 16
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 17
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 18
+      }
+     }
+    ]
+   ]
+  },
+  {
+   "grupo": "Kit Brasil - Muretas de laje: bloco de concreto aparente",
+   "camada": "Walls",
+   "itens": [
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 4
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 5
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 6
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 12
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 13
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 14
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 20
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 21
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 22
+      }
+     }
+    ]
+   ]
+  },
+  {
+   "grupo": "Kit Brasil - Muretas de laje: reboco cru / chapisco cinza",
+   "camada": "Walls",
+   "itens": [
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 24
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 25
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 26
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 32
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 33
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 34
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 40
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 41
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 42
+      }
+     }
+    ]
+   ]
+  },
+  {
+   "grupo": "Kit Brasil - Muretas de laje: reboco branco encardido",
+   "camada": "Walls",
+   "itens": [
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 28
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 29
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 30
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 36
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 37
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 38
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 44
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 45
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 46
+      }
+     }
+    ]
+   ]
+  }
+ ]
 }

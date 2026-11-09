@@ -100,8 +100,8 @@
   },
   {
    "peca": "rsb_objetos_laje_01_7",
-   "nome": "antena_parabolica",
-   "descricao": "antena parabólica",
+   "nome": "antena_parabolica_w",
+   "descricao": "antena parabólica, prato para o oeste",
    "props": [
     [
      "BlocksPlacement",
@@ -111,18 +111,51 @@
   },
   {
    "peca": "rsb_objetos_laje_01_8",
+   "nome": "antena_parabolica_n",
+   "descricao": "antena parabólica, prato para o norte",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_laje_01_9",
+   "nome": "antena_parabolica_e",
+   "descricao": "antena parabólica, prato para o leste",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_laje_01_10",
+   "nome": "antena_parabolica_s",
+   "descricao": "antena parabólica, prato para o sul",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_laje_01_11",
    "nome": "varal_x",
    "descricao": "varal com roupa (leste-oeste)",
    "props": []
   },
   {
-   "peca": "rsb_objetos_laje_01_9",
+   "peca": "rsb_objetos_laje_01_12",
    "nome": "varal_y",
    "descricao": "varal com roupa (norte-sul)",
    "props": []
   },
   {
-   "peca": "rsb_objetos_laje_01_10",
+   "peca": "rsb_objetos_laje_01_13",
    "nome": "pilha_tijolos",
    "descricao": "pilha de tijolos baianos (obra)",
    "props": [
@@ -137,18 +170,6 @@
    ]
   },
   {
-   "peca": "rsb_objetos_laje_01_11",
-   "props": []
-  },
-  {
-   "peca": "rsb_objetos_laje_01_12",
-   "props": []
-  },
-  {
-   "peca": "rsb_objetos_laje_01_13",
-   "props": []
-  },
-  {
    "peca": "rsb_objetos_laje_01_14",
    "props": []
   },
@@ -158,5 +179,129 @@
   }
  ],
  "buildingtiles": {},
- "bt_nomes_prontos": false
+ "bt_nomes_prontos": false,
+ "moveis": [
+  {
+   "grupo": "Kit Brasil - Laje: caixas d'água",
+   "itens": [
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 0
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 1
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 2
+      }
+     }
+    ]
+   ]
+  },
+  {
+   "grupo": "Kit Brasil - Laje: churrasco",
+   "itens": [
+    [
+     {
+      "orient": "S",
+      "tiles": {
+       "0,0": 3
+      }
+     },
+     {
+      "orient": "E",
+      "tiles": {
+       "0,0": 4
+      }
+     }
+    ]
+   ]
+  },
+  {
+   "grupo": "Kit Brasil - Laje: antena e varal",
+   "itens": [
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 7
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 8
+      }
+     },
+     {
+      "orient": "E",
+      "tiles": {
+       "0,0": 9
+      }
+     },
+     {
+      "orient": "S",
+      "tiles": {
+       "0,0": 10
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 12
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 11
+      }
+     }
+    ]
+   ]
+  },
+  {
+   "grupo": "Kit Brasil - Laje: obra",
+   "itens": [
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 5
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 6
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 13
+      }
+     }
+    ]
+   ]
+  }
+ ]
 }

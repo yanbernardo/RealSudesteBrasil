@@ -413,10 +413,13 @@ def _entrada_bt(texto: str, categoria: str, prefixo: str) -> dict:
     return out
 
 
-def _gravar(folha, nome, tipo, pecas, saida: Path, buildingtiles: dict, bruto=False) -> dict:
+def _gravar(folha, nome, tipo, pecas, saida: Path, buildingtiles: dict, bruto=False, moveis=None) -> dict:
+    """`moveis`: grupos para a lista de móveis do BuildingEd (BuildingFurniture.txt):
+    [{"grupo": rótulo, "camada": opcional, "itens": [[{"orient", "tiles": {"x,y": índice}}]]}]."""
     saida.mkdir(parents=True, exist_ok=True)
     folha.save(saida / f"{nome}.png")
-    man = {"folha": nome, "tipo": tipo, "pecas": pecas, "buildingtiles": buildingtiles, "bt_nomes_prontos": bruto}
+    man = {"folha": nome, "tipo": tipo, "pecas": pecas, "buildingtiles": buildingtiles, "bt_nomes_prontos": bruto,
+           "moveis": moveis or []}
     (saida / f"{nome}.json").write_text(json.dumps(man, ensure_ascii=False, indent=1), encoding="utf-8")
     n = sum(1 for p in pecas if p.get("props"))
     return {"folha": nome, "pecas": n}
