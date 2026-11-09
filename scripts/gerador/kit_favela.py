@@ -129,13 +129,13 @@ def madeira(u, z, seed=0):
 TIJOLO = lambda u, z: tijolos(u, z, 3, 14, (184, 106, 70), (148, 140, 126), 0.07, 1)
 ESTILOS = [
     ("tijolo_baiano", "tijolo baiano aparente (laranja), argamassa grossa", "Brick", TIJOLO),
-    ("tijolo_baiano_sujo", "tijolo baiano aparente mais escuro", "Brick",
+    ("tijolo_baiano_sujo", "tijolo baiano aparente, escurecido e sujo embaixo", "Brick",
      lambda u, z: tijolos(u, z, 3, 14, (166, 92, 60), (126, 120, 110), 0.08, 2, sujo=0.7)),
     ("bloco_concreto", "bloco de concreto aparente (cinza)", "Stone",
      lambda u, z: tijolos(u, z, 2, 12, (150, 148, 142), (118, 114, 108), 0.03, 3)),
     ("reboco_cru", "reboco cru / chapisco cinza, sem pintura", "Plaster",
      lambda u, z: reboco(u, z, (156, 152, 144), 4, 0.35)),
-    ("reboco_rosa", "reboco pintado de rosa, desbotado", "Plaster",
+    ("reboco_rosa", "reboco pintado de rosa, desbotado e descascando", "Plaster",
      lambda u, z: reboco(u, z, (206, 150, 150), 5, 0.3, 0.12, TIJOLO)),
     ("reboco_azul", "reboco pintado de azul, desbotado", "Plaster",
      lambda u, z: reboco(u, z, (130, 164, 196), 6, 0.3, 0.08, TIJOLO)),
@@ -224,25 +224,29 @@ def peca_parede_tex(molde, face, texs, Lref):
 _TEX_CACHE: dict = {}
 
 
-def texturas_estilo(chave):
-    if chave not in _TEX_CACHE:
-        _TEX_CACHE[chave] = tf.parede_iluminada(chave)
-    return _TEX_CACHE[chave]
+def texturas_estilo(chave, limpo=False):
+    if (chave, limpo) not in _TEX_CACHE:
+        _TEX_CACHE[(chave, limpo)] = tf.parede_iluminada(chave, limpo)
+    return _TEX_CACHE[(chave, limpo)]
 
 
-def paredes(tiles2x: Path, defs: dict, saida: Path) -> dict:
+def paredes(tiles2x: Path, defs: dict, saida: Path, limpo: bool = True) -> dict:
+    """Paredes da favela. `limpo` (padrão): só a textura base, folha
+    `rsb_paredes_favela_01`; o desgaste vem como grime e manchas avulsas
+    (`kit_desgaste.py`). `limpo=False`: com o desgaste pintado, folha
+    `rsb_paredes_favela_desgaste_01` (rápido, mas repete em todo tile)."""
     molde_im = Image.open(tiles2x / f"{MOLDE_PAREDE[0]}.png").convert("RGBA")
     base = MOLDE_PAREDE[1]
     # referência de luz: mediana da face oeste lisa do molde
     w = _celula(molde_im, base)
     Lref = np.median(_lum(w)[w[..., 3] > 200])
-    nome = "rsb_paredes_favela_01"
+    nome = "rsb_paredes_favela_01" if limpo else "rsb_paredes_favela_desgaste_01"
     linhas = ((len(ESTILOS) + 1) // 2) * 2
     folha = Image.new("RGBA", (1024, linhas * 256), (0, 0, 0, 0))
     pecas = [{"peca": f"{nome}_{i}", "props": []} for i in range(linhas * 8)]
     entradas = []
     for k, (chave, desc, material, _tex) in enumerate(ESTILOS):
-        texs = texturas_estilo(chave)
+        texs = texturas_estilo(chave, limpo)
         b = (k // 2) * 16 + (k % 2) * 4
         papel_nome = {}
         for off, face, prop in PAPEIS:
@@ -251,7 +255,8 @@ def paredes(tiles2x: Path, defs: dict, saida: Path) -> dict:
                                   ((i % 8) * 128, (i // 8) * 256))
             papel_nome[prop] = i
             props = [["MaterialType", material], [prop, ""], ["wall", ""]] if prop.startswith("Wall") else [[prop, ""], ["wall", ""]]
-            pecas[i] = {"peca": f"{nome}_{i}", "nome": f"{chave} {prop}", "descricao": desc, "props": props}
+            pecas[i] = {"peca": f"{nome}_{i}", "nome": f"{chave} {prop}",
+                        "descricao": desc if limpo else desc + " (com desgaste pintado)", "props": props}
         nw = papel_nome["WallNW"]
         pecas[nw]["props"] = [["CornerNorthWall", f"{nome}_{papel_nome['WallN']}"],
                               ["CornerWestWall", f"{nome}_{papel_nome['WallW']}"]] + pecas[nw]["props"]
@@ -289,9 +294,9 @@ PISOS = [
     ("cimento_queimado_vermelho", "cimento queimado vermelho", lambda: tf.cimento_queimado((172, 62, 50), 25)),
     ("cimento_queimado_verde", "cimento queimado verde", lambda: tf.cimento_queimado((80, 122, 86), 26)),
     ("ceramica_vermelha_barata", "cerâmica vermelha barata 30 x 30",
-     lambda: tf.ceramica([(150, 66, 50), (142, 60, 46), (158, 72, 54)], 27, (176, 170, 156))),
+     lambda: tf.ceramica([(150, 66, 50), (142, 60, 46), (158, 72, 54)], 27, (176, 170, 156), quebrada=0.0)),
     ("ceramica_bege_barata", "cerâmica bege barata 30 x 30",
-     lambda: tf.ceramica([(208, 194, 166), (200, 186, 160)], 28, (160, 154, 140))),
+     lambda: tf.ceramica([(208, 194, 166), (200, 186, 160)], 28, (160, 154, 140), quebrada=0.0)),
 ]
 
 
@@ -373,19 +378,19 @@ def escadas(tiles2x: Path, defs: dict, saida: Path) -> dict:
 
     def cor_de(i, X, Y, r):
         cru = i in (0, 1, 2, 8, 9, 10)
-        base = np.array((158, 154, 146) if cru else (140, 60, 50), dtype=float)
+        base = np.array((158, 154, 146) if cru else (128, 54, 46), dtype=float)
         u, v = X / 128.0, Y / 256.0
-        c = base * np.clip(r, 0.3, 1.5)[..., None]
+        c = base * np.clip(r, 0.3, 1.5 if cru else 1.22)[..., None]
         c = c * (0.9 + 0.18 * tf.fbm(u, v, 4, 8, 4, 50 + i))[..., None]           # manchas
         poro, _ = tf.pontos(u, v, 64, 128, 0.5, 0.45 if cru else 0.15, 60 + i)
         c = c * (1 - 0.3 * poro)[..., None]                                        # poros
         gasto = tf.sstep(1.15, 1.45, r)                                            # quina dos degraus gasta
-        c = tf.mistura(c, np.minimum(c * 1.25 + 12, 255), gasto * 0.6)
+        c = tf.mistura(c, np.minimum(c * 1.18 + 8, 255), gasto * (0.5 if cru else 0.25))
         canto = tf.sstep(0.75, 0.45, r)                                            # sujeira nos cantos
         c = c * (1 - 0.25 * canto)[..., None]
         if not cru:                                                                # tinta vermelha gasta no meio do degrau
-            pe = tf.sstep(0.55, 0.75, tf.fbm(u, v, 3, 6, 4, 70 + i))
-            c = tf.mistura(c, np.array([150, 146, 138.0]) * np.clip(r, 0.3, 1.5)[..., None], pe * 0.5)
+            pe = tf.sstep(0.6, 0.8, tf.fbm(u, v, 3, 6, 4, 70 + i))
+            c = tf.mistura(c, np.array([112, 92, 82.0]) * np.clip(r, 0.3, 1.2)[..., None], pe * 0.35)
         return c + grao(X / 128, Y / 128, 4, 50 + i)[..., None]
     nome = "rsb_escadas_favela_01"
     r = recolorir(tiles2x, defs, "fixtures_stairs_01", nome, "escada", cor_de, None, saida, mapa)
@@ -413,13 +418,15 @@ def _entrada_bt(texto: str, categoria: str, prefixo: str) -> dict:
     return out
 
 
-def _gravar(folha, nome, tipo, pecas, saida: Path, buildingtiles: dict, bruto=False) -> dict:
+def _gravar(folha, nome, tipo, pecas, saida: Path, buildingtiles: dict, bruto=False, moveis=None) -> dict:
+    """`moveis`: grupos para a lista de móveis do BuildingEd (BuildingFurniture.txt):
+    [{"grupo": rótulo, "camada": opcional, "itens": [[{"orient", "tiles": {"x,y": índice}}]]}]."""
     saida.mkdir(parents=True, exist_ok=True)
-    import estilo_pz  # filtro de estilo do jogo (aprovado em 09/11/2026)
+    import estilo_pz  # filtro de estilo do jogo (D-46); peças de conjunto sem contorno na emenda
     juntas = {i for i, pc in enumerate(pecas) if str(pc.get("nome", "")).startswith(("letreiro", "quadro"))}
     estilo_pz.filtrar_folha(folha, tipo, sem_contorno=juntas).save(saida / f"{nome}.png")
     man = {"folha": nome, "tipo": tipo, "pecas": pecas, "buildingtiles": buildingtiles, "bt_nomes_prontos": bruto,
-           "estilo": estilo_pz.ESTILO}
+           "moveis": moveis or [], "estilo": estilo_pz.ESTILO}
     (saida / f"{nome}.json").write_text(json.dumps(man, ensure_ascii=False, indent=1), encoding="utf-8")
     n = sum(1 for p in pecas if p.get("props"))
     return {"folha": nome, "pecas": n}
@@ -443,5 +450,6 @@ if __name__ == "__main__":
     defs = {d["nome"]: d for d in kit_tiles.ler_definicoes(tdefs)}
     bt = (tiles2x.parent.parent / "config" / "BuildingTiles.txt").read_text(encoding="utf-8", errors="replace")
     # telhado inclinado saiu (usuário, 08/11/2026): favela tem laje plana; ver kit_laje.py
-    res = [paredes(tiles2x, defs, saida), pisos(tiles2x, saida), escadas(tiles2x, defs, saida)]
+    res = [paredes(tiles2x, defs, saida), paredes(tiles2x, defs, saida, limpo=False),
+           pisos(tiles2x, saida), escadas(tiles2x, defs, saida)]
     print(json.dumps(res, ensure_ascii=False))

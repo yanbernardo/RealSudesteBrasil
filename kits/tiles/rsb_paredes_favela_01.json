@@ -89,7 +89,7 @@
   {
    "peca": "rsb_paredes_favela_01_4",
    "nome": "tijolo_baiano_sujo WallW",
-   "descricao": "tijolo baiano aparente mais escuro",
+   "descricao": "tijolo baiano aparente, escurecido e sujo embaixo",
    "props": [
     [
      "MaterialType",
@@ -108,7 +108,7 @@
   {
    "peca": "rsb_paredes_favela_01_5",
    "nome": "tijolo_baiano_sujo WallN",
-   "descricao": "tijolo baiano aparente mais escuro",
+   "descricao": "tijolo baiano aparente, escurecido e sujo embaixo",
    "props": [
     [
      "MaterialType",
@@ -127,7 +127,7 @@
   {
    "peca": "rsb_paredes_favela_01_6",
    "nome": "tijolo_baiano_sujo WallNW",
-   "descricao": "tijolo baiano aparente mais escuro",
+   "descricao": "tijolo baiano aparente, escurecido e sujo embaixo",
    "props": [
     [
      "CornerNorthWall",
@@ -154,7 +154,7 @@
   {
    "peca": "rsb_paredes_favela_01_7",
    "nome": "tijolo_baiano_sujo WallSE",
-   "descricao": "tijolo baiano aparente mais escuro",
+   "descricao": "tijolo baiano aparente, escurecido e sujo embaixo",
    "props": [
     [
      "MaterialType",
@@ -233,7 +233,7 @@
   {
    "peca": "rsb_paredes_favela_01_12",
    "nome": "tijolo_baiano_sujo WindowW",
-   "descricao": "tijolo baiano aparente mais escuro",
+   "descricao": "tijolo baiano aparente, escurecido e sujo embaixo",
    "props": [
     [
      "WindowW",
@@ -248,7 +248,7 @@
   {
    "peca": "rsb_paredes_favela_01_13",
    "nome": "tijolo_baiano_sujo WindowN",
-   "descricao": "tijolo baiano aparente mais escuro",
+   "descricao": "tijolo baiano aparente, escurecido e sujo embaixo",
    "props": [
     [
      "WindowN",
@@ -263,7 +263,7 @@
   {
    "peca": "rsb_paredes_favela_01_14",
    "nome": "tijolo_baiano_sujo DoorWallW",
-   "descricao": "tijolo baiano aparente mais escuro",
+   "descricao": "tijolo baiano aparente, escurecido e sujo embaixo",
    "props": [
     [
      "DoorWallW",
@@ -278,7 +278,7 @@
   {
    "peca": "rsb_paredes_favela_01_15",
    "nome": "tijolo_baiano_sujo DoorWallN",
-   "descricao": "tijolo baiano aparente mais escuro",
+   "descricao": "tijolo baiano aparente, escurecido e sujo embaixo",
    "props": [
     [
      "DoorWallN",
@@ -581,7 +581,7 @@
   {
    "peca": "rsb_paredes_favela_01_32",
    "nome": "reboco_rosa WallW",
-   "descricao": "reboco pintado de rosa, desbotado",
+   "descricao": "reboco pintado de rosa, desbotado e descascando",
    "props": [
     [
      "MaterialType",
@@ -600,7 +600,7 @@
   {
    "peca": "rsb_paredes_favela_01_33",
    "nome": "reboco_rosa WallN",
-   "descricao": "reboco pintado de rosa, desbotado",
+   "descricao": "reboco pintado de rosa, desbotado e descascando",
    "props": [
     [
      "MaterialType",
@@ -619,7 +619,7 @@
   {
    "peca": "rsb_paredes_favela_01_34",
    "nome": "reboco_rosa WallNW",
-   "descricao": "reboco pintado de rosa, desbotado",
+   "descricao": "reboco pintado de rosa, desbotado e descascando",
    "props": [
     [
      "CornerNorthWall",
@@ -646,7 +646,7 @@
   {
    "peca": "rsb_paredes_favela_01_35",
    "nome": "reboco_rosa WallSE",
-   "descricao": "reboco pintado de rosa, desbotado",
+   "descricao": "reboco pintado de rosa, desbotado e descascando",
    "props": [
     [
      "MaterialType",
@@ -749,7 +749,7 @@
   {
    "peca": "rsb_paredes_favela_01_40",
    "nome": "reboco_rosa WindowW",
-   "descricao": "reboco pintado de rosa, desbotado",
+   "descricao": "reboco pintado de rosa, desbotado e descascando",
    "props": [
     [
      "WindowW",
@@ -764,7 +764,7 @@
   {
    "peca": "rsb_paredes_favela_01_41",
    "nome": "reboco_rosa WindowN",
-   "descricao": "reboco pintado de rosa, desbotado",
+   "descricao": "reboco pintado de rosa, desbotado e descascando",
    "props": [
     [
      "WindowN",
@@ -779,7 +779,7 @@
   {
    "peca": "rsb_paredes_favela_01_42",
    "nome": "reboco_rosa DoorWallW",
-   "descricao": "reboco pintado de rosa, desbotado",
+   "descricao": "reboco pintado de rosa, desbotado e descascando",
    "props": [
     [
      "DoorWallW",
@@ -794,7 +794,7 @@
   {
    "peca": "rsb_paredes_favela_01_43",
    "nome": "reboco_rosa DoorWallN",
-   "descricao": "reboco pintado de rosa, desbotado",
+   "descricao": "reboco pintado de rosa, desbotado e descascando",
    "props": [
     [
      "DoorWallN",
@@ -1650,5 +1650,6 @@
   ]
  },
  "bt_nomes_prontos": false,
+ "moveis": [],
  "estilo": "pz_v1"
 }

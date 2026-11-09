@@ -270,7 +270,7 @@ Prontas desde 09/11/2026 e registradas no BuildingEd (feche e abra de novo). Pr�
 
 Desde 09/11/2026 (D-47) todas as paredes do Kit Brasil são **limpas**. Mancha é uma peça à parte, que você põe por cima:
 - **Sujeira** (sai quando o jogador limpa com água sanitária e pano, vassoura ou esfregão): lama na base, escorrido de chuva, mofo na base, gordura e fuligem (cozinha, bar). Folha `rsb_overlay_grime_wall_01`.
-- **Reboco estragado** (permanente, nenhuma limpeza tira): tinta descascando, reboco caído mostrando o tijolo, rachaduras, buraco grande no reboco. Folha `rsb_desgaste_parede_01`. Servem em parede de qualquer cor.
+- **Reboco estragado** (permanente, nenhuma limpeza tira): tinta descascando, reboco caído mostrando o tijolo, rachaduras, buraco grande no reboco. Folha `rsb_desgaste_parede_02`. Servem em parede de qualquer cor.
 
 Como pôr: no BuildingEd, a sujeira do prédio inteiro se escolhe em **Grime** (as 8 opções novas estão na lista); para pôr só num pedaço, use o modo de peças e pinte a peça da mancha por cima da parede (oeste, norte, quina, janela ou porta, como a parede embaixo). Dá para usar uma de cada folha na mesma parede (desgaste + sujeira).
 

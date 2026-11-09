@@ -1,11 +1,11 @@
 {
  "folha": "rsb_desgaste_parede_01",
- "tipo": "sobreposicao",
+ "tipo": "parede",
  "pecas": [
   {
    "peca": "rsb_desgaste_parede_01_0",
-   "nome": "tinta_descascando WallW",
-   "descricao": "tinta descascando (aparece o reboco)",
+   "nome": "tinta descascando 1 (oeste)",
+   "descricao": "tinta descascando",
    "props": [
     [
      "WallOverlay",
@@ -19,8 +19,8 @@
   },
   {
    "peca": "rsb_desgaste_parede_01_1",
-   "nome": "tinta_descascando WallN",
-   "descricao": "tinta descascando (aparece o reboco)",
+   "nome": "tinta descascando 1 (norte)",
+   "descricao": "tinta descascando",
    "props": [
     [
      "WallOverlay",
@@ -34,17 +34,24 @@
   },
   {
    "peca": "rsb_desgaste_parede_01_2",
-   "nome": "tinta_descascando WallNW",
-   "descricao": "tinta descascando (aparece o reboco)",
+   "nome": "tinta descascando 2 (oeste)",
+   "descricao": "tinta descascando",
    "props": [
     [
-     "CornerNorthWall",
-     "overlay_grime_wall_01_1"
+     "WallOverlay",
+     ""
     ],
     [
-     "CornerWestWall",
-     "overlay_grime_wall_01_0"
-    ],
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_desgaste_parede_01_3",
+   "nome": "tinta descascando 2 (norte)",
+   "descricao": "tinta descascando",
+   "props": [
     [
      "WallOverlay",
      ""
@@ -56,24 +63,9 @@
    ]
   },
   {
-   "peca": "rsb_desgaste_parede_01_3",
-   "nome": "tinta_descascando WallSE",
-   "descricao": "tinta descascando (aparece o reboco)",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedE",
-     ""
-    ]
-   ]
-  },
-  {
    "peca": "rsb_desgaste_parede_01_4",
-   "nome": "reboco_caido WallW",
-   "descricao": "reboco caído (aparece o tijolo)",
+   "nome": "tinta descascando 3 (oeste)",
+   "descricao": "tinta descascando",
    "props": [
     [
      "WallOverlay",
@@ -87,8 +79,8 @@
   },
   {
    "peca": "rsb_desgaste_parede_01_5",
-   "nome": "reboco_caido WallN",
-   "descricao": "reboco caído (aparece o tijolo)",
+   "nome": "tinta descascando 3 (norte)",
+   "descricao": "tinta descascando",
    "props": [
     [
      "WallOverlay",
@@ -102,17 +94,24 @@
   },
   {
    "peca": "rsb_desgaste_parede_01_6",
-   "nome": "reboco_caido WallNW",
-   "descricao": "reboco caído (aparece o tijolo)",
+   "nome": "tinta descascando 4 (oeste)",
+   "descricao": "tinta descascando",
    "props": [
     [
-     "CornerNorthWall",
-     "overlay_grime_wall_01_1"
+     "WallOverlay",
+     ""
     ],
     [
-     "CornerWestWall",
-     "overlay_grime_wall_01_0"
-    ],
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_desgaste_parede_01_7",
+   "nome": "tinta descascando 4 (norte)",
+   "descricao": "tinta descascando",
+   "props": [
     [
      "WallOverlay",
      ""
@@ -124,24 +123,9 @@
    ]
   },
   {
-   "peca": "rsb_desgaste_parede_01_7",
-   "nome": "reboco_caido WallSE",
-   "descricao": "reboco caído (aparece o tijolo)",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedE",
-     ""
-    ]
-   ]
-  },
-  {
    "peca": "rsb_desgaste_parede_01_8",
-   "nome": "tinta_descascando WindowW",
-   "descricao": "tinta descascando (aparece o reboco)",
+   "nome": "reboco caído (tijolo aparecendo) 1 (oeste)",
+   "descricao": "reboco caído (tijolo aparecendo)",
    "props": [
     [
      "WallOverlay",
@@ -155,8 +139,8 @@
   },
   {
    "peca": "rsb_desgaste_parede_01_9",
-   "nome": "tinta_descascando WindowN",
-   "descricao": "tinta descascando (aparece o reboco)",
+   "nome": "reboco caído (tijolo aparecendo) 1 (norte)",
+   "descricao": "reboco caído (tijolo aparecendo)",
    "props": [
     [
      "WallOverlay",
@@ -170,8 +154,8 @@
   },
   {
    "peca": "rsb_desgaste_parede_01_10",
-   "nome": "tinta_descascando DoorWallW",
-   "descricao": "tinta descascando (aparece o reboco)",
+   "nome": "reboco caído (tijolo aparecendo) 2 (oeste)",
+   "descricao": "reboco caído (tijolo aparecendo)",
    "props": [
     [
      "WallOverlay",
@@ -185,8 +169,8 @@
   },
   {
    "peca": "rsb_desgaste_parede_01_11",
-   "nome": "tinta_descascando DoorWallN",
-   "descricao": "tinta descascando (aparece o reboco)",
+   "nome": "reboco caído (tijolo aparecendo) 2 (norte)",
+   "descricao": "reboco caído (tijolo aparecendo)",
    "props": [
     [
      "WallOverlay",
@@ -200,8 +184,8 @@
   },
   {
    "peca": "rsb_desgaste_parede_01_12",
-   "nome": "reboco_caido WindowW",
-   "descricao": "reboco caído (aparece o tijolo)",
+   "nome": "reboco caído (tijolo aparecendo) 3 (oeste)",
+   "descricao": "reboco caído (tijolo aparecendo)",
    "props": [
     [
      "WallOverlay",
@@ -215,8 +199,8 @@
   },
   {
    "peca": "rsb_desgaste_parede_01_13",
-   "nome": "reboco_caido WindowN",
-   "descricao": "reboco caído (aparece o tijolo)",
+   "nome": "reboco caído (tijolo aparecendo) 3 (norte)",
+   "descricao": "reboco caído (tijolo aparecendo)",
    "props": [
     [
      "WallOverlay",
@@ -230,8 +214,8 @@
   },
   {
    "peca": "rsb_desgaste_parede_01_14",
-   "nome": "reboco_caido DoorWallW",
-   "descricao": "reboco caído (aparece o tijolo)",
+   "nome": "rachadura 1 (oeste)",
+   "descricao": "rachadura",
    "props": [
     [
      "WallOverlay",
@@ -245,8 +229,8 @@
   },
   {
    "peca": "rsb_desgaste_parede_01_15",
-   "nome": "reboco_caido DoorWallN",
-   "descricao": "reboco caído (aparece o tijolo)",
+   "nome": "rachadura 1 (norte)",
+   "descricao": "rachadura",
    "props": [
     [
      "WallOverlay",
@@ -260,8 +244,8 @@
   },
   {
    "peca": "rsb_desgaste_parede_01_16",
-   "nome": "rachaduras WallW",
-   "descricao": "rachaduras",
+   "nome": "rachadura 2 (oeste)",
+   "descricao": "rachadura",
    "props": [
     [
      "WallOverlay",
@@ -275,8 +259,8 @@
   },
   {
    "peca": "rsb_desgaste_parede_01_17",
-   "nome": "rachaduras WallN",
-   "descricao": "rachaduras",
+   "nome": "rachadura 2 (norte)",
+   "descricao": "rachadura",
    "props": [
     [
      "WallOverlay",
@@ -290,275 +274,212 @@
   },
   {
    "peca": "rsb_desgaste_parede_01_18",
-   "nome": "rachaduras WallNW",
-   "descricao": "rachaduras",
+   "nome": "rachadura 3 (oeste)",
+   "descricao": "rachadura",
    "props": [
-    [
-     "CornerNorthWall",
-     "overlay_grime_wall_01_1"
-    ],
-    [
-     "CornerWestWall",
-     "overlay_grime_wall_01_0"
-    ],
     [
      "WallOverlay",
      ""
     ],
     [
-     "attachedN",
+     "attachedW",
      ""
     ]
    ]
   },
   {
    "peca": "rsb_desgaste_parede_01_19",
-   "nome": "rachaduras WallSE",
-   "descricao": "rachaduras",
+   "nome": "rachadura 3 (norte)",
+   "descricao": "rachadura",
    "props": [
     [
      "WallOverlay",
      ""
     ],
     [
-     "attachedE",
+     "attachedN",
      ""
     ]
    ]
   },
   {
    "peca": "rsb_desgaste_parede_01_20",
-   "nome": "reboco_caido_grande WallW",
-   "descricao": "buraco grande no reboco, com rachaduras",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedW",
-     ""
-    ]
-   ]
+   "props": []
   },
   {
    "peca": "rsb_desgaste_parede_01_21",
-   "nome": "reboco_caido_grande WallN",
-   "descricao": "buraco grande no reboco, com rachaduras",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedN",
-     ""
-    ]
-   ]
+   "props": []
   },
   {
    "peca": "rsb_desgaste_parede_01_22",
-   "nome": "reboco_caido_grande WallNW",
-   "descricao": "buraco grande no reboco, com rachaduras",
-   "props": [
-    [
-     "CornerNorthWall",
-     "overlay_grime_wall_01_1"
-    ],
-    [
-     "CornerWestWall",
-     "overlay_grime_wall_01_0"
-    ],
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedN",
-     ""
-    ]
-   ]
+   "props": []
   },
   {
    "peca": "rsb_desgaste_parede_01_23",
-   "nome": "reboco_caido_grande WallSE",
-   "descricao": "buraco grande no reboco, com rachaduras",
-   "props": [
+   "props": []
+  }
+ ],
+ "buildingtiles": {},
+ "bt_nomes_prontos": false,
+ "moveis": [
+  {
+   "grupo": "Kit Brasil - Desgaste de parede (fixo): tinta descascando",
+   "camada": "WallOverlay",
+   "itens": [
     [
-     "WallOverlay",
-     ""
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 0
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 1
+      }
+     }
     ],
     [
-     "attachedE",
-     ""
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 2
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 3
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 4
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 5
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 6
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 7
+      }
+     }
     ]
    ]
   },
   {
-   "peca": "rsb_desgaste_parede_01_24",
-   "nome": "rachaduras WindowW",
-   "descricao": "rachaduras",
-   "props": [
+   "grupo": "Kit Brasil - Desgaste de parede (fixo): reboco caído (tijolo aparecendo)",
+   "camada": "WallOverlay",
+   "itens": [
     [
-     "WallOverlay",
-     ""
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 8
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 9
+      }
+     }
     ],
     [
-     "attachedW",
-     ""
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 10
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 11
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 12
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 13
+      }
+     }
     ]
    ]
   },
   {
-   "peca": "rsb_desgaste_parede_01_25",
-   "nome": "rachaduras WindowN",
-   "descricao": "rachaduras",
-   "props": [
+   "grupo": "Kit Brasil - Desgaste de parede (fixo): rachadura",
+   "camada": "WallOverlay",
+   "itens": [
     [
-     "WallOverlay",
-     ""
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 14
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 15
+      }
+     }
     ],
     [
-     "attachedN",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_26",
-   "nome": "rachaduras DoorWallW",
-   "descricao": "rachaduras",
-   "props": [
-    [
-     "WallOverlay",
-     ""
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 16
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 17
+      }
+     }
     ],
     [
-     "attachedW",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_27",
-   "nome": "rachaduras DoorWallN",
-   "descricao": "rachaduras",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedN",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_28",
-   "nome": "reboco_caido_grande WindowW",
-   "descricao": "buraco grande no reboco, com rachaduras",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedW",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_29",
-   "nome": "reboco_caido_grande WindowN",
-   "descricao": "buraco grande no reboco, com rachaduras",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedN",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_30",
-   "nome": "reboco_caido_grande DoorWallW",
-   "descricao": "buraco grande no reboco, com rachaduras",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedW",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_31",
-   "nome": "reboco_caido_grande DoorWallN",
-   "descricao": "buraco grande no reboco, com rachaduras",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedN",
-     ""
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 18
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 19
+      }
+     }
     ]
    ]
   }
  ],
- "buildingtiles": {
-  "grime_wall": [
-   {
-    "West": 0,
-    "North": 1,
-    "NorthWest": 2,
-    "SouthEast": 3,
-    "WestWindow": 8,
-    "NorthWindow": 9,
-    "WestDoor": 10,
-    "NorthDoor": 11
-   },
-   {
-    "West": 4,
-    "North": 5,
-    "NorthWest": 6,
-    "SouthEast": 7,
-    "WestWindow": 12,
-    "NorthWindow": 13,
-    "WestDoor": 14,
-    "NorthDoor": 15
-   },
-   {
-    "West": 16,
-    "North": 17,
-    "NorthWest": 18,
-    "SouthEast": 19,
-    "WestWindow": 24,
-    "NorthWindow": 25,
-    "WestDoor": 26,
-    "NorthDoor": 27
-   },
-   {
-    "West": 20,
-    "North": 21,
-    "NorthWest": 22,
-    "SouthEast": 23,
-    "WestWindow": 28,
-    "NorthWindow": 29,
-    "WestDoor": 30,
-    "NorthDoor": 31
-   }
-  ]
- },
- "bt_nomes_prontos": false,
  "estilo": "pz_v1"
 }

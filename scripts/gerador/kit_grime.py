@@ -9,7 +9,7 @@ peças, camada de sobreposição de parede):
   `IsoGridSquare.removeGrime()`, que apaga toda sobreposição de parede cujo nome
   contém "overlay_grime" (lido no projectzomboid.jar, 42.21). Variações: lama na
   base, escorrido de chuva, mofo na base, gordura e fuligem (cozinha, bar).
-- `rsb_desgaste_parede_01`: REBOCO ESTRAGADO, permanente (o nome não tem
+- `rsb_desgaste_parede_02`: REBOCO ESTRAGADO (o _01 é o de `kit_desgaste.py`, da favela), permanente (o nome não tem
   "overlay_grime", "overlay_graffiti" nem "overlay_messages", então nenhuma
   limpeza apaga). Variações: tinta descascando, reboco caído mostrando o tijolo,
   rachaduras, buraco grande de reboco com rachaduras. As manchas mostram o
@@ -115,7 +115,7 @@ def reboco_caido(seed=142, grande=False):
     sai_tinta = n > lim_t
     sai_reboco = n > lim_r
     reb, h_reb = _reboco_cinza(seed + 1)
-    tij, h_tij = tf.tijolo_baiano(1)
+    tij, h_tij = tf.tijolo_baiano(1, limpo=True)
     cor = np.where(sai_reboco[..., None], tij * 0.95, reb)
     h = np.where(sai_reboco, h_tij - 2.4, h_reb - 0.4)
     borda = np.abs(n - lim_t) < 0.008
@@ -205,5 +205,5 @@ if __name__ == "__main__":
     tiles2x, tdefs, saida = Path(sys.argv[1]), Path(sys.argv[2]), Path(sys.argv[3])
     defs = {d["nome"]: d for d in kit_tiles.ler_definicoes(tdefs)}
     res = [folha("rsb_overlay_grime_wall_01", SUJEIRA, tiles2x, defs, saida),
-           folha("rsb_desgaste_parede_01", DESGASTE, tiles2x, defs, saida)]
+           folha("rsb_desgaste_parede_02", DESGASTE, tiles2x, defs, saida)]
     print(json.dumps(res, ensure_ascii=False))

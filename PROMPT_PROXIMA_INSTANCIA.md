@@ -1,4 +1,15 @@
-# Prompt para a próxima instância (gerado em 08/11/2026)
+# Prompt para a próxima instância (atualizado em 09/11/2026)
+
+## Novo desde 08/11/2026 (sessão "Etapa 2.2 – zonas de estrada nas diagonais")
+Leia também `KIT_BRASIL_LISTA.md` e, em `PROBLEMAS_CONHECIDOS.md`, K37 a K40, U43 e U44; decisão nova D-45.
+- **Instalado no Rio piloto, sem teste em jogo:** zonas de estrada nas avenidas diagonais (U43); calçadão de Copacabana em pedra portuguesa (D-45; grupo TESTE do teleporte: "Calcadao de Copacabana - meio / troca de direcao / perto do Leme"); Kit Brasil (404 peças, 11 folhas). Ao testar: jogo novo, só o mod `rsb_rio_piloto` ativo.
+- **Kit Brasil:** folhas em `kits/tiles/` (cada uma com `.json`: peças, propriedades, entradas do BuildingEd e grupos de móveis). Geradores: `calcadao.py`, `kit_favela.py` (paredes limpas e desgastadas, pisos, escadas), `kit_laje.py` (lajes, muretas, objetos), `kit_muros.py`, `kit_desgaste.py` (sujeira que sai com limpeza: nome com "overlay_grime"; desgaste fixo), texturas em `texturas_favela.py`. `kit_tiles.py` empacota tudo e registra no BuildingEd (Kit Brasil primeiro nas listas e em grupos de móveis "Kit Brasil - ..."; cópia original dos arquivos de config em `.antes_rsb`). O pipeline empacota e instala sozinho quando o config tem `"calcadao"`.
+- **Pedidos do usuário a lembrar:** favela tem laje plana (não fazer telha inclinada para favela); evitar desenhos grandes que repetem em todo tile (usar peças avulsas ou variações, K39); ele escolhe a ordem dos grupos do Kit Brasil; o lugar da assinatura do KnoxMap é escolha dele (D-37).
+- **Próximos passos:** o usuário testar em jogo o que está instalado; escolher o próximo grupo do Kit Brasil; escolher o lugar da assinatura; teste do Viewpoint (T5a) com as peças novas, só com autorização.
+
+---
+
+## Texto anterior (08/11/2026)
 
 Leia primeiro `AGENTS.md`, `PLANO_BRASIL_ZOMBOID.md` (as decisões D-41 a D-44 são as mais novas) e `PROBLEMAS_CONHECIDOS.md` (U18 a U42, J4, K35, K36).
 

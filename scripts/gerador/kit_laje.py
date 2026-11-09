@@ -42,21 +42,21 @@ PX_M = tf.PX_M
 # ---------------------------------------------------------------- lajes
 LAJES = [
     ("laje_crua_a", "laje de concreto crua", lambda: tf.laje_crua(41)),
-    ("laje_crua_b", "laje crua com poça", lambda: tf.laje_crua(42, poca=True)),
+    ("laje_crua_b", "laje crua com poça (usar de vez em quando)", lambda: tf.laje_crua(42, poca=True)),
     ("laje_crua_c", "laje crua rachada, com musgo", lambda: tf.laje_crua(43, rachada=True)),
     ("laje_crua_d", "laje crua com entulho miúdo", lambda: tf.laje_crua(44, entulho=True)),
     ("laje_manta_a", "laje com manta asfáltica", lambda: tf.manta(45)),
     ("laje_manta_b", "laje com manta asfáltica, sem bolhas", lambda: tf.manta(46, bolhas=False)),
-    ("laje_manta_remendo", "manta com remendo de alumínio", lambda: tf.manta(47, remendo=True)),
+    ("laje_manta_remendo", "manta com remendo de alumínio (usar de vez em quando)", lambda: tf.manta(47, remendo=True)),
     ("laje_ralo", "laje com ralo", lambda: tf.ralo(48)),
     ("terraco_ceramica_vermelha_a", "terraço de cerâmica vermelha",
-     lambda: tf.ceramica([(150, 66, 50), (142, 60, 46), (158, 72, 54)], 49, (176, 170, 156))),
+     lambda: tf.ceramica([(150, 66, 50), (142, 60, 46), (158, 72, 54)], 49, (176, 170, 156), quebrada=0.0)),
     ("terraco_ceramica_vermelha_b", "terraço de cerâmica vermelha, variação",
-     lambda: tf.ceramica([(146, 62, 48), (156, 70, 52), (138, 58, 44)], 50, (170, 164, 150))),
+     lambda: tf.ceramica([(146, 62, 48), (156, 70, 52), (138, 58, 44)], 50, (170, 164, 150), quebrada=0.1)),
     ("terraco_ceramica_bege_a", "terraço de cerâmica bege",
-     lambda: tf.ceramica([(208, 194, 166), (200, 186, 160)], 51, (160, 154, 140))),
+     lambda: tf.ceramica([(208, 194, 166), (200, 186, 160)], 51, (160, 154, 140), quebrada=0.0)),
     ("terraco_ceramica_bege_b", "terraço de cerâmica bege, variação",
-     lambda: tf.ceramica([(202, 188, 160), (212, 198, 170)], 52, (156, 150, 136))),
+     lambda: tf.ceramica([(202, 188, 160), (212, 198, 170)], 52, (156, 150, 136), quebrada=0.1)),
 ]
 
 
@@ -94,7 +94,7 @@ def muretas(tiles2x: Path, defs: dict, saida: Path) -> dict:
     folha = Image.new("RGBA", (1024, linhas * 256), (0, 0, 0, 0))
     pecas = [{"peca": f"{nome}_{i}", "props": []} for i in range(linhas * 8)]
     for k, (chave, desc, material, _tex) in enumerate(ACABAMENTOS):
-        texs = kf.texturas_estilo(chave)
+        texs = kf.texturas_estilo(chave, True)
         base = (k // 2) * 24 + (k % 2) * 4
         novo_de = {velho: base + (j // 4) * 8 + j % 4 for j, (velho, _f) in enumerate(PECAS_MURETA)}
         for j, (velho, face) in enumerate(PECAS_MURETA):
@@ -112,7 +112,17 @@ def muretas(tiles2x: Path, defs: dict, saida: Path) -> dict:
                 props.append(["MaterialType", material])
             altura = {0: "meia altura", 1: "baixa", 2: "inacabada em degraus"}[j // 4]
             pecas[i] = {"peca": f"{nome}_{i}", "nome": f"mureta {altura} {chave} {face}", "descricao": desc, "props": props}
-    return kf._gravar(folha, nome, "parede", pecas, saida, {})
+    moveis = []
+    for k, (chave, desc, _m, _t) in enumerate(ACABAMENTOS):
+        base = (k // 2) * 24 + (k % 2) * 4
+        itens = []
+        for linha in range(3):              # meia altura, baixa, inacabada
+            w, n, nw = base + linha * 8, base + linha * 8 + 1, base + linha * 8 + 2
+            itens.append([{"orient": "W", "tiles": {"0,0": w}}, {"orient": "N", "tiles": {"0,0": n}}])
+            itens.append([{"orient": "W", "tiles": {"0,0": nw}}])                # quina
+        moveis.append({"grupo": f"Kit Brasil - Muretas de laje: {desc.split(',')[0].split('(')[0].strip()}",
+                       "camada": "Walls", "itens": itens})
+    return kf._gravar(folha, nome, "parede", pecas, saida, {}, moveis=moveis)
 
 
 # ---------------------------------------------------------------- renderizador 3D
@@ -470,18 +480,22 @@ def ferro_solto(seed=13):
     return c.render()
 
 
-def antena(seed=17):
+def antena(lado="W", seed=17):
+    """Antena parabólica com o prato apontando para `lado` (W, N, E, S)."""
     c = Cena()
+    d = {"W": (-1.0, 0.0), "N": (0.0, -1.0), "E": (1.0, 0.0), "S": (0.0, 1.0)}[lado]
     cinza = np.array([150, 152, 156.0])
     # base: bloco de concreto, mastro com braçadeira
     c.caixa(0.4, 0.4, 0.0, 0.62, 0.62, 0.14, None, concreto_tex(seed))
     c.haste((0.51, 0.51, 0.14), (0.51, 0.51, 0.95), 0.018, cinza * 0.8, 0.4)
     c.caixa(0.48, 0.48, 0.86, 0.54, 0.54, 0.93, cinza * 0.7, brilho=0.4)
-    # prato (paraboloide, offset), virado para cima-oeste
-    e1 = np.array([0.7071, -0.7071, 0.0])
-    e2 = np.array([-0.38, -0.38, 0.84])
-    nrm = np.cross(e1, e2)
-    nrm = nrm / np.linalg.norm(nrm)
+    # prato (paraboloide), virado para o lado pedido e inclinado 35° para cima
+    el = math.radians(35)
+    nrm = np.array([d[0] * math.cos(el), d[1] * math.cos(el), math.sin(el)])
+    e1 = np.array([-d[1], d[0], 0.0])
+    e2 = np.cross(nrm, e1)
+    if e2[2] < 0:
+        e2 = -e2
     centro = np.array([0.5, 0.5, 1.02])
     r = 0.3
     us, vs = np.meshgrid(np.linspace(-1, 1, 220), np.linspace(-1, 1, 220), indexing="ij")
@@ -497,6 +511,8 @@ def antena(seed=17):
     cor = np.where(ferrugem[:, None], np.array([168, 140, 118.0]), cor)
     cor = cor * (0.95 + 0.08 * tf.vn((ang / (2 * math.pi)) % 1, np.hypot(us, vs) % 1, 20, 6, seed + 1))[:, None]
     c.add(pts, cor, nor, 0.3)
+    # costas do prato (aparecem quando ele aponta para longe de quem olha)
+    c.add(pts - 0.006 * nrm, cor * 0.82, -nor, 0.2)
     # aro
     th = np.linspace(0, 2 * math.pi, 120)
     aro = [tuple(centro + r * (math.cos(t) * e1 + math.sin(t) * e2) + 0.07 * nrm) for t in th]
@@ -509,7 +525,8 @@ def antena(seed=17):
     c.caixa(foco[0] - 0.02, foco[1] - 0.02, foco[2] - 0.02, foco[0] + 0.02, foco[1] + 0.02, foco[2] + 0.03,
             np.array([70, 70, 74.0]), brilho=0.4)
     # cabo preto descendo pelo mastro até a laje
-    cabo = [tuple(foco), (0.53, 0.53, 0.9), (0.53, 0.53, 0.2), (0.6, 0.62, 0.06), (0.75, 0.7, 0.0)]
+    cabo = [tuple(foco), (0.53, 0.53, 0.9), (0.53, 0.53, 0.2), (0.6, 0.62, 0.06),
+            (0.51 - d[1] * 0.2 + 0.1, 0.51 + d[0] * 0.2 + 0.1, 0.0)]
     c.curva(cabo, 0.005, np.array([28, 28, 30.0]), 0.3)
     return c.render()
 
@@ -614,7 +631,10 @@ OBJETOS = [
     ("churrasqueira_e", "churrasqueira de tijolo, boca para o leste", lambda: churrasqueira("E"), SOLIDO),
     ("pilar_ferro_espera", "pilar com ferro de espera (canto do tile)", pilar_ferro, [["BlocksPlacement", ""], ["solidtrans", ""]]),
     ("ferro_espera", "ferro de espera saindo da laje quebrada", ferro_solto, []),
-    ("antena_parabolica", "antena parabólica", antena, [["BlocksPlacement", ""]]),
+    ("antena_parabolica_w", "antena parabólica, prato para o oeste", lambda: antena("W"), [["BlocksPlacement", ""]]),
+    ("antena_parabolica_n", "antena parabólica, prato para o norte", lambda: antena("N"), [["BlocksPlacement", ""]]),
+    ("antena_parabolica_e", "antena parabólica, prato para o leste", lambda: antena("E"), [["BlocksPlacement", ""]]),
+    ("antena_parabolica_s", "antena parabólica, prato para o sul", lambda: antena("S"), [["BlocksPlacement", ""]]),
     ("varal_x", "varal com roupa (leste-oeste)", lambda: varal("x"), []),
     ("varal_y", "varal com roupa (norte-sul)", lambda: varal("y"), []),
     ("pilha_tijolos", "pilha de tijolos baianos (obra)", pilha_tijolos, SOLIDO),
@@ -630,7 +650,18 @@ def objetos(saida: Path) -> dict:
         folha.alpha_composite(f(), ((n % 8) * 128, (n // 8) * 256))
         pecas.append({"peca": f"{nome}_{n}", "nome": chave, "descricao": desc, "props": props})
     pecas += [{"peca": f"{nome}_{n}", "props": []} for n in range(len(OBJETOS), linhas * 8)]
-    return kf._gravar(folha, nome, "objeto", pecas, saida, {})
+    i = {chave: n for n, (chave, *_r) in enumerate(OBJETOS)}
+    um = lambda k: [{"orient": "W", "tiles": {"0,0": i[k]}}]
+    moveis = [
+        {"grupo": "Kit Brasil - Laje: caixas d'água", "itens": [um("caixa_dagua_1000"), um("caixa_dagua_500"), um("caixa_dagua_amianto")]},
+        {"grupo": "Kit Brasil - Laje: churrasco", "itens": [[{"orient": "S", "tiles": {"0,0": i["churrasqueira_s"]}},
+                                                              {"orient": "E", "tiles": {"0,0": i["churrasqueira_e"]}}]]},
+        {"grupo": "Kit Brasil - Laje: antena e varal", "itens": [
+            [{"orient": o, "tiles": {"0,0": i[f"antena_parabolica_{o.lower()}"]}} for o in "WNES"],
+            [{"orient": "W", "tiles": {"0,0": i["varal_y"]}}, {"orient": "N", "tiles": {"0,0": i["varal_x"]}}]]},
+        {"grupo": "Kit Brasil - Laje: obra", "itens": [um("pilar_ferro_espera"), um("ferro_espera"), um("pilha_tijolos")]},
+    ]
+    return kf._gravar(folha, nome, "objeto", pecas, saida, {}, moveis=moveis)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,1153 @@
+{
+ "folha": "rsb_muros_favela_01",
+ "tipo": "parede",
+ "pecas": [
+  {
+   "peca": "rsb_muros_favela_01_0",
+   "nome": "tijolo_baiano WallW",
+   "descricao": "muro de tijolo baiano aparente",
+   "props": [
+    [
+     "MaterialType",
+     "Brick"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_1",
+   "nome": "tijolo_baiano WallN",
+   "descricao": "muro de tijolo baiano aparente",
+   "props": [
+    [
+     "MaterialType",
+     "Brick"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_2",
+   "nome": "tijolo_baiano WallNW",
+   "descricao": "muro de tijolo baiano aparente",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_muros_favela_01_1"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_muros_favela_01_0"
+    ],
+    [
+     "MaterialType",
+     "Brick"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_3",
+   "nome": "tijolo_baiano WallSE",
+   "descricao": "muro de tijolo baiano aparente",
+   "props": [
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_4",
+   "nome": "tijolo_baiano_sujo WallW",
+   "descricao": "muro de tijolo baiano sujo",
+   "props": [
+    [
+     "MaterialType",
+     "Brick"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_5",
+   "nome": "tijolo_baiano_sujo WallN",
+   "descricao": "muro de tijolo baiano sujo",
+   "props": [
+    [
+     "MaterialType",
+     "Brick"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_6",
+   "nome": "tijolo_baiano_sujo WallNW",
+   "descricao": "muro de tijolo baiano sujo",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_muros_favela_01_5"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_muros_favela_01_4"
+    ],
+    [
+     "MaterialType",
+     "Brick"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_7",
+   "nome": "tijolo_baiano_sujo WallSE",
+   "descricao": "muro de tijolo baiano sujo",
+   "props": [
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_8",
+   "nome": "bloco_concreto WallW",
+   "descricao": "muro de bloco de concreto",
+   "props": [
+    [
+     "MaterialType",
+     "Stone"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_9",
+   "nome": "bloco_concreto WallN",
+   "descricao": "muro de bloco de concreto",
+   "props": [
+    [
+     "MaterialType",
+     "Stone"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_10",
+   "nome": "bloco_concreto WallNW",
+   "descricao": "muro de bloco de concreto",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_muros_favela_01_9"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_muros_favela_01_8"
+    ],
+    [
+     "MaterialType",
+     "Stone"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_11",
+   "nome": "bloco_concreto WallSE",
+   "descricao": "muro de bloco de concreto",
+   "props": [
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_12",
+   "nome": "reboco_cru WallW",
+   "descricao": "muro de reboco cru / chapisco",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_13",
+   "nome": "reboco_cru WallN",
+   "descricao": "muro de reboco cru / chapisco",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_14",
+   "nome": "reboco_cru WallNW",
+   "descricao": "muro de reboco cru / chapisco",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_muros_favela_01_13"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_muros_favela_01_12"
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_15",
+   "nome": "reboco_cru WallSE",
+   "descricao": "muro de reboco cru / chapisco",
+   "props": [
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_16",
+   "nome": "reboco_branco WallW",
+   "descricao": "muro rebocado branco encardido",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_17",
+   "nome": "reboco_branco WallN",
+   "descricao": "muro rebocado branco encardido",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_18",
+   "nome": "reboco_branco WallNW",
+   "descricao": "muro rebocado branco encardido",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_muros_favela_01_17"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_muros_favela_01_16"
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_19",
+   "nome": "reboco_branco WallSE",
+   "descricao": "muro rebocado branco encardido",
+   "props": [
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_20",
+   "nome": "reboco_amarelo WallW",
+   "descricao": "muro rebocado amarelo desbotado",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_21",
+   "nome": "reboco_amarelo WallN",
+   "descricao": "muro rebocado amarelo desbotado",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_22",
+   "nome": "reboco_amarelo WallNW",
+   "descricao": "muro rebocado amarelo desbotado",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_muros_favela_01_21"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_muros_favela_01_20"
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_23",
+   "nome": "reboco_amarelo WallSE",
+   "descricao": "muro rebocado amarelo desbotado",
+   "props": [
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_24",
+   "nome": "tijolo_cacos WallW",
+   "descricao": "muro de tijolo com cacos de vidro no topo",
+   "props": [
+    [
+     "MaterialType",
+     "Brick"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_25",
+   "nome": "tijolo_cacos WallN",
+   "descricao": "muro de tijolo com cacos de vidro no topo",
+   "props": [
+    [
+     "MaterialType",
+     "Brick"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_26",
+   "nome": "tijolo_cacos WallNW",
+   "descricao": "muro de tijolo com cacos de vidro no topo",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_muros_favela_01_25"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_muros_favela_01_24"
+    ],
+    [
+     "MaterialType",
+     "Brick"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_27",
+   "nome": "tijolo_cacos WallSE",
+   "descricao": "muro de tijolo com cacos de vidro no topo",
+   "props": [
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_28",
+   "nome": "reboco_cacos WallW",
+   "descricao": "muro rebocado branco com cacos de vidro",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_29",
+   "nome": "reboco_cacos WallN",
+   "descricao": "muro rebocado branco com cacos de vidro",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_30",
+   "nome": "reboco_cacos WallNW",
+   "descricao": "muro rebocado branco com cacos de vidro",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_muros_favela_01_29"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_muros_favela_01_28"
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_31",
+   "nome": "reboco_cacos WallSE",
+   "descricao": "muro rebocado branco com cacos de vidro",
+   "props": [
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_32",
+   "nome": "bloco_grade WallW",
+   "descricao": "mureta de bloco com grade de ferro",
+   "props": [
+    [
+     "MaterialType",
+     "Stone"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "WallWTrans",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_33",
+   "nome": "bloco_grade WallN",
+   "descricao": "mureta de bloco com grade de ferro",
+   "props": [
+    [
+     "MaterialType",
+     "Stone"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "WallNTrans",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_34",
+   "nome": "bloco_grade WallNW",
+   "descricao": "mureta de bloco com grade de ferro",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_muros_favela_01_33"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_muros_favela_01_32"
+    ],
+    [
+     "MaterialType",
+     "Stone"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "WallNWTrans",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_35",
+   "nome": "bloco_grade WallSE",
+   "descricao": "mureta de bloco com grade de ferro",
+   "props": [
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_36",
+   "nome": "reboco_grade WallW",
+   "descricao": "mureta rebocada com grade de ferro",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "WallWTrans",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_37",
+   "nome": "reboco_grade WallN",
+   "descricao": "mureta rebocada com grade de ferro",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "WallNTrans",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_38",
+   "nome": "reboco_grade WallNW",
+   "descricao": "mureta rebocada com grade de ferro",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_muros_favela_01_37"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_muros_favela_01_36"
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "WallNWTrans",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_favela_01_39",
+   "nome": "reboco_grade WallSE",
+   "descricao": "mureta rebocada com grade de ferro",
+   "props": [
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  }
+ ],
+ "buildingtiles": {},
+ "bt_nomes_prontos": false,
+ "moveis": [
+  {
+   "grupo": "Kit Brasil - Muros de quintal: lisos",
+   "camada": "Walls",
+   "itens": [
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 0
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 1
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 2
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 3
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 4
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 5
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 6
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 7
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 8
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 9
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 10
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 11
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 12
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 13
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 14
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 15
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 16
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 17
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 18
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 19
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 20
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 21
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 22
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 23
+      }
+     }
+    ]
+   ]
+  },
+  {
+   "grupo": "Kit Brasil - Muros de quintal: com cacos de vidro",
+   "camada": "Walls",
+   "itens": [
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 24
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 25
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 26
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 27
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 28
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 29
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 30
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 31
+      }
+     }
+    ]
+   ]
+  },
+  {
+   "grupo": "Kit Brasil - Muros de quintal: com grade",
+   "camada": "Walls",
+   "itens": [
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 32
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 33
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 34
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 35
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 36
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 37
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 38
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 39
+      }
+     }
+    ]
+   ]
+  }
+ ],
+ "estilo": "pz_v1"
+}

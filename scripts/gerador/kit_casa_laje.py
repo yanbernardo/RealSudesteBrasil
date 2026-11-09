@@ -57,11 +57,11 @@ def grafiato(tinta, seed):
     tinta = np.array(tinta, float)
     cor = tinta * (0.93 + 0.1 * tf.fbm(U, v, 4, 6, 4, seed + 2))[..., None]
     cor = cor * (1 + 0.015 * (risco - 0.5))[..., None]
-    return tf._sujeira_base(U, Z, cor, h, seed + 3, 0.45)
+    return cor, h                        # limpo (D-47): sujeira é a folha de sobreposição
 
 
 def branco_novo(seed=91):
-    cor, h = tf.reboco_pintado((236, 234, 226), seed, 0.0, None)
+    cor, h = tf.reboco_pintado((236, 234, 226), seed, 0.0, None, limpo=True)
     return cor, h * 0.5
 
 
@@ -187,7 +187,7 @@ def _muro_tex(base, capa=(196, 192, 182)):
 
 
 def _muro_grade_tex():
-    cor, h = tf.reboco_pintado((232, 230, 222), 97, 0.05, None)
+    cor, h = tf.reboco_pintado((232, 230, 222), 97, 0.05, None, limpo=True)
     U, Z = tf.grade_parede()
     topo = GRADE_DE_M * PX_M
     capa_m = (Z > topo - 6) & (Z <= topo)
@@ -196,12 +196,12 @@ def _muro_grade_tex():
 
 
 ESTILOS_MURO = [
-    ("muro_tijolo", "muro de tijolo baiano aparente", "Brick", lambda: _muro_tex(tf.tijolo_baiano(101, True)), False),
-    ("muro_chapiscado", "muro chapiscado cinza", "Plaster", lambda: _muro_tex(tf.reboco_cru(102)), False),
+    ("muro_tijolo", "muro de tijolo baiano aparente", "Brick", lambda: _muro_tex(tf.tijolo_baiano(101, True, limpo=True)), False),
+    ("muro_chapiscado", "muro chapiscado cinza", "Plaster", lambda: _muro_tex(tf.reboco_cru(102, limpo=True)), False),
     ("muro_amarelo", "muro rebocado e pintado de amarelo", "Plaster",
-     lambda: _muro_tex(tf.reboco_pintado((222, 194, 112), 103, 0.08, tf.tijolo_baiano(1))), False),
+     lambda: _muro_tex(tf.reboco_pintado((222, 194, 112), 103, 0.08, None, limpo=True)), False),
     ("muro_branco", "muro rebocado branco encardido", "Plaster",
-     lambda: _muro_tex(tf.reboco_pintado((222, 220, 210), 104, 0.06, tf.tijolo_baiano(1))), False),
+     lambda: _muro_tex(tf.reboco_pintado((222, 220, 210), 104, 0.06, None, limpo=True)), False),
     ("muro_grade", "muro baixo branco com grade preta em cima", "Plaster", _muro_grade_tex, True),
 ]
 MOLDE_MURO = "fencing_01"

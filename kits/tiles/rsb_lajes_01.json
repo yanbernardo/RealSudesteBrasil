@@ -24,7 +24,7 @@
   {
    "peca": "rsb_lajes_01_1",
    "nome": "laje_crua_b",
-   "descricao": "laje crua com poça",
+   "descricao": "laje crua com poça (usar de vez em quando)",
    "props": [
     [
      "diamondFloor",
@@ -119,7 +119,7 @@
   {
    "peca": "rsb_lajes_01_6",
    "nome": "laje_manta_remendo",
-   "descricao": "manta com remendo de alumínio",
+   "descricao": "manta com remendo de alumínio (usar de vez em quando)",
    "props": [
     [
      "diamondFloor",
@@ -398,5 +398,6 @@
   ]
  },
  "bt_nomes_prontos": false,
+ "moveis": [],
  "estilo": "pz_v1"
 }

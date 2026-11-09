@@ -73,7 +73,7 @@ def _azulejos(U, Z, cor, por_tile, linha_px, seed, junta=(196, 194, 186)):
 
 
 def _sujo(U, Z, cor, h, seed, forca):
-    if not tf.MANCHAS:          # gordura e sujeira: folha rsb_overlay_grime_wall_01
+    if True:                    # D-47: gordura e sujeira vão na folha rsb_overlay_grime_wall_01
         return cor, h
     v = Z / 192
     gordura = tf.sstep(0.6, 0.85, tf.fbm(U, v, 3, 4, 4, seed)) * forca
@@ -88,7 +88,7 @@ def azulejo_salao(cor_az, cor_faixa, tinta, seed):
     linha = 192 / 18
     ca, ha = _azulejos(U, Z, cor_az, 6, linha, seed)
     cf, hf = _azulejos(U, Z, cor_faixa, 6, linha, seed + 1)
-    ct, ht = tf.reboco_pintado(tinta, seed + 2, 0.04, None)
+    ct, ht = tf.reboco_pintado(tinta, seed + 2, 0.04, None, limpo=True)
     faixa = (Z >= alto - linha) & (Z < alto)
     rodape = Z < linha * 0.9
     cor = np.where((Z < alto)[..., None], ca, ct)
@@ -104,7 +104,7 @@ def azulejo_salao(cor_az, cor_faixa, tinta, seed):
 def fachada(tinta, seed):
     U, Z = tf.grade_parede()
     barra = 1.0 * PX_M
-    ct, ht = tf.reboco_pintado(tinta, seed, 0.07, None)
+    ct, ht = tf.reboco_pintado(tinta, seed, 0.07, None, limpo=True)
     # barra de cerâmica vermelha 10 x 20 deitada, em amarração
     gz = Z / (192 / 20)
     j = np.floor(gz)
@@ -121,7 +121,7 @@ def fachada(tinta, seed):
     cor = np.where(em[..., None], cc, ct)
     h = np.where(em, hc, ht * 0.6)
     h = np.where(np.abs(Z - barra) < 1.2, h + 0.9, h)
-    return tf._sujeira_base(U, Z, cor, h, seed + 7, 0.8)
+    return cor, h                        # limpo (D-47)
 
 
 ESTILOS = [
