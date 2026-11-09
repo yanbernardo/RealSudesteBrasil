@@ -601,6 +601,79 @@ def simular(tiles2x: Path, lots: Path, ruas_debug: Path, saida: Path) -> dict:
     return res
 
 
+TIRAR_DO_CALCADAO = ("blends_", "floors_", "d_", "street_")   # chão, misturas, sujeira, meio-fio velho
+
+
+def aplicar(lots: Path, calcadoes: list[dict]) -> dict:
+    """Depois de compilar: troca o chão da faixa de cada calçadão nas células.
+
+    `calcadoes`: [{"coords": [[x, y], ...] (linha da avenida, tiles do mundo),
+    "direcoes": 8, "familias": [...], "largura": 6}]. No calçadão: a peça nova,
+    o meio-fio refeito e o que não é chão (postes etc.); no asfalto vizinho, sem
+    a mistura de areia da borda. Pode rodar de novo no mesmo mapa (dá o mesmo)."""
+    global LARGURA
+    from shapely.geometry import LineString
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import lots as _lots
+    chao, ocupado = ler_chao(lots)
+    asfalto = lambda k: e_asfalto(chao.get(k))
+    celulas: dict = {}
+
+    def celula(k):
+        c = (k[0] // _lots.CELL, k[1] // _lots.CELL)
+        if c not in celulas:
+            if not (lots / f"{c[0]}_{c[1]}.lotheader").exists():
+                celulas[c] = None
+            else:
+                celulas[c] = _lots.Celula(lots, *c)
+        return celulas[c]
+
+    rel = []
+    for cfg in calcadoes:
+        usar(f"{cfg.get('direcoes', 8)}dir", cfg.get("familias"))
+        LARGURA = int(cfg.get("largura", 6))
+        linha = LineString(cfg["coords"])
+        faixa = faixa_no_mapa(chao, ocupado, linha)
+        atrib, costuras = atribuir(faixa, linha)
+        cat = catalogo()
+        idx = {(f, k): n for n, (f, k, _r) in enumerate(cat)}
+        trocados, usadas = 0, set()
+        for k, (f, o) in atrib.items():
+            c = celula(k)
+            if c is None:
+                continue
+            peca_ = f"{NOME_FOLHA}_{indice_da_peca(f, o, k[0], k[1], idx)}"
+            usadas.add(peca_)
+            resto = [n for n in c.nomes_em(*k)[1:] if not n.startswith(TIRAR_DO_CALCADAO)]
+            if c.trocar(k[0], k[1], [peca_] + meio_fio(k, asfalto) + resto):
+                trocados += 1
+        limpos = 0
+        for (x, y) in {(x + dx, y + dy) for (x, y) in atrib for dx in (-1, 0, 1) for dy in (-1, 0, 1)}:
+            if (x, y) in atrib or not asfalto((x, y)):
+                continue
+            c = celula((x, y))
+            nomes = c.nomes_em(x, y) if c else []
+            sem = [n for n in nomes if not n.startswith("blends_natural")]
+            if c and len(sem) != len(nomes):
+                c.trocar(x, y, sem)
+                limpos += 1
+        ruim, total = erros_costura(atrib)
+        # conferência: objeto de quadra/praia em cima do calçadão (não devia haver)
+        sobre = sorted({n.rsplit("_", 1)[0] for k in atrib for n in (celula(k).nomes_em(*k) if celula(k) else [])
+                        if not n.startswith((NOME_FOLHA, "street_curbs", "lighting_"))})
+        rel.append({"tiles": trocados, "asfalto_limpo": limpos, "pecas_usadas": len(usadas),
+                    "costuras": costuras, "cores_que_nao_batem": f"{ruim} de {total}",
+                    "outras_pecas_no_calcadao": sobre})
+        for k in atrib:                      # o mapa lido passa a ter o calçadão (próximo da lista)
+            chao[k] = celula(k).nomes_em(*k) if celula(k) else chao.get(k)
+    gravadas = 0
+    for c in celulas.values():
+        if c is not None:
+            c.gravar()
+            gravadas += 1
+    return {"calcadoes": rel, "celulas_regravadas": gravadas}
+
+
 if __name__ == "__main__":
     a = sys.argv[1:]
     conj = "4dir"

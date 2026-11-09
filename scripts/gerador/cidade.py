@@ -32,6 +32,7 @@ import sys
 
 import numpy as np
 import shapely
+import shapely.affinity
 from shapely.geometry import LineString, MultiLineString, Point, Polygon, box, mapping
 from shapely.ops import linemerge, split, unary_union
 from shapely.strtree import STRtree
@@ -321,14 +322,71 @@ def quadras_de_praia(pr, zonas, passo=110):
             x0, y0 = round(cx - w / 2), round(cy - h / 2)
             r = box(x0, y0, x0 + w, y0 + h)
             if faixa.contains(r) and not r.intersects(ocupado):
-                if ao_longo_x:
-                    rede = {"tipo": "W", "x": x0 + w // 2, "y0": y0, "y1": y0 + h - 1}
-                else:
-                    rede = {"tipo": "N", "y": y0 + h // 2, "x0": x0, "x1": x0 + w - 1}
-                # contorno da quadra (linhas brancas no chão): rx0..rx1, ry0..ry1
-                rede.update({"rx0": x0, "ry0": y0, "rx1": x0 + w - 1, "ry1": y0 + h - 1})
-                out.append((r, rede))
+                out.append(quadra_em(x0, y0, ao_longo_x))
                 break
+    return out
+
+
+def quadra_em(x0: int, y0: int, ao_longo_x: bool):
+    """Quadra de vôlei 12 x 6 (ou 6 x 12) com o canto em x0, y0: (retângulo, rede)."""
+    w, h = (12, 6) if ao_longo_x else (6, 12)
+    if ao_longo_x:
+        rede = {"tipo": "W", "x": x0 + w // 2, "y0": y0, "y1": y0 + h - 1}
+    else:
+        rede = {"tipo": "N", "y": y0 + h // 2, "x0": x0, "x1": x0 + w - 1}
+    # contorno da quadra (linhas brancas no chão): rx0..rx1, ry0..ry1
+    rede.update({"rx0": x0, "ry0": y0, "rx1": x0 + w - 1, "ry1": y0 + h - 1})
+    return box(x0, y0, x0 + w, y0 + h), rede
+
+
+def afastar_quadras(quadras, avenidas, areia, livre_de, folga=2):
+    """D-45: quadra de vôlei longe do calçadão. `avenidas` = [(linha, distância
+    mínima até a quadra)] (meia pista + largura do calçadão); a quadra anda para
+    longe da avenida, no lado curto, até caber na areia sem pegar zona de praia."""
+    out = []
+    for r, rede in quadras:
+        perto = [(l, dmin) for l, dmin in avenidas if r.distance(l) < dmin + folga]
+        if not perto:
+            out.append((r, rede))
+            continue
+        l, dmin = min(perto, key=lambda t: r.distance(t[0]))
+        c = r.centroid
+        p = l.interpolate(l.project(c))
+        vx, vy = c.x - p.x, c.y - p.y                 # para longe da avenida
+        nv = math.hypot(vx, vy) or 1.0
+        tentativas = []
+        # para longe da avenida (s) e, se não der, também ao longo da praia (u)
+        for u in (0, 3, -3, 6, -6, 10, -10, 15, -15, 20, -20, 25, -25, 30, -30):
+            for s in range(0, 15):
+                ux, uy = -vy / nv * u, vx / nv * u
+                for dx, dy in ((round(vx / nv * s + ux), round(vy / nv * s + uy)),
+                               (int(math.copysign(s, vx) + round(ux)), round(uy)),
+                               (round(ux), int(math.copysign(s, vy) + round(uy)))):
+                    if (dx, dy) != (0, 0) and (dx, dy) not in tentativas:
+                        tentativas.append((dx, dy))
+        motivos = {"perto": 0, "fora_da_areia": 0, "zona_de_praia": 0}
+        achou = None
+        # primeiro do jeito que estava, depois girada (lado comprido no outro sentido)
+        for ao_longo_x in (rede["tipo"] == "W", rede["tipo"] != "W"):
+            w, h = (12, 6) if ao_longo_x else (6, 12)
+            for dx, dy in [(0, 0)] + tentativas:
+                r2, rede2 = quadra_em(round(c.x + dx - w / 2), round(c.y + dy - h / 2), ao_longo_x)
+                if r2.distance(l) < dmin + folga:
+                    motivos["perto"] += 1
+                elif not areia.contains(r2):
+                    motivos["fora_da_areia"] += 1
+                elif r2.intersects(livre_de):
+                    motivos["zona_de_praia"] += 1
+                else:
+                    achou = (r2, rede2)
+                    break
+            if achou:
+                break
+        if achou:
+            out.append(achou)
+        else:
+            print(f"quadra de vôlei em {tuple(round(v) for v in r.bounds[:2])} saiu (sem lugar longe do "
+                  f"calçadão: {motivos})", flush=True)
     return out
 
 
@@ -1573,6 +1631,26 @@ def main() -> int:
     for kind, g, t in lotes_:
         feats.append(mold.feature(kind, g, t))
 
+    # D-45: calçadões (linha da avenida, em tiles do mundo) para o calcadao.py, depois de compilar
+    calcadoes = []
+    for c in kit.get("calcadoes", []):
+        partes = linemerge([l for l, t in zip(ruas, tipos) if t[2] == c["avenida"]])
+        for l in linhas(partes):
+            if l.length >= 30:
+                calcadoes.append({**{k: v for k, v in c.items() if k != "avenida"}, "nome": c["avenida"],
+                                  "coords": [[round(x, 2), round(y, 2)] for x, y in l.coords]})
+    print("calçadões:", [(c["nome"], len(c["coords"])) for c in calcadoes], flush=True)
+    if calcadoes and quadras:
+        larg_av = {t[2]: t[1] for t in tipos if t[2]}
+        # meia pista + meio-fio + calçadão (o calcadao.py confere depois de compilar que
+        # nenhuma peça da quadra caiu no calçadão; em Copacabana a quadra fica perto, como na real)
+        avs = [(LineString(c["coords"]), larg_av.get(c["nome"], 12) / 2 + 1 + c.get("largura", 6))
+               for c in calcadoes]
+        areia = unary_union([p["faixa_mar"] for p in praias_]).buffer(-1.0)
+        zonas_r = unary_union([box(z[1], z[2], z[1] + z[3], z[2] + z[4]) for z in zonas_praia])
+        antes = len(quadras)
+        quadras = afastar_quadras(quadras, avs, areia, zonas_r)
+        print(f"quadras de vôlei longe do calçadão: {len(quadras)} de {antes}", flush=True)
     nav_diag = zonas_nav_diagonais(ruas[:n_av], tipos[:n_av], mata)
     print("zonas de estrada nas diagonais:", len(nav_diag), "trechos,",
           round(sum(LineString(p["pontos"]).length for p in nav_diag)), "tiles", flush=True)
@@ -1597,6 +1675,7 @@ def main() -> int:
         "zonasHistorias": {"engarrafamento": False, "areasFixas": zonas_praia, "vagasRua": True,
                            "navPolilinhas": nav_diag,
                            "historias": [["Forest", 16, 16, 6], ["Lake", 14, 14, 1]]},
+        "calcadao": calcadoes,          # D-45 (scripts/gerador/calcadao.py)
         "centrarFaixas": True,          # U13 (scripts/gerador/faixas.py)
         "limparOrla": True,             # U25 (scripts/gerador/limpar_orla.py)
         # Desligado (usuário, 08/11/2026): a borda do asfalto com meios-tiles em rua

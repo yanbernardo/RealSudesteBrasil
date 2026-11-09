@@ -125,9 +125,40 @@ def main() -> int:
     def install() -> None:
         post("/api/install", {"mapName": name, "title": cfg.get("title", name),
                               "modId": cfg.get("modId", name)})
+        kit_tiles()
         zonas_historias()
         teleporte_debug()
         satelite()
+
+    def kit_tiles() -> None:
+        """Kit Brasil (D-09, D-45): peças novas (kits/tiles/) empacotadas no formato do
+        jogo e ligadas ao mod (pack= e tiledef= no mod.info). Só se o mapa usa alguma."""
+        if not cfg.get("calcadao"):
+            return
+        from pathlib import Path
+        sys.path.insert(0, str(Path(__file__).resolve().parent / "gerador"))
+        import kit_tiles as _kt
+        raiz = Path(__file__).resolve().parent.parent
+        saida = raiz / "saida" / "kit_tiles"
+        print("kit Brasil:", json.dumps(_kt.montar(raiz / "kits" / "tiles", saida), ensure_ascii=False), flush=True)
+        mod = Path.home() / "Zomboid" / "mods" / cfg.get("modId", name)
+        print("kit Brasil no mod:", _kt.instalar(saida, mod), flush=True)
+
+    def calcadao() -> None:
+        """D-45: calçadão de Copacabana (scripts/gerador/calcadao.py), depois de compilar:
+        troca o chão da faixa nas células de output/<mapa>/lots."""
+        if not cfg.get("calcadao"):
+            return
+        from pathlib import Path
+        sys.path.insert(0, str(Path(__file__).resolve().parent / "gerador"))
+        import calcadao as _cal
+        import kit_tiles as _kt
+        import knoxpaths
+        raiz = Path(__file__).resolve().parent.parent
+        # as ferramentas de mapa (render_lots, satélite) precisam ver as folhas novas
+        _kt.ferramentas(raiz / "kits" / "tiles", knoxpaths.mapping_tools_dir() / "Tiles" / "2x")
+        res = _cal.aplicar(Path(knox) / "output" / name / "lots", cfg["calcadao"])
+        print("calçadão:", json.dumps(res, ensure_ascii=False)[:1500], flush=True)
 
     def satelite() -> None:
         """D-41: visão de satélite do mapa do jogo (pyramid.zip ao lado do worldmap.xml),
@@ -291,6 +322,7 @@ def main() -> int:
             break
     if st.get("state") != "done" or st.get("error"):
         raise SystemExit("compilação falhou")
+    calcadao()
 
     # "--sem-instalar": gera e compila, mas não cria o mod (para comparar versões).
     if "--sem-instalar" not in sys.argv[3:]:

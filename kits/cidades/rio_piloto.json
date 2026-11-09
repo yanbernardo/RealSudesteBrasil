@@ -110,6 +110,10 @@
   },
   "_teto_zumbis": "P19: nenhum pedaço de 8x8 tiles passa do máximo do centro de Louisville no jogo original (medido nos .lotheader em 08/11/2026: 7; o 10 só aparece em poucos pontos especiais)",
   "teto_zumbis": 7,
+  "_calcadoes": "D-45: calçadão de pedra portuguesa do lado do mar da avenida (scripts/gerador/calcadao.py, peças rsb_calcadao_01 em kits/tiles). direcoes 8 e as famílias que a avenida usa; largura em tiles",
+  "calcadoes": [
+    {"avenida": "Avenida Atlântica", "direcoes": 8, "familias": ["f090", "f117", "f135", "f153"], "largura": 6}
+  ],
   "_andares_max": "teto de andares de qualquer prédio (o KnoxMap corta em 6 se não disser; a B42 aguenta 31, mas andar demais pesa na memória)",
   "andares_max": 14,
   "_clareiras": "U23: mata do KnoxMap já está no grau mais ralo e ainda é densa. 'fracao' da mata vira campo aberto em manchas de 'raio' tiles; 'fixas_tiles' = [x, y, raio] no mundo (Corcovado = onde fica o Cristo, D-28)",

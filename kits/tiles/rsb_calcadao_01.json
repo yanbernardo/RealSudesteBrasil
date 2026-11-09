@@ -1,0 +1,555 @@
+{
+ "folha": "rsb_calcadao_01",
+ "familias": {
+  "f090": {
+   "ang": 90.0,
+   "P": 2,
+   "Q": 6
+  },
+  "f117": {
+   "ang": 116.56505117707799,
+   "P": 5,
+   "Q": 15
+  },
+  "f135": {
+   "ang": 135.0,
+   "P": 3,
+   "Q": 8
+  },
+  "f153": {
+   "ang": 153.434948822922,
+   "P": 5,
+   "Q": 15
+  }
+ },
+ "pecas": [
+  {
+   "peca": "rsb_calcadao_01_0",
+   "familia": "f090",
+   "chave": [
+    0,
+    0
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_1",
+   "familia": "f090",
+   "chave": [
+    0,
+    1
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_2",
+   "familia": "f090",
+   "chave": [
+    0,
+    2
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_3",
+   "familia": "f090",
+   "chave": [
+    0,
+    3
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_4",
+   "familia": "f090",
+   "chave": [
+    0,
+    4
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_5",
+   "familia": "f090",
+   "chave": [
+    0,
+    5
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_6",
+   "familia": "f090",
+   "chave": [
+    1,
+    0
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_7",
+   "familia": "f090",
+   "chave": [
+    1,
+    1
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_8",
+   "familia": "f090",
+   "chave": [
+    1,
+    2
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_9",
+   "familia": "f090",
+   "chave": [
+    1,
+    3
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_10",
+   "familia": "f090",
+   "chave": [
+    1,
+    4
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_11",
+   "familia": "f090",
+   "chave": [
+    1,
+    5
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_12",
+   "familia": "f117",
+   "chave": [
+    0,
+    0
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_13",
+   "familia": "f117",
+   "chave": [
+    4,
+    2
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_14",
+   "familia": "f117",
+   "chave": [
+    3,
+    4
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_15",
+   "familia": "f117",
+   "chave": [
+    2,
+    6
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_16",
+   "familia": "f117",
+   "chave": [
+    1,
+    8
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_17",
+   "familia": "f117",
+   "chave": [
+    0,
+    10
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_18",
+   "familia": "f117",
+   "chave": [
+    4,
+    12
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_19",
+   "familia": "f117",
+   "chave": [
+    3,
+    14
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_20",
+   "familia": "f117",
+   "chave": [
+    2,
+    1
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_21",
+   "familia": "f117",
+   "chave": [
+    1,
+    3
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_22",
+   "familia": "f117",
+   "chave": [
+    0,
+    5
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_23",
+   "familia": "f117",
+   "chave": [
+    4,
+    7
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_24",
+   "familia": "f117",
+   "chave": [
+    3,
+    9
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_25",
+   "familia": "f117",
+   "chave": [
+    2,
+    11
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_26",
+   "familia": "f117",
+   "chave": [
+    1,
+    13
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_27",
+   "familia": "f135",
+   "chave": [
+    0,
+    0
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_28",
+   "familia": "f135",
+   "chave": [
+    2,
+    1
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_29",
+   "familia": "f135",
+   "chave": [
+    1,
+    2
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_30",
+   "familia": "f135",
+   "chave": [
+    0,
+    3
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_31",
+   "familia": "f135",
+   "chave": [
+    2,
+    4
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_32",
+   "familia": "f135",
+   "chave": [
+    1,
+    5
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_33",
+   "familia": "f135",
+   "chave": [
+    0,
+    6
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_34",
+   "familia": "f135",
+   "chave": [
+    2,
+    7
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_35",
+   "familia": "f135",
+   "chave": [
+    1,
+    0
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_36",
+   "familia": "f135",
+   "chave": [
+    0,
+    1
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_37",
+   "familia": "f135",
+   "chave": [
+    2,
+    2
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_38",
+   "familia": "f135",
+   "chave": [
+    1,
+    3
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_39",
+   "familia": "f135",
+   "chave": [
+    0,
+    4
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_40",
+   "familia": "f135",
+   "chave": [
+    2,
+    5
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_41",
+   "familia": "f135",
+   "chave": [
+    1,
+    6
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_42",
+   "familia": "f135",
+   "chave": [
+    0,
+    7
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_43",
+   "familia": "f135",
+   "chave": [
+    2,
+    0
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_44",
+   "familia": "f135",
+   "chave": [
+    1,
+    1
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_45",
+   "familia": "f135",
+   "chave": [
+    0,
+    2
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_46",
+   "familia": "f135",
+   "chave": [
+    2,
+    3
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_47",
+   "familia": "f135",
+   "chave": [
+    1,
+    4
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_48",
+   "familia": "f135",
+   "chave": [
+    0,
+    5
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_49",
+   "familia": "f135",
+   "chave": [
+    2,
+    6
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_50",
+   "familia": "f135",
+   "chave": [
+    1,
+    7
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_51",
+   "familia": "f153",
+   "chave": [
+    0,
+    0
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_52",
+   "familia": "f153",
+   "chave": [
+    3,
+    1
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_53",
+   "familia": "f153",
+   "chave": [
+    1,
+    2
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_54",
+   "familia": "f153",
+   "chave": [
+    4,
+    3
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_55",
+   "familia": "f153",
+   "chave": [
+    2,
+    4
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_56",
+   "familia": "f153",
+   "chave": [
+    0,
+    5
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_57",
+   "familia": "f153",
+   "chave": [
+    3,
+    6
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_58",
+   "familia": "f153",
+   "chave": [
+    1,
+    7
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_59",
+   "familia": "f153",
+   "chave": [
+    4,
+    8
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_60",
+   "familia": "f153",
+   "chave": [
+    2,
+    9
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_61",
+   "familia": "f153",
+   "chave": [
+    0,
+    10
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_62",
+   "familia": "f153",
+   "chave": [
+    3,
+    11
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_63",
+   "familia": "f153",
+   "chave": [
+    1,
+    12
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_64",
+   "familia": "f153",
+   "chave": [
+    4,
+    13
+   ]
+  },
+  {
+   "peca": "rsb_calcadao_01_65",
+   "familia": "f153",
+   "chave": [
+    2,
+    14
+   ]
+  }
+ ]
+}
