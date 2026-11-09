@@ -12,11 +12,47 @@ O caminho para não fazer tudo do zero:
 2. **Fazer à mão só o que se repete muito no mapa.** Poucas plantas boas, repetidas com variação de cor e telhado pelo gerador, enchem o mapa inteiro. A lista abaixo está em ordem de quanto cada uma aparece.
 3. **O resto continua com as cópias do jogo original** (delegacia, quartel, mercado), como você aprovou, até ter tempo para elas.
 
-## 2. Qual fazer primeiro
+## 1.1 O editor de prédios do próprio KnoxMap (comparado com o BuildingEd)
 
-**A casa de laje térrea com muro e portão** (item 1 da lista). É o prédio que mais se repete no Rio inteiro: subúrbio, Zona Norte, Zona Oeste e Baixada inteira. Uma boa planta dela, com 2 ou 3 variações, muda a cara de metade do mapa. No Rio piloto (Zona Sul) quase não aparece, mas a beta (D-33) é o RJ inteiro.
+O KnoxMap (desde a versão 1.7) tem um editor de prédios dele: abra o `KnoxMap.bat`, e na barra de ferramentas da esquerda escolha o editor de prédios ("building editor"). Ele abre uma folha quadriculada em branco.
 
-Se preferir começar pelo que aparece no teste atual: o **botequim de esquina** (item 4), que é pequeno (um cômodo grande, banheiro e depósito), fácil para aprender e que entra na orla no lugar das casas (U31).
+**Como ele funciona:** você dá o tamanho, diz o que o prédio é (casa, delegacia, padaria…) e desenha só os **cômodos** como retângulos, escolhendo o nome de cada um (a lista já traz primeiro os cômodos daquele tipo de prédio). A borracha recorta o contorno (prédio em L). O botão "Lay it out for me" faz uma planta pronta para você mexer. **Todo o resto ele faz sozinho:** paredes no estilo escolhido, portas, porta da rua, janelas, escada, telhado e móveis de cada cômodo. Ele salva um `.tbx` comum (em `ferramentas\knoxmap-1.8.5.2\presets\buildings\`), que abre no BuildingEd.
+
+| | Editor do KnoxMap | BuildingEd |
+|---|---|---|
+| Rapidez | Muito rápido: uma planta em 5 minutos | Lento: tudo à mão |
+| Cômodos com o nome certo (loot) | Sim, sempre | Sim, se você nomear certo |
+| Onde fica cada móvel | Ele decide (pelo cômodo) | Você decide |
+| Paredes, pisos e janelas | Só os estilos dele, todos do jogo americano | Qualquer peça, **inclusive as do Kit Brasil** (paredes de favela, lajes, muretas, caixas d'água) |
+| Muro, portão, grade, garagem, quintal | Não | Sim |
+| Telhado | Só o que ele escolhe | Laje, telhado inclinado, o que quiser |
+| Resultado | Prédio "de regra", como a farmácia e a loja de armas que você achou pobres | Prédio com cara de Brasil |
+
+**Conclusão: não é melhor que o BuildingEd, mas é um ótimo rascunho.** É o mesmo motor que eu usei para o "Grande Hotel Atlântida" e para a casa de laje de exemplo. O jeito mais rápido de trabalhar é:
+
+1. No editor do KnoxMap, desenhe a **planta** (cômodos e tamanho) e salve.
+2. Copie o `.tbx` de `ferramentas\knoxmap-1.8.5.2\presets\buildings\` para `kits\lojas\brasil\`, já com o nome certo (seção 5.6).
+3. Abra no BuildingEd e faça o que dá a cara brasileira: troque paredes e pisos pelas peças do Kit Brasil, ponha laje, muro, portão, grade, e arrume os móveis.
+
+Assim você pula a parte chata (paredes, portas, escada) e gasta o tempo no que importa. Esse caminho não gasta nenhum token meu.
+
+## 2. Ordem para ir adiantando (atualizada em 09/11/2026)
+
+Faça na ordem; cada item ensina algo para o próximo. Comece sempre pela versão **frente para o sul** (`_S`); os outros lados podem ficar para depois (seção 3.1).
+
+| Ordem | Construção (nº da tabela abaixo) | Por que agora |
+|---|---|---|
+| 1 | **Botequim de esquina** (4) | Pequeno, poucos cômodos: bom para aprender o BuildingEd. Aparece no Rio piloto. |
+| 2 | **Casa de favela** (15), 2 ou 3 bem pequenas | As peças do Kit Brasil para isso **já existem** (paredes de tijolo e reboco, lajes, muretas, caixa d'água, escada de concreto) e a Zona Sul do piloto tem favelas (Santa Marta, Babilônia, Cantagalo, Vidigal, Rocinha). |
+| 3 | **Casa de laje térrea** (1), 2 plantas (pequena e média) | O prédio que mais se repete no RJ inteiro. Usa as mesmas lajes e muretas da favela, mais muro e portão. |
+| 4 | **Padaria** (5) | Comércio de todo bairro; parte da cópia de uma padaria do jogo. |
+| 5 | **Farmácia de rede** (6) | Parte da Pharmahug que já temos; é só fachada e cores. |
+| 6 | **Sobrado de rua comercial** (2) | Loja embaixo e casa em cima: junta o que você aprendeu em 3 e 4. |
+| 7 | **Quiosque de praia** (8) | Bem pequeno; enche a orla do piloto. |
+| 8 | **Térreo do prédio de orla** (7) e **do prédio de bairro** (3) | Só o térreo (portaria e lojas); os andares o gerador faz. |
+| 9 em diante | CIEP, UPA, igreja/templo, casarão, delegacia, bombeiros | Uma planta só cada, mas grandes. Deixe para quando já estiver rápido. |
+
+Mais casas de laje (até 5 ou 6 plantas) e mais casas de favela podem entrar a qualquer momento entre os itens: elas são as que mais enchem o mapa.
 
 ## 3. Lista de construções, por prioridade
 
@@ -44,7 +80,7 @@ Tamanho em tiles (1 tile = 15 m no mapa, mas a construção é feita em escala d
 
 **Por que os lados importam:** o gerador não gira os prédios (o KnoxMap usa o arquivo como foi desenhado). Um prédio desenhado com a porta para o sul só entra onde a rua fica ao sul do lote. Foi por isso que a delegacia sumiu do mapa quando as ruas mudaram: só havia a versão "porta para o leste". Então cada planta precisa de **uma versão para cada lado da rua (norte, sul, leste, oeste)**; prédio raro pode ter só 1 ou 2 lados.
 
-**Como fazer as versões sem redesenhar:** no BuildingEd, menu **Building → girar (rotate) / espelhar (mirror)**. Paredes, portas, janelas, escada e móveis colocados pelas ferramentas giram junto e ficam certos (cada móvel tem um desenho para cada direção). O que foi **pintado à mão no Tile Mode** mantém o mesmo desenho e pode ficar virado errado: confira esses itens depois de girar (placas, letreiros, peças de parede pintadas, móvel que não tem as 4 direções). Salve cada versão com o lado no nome: `casa_laje_01_S.tbx`, `casa_laje_01_N.tbx`, `casa_laje_01_E.tbx`, `casa_laje_01_W.tbx` (o lado é onde fica a rua, a porta da frente).
+**Como fazer as versões sem redesenhar:** no BuildingEd, menu **Building → girar (rotate) / espelhar (mirror)**. Paredes, portas, janelas, escada e móveis colocados pelas ferramentas giram junto e ficam certos (cada móvel tem um desenho para cada direção). O que foi **pintado à mão no Tile Mode** mantém o mesmo desenho e pode ficar virado errado: confira esses itens depois de girar (placas, letreiros, peças de parede pintadas, móvel que não tem as 4 direções). Salve cada versão com o lado no nome: `casa_laje_01_S.tbx`, `casa_laje_01_N.tbx`, `casa_laje_01_L.tbx` (leste), `casa_laje_01_O.tbx` (oeste); o lado é onde fica a rua, a porta da frente (regras completas na seção 5.6).
 
 **Cores e acabamentos ficam comigo:** você faz uma planta e eu gero as variações de cor da fachada (trocando as peças de parede no arquivo, como fiz no hotel), para a rua não ficar com casas todas iguais.
 
@@ -159,8 +195,50 @@ Funciona: o estacionamento da delegacia copiada já é exatamente isso (prédio 
 - **Nada encostado na borda:** deixe a borda livre para a calçada; o muro e o quintal entram depois como "entorno".
 - **Um prédio por arquivo**, com 2 ou 3 variações (cores, telhado) em arquivos separados.
 
-### 5.6 Como me entregar
-Salve o `.tbx` na pasta `kits\lojas\brasil\` e me diga: o que é, o lado da porta da frente e em que bairros ele deve aparecer. Eu ligo no gerador, instalo e coloco o lugar no grupo TESTE do teleporte para você conferir em jogo.
+### 5.6 Nomes dos arquivos e como me entregar
+
+Salve tudo em `kits\lojas\brasil\`. O nome tem 3 partes, separadas por `_`:
+
+`<tipo>_<número da planta>_<lado da rua>.tbx`
+
+- **tipo**: um dos nomes abaixo, sempre igual.
+- **número**: `01`, `02`, `03`… uma planta diferente = número novo.
+- **lado**: onde fica a rua (a porta da frente): `S` (sul, embaixo na tela do BuildingEd), `N`, `L` (leste) ou `O` (oeste).
+- Só letras minúsculas sem acento, números e `_`. Sem espaço, sem `ç`, sem acento (o jogo e os scripts tropeçam neles).
+
+| Construção | tipo no nome | Exemplo |
+|---|---|---|
+| Casa de laje térrea (ou com 2º andar) | `casa_laje` | `casa_laje_01_S.tbx` |
+| Casa de favela | `casa_favela` | `casa_favela_03_S.tbx` |
+| Casa do "chefe do morro" (D-31) | `casa_chefe` | `casa_chefe_01_S.tbx` |
+| Sobrado de rua comercial | `sobrado_loja` | `sobrado_loja_02_L.tbx` |
+| Térreo de prédio de bairro | `predio_bairro` | `predio_bairro_01_S.tbx` |
+| Térreo de prédio de orla | `predio_orla` | `predio_orla_01_S.tbx` |
+| Botequim | `botequim` | `botequim_01_S.tbx` |
+| Padaria | `padaria` | `padaria_01_S.tbx` |
+| Farmácia | `farmacia` | `farmacia_01_S.tbx` |
+| Quiosque de praia | `quiosque` | `quiosque_01_S.tbx` |
+| CIEP | `ciep` | `ciep_01_S.tbx` |
+| Delegacia | `delegacia` | `delegacia_01_S.tbx` |
+| Bombeiros | `bombeiros` | `bombeiros_01_S.tbx` |
+| UPA | `upa` | `upa_01_S.tbx` |
+| Igreja / templo | `igreja` / `templo` | `templo_01_S.tbx` |
+| Casarão antigo | `casarao` | `casarao_01_S.tbx` |
+
+Regras:
+- **Mesma planta, outro lado da rua** = mesmo número, só troca a letra (`casa_laje_01_S` girada vira `casa_laje_01_L`).
+- **Mesma planta, só outra cor** não precisa de arquivo: as cores eu faço por script (seção 3.1). Se você quiser uma variação feita à mão (outra fachada, outro telhado), ela ganha número novo.
+- **Ainda não terminou?** Ponha `_rascunho` no fim (`padaria_01_S_rascunho.tbx`). Eu não ligo rascunhos no gerador.
+- Não renomeie um arquivo que eu já liguei ao gerador; se precisar, me avise.
+
+**Anotações (opcional, mas economiza tempo de conversa):** no mesmo arquivo de texto `kits\lojas\brasil\ANOTACOES.txt`, escreva uma linha por planta, assim:
+
+```
+casa_laje_01: Baixada, Zona Norte. Garagem coberta, laje com caixa d'água.
+botequim_01: Rio inteiro, de esquina.
+```
+
+Quando juntar algumas, me diga "liguei construções novas em kits\lojas\brasil". Eu leio as anotações, ligo no gerador, instalo e coloco os lugares no grupo TESTE do teleporte para você conferir em jogo.
 
 ## 6. Peças novas (tiles brasileiras)
 

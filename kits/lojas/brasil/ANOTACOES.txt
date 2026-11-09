@@ -1,0 +1,2 @@
+Uma linha por planta: nome (sem o lado), onde aparece e detalhes. Ver GUIA_CONSTRUCOES_BRASILEIRAS.md, secao 5.6.
+
