@@ -256,9 +256,12 @@ def folha(tiles2x: Path, saida: Path) -> list:
         im.alpha_composite(peca(f, rep, tiles2x), ((n % 8) * 128, (n // 8) * 256))
         manifesto.append({"peca": f"{NOME_FOLHA}_{n}", "familia": f, "chave": list(k)})
     saida.mkdir(parents=True, exist_ok=True)
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import estilo_pz  # filtro de estilo do jogo (aprovado em 09/11/2026)
+    im = estilo_pz.filtrar_folha(im, "piso")
     im.save(saida / f"{NOME_FOLHA}.png")
     (saida / f"{NOME_FOLHA}.json").write_text(json.dumps(
-        {"folha": NOME_FOLHA, "familias": {f: {k: v for k, v in FAMILIAS[f].items() if k != "M"} for f in ORDEM},
+        {"folha": NOME_FOLHA, "estilo": estilo_pz.ESTILO, "familias": {f: {k: v for k, v in FAMILIAS[f].items() if k != "M"} for f in ORDEM},
          "pecas": manifesto}, ensure_ascii=False, indent=1), encoding="utf-8")
     # prévia só com os losangos, para conferir
     prev = Image.new("RGBA", (8 * 132, linhas * 70), (45, 45, 45, 255))
