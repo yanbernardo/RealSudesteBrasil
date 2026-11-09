@@ -158,7 +158,7 @@ def muros(tiles2x: Path, saida: Path) -> dict:
     pecas = [{"peca": f"{nome}_{i}", "props": []} for i in range(linhas * 8)]
     grupos = {}
     for k, (chave, desc, tex_nome, material, extra) in enumerate(ESTILOS):
-        texs = kf.texturas_estilo(tex_nome)
+        texs = kf.texturas_estilo(tex_nome, True)
         alt = H_BASE_GRADE if extra == "grade" else H_MURO
         base = (k // 2) * 8 + (k % 2) * 4
         idx = {}

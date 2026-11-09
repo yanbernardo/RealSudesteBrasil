@@ -224,25 +224,29 @@ def peca_parede_tex(molde, face, texs, Lref):
 _TEX_CACHE: dict = {}
 
 
-def texturas_estilo(chave):
-    if chave not in _TEX_CACHE:
-        _TEX_CACHE[chave] = tf.parede_iluminada(chave)
-    return _TEX_CACHE[chave]
+def texturas_estilo(chave, limpo=False):
+    if (chave, limpo) not in _TEX_CACHE:
+        _TEX_CACHE[(chave, limpo)] = tf.parede_iluminada(chave, limpo)
+    return _TEX_CACHE[(chave, limpo)]
 
 
-def paredes(tiles2x: Path, defs: dict, saida: Path) -> dict:
+def paredes(tiles2x: Path, defs: dict, saida: Path, limpo: bool = True) -> dict:
+    """Paredes da favela. `limpo` (padrão): só a textura base, folha
+    `rsb_paredes_favela_01`; o desgaste vem como grime e manchas avulsas
+    (`kit_desgaste.py`). `limpo=False`: com o desgaste pintado, folha
+    `rsb_paredes_favela_desgaste_01` (rápido, mas repete em todo tile)."""
     molde_im = Image.open(tiles2x / f"{MOLDE_PAREDE[0]}.png").convert("RGBA")
     base = MOLDE_PAREDE[1]
     # referência de luz: mediana da face oeste lisa do molde
     w = _celula(molde_im, base)
     Lref = np.median(_lum(w)[w[..., 3] > 200])
-    nome = "rsb_paredes_favela_01"
+    nome = "rsb_paredes_favela_01" if limpo else "rsb_paredes_favela_desgaste_01"
     linhas = ((len(ESTILOS) + 1) // 2) * 2
     folha = Image.new("RGBA", (1024, linhas * 256), (0, 0, 0, 0))
     pecas = [{"peca": f"{nome}_{i}", "props": []} for i in range(linhas * 8)]
     entradas = []
     for k, (chave, desc, material, _tex) in enumerate(ESTILOS):
-        texs = texturas_estilo(chave)
+        texs = texturas_estilo(chave, limpo)
         b = (k // 2) * 16 + (k % 2) * 4
         papel_nome = {}
         for off, face, prop in PAPEIS:
@@ -251,7 +255,8 @@ def paredes(tiles2x: Path, defs: dict, saida: Path) -> dict:
                                   ((i % 8) * 128, (i // 8) * 256))
             papel_nome[prop] = i
             props = [["MaterialType", material], [prop, ""], ["wall", ""]] if prop.startswith("Wall") else [[prop, ""], ["wall", ""]]
-            pecas[i] = {"peca": f"{nome}_{i}", "nome": f"{chave} {prop}", "descricao": desc, "props": props}
+            pecas[i] = {"peca": f"{nome}_{i}", "nome": f"{chave} {prop}",
+                        "descricao": desc if limpo else desc + " (com desgaste pintado)", "props": props}
         nw = papel_nome["WallNW"]
         pecas[nw]["props"] = [["CornerNorthWall", f"{nome}_{papel_nome['WallN']}"],
                               ["CornerWestWall", f"{nome}_{papel_nome['WallW']}"]] + pecas[nw]["props"]
@@ -443,5 +448,6 @@ if __name__ == "__main__":
     defs = {d["nome"]: d for d in kit_tiles.ler_definicoes(tdefs)}
     bt = (tiles2x.parent.parent / "config" / "BuildingTiles.txt").read_text(encoding="utf-8", errors="replace")
     # telhado inclinado saiu (usuário, 08/11/2026): favela tem laje plana; ver kit_laje.py
-    res = [paredes(tiles2x, defs, saida), pisos(tiles2x, saida), escadas(tiles2x, defs, saida)]
+    res = [paredes(tiles2x, defs, saida), paredes(tiles2x, defs, saida, limpo=False),
+           pisos(tiles2x, saida), escadas(tiles2x, defs, saida)]
     print(json.dumps(res, ensure_ascii=False))

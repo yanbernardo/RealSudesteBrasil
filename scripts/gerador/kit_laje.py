@@ -94,7 +94,7 @@ def muretas(tiles2x: Path, defs: dict, saida: Path) -> dict:
     folha = Image.new("RGBA", (1024, linhas * 256), (0, 0, 0, 0))
     pecas = [{"peca": f"{nome}_{i}", "props": []} for i in range(linhas * 8)]
     for k, (chave, desc, material, _tex) in enumerate(ACABAMENTOS):
-        texs = kf.texturas_estilo(chave)
+        texs = kf.texturas_estilo(chave, True)
         base = (k // 2) * 24 + (k % 2) * 4
         novo_de = {velho: base + (j // 4) * 8 + j % 4 for j, (velho, _f) in enumerate(PECAS_MURETA)}
         for j, (velho, face) in enumerate(PECAS_MURETA):

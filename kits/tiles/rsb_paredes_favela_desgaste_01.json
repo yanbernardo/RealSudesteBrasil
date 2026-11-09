@@ -1,0 +1,1654 @@
+{
+ "folha": "rsb_paredes_favela_desgaste_01",
+ "tipo": "parede",
+ "pecas": [
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_0",
+   "nome": "tijolo_baiano WallW",
+   "descricao": "tijolo baiano aparente (laranja), argamassa grossa (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Brick"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_1",
+   "nome": "tijolo_baiano WallN",
+   "descricao": "tijolo baiano aparente (laranja), argamassa grossa (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Brick"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_2",
+   "nome": "tijolo_baiano WallNW",
+   "descricao": "tijolo baiano aparente (laranja), argamassa grossa (com desgaste pintado)",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_paredes_favela_desgaste_01_1"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_paredes_favela_desgaste_01_0"
+    ],
+    [
+     "MaterialType",
+     "Brick"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_3",
+   "nome": "tijolo_baiano WallSE",
+   "descricao": "tijolo baiano aparente (laranja), argamassa grossa (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Brick"
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_4",
+   "nome": "tijolo_baiano_sujo WallW",
+   "descricao": "tijolo baiano aparente, escurecido e sujo embaixo (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Brick"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_5",
+   "nome": "tijolo_baiano_sujo WallN",
+   "descricao": "tijolo baiano aparente, escurecido e sujo embaixo (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Brick"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_6",
+   "nome": "tijolo_baiano_sujo WallNW",
+   "descricao": "tijolo baiano aparente, escurecido e sujo embaixo (com desgaste pintado)",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_paredes_favela_desgaste_01_5"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_paredes_favela_desgaste_01_4"
+    ],
+    [
+     "MaterialType",
+     "Brick"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_7",
+   "nome": "tijolo_baiano_sujo WallSE",
+   "descricao": "tijolo baiano aparente, escurecido e sujo embaixo (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Brick"
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_8",
+   "nome": "tijolo_baiano WindowW",
+   "descricao": "tijolo baiano aparente (laranja), argamassa grossa (com desgaste pintado)",
+   "props": [
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_9",
+   "nome": "tijolo_baiano WindowN",
+   "descricao": "tijolo baiano aparente (laranja), argamassa grossa (com desgaste pintado)",
+   "props": [
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_10",
+   "nome": "tijolo_baiano DoorWallW",
+   "descricao": "tijolo baiano aparente (laranja), argamassa grossa (com desgaste pintado)",
+   "props": [
+    [
+     "DoorWallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_11",
+   "nome": "tijolo_baiano DoorWallN",
+   "descricao": "tijolo baiano aparente (laranja), argamassa grossa (com desgaste pintado)",
+   "props": [
+    [
+     "DoorWallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_12",
+   "nome": "tijolo_baiano_sujo WindowW",
+   "descricao": "tijolo baiano aparente, escurecido e sujo embaixo (com desgaste pintado)",
+   "props": [
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_13",
+   "nome": "tijolo_baiano_sujo WindowN",
+   "descricao": "tijolo baiano aparente, escurecido e sujo embaixo (com desgaste pintado)",
+   "props": [
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_14",
+   "nome": "tijolo_baiano_sujo DoorWallW",
+   "descricao": "tijolo baiano aparente, escurecido e sujo embaixo (com desgaste pintado)",
+   "props": [
+    [
+     "DoorWallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_15",
+   "nome": "tijolo_baiano_sujo DoorWallN",
+   "descricao": "tijolo baiano aparente, escurecido e sujo embaixo (com desgaste pintado)",
+   "props": [
+    [
+     "DoorWallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_16",
+   "nome": "bloco_concreto WallW",
+   "descricao": "bloco de concreto aparente (cinza) (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Stone"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_17",
+   "nome": "bloco_concreto WallN",
+   "descricao": "bloco de concreto aparente (cinza) (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Stone"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_18",
+   "nome": "bloco_concreto WallNW",
+   "descricao": "bloco de concreto aparente (cinza) (com desgaste pintado)",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_paredes_favela_desgaste_01_17"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_paredes_favela_desgaste_01_16"
+    ],
+    [
+     "MaterialType",
+     "Stone"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_19",
+   "nome": "bloco_concreto WallSE",
+   "descricao": "bloco de concreto aparente (cinza) (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Stone"
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_20",
+   "nome": "reboco_cru WallW",
+   "descricao": "reboco cru / chapisco cinza, sem pintura (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_21",
+   "nome": "reboco_cru WallN",
+   "descricao": "reboco cru / chapisco cinza, sem pintura (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_22",
+   "nome": "reboco_cru WallNW",
+   "descricao": "reboco cru / chapisco cinza, sem pintura (com desgaste pintado)",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_paredes_favela_desgaste_01_21"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_paredes_favela_desgaste_01_20"
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_23",
+   "nome": "reboco_cru WallSE",
+   "descricao": "reboco cru / chapisco cinza, sem pintura (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_24",
+   "nome": "bloco_concreto WindowW",
+   "descricao": "bloco de concreto aparente (cinza) (com desgaste pintado)",
+   "props": [
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_25",
+   "nome": "bloco_concreto WindowN",
+   "descricao": "bloco de concreto aparente (cinza) (com desgaste pintado)",
+   "props": [
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_26",
+   "nome": "bloco_concreto DoorWallW",
+   "descricao": "bloco de concreto aparente (cinza) (com desgaste pintado)",
+   "props": [
+    [
+     "DoorWallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_27",
+   "nome": "bloco_concreto DoorWallN",
+   "descricao": "bloco de concreto aparente (cinza) (com desgaste pintado)",
+   "props": [
+    [
+     "DoorWallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_28",
+   "nome": "reboco_cru WindowW",
+   "descricao": "reboco cru / chapisco cinza, sem pintura (com desgaste pintado)",
+   "props": [
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_29",
+   "nome": "reboco_cru WindowN",
+   "descricao": "reboco cru / chapisco cinza, sem pintura (com desgaste pintado)",
+   "props": [
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_30",
+   "nome": "reboco_cru DoorWallW",
+   "descricao": "reboco cru / chapisco cinza, sem pintura (com desgaste pintado)",
+   "props": [
+    [
+     "DoorWallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_31",
+   "nome": "reboco_cru DoorWallN",
+   "descricao": "reboco cru / chapisco cinza, sem pintura (com desgaste pintado)",
+   "props": [
+    [
+     "DoorWallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_32",
+   "nome": "reboco_rosa WallW",
+   "descricao": "reboco pintado de rosa, desbotado e descascando (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_33",
+   "nome": "reboco_rosa WallN",
+   "descricao": "reboco pintado de rosa, desbotado e descascando (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_34",
+   "nome": "reboco_rosa WallNW",
+   "descricao": "reboco pintado de rosa, desbotado e descascando (com desgaste pintado)",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_paredes_favela_desgaste_01_33"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_paredes_favela_desgaste_01_32"
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_35",
+   "nome": "reboco_rosa WallSE",
+   "descricao": "reboco pintado de rosa, desbotado e descascando (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_36",
+   "nome": "reboco_azul WallW",
+   "descricao": "reboco pintado de azul, desbotado (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_37",
+   "nome": "reboco_azul WallN",
+   "descricao": "reboco pintado de azul, desbotado (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_38",
+   "nome": "reboco_azul WallNW",
+   "descricao": "reboco pintado de azul, desbotado (com desgaste pintado)",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_paredes_favela_desgaste_01_37"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_paredes_favela_desgaste_01_36"
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_39",
+   "nome": "reboco_azul WallSE",
+   "descricao": "reboco pintado de azul, desbotado (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_40",
+   "nome": "reboco_rosa WindowW",
+   "descricao": "reboco pintado de rosa, desbotado e descascando (com desgaste pintado)",
+   "props": [
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_41",
+   "nome": "reboco_rosa WindowN",
+   "descricao": "reboco pintado de rosa, desbotado e descascando (com desgaste pintado)",
+   "props": [
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_42",
+   "nome": "reboco_rosa DoorWallW",
+   "descricao": "reboco pintado de rosa, desbotado e descascando (com desgaste pintado)",
+   "props": [
+    [
+     "DoorWallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_43",
+   "nome": "reboco_rosa DoorWallN",
+   "descricao": "reboco pintado de rosa, desbotado e descascando (com desgaste pintado)",
+   "props": [
+    [
+     "DoorWallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_44",
+   "nome": "reboco_azul WindowW",
+   "descricao": "reboco pintado de azul, desbotado (com desgaste pintado)",
+   "props": [
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_45",
+   "nome": "reboco_azul WindowN",
+   "descricao": "reboco pintado de azul, desbotado (com desgaste pintado)",
+   "props": [
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_46",
+   "nome": "reboco_azul DoorWallW",
+   "descricao": "reboco pintado de azul, desbotado (com desgaste pintado)",
+   "props": [
+    [
+     "DoorWallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_47",
+   "nome": "reboco_azul DoorWallN",
+   "descricao": "reboco pintado de azul, desbotado (com desgaste pintado)",
+   "props": [
+    [
+     "DoorWallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_48",
+   "nome": "reboco_verde_agua WallW",
+   "descricao": "reboco verde-água, desbotado (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_49",
+   "nome": "reboco_verde_agua WallN",
+   "descricao": "reboco verde-água, desbotado (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_50",
+   "nome": "reboco_verde_agua WallNW",
+   "descricao": "reboco verde-água, desbotado (com desgaste pintado)",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_paredes_favela_desgaste_01_49"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_paredes_favela_desgaste_01_48"
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_51",
+   "nome": "reboco_verde_agua WallSE",
+   "descricao": "reboco verde-água, desbotado (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_52",
+   "nome": "reboco_amarelo WallW",
+   "descricao": "reboco amarelo, desbotado (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_53",
+   "nome": "reboco_amarelo WallN",
+   "descricao": "reboco amarelo, desbotado (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_54",
+   "nome": "reboco_amarelo WallNW",
+   "descricao": "reboco amarelo, desbotado (com desgaste pintado)",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_paredes_favela_desgaste_01_53"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_paredes_favela_desgaste_01_52"
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_55",
+   "nome": "reboco_amarelo WallSE",
+   "descricao": "reboco amarelo, desbotado (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_56",
+   "nome": "reboco_verde_agua WindowW",
+   "descricao": "reboco verde-água, desbotado (com desgaste pintado)",
+   "props": [
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_57",
+   "nome": "reboco_verde_agua WindowN",
+   "descricao": "reboco verde-água, desbotado (com desgaste pintado)",
+   "props": [
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_58",
+   "nome": "reboco_verde_agua DoorWallW",
+   "descricao": "reboco verde-água, desbotado (com desgaste pintado)",
+   "props": [
+    [
+     "DoorWallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_59",
+   "nome": "reboco_verde_agua DoorWallN",
+   "descricao": "reboco verde-água, desbotado (com desgaste pintado)",
+   "props": [
+    [
+     "DoorWallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_60",
+   "nome": "reboco_amarelo WindowW",
+   "descricao": "reboco amarelo, desbotado (com desgaste pintado)",
+   "props": [
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_61",
+   "nome": "reboco_amarelo WindowN",
+   "descricao": "reboco amarelo, desbotado (com desgaste pintado)",
+   "props": [
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_62",
+   "nome": "reboco_amarelo DoorWallW",
+   "descricao": "reboco amarelo, desbotado (com desgaste pintado)",
+   "props": [
+    [
+     "DoorWallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_63",
+   "nome": "reboco_amarelo DoorWallN",
+   "descricao": "reboco amarelo, desbotado (com desgaste pintado)",
+   "props": [
+    [
+     "DoorWallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_64",
+   "nome": "reboco_branco_encardido WallW",
+   "descricao": "reboco branco encardido (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_65",
+   "nome": "reboco_branco_encardido WallN",
+   "descricao": "reboco branco encardido (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_66",
+   "nome": "reboco_branco_encardido WallNW",
+   "descricao": "reboco branco encardido (com desgaste pintado)",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_paredes_favela_desgaste_01_65"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_paredes_favela_desgaste_01_64"
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_67",
+   "nome": "reboco_branco_encardido WallSE",
+   "descricao": "reboco branco encardido (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_68",
+   "nome": "madeira_barraco WallW",
+   "descricao": "tábuas de madeira de barraco (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Wood"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_69",
+   "nome": "madeira_barraco WallN",
+   "descricao": "tábuas de madeira de barraco (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Wood"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_70",
+   "nome": "madeira_barraco WallNW",
+   "descricao": "tábuas de madeira de barraco (com desgaste pintado)",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_paredes_favela_desgaste_01_69"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_paredes_favela_desgaste_01_68"
+    ],
+    [
+     "MaterialType",
+     "Wood"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_71",
+   "nome": "madeira_barraco WallSE",
+   "descricao": "tábuas de madeira de barraco (com desgaste pintado)",
+   "props": [
+    [
+     "MaterialType",
+     "Wood"
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_72",
+   "nome": "reboco_branco_encardido WindowW",
+   "descricao": "reboco branco encardido (com desgaste pintado)",
+   "props": [
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_73",
+   "nome": "reboco_branco_encardido WindowN",
+   "descricao": "reboco branco encardido (com desgaste pintado)",
+   "props": [
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_74",
+   "nome": "reboco_branco_encardido DoorWallW",
+   "descricao": "reboco branco encardido (com desgaste pintado)",
+   "props": [
+    [
+     "DoorWallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_75",
+   "nome": "reboco_branco_encardido DoorWallN",
+   "descricao": "reboco branco encardido (com desgaste pintado)",
+   "props": [
+    [
+     "DoorWallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_76",
+   "nome": "madeira_barraco WindowW",
+   "descricao": "tábuas de madeira de barraco (com desgaste pintado)",
+   "props": [
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_77",
+   "nome": "madeira_barraco WindowN",
+   "descricao": "tábuas de madeira de barraco (com desgaste pintado)",
+   "props": [
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_78",
+   "nome": "madeira_barraco DoorWallW",
+   "descricao": "tábuas de madeira de barraco (com desgaste pintado)",
+   "props": [
+    [
+     "DoorWallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_favela_desgaste_01_79",
+   "nome": "madeira_barraco DoorWallN",
+   "descricao": "tábuas de madeira de barraco (com desgaste pintado)",
+   "props": [
+    [
+     "DoorWallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  }
+ ],
+ "buildingtiles": {
+  "exterior_walls": [
+   {
+    "West": 0,
+    "North": 1,
+    "NorthWest": 2,
+    "SouthEast": 3,
+    "WestWindow": 8,
+    "NorthWindow": 9,
+    "WestDoor": 10,
+    "NorthDoor": 11
+   },
+   {
+    "West": 4,
+    "North": 5,
+    "NorthWest": 6,
+    "SouthEast": 7,
+    "WestWindow": 12,
+    "NorthWindow": 13,
+    "WestDoor": 14,
+    "NorthDoor": 15
+   },
+   {
+    "West": 16,
+    "North": 17,
+    "NorthWest": 18,
+    "SouthEast": 19,
+    "WestWindow": 24,
+    "NorthWindow": 25,
+    "WestDoor": 26,
+    "NorthDoor": 27
+   },
+   {
+    "West": 20,
+    "North": 21,
+    "NorthWest": 22,
+    "SouthEast": 23,
+    "WestWindow": 28,
+    "NorthWindow": 29,
+    "WestDoor": 30,
+    "NorthDoor": 31
+   },
+   {
+    "West": 32,
+    "North": 33,
+    "NorthWest": 34,
+    "SouthEast": 35,
+    "WestWindow": 40,
+    "NorthWindow": 41,
+    "WestDoor": 42,
+    "NorthDoor": 43
+   },
+   {
+    "West": 36,
+    "North": 37,
+    "NorthWest": 38,
+    "SouthEast": 39,
+    "WestWindow": 44,
+    "NorthWindow": 45,
+    "WestDoor": 46,
+    "NorthDoor": 47
+   },
+   {
+    "West": 48,
+    "North": 49,
+    "NorthWest": 50,
+    "SouthEast": 51,
+    "WestWindow": 56,
+    "NorthWindow": 57,
+    "WestDoor": 58,
+    "NorthDoor": 59
+   },
+   {
+    "West": 52,
+    "North": 53,
+    "NorthWest": 54,
+    "SouthEast": 55,
+    "WestWindow": 60,
+    "NorthWindow": 61,
+    "WestDoor": 62,
+    "NorthDoor": 63
+   },
+   {
+    "West": 64,
+    "North": 65,
+    "NorthWest": 66,
+    "SouthEast": 67,
+    "WestWindow": 72,
+    "NorthWindow": 73,
+    "WestDoor": 74,
+    "NorthDoor": 75
+   },
+   {
+    "West": 68,
+    "North": 69,
+    "NorthWest": 70,
+    "SouthEast": 71,
+    "WestWindow": 76,
+    "NorthWindow": 77,
+    "WestDoor": 78,
+    "NorthDoor": 79
+   }
+  ],
+  "interior_walls": [
+   {
+    "West": 0,
+    "North": 1,
+    "NorthWest": 2,
+    "SouthEast": 3,
+    "WestWindow": 8,
+    "NorthWindow": 9,
+    "WestDoor": 10,
+    "NorthDoor": 11
+   },
+   {
+    "West": 4,
+    "North": 5,
+    "NorthWest": 6,
+    "SouthEast": 7,
+    "WestWindow": 12,
+    "NorthWindow": 13,
+    "WestDoor": 14,
+    "NorthDoor": 15
+   },
+   {
+    "West": 16,
+    "North": 17,
+    "NorthWest": 18,
+    "SouthEast": 19,
+    "WestWindow": 24,
+    "NorthWindow": 25,
+    "WestDoor": 26,
+    "NorthDoor": 27
+   },
+   {
+    "West": 20,
+    "North": 21,
+    "NorthWest": 22,
+    "SouthEast": 23,
+    "WestWindow": 28,
+    "NorthWindow": 29,
+    "WestDoor": 30,
+    "NorthDoor": 31
+   },
+   {
+    "West": 32,
+    "North": 33,
+    "NorthWest": 34,
+    "SouthEast": 35,
+    "WestWindow": 40,
+    "NorthWindow": 41,
+    "WestDoor": 42,
+    "NorthDoor": 43
+   },
+   {
+    "West": 36,
+    "North": 37,
+    "NorthWest": 38,
+    "SouthEast": 39,
+    "WestWindow": 44,
+    "NorthWindow": 45,
+    "WestDoor": 46,
+    "NorthDoor": 47
+   },
+   {
+    "West": 48,
+    "North": 49,
+    "NorthWest": 50,
+    "SouthEast": 51,
+    "WestWindow": 56,
+    "NorthWindow": 57,
+    "WestDoor": 58,
+    "NorthDoor": 59
+   },
+   {
+    "West": 52,
+    "North": 53,
+    "NorthWest": 54,
+    "SouthEast": 55,
+    "WestWindow": 60,
+    "NorthWindow": 61,
+    "WestDoor": 62,
+    "NorthDoor": 63
+   },
+   {
+    "West": 64,
+    "North": 65,
+    "NorthWest": 66,
+    "SouthEast": 67,
+    "WestWindow": 72,
+    "NorthWindow": 73,
+    "WestDoor": 74,
+    "NorthDoor": 75
+   },
+   {
+    "West": 68,
+    "North": 69,
+    "NorthWest": 70,
+    "SouthEast": 71,
+    "WestWindow": 76,
+    "NorthWindow": 77,
+    "WestDoor": 78,
+    "NorthDoor": 79
+   }
+  ]
+ },
+ "bt_nomes_prontos": false,
+ "moveis": []
+}

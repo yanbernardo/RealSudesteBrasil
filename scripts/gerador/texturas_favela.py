@@ -145,7 +145,7 @@ def _sujeira_base(U, Z, cor, h, seed, forca=1.0):
     return cor, h
 
 
-def tijolo_baiano(seed=1, sujo=False):
+def tijolo_baiano(seed=1, sujo=False, limpo=False):
     U, Z = grade_parede()
     v = Z / 192
     fiadas, por_tile = 14, 3
@@ -194,7 +194,8 @@ def tijolo_baiano(seed=1, sujo=False):
     borrao = sstep(0.6, 0.75, fbm(U, v, 6, 10, 4, seed + 13))
     cor = mistura(cor, arg_cor, borrao * 0.55 * tijolo)
     h = h + 0.2 * borrao * tijolo
-    cor, h = _sujeira_base(U, Z, cor, h, seed + 20, 1.0 if sujo else 0.35)
+    if not limpo:
+        cor, h = _sujeira_base(U, Z, cor, h, seed + 20, 1.0 if sujo else 0.35)
     if sujo:
         eflo = sstep(0.62, 0.72, fbm(U, v, 8, 6, 4, seed + 30)) * sstep(1.1, 0.2, Z / PX_M)
         cor = mistura(cor, np.array([214, 210, 198.0]), eflo * 0.5)
@@ -202,7 +203,7 @@ def tijolo_baiano(seed=1, sujo=False):
     return cor, h
 
 
-def bloco_concreto(seed=3):
+def bloco_concreto(seed=3, limpo=False):
     U, Z = grade_parede()
     v = Z / 192
     fiadas, por_tile = 12, 2
@@ -227,7 +228,8 @@ def bloco_concreto(seed=3):
     h = np.where(bloco, h, -1.6 + 0.5 * vn(U, v, 60, 140, seed + 5))
     borrao = sstep(0.62, 0.76, fbm(U, v, 6, 10, 4, seed + 6))
     cor = mistura(cor, arg, borrao * 0.5 * bloco)
-    cor, h = _sujeira_base(U, Z, cor, h, seed + 20, 0.6)
+    if not limpo:
+        cor, h = _sujeira_base(U, Z, cor, h, seed + 20, 0.6)
     return cor, h
 
 
@@ -244,7 +246,7 @@ def _reboco_base(U, Z, seed, aspero=1.0):
     return cor, h
 
 
-def reboco_cru(seed=4):
+def reboco_cru(seed=4, limpo=False):
     U, Z = grade_parede()
     v = Z / 192
     cor, h = _reboco_base(U, Z, seed, 1.4)
@@ -252,6 +254,8 @@ def reboco_cru(seed=4):
     chap, _ = pontos(U, v, 70, 210, 0.5, 0.55, seed + 6)
     cor = cor * (1 - 0.22 * chap)[..., None]
     h = h + 0.6 * chap
+    if limpo:           # sem rachadura, remendo nem sujeira (vêm como manchas avulsas)
+        return cor, h
     rac = rachaduras(U, v, 63, 192, 1, 14, seed + 7, galhos=False)
     fio = np.clip(1 - rac / 0.55, 0, 1)
     cor = cor * (1 - 0.28 * fio)[..., None]
@@ -264,7 +268,7 @@ def reboco_cru(seed=4):
     return cor, h
 
 
-def reboco_pintado(tinta, seed=5, descasca=0.12, tijolo=None):
+def reboco_pintado(tinta, seed=5, descasca=0.12, tijolo=None, limpo=False):
     """Reboco com tinta barata desbotada, descascando em duas camadas: a tinta sai e
     mostra o reboco cinza; onde o reboco também caiu, aparece o tijolo."""
     U, Z = grade_parede()
@@ -278,6 +282,8 @@ def reboco_pintado(tinta, seed=5, descasca=0.12, tijolo=None):
     cor = mistura(cor, np.array([228, 226, 218.0]), sstep(0.55, 0.85, fbm(U, v, 3, 4, 3, seed + 2)) * 0.25)  # giz
     cor = cor * (1 + 0.04 * h_reb)[..., None]
     h = h_reb * 0.6
+    if limpo:           # tinta inteira; descascado, rachadura e sujeira vêm como manchas avulsas
+        return cor, h
     # descascado: tinta sai (reboco aparece), e no meio o reboco cai (tijolo aparece)
     n1 = fbm(U, v, 7, 12, 5, seed + 3)
     sai_tinta = n1 > (0.78 - descasca)
@@ -353,27 +359,43 @@ def madeira_barraco(seed=10):
     return cor, h
 
 
-def textura_parede(nome: str):
-    """(cor, altura) na grade da parede para cada estilo."""
-    tij = tijolo_baiano(1)
+def textura_parede(nome: str, limpo: bool = False):
+    """(cor, altura) na grade da parede para cada estilo. `limpo`: só a textura
+    base, sem descascado, rachadura, mofo nem sujeira (esses viram manchas avulsas
+    e "grime", para não repetir o mesmo desenho em todo tile)."""
+    tij = tijolo_baiano(1, limpo=limpo)
+    L = limpo
     tabela = {
         "tijolo_baiano": lambda: tij,
-        "tijolo_baiano_sujo": lambda: tijolo_baiano(2, True),
-        "bloco_concreto": lambda: bloco_concreto(3),
-        "reboco_cru": lambda: reboco_cru(4),
-        "reboco_rosa": lambda: reboco_pintado((206, 152, 150), 5, 0.12, tij),
-        "reboco_azul": lambda: reboco_pintado((132, 166, 198), 6, 0.08, tij),
-        "reboco_verde_agua": lambda: reboco_pintado((142, 192, 174), 7, 0.10, tij),
-        "reboco_amarelo": lambda: reboco_pintado((216, 192, 114), 8, 0.10, tij),
-        "reboco_branco_encardido": lambda: reboco_pintado((212, 208, 196), 9, 0.06, tij),
+        "tijolo_baiano_sujo": lambda: tijolo_baiano(2, True, limpo=L),
+        "bloco_concreto": lambda: bloco_concreto(3, L),
+        "reboco_cru": lambda: reboco_cru(4, L),
+        "reboco_rosa": lambda: reboco_pintado((206, 152, 150), 5, 0.12, tij, L),
+        "reboco_azul": lambda: reboco_pintado((132, 166, 198), 6, 0.08, tij, L),
+        "reboco_verde_agua": lambda: reboco_pintado((142, 192, 174), 7, 0.10, tij, L),
+        "reboco_amarelo": lambda: reboco_pintado((216, 192, 114), 8, 0.10, tij, L),
+        "reboco_branco_encardido": lambda: reboco_pintado((212, 208, 196), 9, 0.06, tij, L),
         "madeira_barraco": lambda: madeira_barraco(10),
     }
     return tabela[nome]()
 
 
-def parede_iluminada(nome: str):
+def iluminar_parede(cor, h):
+    """{"W", "N"}: textura com o relevo iluminado para cada face."""
+    passo_u = 63.0 / WALL_U
+    passo_v = 192.0 / WALL_Z
+    out = {}
+    for face, lu in (("W", 0.35), ("N", -0.35)):
+        luz = np.array([lu, 0.55, 0.76])
+        luz = luz / np.linalg.norm(luz)
+        f = relevo(h, passo_u, passo_v, luz) * oclusao(h)
+        out[face] = np.clip(cor * f[..., None], 0, 255)
+    return out
+
+
+def parede_iluminada(nome: str, limpo: bool = False):
     """Duas texturas prontas (face oeste e face norte), com o relevo iluminado."""
-    cor, h = textura_parede(nome)
+    cor, h = textura_parede(nome, limpo)
     passo_u = 63.0 / WALL_U          # pixels por amostra ao longo
     passo_v = 192.0 / WALL_Z
     out = {}
