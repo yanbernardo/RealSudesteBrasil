@@ -156,6 +156,42 @@
         -22.98951
       ],
       "largura": 22
+    },
+    {
+      "nome": "Flamengo",
+      "de": [
+        -43.16989,
+        -22.9239
+      ],
+      "ate": [
+        -43.1712,
+        -22.93502
+      ],
+      "largura": 18
+    },
+    {
+      "nome": "Botafogo",
+      "de": [
+        -43.1719,
+        -22.938
+      ],
+      "ate": [
+        -43.17701,
+        -22.94916
+      ],
+      "largura": 12
+    },
+    {
+      "nome": "Vermelha",
+      "de": [
+        -43.16438,
+        -22.95335
+      ],
+      "ate": [
+        -43.16522,
+        -22.95607
+      ],
+      "largura": 10
     }
   ],
   "_mistura": "chance de cada tipo de lote [loja, prédio, casa] e andares dos prédios [mín, máx]; opcional 'predio_frente' [mín, máx] e 'predio_fundo' (tiles; padrão 10-14 e 14); 'orla' = paredão de prédios altos e largos (U19)",
