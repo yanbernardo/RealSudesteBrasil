@@ -1032,11 +1032,41 @@
   },
   {
    "peca": "rsb_paredes_ciep_01_60",
-   "props": []
+   "nome": "ciep_arcada DoorWallW",
+   "descricao": "galeria do térreo do CIEP: arco vazado de concreto (passa por ele)",
+   "props": [
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "DoorWallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
   },
   {
    "peca": "rsb_paredes_ciep_01_61",
-   "props": []
+   "nome": "ciep_arcada DoorWallN",
+   "descricao": "galeria do térreo do CIEP: arco vazado de concreto (passa por ele)",
+   "props": [
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "DoorWallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
   },
   {
    "peca": "rsb_paredes_ciep_01_62",
@@ -1044,6 +1074,109 @@
   },
   {
    "peca": "rsb_paredes_ciep_01_63",
+   "nome": "ciep_arcada pilar",
+   "descricao": "pilar da galeria",
+   "props": [
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_64",
+   "nome": "ciep_arco_largo 1 DoorWallW",
+   "descricao": "galeria do CIEP: arco largo de 2 tiles, metade 1 (passa por ele)",
+   "props": [
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "DoorWallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_65",
+   "nome": "ciep_arco_largo 1 DoorWallN",
+   "descricao": "galeria do CIEP: arco largo de 2 tiles, metade 1 (passa por ele)",
+   "props": [
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "DoorWallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_66",
+   "nome": "ciep_arco_largo 2 DoorWallW",
+   "descricao": "galeria do CIEP: arco largo de 2 tiles, metade 2 (passa por ele)",
+   "props": [
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "DoorWallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_67",
+   "nome": "ciep_arco_largo 2 DoorWallN",
+   "descricao": "galeria do CIEP: arco largo de 2 tiles, metade 2 (passa por ele)",
+   "props": [
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "DoorWallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_68",
+   "props": []
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_69",
+   "props": []
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_70",
+   "props": []
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_71",
    "props": []
   }
  ],
@@ -1062,6 +1195,36 @@
     "NorthWindow1": 49,
     "WestWindow2": 50,
     "NorthWindow2": 51
+   },
+   {
+    "West": 60,
+    "North": 61,
+    "NorthWest": 2,
+    "SouthEast": 63,
+    "WestDoor": 60,
+    "NorthDoor": 61,
+    "WestWindow": 8,
+    "NorthWindow": 9
+   },
+   {
+    "West": 64,
+    "North": 65,
+    "NorthWest": 2,
+    "SouthEast": 63,
+    "WestDoor": 64,
+    "NorthDoor": 65,
+    "WestWindow": 8,
+    "NorthWindow": 9
+   },
+   {
+    "West": 66,
+    "North": 67,
+    "NorthWest": 2,
+    "SouthEast": 63,
+    "WestDoor": 66,
+    "NorthDoor": 67,
+    "WestWindow": 8,
+    "NorthWindow": 9
    },
    {
     "West": 4,

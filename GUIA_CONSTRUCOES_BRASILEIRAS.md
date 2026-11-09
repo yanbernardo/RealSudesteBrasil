@@ -281,9 +281,10 @@ O CIEP já foi desenhado (09/11/2026): `OneDrive\Área de Trabalho\RealSudesteBr
 Peças do CIEP no BuildingEd:
 - **Paredes de fora:** concreto com peitoril verde, vermelho com faixa amarela, ou azul. A porta nessas paredes vira arco.
 - **Paredes de dentro:** barra a óleo verde ou azul até 1,3 m.
-- **Janela larga de 2 tiles** (folha `rsb_janelas_ciep_01`): ponha a metade 1 (peças 0 e 1) num tile e a metade 2 (peças 2 e 3) no tile seguinte, à direita na parede norte ou mais ao sul na parede oeste. A parede de concreto do CIEP abre o recorte certo sozinha.
+- **Janela larga de 2 tiles, de vidro limpo** (folha `rsb_janelas_ciep_01`): ponha a metade 1 (peças 0 e 1) num tile e a metade 2 (peças 2 e 3) no tile seguinte, à direita na parede norte ou mais ao sul na parede oeste. A parede de concreto do CIEP abre o recorte certo sozinha.
 - **Pisos:** paviflex bege e marrom, paviflex cinza, cimentado do pátio.
-- **Objetos:** carteira universitária (4 lados), bebedouro, quadro verde e letreiro "CIEP 501" (2 peças, parede norte ou oeste).
+- **Galeria (térreo vazado):** arco largo de 2 tiles (peças 64 e 65 = metade 1, 66 e 67 = metade 2, como a janela) e arco de 1 tile (60 e 61), com pilar (63). São vãos de porta sem porta: dá para passar. No BuildingEd, ponha com a ferramenta de parede (estilos de parede de fora "arco") na borda da área aberta; a área da galeria fica **sem cômodo**, e o chão você pinta no modo de peças (cimentado do pátio).
+- **Objetos:** carteira universitária (4 lados), bebedouro, quadro verde e letreiro "CIEP 501" (3 peças lado a lado, 2 m de altura, parede norte ou oeste).
 
 **Onde fica o BuildingEd:** `C:\Users\yanbe\Zomboid\RealSudesteBrasil\ferramentas\knoxmap-1.8.5.2\vendor\PZMappingTools\bin\BuildingEd.exe`.
 

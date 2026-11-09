@@ -22,8 +22,8 @@ Folhas em `kits/tiles/` (D-46 e D-47: filtro de estilo, paredes limpas):
 - `rsb_pisos_ciep_01` (piso): paviflex bege e marrom, paviflex cinza, cimentado
   liso do pátio coberto.
 - `rsb_objetos_ciep_01` (objeto): carteira universitária (4 lados; propriedades
-  da cadeira de plástico do jogo), quadro verde de giz e letreiro "CIEP 501" em 2
-  peças (paredes norte e oeste), bebedouro de inox (é pia, tem água).
+  da cadeira de plástico do jogo), quadro verde de giz (2 peças) e letreiro "CIEP 501" de 3 peças
+  e 2 m de altura (paredes norte e oeste), bebedouro de inox (é pia, tem água).
 
 Uso: python -I -X utf8 kit_ciep.py <pasta Tiles/2x> <newtiledefinitions.tiles> <kits/tiles>
 """
@@ -174,7 +174,7 @@ def paredes(tiles2x: Path, saida: Path) -> dict:
     Lref = np.median(kf._lum(w)[w[..., 3] > 200])
     vaos = {off: _vao(molde_im, base + off, face) for off, face in ((8, "W"), (9, "N"), (10, "W"), (11, "N"))}
     estilos = len(EXTERNOS) + len(INTERNOS)
-    linhas = 8                                     # 0-43 estilos, 48-59 recortes da janela larga
+    linhas = 9                                     # 0-43 estilos, 48-59 recortes da janela larga, 60-63 arco, 64-67 arco largo
     folha = Image.new("RGBA", (1024, linhas * 256), (0, 0, 0, 0))
     pecas = [{"peca": f"{nome}_{i}", "props": []} for i in range(linhas * 8)]
     ext, inter = [], []
@@ -223,7 +223,74 @@ def paredes(tiles2x: Path, saida: Path) -> dict:
                             "props": [["MaterialType", material], ["WindowShape", str(forma)], [prop, ""], ["wall", ""]]}
                 e[f"{'West' if face == 'W' else 'North'}Window{forma}"] = i
         (ext if externo else inter).append(e)
+        if k == 0:                                  # galeria do térreo: arco vazado (peças 60-63)
+            arco = {}
+            for i, (face, prop, off) in zip((60, 61), (("W", "DoorWallW", 0), ("N", "DoorWallN", 1))):
+                folha.alpha_composite(peca_arco(kf._celula(molde_im, base + off), face, texs, Lref),
+                                      ((i % 8) * 128, (i // 8) * 256))
+                pecas[i] = {"peca": f"{nome}_{i}", "nome": f"ciep_arcada {prop}",
+                            "descricao": "galeria do térreo do CIEP: arco vazado de concreto (passa por ele)",
+                            "props": [["MaterialType", "Concrete"], [prop, ""], ["wall", ""]]}
+                arco[face] = i
+            folha.alpha_composite(kf.peca_parede_tex(kf._celula(molde_im, base + 3), "SE", texs, Lref),
+                                  ((63 % 8) * 128, (63 // 8) * 256))
+            pecas[63] = {"peca": f"{nome}_63", "nome": "ciep_arcada pilar", "descricao": "pilar da galeria",
+                         "props": [["WallSE", ""], ["wall", ""]]}
+            ext.append({"West": arco["W"], "North": arco["N"], "NorthWest": papel["WallNW"], "SouthEast": 63,
+                        "WestDoor": arco["W"], "NorthDoor": arco["N"],
+                        "WestWindow": papel["WindowW"], "NorthWindow": papel["WindowN"]})
+            # arco largo de 2 tiles (pedido do usuário): metade 1 no tile de x/y menor, metade 2 no seguinte
+            for forma in (1, 2):
+                larga = {}
+                for face, prop, off in (("W", "DoorWallW", 0), ("N", "DoorWallN", 1)):
+                    i = 64 + (forma - 1) * 2 + (0 if face == "W" else 1)
+                    folha.alpha_composite(peca_arco_largo(kf._celula(molde_im, base + off), face, texs, Lref, forma),
+                                          ((i % 8) * 128, (i // 8) * 256))
+                    pecas[i] = {"peca": f"{nome}_{i}", "nome": f"ciep_arco_largo {forma} {prop}",
+                                "descricao": f"galeria do CIEP: arco largo de 2 tiles, metade {forma} (passa por ele)",
+                                "props": [["MaterialType", "Concrete"], [prop, ""], ["wall", ""]]}
+                    larga[face] = i
+                ext.append({"West": larga["W"], "North": larga["N"], "NorthWest": papel["WallNW"], "SouthEast": 63,
+                            "WestDoor": larga["W"], "NorthDoor": larga["N"],
+                            "WestWindow": papel["WindowW"], "NorthWindow": papel["WindowN"]})
     return kf._gravar(folha, nome, "parede", pecas, saida, {"exterior_walls": ext, "interior_walls": inter})
+
+
+ARCO_LARGO = (0.15, 1.85)  # vão do arco largo ao longo dos 2 tiles (u de 0 a 2)
+ARCO_LARGO_TOPO_M = 2.6
+
+
+def peca_arco_largo(molde, face, texs, Lref, forma):
+    """Metade de um arco de volta inteira que ocupa 2 tiles, aberto até o chão."""
+    im = np.array(kf.peca_parede_tex(molde, face, texs, Lref))
+    U, Z = _uz(face)
+    ug = U + (0.0 if forma == 1 else 1.0)
+    a, b = ARCO_LARGO
+    r = (b - a) * 63 / 2
+    topo = ARCO_LARGO_TOPO_M * PX_M
+    nasce = topo - r
+    centro = (a + b) / 2 * 63
+    dentro = (ug >= a) & (ug <= b) & ((Z <= nasce) | (np.hypot(ug * 63 - centro, Z - nasce) <= r))
+    dentro &= (np.mgrid[0:256, 0:128][1] < 63) if face == "W" else (np.mgrid[0:256, 0:128][1] > 64)
+    im[..., 3] = np.where(dentro, 0, im[..., 3])
+    return Image.fromarray(im, "RGBA")
+
+
+ARCO_U = (0.1, 0.9)        # vão do arco ao longo do tile (sobra pilar de 0,2 tile entre dois arcos)
+ARCO_TOPO_M = 2.45         # altura do alto do arco
+
+
+def peca_arco(molde, face, texs, Lref):
+    """Parede de concreto com um arco de volta inteira aberto até o chão (galeria)."""
+    im = np.array(kf.peca_parede_tex(molde, face, texs, Lref))
+    U, Z = _uz(face)
+    u0, u1 = ARCO_U
+    r = (u1 - u0) * 63 / 2
+    topo = ARCO_TOPO_M * PX_M
+    furo = (U >= u0) & (U <= u1) & (Z <= topo) & ~_fora_arredondado(U, Z, u0, u1, -60, topo, r, so_topo=True)
+    furo &= (np.mgrid[0:256, 0:128][1] < 63) if face == "W" else (np.mgrid[0:256, 0:128][1] > 64)
+    im[..., 3] = np.where(furo, 0, im[..., 3])
+    return Image.fromarray(im, "RGBA")
 
 
 U_A = 0.2          # a janela larga começa a 0,2 tile da ponta de fora
@@ -258,43 +325,56 @@ def recorte_largo(molde, face, base_ch, Lref, vao, forma, cp, cf):
 
 # ================================================================ janela larga (objeto janela)
 def _janela_larga(face, forma, estado, vao, seed=0):
-    """Basculante de alumínio no vão largo. estado: inteira, quebrada, sem_vidro."""
+    """Janela de vidro limpo no vão largo (pedido do usuário: sem basculante/frestas):
+    vidro grande com reflexo, caixilho fino de alumínio (moldura, uma bandeira em cima e
+    um montante). estado: inteira, quebrada (buraco no meio, cacos na borda), sem_vidro."""
     _u0, _u1, z0, z1 = vao
     a, b = _vao_largo(forma)
     a, b = max(a, 0.0), min(b, 1.0)
     za, zb = z0 / PX_M + 0.02, z1 / PX_M - 0.02
     c = kl.Cena()
-    K = 1.75                                         # a face voltada para a câmera recebe pouca luz: compensa
-    alu = np.array([206, 208, 212.0]) * K
-    vidro = np.array([70, 104, 122.0]) * K
+    K = 2.0                                          # a face voltada para a câmera recebe metade da luz: compensa
+    alu = np.array([214, 216, 220.0]) * K
+    # u "global" ao longo da janela inteira (0 a 2), para o reflexo seguir de uma metade para a outra
+    g0 = 0.0 if forma == 1 else 1.0
 
-    def cx(u0, u1, d0, d1, z0_, z1_, cor, brilho=0.6):
+    def tex_vidro(A, B, f):
+        ug = A + g0
+        t = (B - za) / (zb - za)
+        cor = np.array([136, 176, 196.0]) * (0.92 + 0.14 * t)[..., None]          # céu refletido, mais claro em cima
+        faixa = np.abs(((ug * 0.9 + t * 0.7) % 0.9) - 0.3) < 0.07                  # reflexos diagonais
+        fina = np.abs(((ug * 0.9 + t * 0.7) % 0.9) - 0.42) < 0.02
+        cor = np.where((faixa | fina)[..., None], np.array([214, 230, 238.0]), cor)
+        return cor * K
+
+    def cx(u0, u1, d0, d1, z0_, z1_, cor, brilho=0.6, tex=None):
         if face == "N":
-            c.caixa(u0, d0, z0_, u1, d1, z1_, cor, brilho=brilho)
+            c.caixa(u0, d0, z0_, u1, d1, z1_, cor, brilho=brilho, faces=("y1", "topo"),
+                    tex=None if tex is None else (lambda A, B, f: tex(A, B, f)))
         else:
-            c.caixa(d0, u0, z0_, d1, u1, z1_, cor, brilho=brilho)
-    rnd = np.random.default_rng(seed + forma)
-    if estado != "sem_vidro":
-        passo = 0.11
-        z = za + 0.02
-        while z < zb - 0.02:
-            if estado == "inteira":
-                cx(a, b, 0.0, 0.012, z, min(z + passo - 0.012, zb), vidro, 0.9)
-            else:                                     # quebrada: só cacos
-                for _ in range(2):
-                    u0 = a + (b - a) * rnd.random() * 0.8
-                    cx(u0, min(b, u0 + 0.08 + 0.12 * rnd.random()), 0.0, 0.012, z, z + passo * rnd.random(), vidro, 0.9)
-            z += passo
-    z = za
-    while z <= zb:
-        cx(a, b, 0.0, 0.03, z, z + 0.012, alu)
-        z += 0.11
-    cx(a, b, 0.0, 0.035, za - 0.02, za + 0.02, alu)
-    cx(a, b, 0.0, 0.035, zb - 0.02, zb + 0.02, alu)
-    fora = a if forma == 1 else b - 0.025
-    cx(fora, fora + 0.025, 0.0, 0.035, za, zb, alu)
+            c.caixa(d0, u0, z0_, d1, u1, z1_, cor, brilho=brilho, faces=("x1", "topo"),
+                    tex=None if tex is None else (lambda A, B, f: tex(A, B, f)))
+    if estado == "inteira":
+        cx(a, b, 0.0, 0.01, za, zb, None, 0.9, tex_vidro)
+    elif estado == "quebrada":
+        rnd = np.random.default_rng(seed + forma)
+        cu, cz = (a + b) / 2 + 0.1 * (rnd.random() - 0.5), za + (zb - za) * (0.4 + 0.2 * rnd.random())
+        passo = 0.03
+        for u0 in np.arange(a, b, passo):
+            for z0_ in np.arange(za, zb, passo):
+                ang = np.arctan2(z0_ - cz, (u0 - cu) * 2.0)
+                raio = 0.42 + 0.12 * np.sin(ang * 5 + seed) + 0.06 * np.sin(ang * 11)
+                if np.hypot((u0 - cu) * 1.6, (z0_ - cz) * 0.9) > raio:
+                    cx(u0, min(u0 + passo, b), 0.0, 0.01, z0_, min(z0_ + passo, zb), None, 0.9, tex_vidro)
+    # caixilho: moldura, bandeira (travessa a 25% do alto) e montante no meio de cada metade
+    cx(a, b, 0.0, 0.035, za - 0.02, za + 0.025, alu)
+    cx(a, b, 0.0, 0.035, zb - 0.025, zb + 0.02, alu)
+    zt = zb - 0.25 * (zb - za)
+    cx(a, b, 0.0, 0.03, zt - 0.012, zt + 0.012, alu)
+    fora = a if forma == 1 else b - 0.03
+    cx(fora, fora + 0.03, 0.0, 0.035, za, zb, alu)
     meio = (a + b) / 2
-    cx(meio - 0.008, meio + 0.008, 0.0, 0.03, za, zb, alu)
+    cx(meio - 0.01, meio + 0.01, 0.0, 0.03, za, zt, alu)
     return c.render(sombra=0)
 
 
@@ -399,17 +479,24 @@ def quadro(metade):
     return c
 
 
-def letreiro(metade):
+LETREIRO_PARTES = 3                 # 3 tiles de largura e 2 m de altura (pedido do usuário)
+LETREIRO_Z = (0.5, 2.5)
+
+
+def letreiro(parte):
     c = kl.Cena()
-    img = kb.texto_img([(NOME_ESCOLA, (40, 70, 140), 0.55, kb.FONTE),
-                        ("ESCOLA ESTADUAL DE TEMPO INTEGRAL", (40, 40, 40), 0.17, kb.FONTE)],
-                       1600, 300, (238, 236, 228), ((40, 70, 140), 8))
+    z0, z1 = LETREIRO_Z
+    img = kb.texto_img([(NOME_ESCOLA, (40, 70, 140), 0.36, kb.FONTE),
+                        ("ESCOLA ESTADUAL", (40, 40, 40), 0.15, kb.FONTE),
+                        ("DE TEMPO INTEGRAL", (40, 40, 40), 0.15, kb.FONTE)],
+                       2400, 1600, (238, 236, 228), ((40, 70, 140), 26))
+    K = 1.9                                           # a face voltada para a câmera recebe metade da luz
 
     def frente(u, v, face):
         if face != "y1":
             return np.broadcast_to(np.array([200, 198, 190.0]), np.shape(u) + (3,))
-        return kb.amostra(img, (u + metade) / 2, (v - 2.2) / 0.62)
-    c.caixa(0.0, 0.0, 2.2, 1.0, 0.06, 2.82, None, frente, brilho=0.2)
+        return kb.amostra(img, (u + parte) / LETREIRO_PARTES, (v - z0) / (z1 - z0)) * K
+    c.caixa(0.0, 0.0, z0, 1.0, 0.06, z1, None, frente, brilho=0.15)
     return c
 
 
@@ -444,8 +531,9 @@ def objetos(defs: dict, saida: Path) -> dict:
         for m in (0, 1):
             lista.append((f"quadro_verde_{parede.lower()}_{m + 1}", f"quadro verde de giz (parte {m + 1} de 2), parede {parede}",
                           lambda m=m, parede=parede: _parede(quadro(m), parede), []))
-        for m in (0, 1):
-            lista.append((f"letreiro_ciep_{parede.lower()}_{m + 1}", f"letreiro '{NOME_ESCOLA}' (parte {m + 1} de 2), parede {parede}",
+        for m in range(LETREIRO_PARTES):
+            lista.append((f"letreiro_ciep_{parede.lower()}_{m + 1}",
+                          f"letreiro '{NOME_ESCOLA}' (parte {m + 1} de {LETREIRO_PARTES}, 2 m de altura), parede {parede}",
                           lambda m=m, parede=parede: _parede(letreiro(m), parede), []))
     nome = "rsb_objetos_ciep_01"
     linhas = (len(lista) + 7) // 8

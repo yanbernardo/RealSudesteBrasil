@@ -3,8 +3,9 @@
 Bloco de 36 x 14 tiles, 3 andares, frente para o sul, como os CIEPs das fotos
 (Cascadura, Belford Roxo, Mesquita): corredor no meio, cômodos dos dois lados,
 térreo com cozinha, refeitório, consultório, secretaria, diretoria, sala dos
-professores e um pátio coberto que abre para a rua por 5 arcos com portão de
-grade; 1º e 2º andares com salas de aula (carteira universitária e quadro
+professores; no meio do térreo, a galeria aberta (pilotis): sem cômodo e sem
+portas, arcos vazados para a rua e para o corredor, chão de cimentado e o 1º
+andar como teto, como nos CIEPs de Mesquita e Belford Roxo; 1º e 2º andares com salas de aula (carteira universitária e quadro
 verde), banheiros e biblioteca; escada no meio; laje com caixa d'água.
 Peças: Kit Brasil (CIEP, casa de laje, botequim, laje) e móveis do jogo (mesa,
 fogão, geladeira, pia, vaso, estante), que dão o loot certo pelo nome do cômodo.
@@ -62,7 +63,7 @@ NOSSOS = {
     # orient = costas: costas a leste = virada para oeste (peça "_o"), etc.
     "carteira": ({"W": {"0,0": f"{OB}_001"}, "N": {"0,0": f"{OB}_000"}, "E": {"0,0": f"{OB}_003"}, "S": {"0,0": f"{OB}_002"}}, "Furniture"),
     "bebedouro": ({"W": {"0,0": f"{OB}_005"}, "N": {"0,0": f"{OB}_004"}}, "Furniture"),
-    "quadro": ({"W": {"0,0": f"{OB}_011", "0,1": f"{OB}_010"}, "N": {"0,0": f"{OB}_006", "1,0": f"{OB}_007"}}, "WallFurniture"),
+    "quadro": ({"W": {"0,0": f"{OB}_012", "0,1": f"{OB}_011"}, "N": {"0,0": f"{OB}_006", "1,0": f"{OB}_007"}}, "WallFurniture"),
     "caixa_dagua": ({o: {"0,0": "rsb_objetos_laje_01_000"} for o in "WNES"}, "Furniture"),
 }
 
@@ -102,8 +103,15 @@ def montar() -> Predio:
     slope = E("roof_slopes", {"SlopeS1": "roofs_01_000", "SlopeS2": "roofs_01_001", "SlopeS3": "roofs_01_002",
                               "SlopeE1": "roofs_01_005", "SlopeE2": "roofs_01_004", "SlopeE3": "roofs_01_003"})
     forro = E("ceiling", {"Ceiling": "ceilings_01_000"})
-    portao = E("doors", {"West": "rsb_portoes_casa_01_000", "North": "rsb_portoes_casa_01_001",
-                         "WestOpen": "rsb_portoes_casa_01_002", "NorthOpen": "rsb_portoes_casa_01_003"})
+    # galeria: arco largo de 2 tiles (metade 1 no tile de x menor, metade 2 no seguinte); a mesma
+    # peça dos dois lados da parede (entrada externa e interna)
+    def arco(i_w, i_n):
+        t = {"West": f"rsb_paredes_ciep_01_{i_w:03d}", "North": f"rsb_paredes_ciep_01_{i_n:03d}",
+             "NorthWest": "rsb_paredes_ciep_01_002", "SouthEast": "rsb_paredes_ciep_01_063",
+             "WestDoor": f"rsb_paredes_ciep_01_{i_w:03d}", "NorthDoor": f"rsb_paredes_ciep_01_{i_n:03d}",
+             "WestWindow": "rsb_paredes_ciep_01_008", "NorthWindow": "rsb_paredes_ciep_01_009"}
+        return E("exterior_walls", t), E("interior_walls", t)
+    arco1, arco2 = arco(64, 65), arco(66, 67)
     p.attrs = {"ExteriorWall": ext, "ExteriorWallTrim": 0, "Door": porta, "DoorFrame": moldura, "Window": janela,
                "Curtains": 0, "Shutters": 0, "Stairs": escada, "RoofCap": cap, "RoofSlope": slope, "RoofTop": topo,
                "GrimeWall": 0}
@@ -142,18 +150,20 @@ def montar() -> Predio:
           sala(0, "bathroom", 27, 0, 4, 6, int_azulejo, ceramica), sala(0, "medical", 31, 0, 5, 6, int_azul, pav_cinza)]
     sala(0, "hall", 0, 6, W, 2, int_verde, granilite)                     # corredor
     s0 = [sala(0, "office", 0, 8, 6, 6, int_azul, pav_cinza), sala(0, "office", 6, 8, 4, 6, int_azul, pav_cinza),
-          sala(0, "hall", 10, 8, 16, 6, int_verde, cim_patio),            # pátio coberto
           sala(0, "office", 26, 8, 5, 6, int_azul, pav_cinza), sala(0, "schoolstorage", 31, 8, 5, 6, int_verde, pav_cinza)]
-    janelas_fachada(0, [n0[0], n0[1], n0[4], n0[5]], [s0[0], s0[1], s0[3], s0[4]], pular=(8, 9))
-    for xx in (11, 14, 17, 20, 23):                                        # arcos do pátio, com portão de grade
-        p.porta(0, xx, H, "N", portao, 0)
+    janelas_fachada(0, [n0[0], n0[1], n0[4], n0[5]], s0, pular=(7, 8, 9))
+    # galeria aberta (pilotis) x 10..25, y 8..13: sem cômodo; arcos vazados na rua e no corredor
+    for gx in range(10, 26):
+        for gy in range(8, 14):
+            p.peca_chao(0, gx, gy, "rsb_pisos_ciep_01_002")
+    for borda_y in (H, 8):
+        for gx in range(10, 26):
+            ex, it = arco1 if (gx - 10) % 2 == 0 else arco2
+            p.parede(0, gx, borda_y, "N", 1, ex, it)
     for (x, y, w, h) in n0:
         p.porta(0, x + w // 2, 6, "N", porta, moldura)
     for (x, y, w, h) in s0:
-        if w < 16:
-            p.porta(0, x + w // 2, 8, "N", porta, moldura)
-    for xx in (12, 18, 24):                                                 # pátio aberto para o corredor
-        p.porta(0, xx, 8, "N", porta, moldura)
+        p.porta(0, x + w // 2, 8, "N", porta, moldura)
     p.porta(0, 0, 6, "W", porta, moldura)
     p.porta(0, W, 7, "W", porta, moldura)
     p.porta(0, 3, 0, "N", porta, moldura)                                   # porta de serviço da cozinha
@@ -188,9 +198,9 @@ def montar() -> Predio:
     for (x, y, o) in ((35, 0, "N"), (0, 13, "S"), (4, 13, "S"), (30, 13, "S")):
         p.mob(0, M["estante"], x, y, o)
     p.mob(0, M["bebedouro"], 30, 6, "N")
-    # letreiro na fachada, sobre a diretoria (sem janela em x = 9)
-    p.peca_parede(0, 8, H, f"{OB}_008")
-    p.peca_parede(0, 9, H, f"{OB}_009")
+    # letreiro grande (3 tiles x 2 m) na parede lisa da diretoria, ao lado da galeria
+    for i, xx in enumerate((7, 8, 9)):
+        p.peca_parede(0, xx, H, f"{OB}_{8 + i:03d}")
 
     # ------------------------------------------------ 1º e 2º andares
     for nivel in (1, 2):
@@ -265,6 +275,16 @@ def previa(p: Predio, tiles2x: Path, kit: Path, destino: Path) -> None:
         g = nv["grade"]
         objs = [dict(re.findall(r'(\w+)="([^"]*)"', a)) for _t, a in nv["obj"]]
         portas = {(int(o["x"]), int(o["y"]), o["dir"]): o for o in objs if o["type"] == "door"}
+        manuais = {}
+        for o in objs:
+            if o["type"] == "wall":
+                for k in range(int(o["length"])):
+                    if o["dir"] == "W":  # corre ao longo de x
+                        manuais[(int(o["x"]) + k, int(o["y"]), "N")] = int(o["Tile"])
+                    else:
+                        manuais[(int(o["x"]), int(o["y"]) + k, "W")] = int(o["Tile"])
+        for (cx_, cy_), nome in nv.get("chao", {}).items():
+            add(z, cx_, cy_, 0, peca(nome))
         janelas = {(int(o["x"]), int(o["y"]), o["dir"]): o for o in objs if o["type"] == "window"}
         cel = lambda x, y: g[y][x] if 0 <= x < W and 0 <= y < H else 0
         furos = set()
@@ -278,6 +298,10 @@ def previa(p: Predio, tiles2x: Path, kit: Path, destino: Path) -> None:
                 if c and (x, y) not in furos:
                     add(z, x, y, 0, peca(ent[p.comodos[c - 1]["Floor"]]["Floor"]))
                 for d, viz in (("W", cel(x - 1, y)), ("N", cel(x, y - 1))):
+                    if (x, y, d) in manuais:
+                        if manuais[(x, y, d)]:
+                            add(z, x, y, 1, peca(ent[manuais[(x, y, d)]]["West" if d == "W" else "North"]))
+                        continue
                     if viz == c:
                         continue
                     estilo = ext if (viz == 0 or c == 0) else ent[p.comodos[c - 1]["InteriorWall"]]

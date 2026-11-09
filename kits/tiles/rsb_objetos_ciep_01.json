@@ -443,45 +443,49 @@
   {
    "peca": "rsb_objetos_ciep_01_8",
    "nome": "letreiro_ciep_n_1",
-   "descricao": "letreiro 'CIEP 501' (parte 1 de 2), parede N",
+   "descricao": "letreiro 'CIEP 501' (parte 1 de 3, 2 m de altura), parede N",
    "props": []
   },
   {
    "peca": "rsb_objetos_ciep_01_9",
    "nome": "letreiro_ciep_n_2",
-   "descricao": "letreiro 'CIEP 501' (parte 2 de 2), parede N",
+   "descricao": "letreiro 'CIEP 501' (parte 2 de 3, 2 m de altura), parede N",
    "props": []
   },
   {
    "peca": "rsb_objetos_ciep_01_10",
+   "nome": "letreiro_ciep_n_3",
+   "descricao": "letreiro 'CIEP 501' (parte 3 de 3, 2 m de altura), parede N",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_ciep_01_11",
    "nome": "quadro_verde_o_1",
    "descricao": "quadro verde de giz (parte 1 de 2), parede O",
    "props": []
   },
   {
-   "peca": "rsb_objetos_ciep_01_11",
+   "peca": "rsb_objetos_ciep_01_12",
    "nome": "quadro_verde_o_2",
    "descricao": "quadro verde de giz (parte 2 de 2), parede O",
    "props": []
   },
   {
-   "peca": "rsb_objetos_ciep_01_12",
-   "nome": "letreiro_ciep_o_1",
-   "descricao": "letreiro 'CIEP 501' (parte 1 de 2), parede O",
-   "props": []
-  },
-  {
    "peca": "rsb_objetos_ciep_01_13",
-   "nome": "letreiro_ciep_o_2",
-   "descricao": "letreiro 'CIEP 501' (parte 2 de 2), parede O",
+   "nome": "letreiro_ciep_o_1",
+   "descricao": "letreiro 'CIEP 501' (parte 1 de 3, 2 m de altura), parede O",
    "props": []
   },
   {
    "peca": "rsb_objetos_ciep_01_14",
+   "nome": "letreiro_ciep_o_2",
+   "descricao": "letreiro 'CIEP 501' (parte 2 de 3, 2 m de altura), parede O",
    "props": []
   },
   {
    "peca": "rsb_objetos_ciep_01_15",
+   "nome": "letreiro_ciep_o_3",
+   "descricao": "letreiro 'CIEP 501' (parte 3 de 3, 2 m de altura), parede O",
    "props": []
   }
  ],

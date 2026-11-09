@@ -87,6 +87,18 @@ class Predio:
     def peca_parede(self, nivel, x, y, peca):
         self.niveis[nivel]["user"][(x, y)] = peca
 
+    def peca_chao(self, nivel, x, y, peca):
+        """Chão pintado à mão (camada "Floor"), para área sem cômodo (ex.: galeria coberta)."""
+        self.niveis[nivel].setdefault("chao", {})[(x, y)] = peca
+
+    def parede(self, nivel, x, y, borda, comprimento, tile, tile_int=0):
+        """Parede posta à mão, que substitui a automática naquela borda. borda "N" = borda
+        de cima dos tiles (corre ao longo de x), "W" = borda esquerda (corre ao longo de y).
+        tile = 0 deixa a borda aberta."""
+        self.niveis[nivel]["obj"].append(("wall", _a([
+            ("type", "wall"), ("length", comprimento), ("InteriorTile", tile_int), ("ExteriorTrim", 0),
+            ("InteriorTrim", 0), ("x", x), ("y", y), ("dir", "W" if borda == "N" else "N"), ("Tile", tile)])))
+
     # ---- arquivo
     def texto(self) -> str:
         out = ['<?xml version="1.0" encoding="UTF-8"?>', f"<building{_a([('version', 4), ('width', self.w), ('height', self.h)] + list(self.attrs.items()))}>"]
@@ -104,7 +116,7 @@ class Predio:
                         out.append(f'   <tile x="{dx}" y="{dy}" name={quoteattr(v)}/>')
                     out.append("  </entry>")
             out.append(" </furniture>")
-        nomes = sorted({p for nv in self.niveis for p in nv["user"].values()})
+        nomes = sorted({p for nv in self.niveis for p in list(nv["user"].values()) + list(nv.get("chao", {}).values())})
         if nomes:
             out.append(" <user_tiles>")
             out += [f"  <tile tile={quoteattr(t)}/>" for t in nomes]
@@ -112,7 +124,7 @@ class Predio:
         out.append(f" <used_tiles>{' '.join(str(i) for i in range(1, len(self.entradas) + 1))}</used_tiles>")
         out.append(f" <used_furniture>{' '.join(str(i) for i in range(len(self.moveis)))}</used_furniture>")
         out += [f" <room{_a(c.items())}/>" for c in self.comodos]
-        ordem = {"door": 0, "window": 1, "furniture": 2, "stairs": 3, "roof": 4}
+        ordem = {"door": 0, "wall": 1, "window": 2, "furniture": 3, "stairs": 4, "roof": 5}
         for nv in self.niveis:
             out.append(" <floor>")
             out += [f"  <object{a}/>" for _t, a in sorted(nv["obj"], key=lambda o: ordem[o[0]])]
@@ -123,13 +135,15 @@ class Predio:
                 row = vals[y * self.w:(y + 1) * self.w]
                 linhas.append(",".join(row) + ("" if fim else ",") + "\n")
             out.append("  <rooms>" + escape("".join(linhas)) + "</rooms>")
-            if nv["user"]:
+            for camada, pecas in (("Floor", nv.get("chao", {})), ("WallFurniture", nv["user"])):
+                if not pecas:
+                    continue
                 txt = ["\n"]
                 for y in range(self.h + 1):
-                    row = [str(nomes.index(nv["user"][(x, y)]) + 1) if (x, y) in nv["user"] else "0"
+                    row = [str(nomes.index(pecas[(x, y)]) + 1) if (x, y) in pecas else "0"
                            for x in range(self.w + 1)]
                     txt.append(",".join(row) + ("," if y < self.h else "") + "\n")
-                out.append('  <tiles layer="WallFurniture">' + escape("".join(txt)) + "</tiles>")
+                out.append(f'  <tiles layer="{camada}">' + escape("".join(txt)) + "</tiles>")
             out.append(" </floor>")
         out.append("</building>")
         return "\n".join(out) + "\n"
