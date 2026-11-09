@@ -1,0 +1,1413 @@
+{
+ "folha": "rsb_portoes_casa_01",
+ "tipo": "porta",
+ "pecas": [
+  {
+   "peca": "rsb_portoes_casa_01_0",
+   "nome": "portao_social_grade_preta_fechado_o",
+   "descricao": "portão social (grade preta), fechado, parede O",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Fence gate"
+    ],
+    [
+     "HoppableW",
+     ""
+    ],
+    [
+     "Material2",
+     "MetalBars"
+    ],
+    [
+     "Material3",
+     "MetalPipe"
+    ],
+    [
+     "attachedW",
+     ""
+    ],
+    [
+     "doorTrans",
+     ""
+    ],
+    [
+     "doorW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_1",
+   "nome": "portao_social_grade_preta_fechado_n",
+   "descricao": "portão social (grade preta), fechado, parede N",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Fence gate"
+    ],
+    [
+     "HoppableN",
+     ""
+    ],
+    [
+     "Material2",
+     "MetalBars"
+    ],
+    [
+     "Material3",
+     "MetalPipe"
+    ],
+    [
+     "attachedN",
+     ""
+    ],
+    [
+     "doorN",
+     ""
+    ],
+    [
+     "doorTrans",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_2",
+   "nome": "portao_social_grade_preta_aberto_o",
+   "descricao": "portão social (grade preta), aberto, parede O",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Fence gate"
+    ],
+    [
+     "Material2",
+     "MetalBars"
+    ],
+    [
+     "Material3",
+     "MetalPipe"
+    ],
+    [
+     "attachedW",
+     ""
+    ],
+    [
+     "doorTrans",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_3",
+   "nome": "portao_social_grade_preta_aberto_n",
+   "descricao": "portão social (grade preta), aberto, parede N",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Fence gate"
+    ],
+    [
+     "Material2",
+     "MetalBars"
+    ],
+    [
+     "Material3",
+     "MetalPipe"
+    ],
+    [
+     "attachedN",
+     ""
+    ],
+    [
+     "doorTrans",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_4",
+   "nome": "portao_social_chapa_branca_fechado_o",
+   "descricao": "portão social (chapa branca), fechado, parede O",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Fence gate"
+    ],
+    [
+     "HoppableW",
+     ""
+    ],
+    [
+     "Material2",
+     "MetalBars"
+    ],
+    [
+     "Material3",
+     "MetalPipe"
+    ],
+    [
+     "attachedW",
+     ""
+    ],
+    [
+     "doorTrans",
+     ""
+    ],
+    [
+     "doorW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_5",
+   "nome": "portao_social_chapa_branca_fechado_n",
+   "descricao": "portão social (chapa branca), fechado, parede N",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Fence gate"
+    ],
+    [
+     "HoppableN",
+     ""
+    ],
+    [
+     "Material2",
+     "MetalBars"
+    ],
+    [
+     "Material3",
+     "MetalPipe"
+    ],
+    [
+     "attachedN",
+     ""
+    ],
+    [
+     "doorN",
+     ""
+    ],
+    [
+     "doorTrans",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_6",
+   "nome": "portao_social_chapa_branca_aberto_o",
+   "descricao": "portão social (chapa branca), aberto, parede O",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Fence gate"
+    ],
+    [
+     "Material2",
+     "MetalBars"
+    ],
+    [
+     "Material3",
+     "MetalPipe"
+    ],
+    [
+     "attachedW",
+     ""
+    ],
+    [
+     "doorTrans",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_7",
+   "nome": "portao_social_chapa_branca_aberto_n",
+   "descricao": "portão social (chapa branca), aberto, parede N",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Fence gate"
+    ],
+    [
+     "Material2",
+     "MetalBars"
+    ],
+    [
+     "Material3",
+     "MetalPipe"
+    ],
+    [
+     "attachedN",
+     ""
+    ],
+    [
+     "doorTrans",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_8",
+   "nome": "portao_social_grade_verde_fechado_o",
+   "descricao": "portão social (grade verde), fechado, parede O",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Fence gate"
+    ],
+    [
+     "HoppableW",
+     ""
+    ],
+    [
+     "Material2",
+     "MetalBars"
+    ],
+    [
+     "Material3",
+     "MetalPipe"
+    ],
+    [
+     "attachedW",
+     ""
+    ],
+    [
+     "doorTrans",
+     ""
+    ],
+    [
+     "doorW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_9",
+   "nome": "portao_social_grade_verde_fechado_n",
+   "descricao": "portão social (grade verde), fechado, parede N",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Fence gate"
+    ],
+    [
+     "HoppableN",
+     ""
+    ],
+    [
+     "Material2",
+     "MetalBars"
+    ],
+    [
+     "Material3",
+     "MetalPipe"
+    ],
+    [
+     "attachedN",
+     ""
+    ],
+    [
+     "doorN",
+     ""
+    ],
+    [
+     "doorTrans",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_10",
+   "nome": "portao_social_grade_verde_aberto_o",
+   "descricao": "portão social (grade verde), aberto, parede O",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Fence gate"
+    ],
+    [
+     "Material2",
+     "MetalBars"
+    ],
+    [
+     "Material3",
+     "MetalPipe"
+    ],
+    [
+     "attachedW",
+     ""
+    ],
+    [
+     "doorTrans",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_11",
+   "nome": "portao_social_grade_verde_aberto_n",
+   "descricao": "portão social (grade verde), aberto, parede N",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Fence gate"
+    ],
+    [
+     "Material2",
+     "MetalBars"
+    ],
+    [
+     "Material3",
+     "MetalPipe"
+    ],
+    [
+     "attachedN",
+     ""
+    ],
+    [
+     "doorTrans",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_12",
+   "props": []
+  },
+  {
+   "peca": "rsb_portoes_casa_01_13",
+   "props": []
+  },
+  {
+   "peca": "rsb_portoes_casa_01_14",
+   "props": []
+  },
+  {
+   "peca": "rsb_portoes_casa_01_15",
+   "props": []
+  },
+  {
+   "peca": "rsb_portoes_casa_01_16",
+   "nome": "portao_garagem_branco_fechado_o_1",
+   "descricao": "portão de garagem de chapa branco, fechado, parede O, parte 1 de 3",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CutawayHint",
+     "GarageDoorLeft"
+    ],
+    [
+     "GarageDoor",
+     "1"
+    ],
+    [
+     "GrimeType",
+     "FullWindow"
+    ],
+    [
+     "InteriorSide",
+     ""
+    ],
+    [
+     "Material",
+     "MetalPlates"
+    ],
+    [
+     "Material2",
+     "MetalPlates"
+    ],
+    [
+     "MaterialType",
+     "Metal_Light"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "doorW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_17",
+   "nome": "portao_garagem_branco_fechado_o_2",
+   "descricao": "portão de garagem de chapa branco, fechado, parede O, parte 2 de 3",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CutawayHint",
+     "GarageDoorMiddle"
+    ],
+    [
+     "GarageDoor",
+     "2"
+    ],
+    [
+     "GrimeType",
+     "FullWindow"
+    ],
+    [
+     "InteriorSide",
+     ""
+    ],
+    [
+     "Material",
+     "MetalPlates"
+    ],
+    [
+     "Material2",
+     "MetalPlates"
+    ],
+    [
+     "MaterialType",
+     "Metal_Light"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "doorW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_18",
+   "nome": "portao_garagem_branco_fechado_o_3",
+   "descricao": "portão de garagem de chapa branco, fechado, parede O, parte 3 de 3",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CutawayHint",
+     "GarageDoorRight"
+    ],
+    [
+     "GarageDoor",
+     "3"
+    ],
+    [
+     "GrimeType",
+     "FullWindow"
+    ],
+    [
+     "InteriorSide",
+     ""
+    ],
+    [
+     "Material",
+     "MetalPlates"
+    ],
+    [
+     "Material2",
+     "MetalPlates"
+    ],
+    [
+     "MaterialType",
+     "Metal_Light"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "doorW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_19",
+   "nome": "portao_garagem_branco_fechado_n_1",
+   "descricao": "portão de garagem de chapa branco, fechado, parede N, parte 1 de 3",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CutawayHint",
+     "GarageDoorLeft"
+    ],
+    [
+     "GarageDoor",
+     "1"
+    ],
+    [
+     "GrimeType",
+     "FullWindow"
+    ],
+    [
+     "InteriorSide",
+     ""
+    ],
+    [
+     "Material",
+     "MetalPlates"
+    ],
+    [
+     "Material2",
+     "MetalPlates"
+    ],
+    [
+     "MaterialType",
+     "Metal_Light"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "doorN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_20",
+   "nome": "portao_garagem_branco_fechado_n_2",
+   "descricao": "portão de garagem de chapa branco, fechado, parede N, parte 2 de 3",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CutawayHint",
+     "GarageDoorMiddle"
+    ],
+    [
+     "GarageDoor",
+     "2"
+    ],
+    [
+     "GrimeType",
+     "FullWindow"
+    ],
+    [
+     "InteriorSide",
+     ""
+    ],
+    [
+     "Material",
+     "MetalPlates"
+    ],
+    [
+     "Material2",
+     "MetalPlates"
+    ],
+    [
+     "MaterialType",
+     "Metal_Light"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "doorN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_21",
+   "nome": "portao_garagem_branco_fechado_n_3",
+   "descricao": "portão de garagem de chapa branco, fechado, parede N, parte 3 de 3",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CutawayHint",
+     "GarageDoorRight"
+    ],
+    [
+     "GarageDoor",
+     "3"
+    ],
+    [
+     "GrimeType",
+     "FullWindow"
+    ],
+    [
+     "InteriorSide",
+     ""
+    ],
+    [
+     "Material",
+     "MetalPlates"
+    ],
+    [
+     "Material2",
+     "MetalPlates"
+    ],
+    [
+     "MaterialType",
+     "Metal_Light"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "doorN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_22",
+   "props": []
+  },
+  {
+   "peca": "rsb_portoes_casa_01_23",
+   "props": []
+  },
+  {
+   "peca": "rsb_portoes_casa_01_24",
+   "nome": "portao_garagem_branco_aberto_o_1",
+   "descricao": "portão de garagem de chapa branco, aberto, parede O, parte 1 de 3",
+   "props": [
+    [
+     "CutawayHint",
+     "GarageDoorLeft"
+    ],
+    [
+     "GarageDoor",
+     "4"
+    ],
+    [
+     "GrimeType",
+     "FullWindow"
+    ],
+    [
+     "InteriorSide",
+     ""
+    ],
+    [
+     "doorW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_25",
+   "nome": "portao_garagem_branco_aberto_o_2",
+   "descricao": "portão de garagem de chapa branco, aberto, parede O, parte 2 de 3",
+   "props": [
+    [
+     "CutawayHint",
+     "GarageDoorMiddle"
+    ],
+    [
+     "GarageDoor",
+     "5"
+    ],
+    [
+     "GrimeType",
+     "FullWindow"
+    ],
+    [
+     "InteriorSide",
+     ""
+    ],
+    [
+     "doorW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_26",
+   "nome": "portao_garagem_branco_aberto_o_3",
+   "descricao": "portão de garagem de chapa branco, aberto, parede O, parte 3 de 3",
+   "props": [
+    [
+     "CutawayHint",
+     "GarageDoorRight"
+    ],
+    [
+     "GarageDoor",
+     "6"
+    ],
+    [
+     "GrimeType",
+     "FullWindow"
+    ],
+    [
+     "InteriorSide",
+     ""
+    ],
+    [
+     "doorW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_27",
+   "nome": "portao_garagem_branco_aberto_n_1",
+   "descricao": "portão de garagem de chapa branco, aberto, parede N, parte 1 de 3",
+   "props": [
+    [
+     "CutawayHint",
+     "GarageDoorLeft"
+    ],
+    [
+     "GarageDoor",
+     "4"
+    ],
+    [
+     "GrimeType",
+     "FullWindow"
+    ],
+    [
+     "InteriorSide",
+     ""
+    ],
+    [
+     "doorN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_28",
+   "nome": "portao_garagem_branco_aberto_n_2",
+   "descricao": "portão de garagem de chapa branco, aberto, parede N, parte 2 de 3",
+   "props": [
+    [
+     "CutawayHint",
+     "GarageDoorMiddle"
+    ],
+    [
+     "GarageDoor",
+     "5"
+    ],
+    [
+     "GrimeType",
+     "FullWindow"
+    ],
+    [
+     "InteriorSide",
+     ""
+    ],
+    [
+     "doorN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_29",
+   "nome": "portao_garagem_branco_aberto_n_3",
+   "descricao": "portão de garagem de chapa branco, aberto, parede N, parte 3 de 3",
+   "props": [
+    [
+     "CutawayHint",
+     "GarageDoorRight"
+    ],
+    [
+     "GarageDoor",
+     "6"
+    ],
+    [
+     "GrimeType",
+     "FullWindow"
+    ],
+    [
+     "InteriorSide",
+     ""
+    ],
+    [
+     "doorN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_30",
+   "props": []
+  },
+  {
+   "peca": "rsb_portoes_casa_01_31",
+   "props": []
+  },
+  {
+   "peca": "rsb_portoes_casa_01_32",
+   "nome": "portao_garagem_marrom_fechado_o_1",
+   "descricao": "portão de garagem de chapa marrom, fechado, parede O, parte 1 de 3",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CutawayHint",
+     "GarageDoorLeft"
+    ],
+    [
+     "GarageDoor",
+     "1"
+    ],
+    [
+     "GrimeType",
+     "FullWindow"
+    ],
+    [
+     "InteriorSide",
+     ""
+    ],
+    [
+     "Material",
+     "MetalPlates"
+    ],
+    [
+     "Material2",
+     "MetalPlates"
+    ],
+    [
+     "MaterialType",
+     "Metal_Light"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "doorW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_33",
+   "nome": "portao_garagem_marrom_fechado_o_2",
+   "descricao": "portão de garagem de chapa marrom, fechado, parede O, parte 2 de 3",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CutawayHint",
+     "GarageDoorMiddle"
+    ],
+    [
+     "GarageDoor",
+     "2"
+    ],
+    [
+     "GrimeType",
+     "FullWindow"
+    ],
+    [
+     "InteriorSide",
+     ""
+    ],
+    [
+     "Material",
+     "MetalPlates"
+    ],
+    [
+     "Material2",
+     "MetalPlates"
+    ],
+    [
+     "MaterialType",
+     "Metal_Light"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "doorW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_34",
+   "nome": "portao_garagem_marrom_fechado_o_3",
+   "descricao": "portão de garagem de chapa marrom, fechado, parede O, parte 3 de 3",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CutawayHint",
+     "GarageDoorRight"
+    ],
+    [
+     "GarageDoor",
+     "3"
+    ],
+    [
+     "GrimeType",
+     "FullWindow"
+    ],
+    [
+     "InteriorSide",
+     ""
+    ],
+    [
+     "Material",
+     "MetalPlates"
+    ],
+    [
+     "Material2",
+     "MetalPlates"
+    ],
+    [
+     "MaterialType",
+     "Metal_Light"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "doorW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_35",
+   "nome": "portao_garagem_marrom_fechado_n_1",
+   "descricao": "portão de garagem de chapa marrom, fechado, parede N, parte 1 de 3",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CutawayHint",
+     "GarageDoorLeft"
+    ],
+    [
+     "GarageDoor",
+     "1"
+    ],
+    [
+     "GrimeType",
+     "FullWindow"
+    ],
+    [
+     "InteriorSide",
+     ""
+    ],
+    [
+     "Material",
+     "MetalPlates"
+    ],
+    [
+     "Material2",
+     "MetalPlates"
+    ],
+    [
+     "MaterialType",
+     "Metal_Light"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "doorN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_36",
+   "nome": "portao_garagem_marrom_fechado_n_2",
+   "descricao": "portão de garagem de chapa marrom, fechado, parede N, parte 2 de 3",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CutawayHint",
+     "GarageDoorMiddle"
+    ],
+    [
+     "GarageDoor",
+     "2"
+    ],
+    [
+     "GrimeType",
+     "FullWindow"
+    ],
+    [
+     "InteriorSide",
+     ""
+    ],
+    [
+     "Material",
+     "MetalPlates"
+    ],
+    [
+     "Material2",
+     "MetalPlates"
+    ],
+    [
+     "MaterialType",
+     "Metal_Light"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "doorN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_37",
+   "nome": "portao_garagem_marrom_fechado_n_3",
+   "descricao": "portão de garagem de chapa marrom, fechado, parede N, parte 3 de 3",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CutawayHint",
+     "GarageDoorRight"
+    ],
+    [
+     "GarageDoor",
+     "3"
+    ],
+    [
+     "GrimeType",
+     "FullWindow"
+    ],
+    [
+     "InteriorSide",
+     ""
+    ],
+    [
+     "Material",
+     "MetalPlates"
+    ],
+    [
+     "Material2",
+     "MetalPlates"
+    ],
+    [
+     "MaterialType",
+     "Metal_Light"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "doorN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_38",
+   "props": []
+  },
+  {
+   "peca": "rsb_portoes_casa_01_39",
+   "props": []
+  },
+  {
+   "peca": "rsb_portoes_casa_01_40",
+   "nome": "portao_garagem_marrom_aberto_o_1",
+   "descricao": "portão de garagem de chapa marrom, aberto, parede O, parte 1 de 3",
+   "props": [
+    [
+     "CutawayHint",
+     "GarageDoorLeft"
+    ],
+    [
+     "GarageDoor",
+     "4"
+    ],
+    [
+     "GrimeType",
+     "FullWindow"
+    ],
+    [
+     "InteriorSide",
+     ""
+    ],
+    [
+     "doorW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_41",
+   "nome": "portao_garagem_marrom_aberto_o_2",
+   "descricao": "portão de garagem de chapa marrom, aberto, parede O, parte 2 de 3",
+   "props": [
+    [
+     "CutawayHint",
+     "GarageDoorMiddle"
+    ],
+    [
+     "GarageDoor",
+     "5"
+    ],
+    [
+     "GrimeType",
+     "FullWindow"
+    ],
+    [
+     "InteriorSide",
+     ""
+    ],
+    [
+     "doorW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_42",
+   "nome": "portao_garagem_marrom_aberto_o_3",
+   "descricao": "portão de garagem de chapa marrom, aberto, parede O, parte 3 de 3",
+   "props": [
+    [
+     "CutawayHint",
+     "GarageDoorRight"
+    ],
+    [
+     "GarageDoor",
+     "6"
+    ],
+    [
+     "GrimeType",
+     "FullWindow"
+    ],
+    [
+     "InteriorSide",
+     ""
+    ],
+    [
+     "doorW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_43",
+   "nome": "portao_garagem_marrom_aberto_n_1",
+   "descricao": "portão de garagem de chapa marrom, aberto, parede N, parte 1 de 3",
+   "props": [
+    [
+     "CutawayHint",
+     "GarageDoorLeft"
+    ],
+    [
+     "GarageDoor",
+     "4"
+    ],
+    [
+     "GrimeType",
+     "FullWindow"
+    ],
+    [
+     "InteriorSide",
+     ""
+    ],
+    [
+     "doorN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_44",
+   "nome": "portao_garagem_marrom_aberto_n_2",
+   "descricao": "portão de garagem de chapa marrom, aberto, parede N, parte 2 de 3",
+   "props": [
+    [
+     "CutawayHint",
+     "GarageDoorMiddle"
+    ],
+    [
+     "GarageDoor",
+     "5"
+    ],
+    [
+     "GrimeType",
+     "FullWindow"
+    ],
+    [
+     "InteriorSide",
+     ""
+    ],
+    [
+     "doorN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_45",
+   "nome": "portao_garagem_marrom_aberto_n_3",
+   "descricao": "portão de garagem de chapa marrom, aberto, parede N, parte 3 de 3",
+   "props": [
+    [
+     "CutawayHint",
+     "GarageDoorRight"
+    ],
+    [
+     "GarageDoor",
+     "6"
+    ],
+    [
+     "GrimeType",
+     "FullWindow"
+    ],
+    [
+     "InteriorSide",
+     ""
+    ],
+    [
+     "doorN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_portoes_casa_01_46",
+   "props": []
+  },
+  {
+   "peca": "rsb_portoes_casa_01_47",
+   "props": []
+  }
+ ],
+ "buildingtiles": {},
+ "bt_nomes_prontos": false,
+ "estilo": "pz_v1"
+}

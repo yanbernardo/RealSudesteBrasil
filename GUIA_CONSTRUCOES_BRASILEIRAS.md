@@ -253,6 +253,19 @@ Prontas desde 09/11/2026 e já registradas no BuildingEd (feche e abra o Buildin
   - **Porta de enrolar:** a "aberta" (só o rolo em cima) vai no tile de uma porta sem folha; a "fechada" vai sobre um pedaço de parede comum (loja fechada).
   - Letreiro, lousa e portas de enrolar são peças de parede: ponha na camada de objetos de parede do modo de peças. Se não aparecerem ali, use a camada de móveis.
 
+### 5.8 Peças da casa de laje no BuildingEd
+
+Prontas desde 09/11/2026 e registradas no BuildingEd (feche e abra de novo). Prévia: `saida\kit_tiles\previa_casa_laje.png`.
+
+**Já existiam e servem para a casa de laje:** laje de cobertura e terraço (lista de telhado plano e de pisos), muretas da laje, caixa d'água, varal, churrasqueira, pilar com ferro de espera (folhas `rsb_lajes_01`, `rsb_muretas_favela_01`, `rsb_objetos_laje_01`), paredes de reboco e de tijolo (`rsb_paredes_favela_01`), cerâmica vermelha e bege e cimento queimado (`rsb_pisos_favela_01`), lajota vermelha (`rsb_pisos_botequim_01`).
+
+**Novas:**
+- **Paredes** (listas de parede, use a ferramenta de parede): grafiato amarelo, verde-claro e pêssego, branco com pintura nova, grafiato azul-claro com barra de pedra miracema embaixo, cerâmica de fachada em filetes.
+- **Pisos:** pedra miracema (quintal e garagem), ardósia (varanda e sala), cerâmica rústica de garagem, cerâmica branca 45 × 45 (sala e quartos), cimentado de garagem com mancha de óleo, bloquete (calçada).
+- **Muros** (folha `rsb_muros_casa_01`, modo de peças, camada de paredes): muro de 2 m de tijolo, chapiscado, amarelo, branco, e muro baixo branco com grade em cima. Cada estilo tem 4 peças: norte, oeste, quina e pilar (ponha o pilar na ponta solta do muro). Funcionam como o muro alto de madeira do jogo: bloqueiam e dá para pular com esforço.
+- **Portões** (folha `rsb_portoes_casa_01`, camada de paredes): portão social de grade preta, de chapa branca e de grade verde; use a peça **fechada** da parede certa (`_fechado_n` ou `_fechado_o`): o jogo abre e fecha sozinho. Portão de garagem de chapa branca ou marrom, com 3 peças lado a lado (`_1`, `_2`, `_3`), também fechado; ele abre como o portão de garagem do jogo.
+- **Objetos** (folha `rsb_objetos_casa_01`): tanque de lavar (tem água, como pia), botijão de gás, vaso de espada-de-são-jorge, cadeira de fio vermelha, azul e verde (4 lados). Peças de parede (norte e oeste): relógio de luz, número com interfone e caixa de correio (no muro, ao lado do portão), grade de janela reta ou de losangos (na frente da janela).
+
 ## 6. Peças novas (tiles brasileiras)
 
 Para o que o jogo base não tem: telha colonial, azulejo português, pedra portuguesa da calçada, fachada pintada, orelhão, placa em português. Regra do projeto: toda peça nova precisa aparecer em 3D no Viewpoint (D-07, D-09), então cada peça nova passa pelo teste do Viewpoint antes de ser usada em massa.

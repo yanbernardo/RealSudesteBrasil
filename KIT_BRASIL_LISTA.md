@@ -30,6 +30,7 @@ Como cada peça é feita (coluna "Como"):
 | Ladrilho hidráulico (azul e branco, vermelho e creme) | **pronto** o vermelho e creme (botequim); falta o azul |
 | Azulejo de cozinha e banheiro (parede) | **pronto** (Script, botequim) |
 | Piso de granilite (escola, repartição) | **pronto** (Script, botequim) |
+| Pedra miracema, ardósia, cerâmica de garagem, cerâmica branca 45, cimentado, bloquete | **pronto** (Script, casa de laje) |
 | Taco de madeira (apartamentos antigos) | Textura |
 
 ## 3. Paredes e fachadas
@@ -43,8 +44,8 @@ Como cada peça é feita (coluna "Como"):
 | Pastilha de fachada de prédio (anos 70) | Textura |
 | Pichação e grafite (placas sobrepostas) | Desenho |
 | Cartaz lambe-lambe | Desenho |
-| Portão de ferro, de garagem, de grade | Desenho |
-| Muro baixo com grade; muro com cacos de vidro | Desenho |
+| Portão de ferro, de garagem, de grade | **pronto** (social de grade e de chapa; garagem de chapa em 3 peças) |
+| Muro baixo com grade; muro com cacos de vidro | **pronto** o muro com grade e os muros de 2 m (tijolo, chapiscado, pintados); falta o de cacos de vidro |
 
 ## 4. Telhados e topos
 | Peça | Como |
@@ -89,7 +90,7 @@ Como cada peça é feita (coluna "Como"):
 
 | Peça | Como |
 |---|---|
-| Fachada de casa de laje, de casa com muro e garagem | Desenho + Textura |
+| Fachada de casa de laje, de casa com muro e garagem | **pronto** (Script, `kit_casa_laje.py`, 09/11/2026) |
 | Sobrado geminado | Desenho |
 | Bar de esquina | **pronto** (Script) |
 | Padaria, lanchonete, açougue, quitanda | Desenho |

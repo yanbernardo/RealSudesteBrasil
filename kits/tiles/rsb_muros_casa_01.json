@@ -1,0 +1,845 @@
+{
+ "folha": "rsb_muros_casa_01",
+ "tipo": "cerca",
+ "pecas": [
+  {
+   "peca": "rsb_muros_casa_01_0",
+   "nome": "muro_tijolo N",
+   "descricao": "muro de tijolo baiano aparente",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CloseSneakBonus",
+     "500"
+    ],
+    [
+     "HitByCar",
+     ""
+    ],
+    [
+     "Material",
+     "Stone"
+    ],
+    [
+     "TallHoppableN",
+     ""
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Brick"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_casa_01_1",
+   "nome": "muro_tijolo W",
+   "descricao": "muro de tijolo baiano aparente",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CloseSneakBonus",
+     "500"
+    ],
+    [
+     "HitByCar",
+     ""
+    ],
+    [
+     "Material",
+     "Stone"
+    ],
+    [
+     "TallHoppableW",
+     ""
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Brick"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_casa_01_2",
+   "nome": "muro_tijolo NW",
+   "descricao": "muro de tijolo baiano aparente",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CloseSneakBonus",
+     "500"
+    ],
+    [
+     "CornerNorthWall",
+     "rsb_muros_casa_01_0"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_muros_casa_01_1"
+    ],
+    [
+     "HitByCar",
+     ""
+    ],
+    [
+     "Material",
+     "Stone"
+    ],
+    [
+     "TallHoppableN",
+     ""
+    ],
+    [
+     "TallHoppableW",
+     ""
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Brick"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_casa_01_3",
+   "nome": "muro_tijolo SE",
+   "descricao": "muro de tijolo baiano aparente",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "HitByCar",
+     ""
+    ],
+    [
+     "Material",
+     "Stone"
+    ],
+    [
+     "NoWallLighting",
+     ""
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Brick"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_casa_01_4",
+   "nome": "muro_chapiscado N",
+   "descricao": "muro chapiscado cinza",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CloseSneakBonus",
+     "500"
+    ],
+    [
+     "HitByCar",
+     ""
+    ],
+    [
+     "Material",
+     "Stone"
+    ],
+    [
+     "TallHoppableN",
+     ""
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Concrete"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_casa_01_5",
+   "nome": "muro_chapiscado W",
+   "descricao": "muro chapiscado cinza",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CloseSneakBonus",
+     "500"
+    ],
+    [
+     "HitByCar",
+     ""
+    ],
+    [
+     "Material",
+     "Stone"
+    ],
+    [
+     "TallHoppableW",
+     ""
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Concrete"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_casa_01_6",
+   "nome": "muro_chapiscado NW",
+   "descricao": "muro chapiscado cinza",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CloseSneakBonus",
+     "500"
+    ],
+    [
+     "CornerNorthWall",
+     "rsb_muros_casa_01_4"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_muros_casa_01_5"
+    ],
+    [
+     "HitByCar",
+     ""
+    ],
+    [
+     "Material",
+     "Stone"
+    ],
+    [
+     "TallHoppableN",
+     ""
+    ],
+    [
+     "TallHoppableW",
+     ""
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Concrete"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_casa_01_7",
+   "nome": "muro_chapiscado SE",
+   "descricao": "muro chapiscado cinza",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "HitByCar",
+     ""
+    ],
+    [
+     "Material",
+     "Stone"
+    ],
+    [
+     "NoWallLighting",
+     ""
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Concrete"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_casa_01_8",
+   "nome": "muro_amarelo N",
+   "descricao": "muro rebocado e pintado de amarelo",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CloseSneakBonus",
+     "500"
+    ],
+    [
+     "HitByCar",
+     ""
+    ],
+    [
+     "Material",
+     "Stone"
+    ],
+    [
+     "TallHoppableN",
+     ""
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Concrete"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_casa_01_9",
+   "nome": "muro_amarelo W",
+   "descricao": "muro rebocado e pintado de amarelo",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CloseSneakBonus",
+     "500"
+    ],
+    [
+     "HitByCar",
+     ""
+    ],
+    [
+     "Material",
+     "Stone"
+    ],
+    [
+     "TallHoppableW",
+     ""
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Concrete"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_casa_01_10",
+   "nome": "muro_amarelo NW",
+   "descricao": "muro rebocado e pintado de amarelo",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CloseSneakBonus",
+     "500"
+    ],
+    [
+     "CornerNorthWall",
+     "rsb_muros_casa_01_8"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_muros_casa_01_9"
+    ],
+    [
+     "HitByCar",
+     ""
+    ],
+    [
+     "Material",
+     "Stone"
+    ],
+    [
+     "TallHoppableN",
+     ""
+    ],
+    [
+     "TallHoppableW",
+     ""
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Concrete"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_casa_01_11",
+   "nome": "muro_amarelo SE",
+   "descricao": "muro rebocado e pintado de amarelo",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "HitByCar",
+     ""
+    ],
+    [
+     "Material",
+     "Stone"
+    ],
+    [
+     "NoWallLighting",
+     ""
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Concrete"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_casa_01_12",
+   "nome": "muro_branco N",
+   "descricao": "muro rebocado branco encardido",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CloseSneakBonus",
+     "500"
+    ],
+    [
+     "HitByCar",
+     ""
+    ],
+    [
+     "Material",
+     "Stone"
+    ],
+    [
+     "TallHoppableN",
+     ""
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Concrete"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_casa_01_13",
+   "nome": "muro_branco W",
+   "descricao": "muro rebocado branco encardido",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CloseSneakBonus",
+     "500"
+    ],
+    [
+     "HitByCar",
+     ""
+    ],
+    [
+     "Material",
+     "Stone"
+    ],
+    [
+     "TallHoppableW",
+     ""
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Concrete"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_casa_01_14",
+   "nome": "muro_branco NW",
+   "descricao": "muro rebocado branco encardido",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CloseSneakBonus",
+     "500"
+    ],
+    [
+     "CornerNorthWall",
+     "rsb_muros_casa_01_12"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_muros_casa_01_13"
+    ],
+    [
+     "HitByCar",
+     ""
+    ],
+    [
+     "Material",
+     "Stone"
+    ],
+    [
+     "TallHoppableN",
+     ""
+    ],
+    [
+     "TallHoppableW",
+     ""
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Concrete"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_casa_01_15",
+   "nome": "muro_branco SE",
+   "descricao": "muro rebocado branco encardido",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "HitByCar",
+     ""
+    ],
+    [
+     "Material",
+     "Stone"
+    ],
+    [
+     "NoWallLighting",
+     ""
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Concrete"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_casa_01_16",
+   "nome": "muro_grade N",
+   "descricao": "muro baixo branco com grade preta em cima",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CloseSneakBonus",
+     "500"
+    ],
+    [
+     "HitByCar",
+     ""
+    ],
+    [
+     "Material",
+     "MetalBars"
+    ],
+    [
+     "TallHoppableN",
+     ""
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Concrete"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_casa_01_17",
+   "nome": "muro_grade W",
+   "descricao": "muro baixo branco com grade preta em cima",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CloseSneakBonus",
+     "500"
+    ],
+    [
+     "HitByCar",
+     ""
+    ],
+    [
+     "Material",
+     "MetalBars"
+    ],
+    [
+     "TallHoppableW",
+     ""
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Concrete"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_casa_01_18",
+   "nome": "muro_grade NW",
+   "descricao": "muro baixo branco com grade preta em cima",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CloseSneakBonus",
+     "500"
+    ],
+    [
+     "CornerNorthWall",
+     "rsb_muros_casa_01_16"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_muros_casa_01_17"
+    ],
+    [
+     "HitByCar",
+     ""
+    ],
+    [
+     "Material",
+     "MetalBars"
+    ],
+    [
+     "TallHoppableN",
+     ""
+    ],
+    [
+     "TallHoppableW",
+     ""
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Concrete"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_casa_01_19",
+   "nome": "muro_grade SE",
+   "descricao": "muro baixo branco com grade preta em cima",
+   "props": [
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "HitByCar",
+     ""
+    ],
+    [
+     "Material",
+     "MetalBars"
+    ],
+    [
+     "NoWallLighting",
+     ""
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Concrete"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muros_casa_01_20",
+   "props": []
+  },
+  {
+   "peca": "rsb_muros_casa_01_21",
+   "props": []
+  },
+  {
+   "peca": "rsb_muros_casa_01_22",
+   "props": []
+  },
+  {
+   "peca": "rsb_muros_casa_01_23",
+   "props": []
+  }
+ ],
+ "buildingtiles": {},
+ "bt_nomes_prontos": false,
+ "estilo": "pz_v1"
+}

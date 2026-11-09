@@ -1,0 +1,998 @@
+{
+ "folha": "rsb_paredes_casa_01",
+ "tipo": "parede",
+ "pecas": [
+  {
+   "peca": "rsb_paredes_casa_01_0",
+   "nome": "grafiato_amarelo WallW",
+   "descricao": "fachada de grafiato amarelo",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_1",
+   "nome": "grafiato_amarelo WallN",
+   "descricao": "fachada de grafiato amarelo",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_2",
+   "nome": "grafiato_amarelo WallNW",
+   "descricao": "fachada de grafiato amarelo",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_paredes_casa_01_1"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_paredes_casa_01_0"
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_3",
+   "nome": "grafiato_amarelo WallSE",
+   "descricao": "fachada de grafiato amarelo",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_4",
+   "nome": "grafiato_verde_claro WallW",
+   "descricao": "fachada de grafiato verde-claro",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_5",
+   "nome": "grafiato_verde_claro WallN",
+   "descricao": "fachada de grafiato verde-claro",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_6",
+   "nome": "grafiato_verde_claro WallNW",
+   "descricao": "fachada de grafiato verde-claro",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_paredes_casa_01_5"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_paredes_casa_01_4"
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_7",
+   "nome": "grafiato_verde_claro WallSE",
+   "descricao": "fachada de grafiato verde-claro",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_8",
+   "nome": "grafiato_amarelo WindowW",
+   "descricao": "fachada de grafiato amarelo",
+   "props": [
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_9",
+   "nome": "grafiato_amarelo WindowN",
+   "descricao": "fachada de grafiato amarelo",
+   "props": [
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_10",
+   "nome": "grafiato_amarelo DoorWallW",
+   "descricao": "fachada de grafiato amarelo",
+   "props": [
+    [
+     "DoorWallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_11",
+   "nome": "grafiato_amarelo DoorWallN",
+   "descricao": "fachada de grafiato amarelo",
+   "props": [
+    [
+     "DoorWallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_12",
+   "nome": "grafiato_verde_claro WindowW",
+   "descricao": "fachada de grafiato verde-claro",
+   "props": [
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_13",
+   "nome": "grafiato_verde_claro WindowN",
+   "descricao": "fachada de grafiato verde-claro",
+   "props": [
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_14",
+   "nome": "grafiato_verde_claro DoorWallW",
+   "descricao": "fachada de grafiato verde-claro",
+   "props": [
+    [
+     "DoorWallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_15",
+   "nome": "grafiato_verde_claro DoorWallN",
+   "descricao": "fachada de grafiato verde-claro",
+   "props": [
+    [
+     "DoorWallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_16",
+   "nome": "grafiato_pessego WallW",
+   "descricao": "fachada de grafiato pêssego",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_17",
+   "nome": "grafiato_pessego WallN",
+   "descricao": "fachada de grafiato pêssego",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_18",
+   "nome": "grafiato_pessego WallNW",
+   "descricao": "fachada de grafiato pêssego",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_paredes_casa_01_17"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_paredes_casa_01_16"
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_19",
+   "nome": "grafiato_pessego WallSE",
+   "descricao": "fachada de grafiato pêssego",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_20",
+   "nome": "branco_novo WallW",
+   "descricao": "reboco pintado de branco, pintura nova",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_21",
+   "nome": "branco_novo WallN",
+   "descricao": "reboco pintado de branco, pintura nova",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_22",
+   "nome": "branco_novo WallNW",
+   "descricao": "reboco pintado de branco, pintura nova",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_paredes_casa_01_21"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_paredes_casa_01_20"
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_23",
+   "nome": "branco_novo WallSE",
+   "descricao": "reboco pintado de branco, pintura nova",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_24",
+   "nome": "grafiato_pessego WindowW",
+   "descricao": "fachada de grafiato pêssego",
+   "props": [
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_25",
+   "nome": "grafiato_pessego WindowN",
+   "descricao": "fachada de grafiato pêssego",
+   "props": [
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_26",
+   "nome": "grafiato_pessego DoorWallW",
+   "descricao": "fachada de grafiato pêssego",
+   "props": [
+    [
+     "DoorWallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_27",
+   "nome": "grafiato_pessego DoorWallN",
+   "descricao": "fachada de grafiato pêssego",
+   "props": [
+    [
+     "DoorWallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_28",
+   "nome": "branco_novo WindowW",
+   "descricao": "reboco pintado de branco, pintura nova",
+   "props": [
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_29",
+   "nome": "branco_novo WindowN",
+   "descricao": "reboco pintado de branco, pintura nova",
+   "props": [
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_30",
+   "nome": "branco_novo DoorWallW",
+   "descricao": "reboco pintado de branco, pintura nova",
+   "props": [
+    [
+     "DoorWallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_31",
+   "nome": "branco_novo DoorWallN",
+   "descricao": "reboco pintado de branco, pintura nova",
+   "props": [
+    [
+     "DoorWallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_32",
+   "nome": "barra_miracema_azul WallW",
+   "descricao": "barra de pedra miracema e grafiato azul-claro",
+   "props": [
+    [
+     "MaterialType",
+     "Stone"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_33",
+   "nome": "barra_miracema_azul WallN",
+   "descricao": "barra de pedra miracema e grafiato azul-claro",
+   "props": [
+    [
+     "MaterialType",
+     "Stone"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_34",
+   "nome": "barra_miracema_azul WallNW",
+   "descricao": "barra de pedra miracema e grafiato azul-claro",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_paredes_casa_01_33"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_paredes_casa_01_32"
+    ],
+    [
+     "MaterialType",
+     "Stone"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_35",
+   "nome": "barra_miracema_azul WallSE",
+   "descricao": "barra de pedra miracema e grafiato azul-claro",
+   "props": [
+    [
+     "MaterialType",
+     "Stone"
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_36",
+   "nome": "ceramica_filete WallW",
+   "descricao": "cerâmica de fachada em filetes (bege e marrom)",
+   "props": [
+    [
+     "MaterialType",
+     "Ceramic"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_37",
+   "nome": "ceramica_filete WallN",
+   "descricao": "cerâmica de fachada em filetes (bege e marrom)",
+   "props": [
+    [
+     "MaterialType",
+     "Ceramic"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_38",
+   "nome": "ceramica_filete WallNW",
+   "descricao": "cerâmica de fachada em filetes (bege e marrom)",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_paredes_casa_01_37"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_paredes_casa_01_36"
+    ],
+    [
+     "MaterialType",
+     "Ceramic"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_39",
+   "nome": "ceramica_filete WallSE",
+   "descricao": "cerâmica de fachada em filetes (bege e marrom)",
+   "props": [
+    [
+     "MaterialType",
+     "Ceramic"
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_40",
+   "nome": "barra_miracema_azul WindowW",
+   "descricao": "barra de pedra miracema e grafiato azul-claro",
+   "props": [
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_41",
+   "nome": "barra_miracema_azul WindowN",
+   "descricao": "barra de pedra miracema e grafiato azul-claro",
+   "props": [
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_42",
+   "nome": "barra_miracema_azul DoorWallW",
+   "descricao": "barra de pedra miracema e grafiato azul-claro",
+   "props": [
+    [
+     "DoorWallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_43",
+   "nome": "barra_miracema_azul DoorWallN",
+   "descricao": "barra de pedra miracema e grafiato azul-claro",
+   "props": [
+    [
+     "DoorWallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_44",
+   "nome": "ceramica_filete WindowW",
+   "descricao": "cerâmica de fachada em filetes (bege e marrom)",
+   "props": [
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_45",
+   "nome": "ceramica_filete WindowN",
+   "descricao": "cerâmica de fachada em filetes (bege e marrom)",
+   "props": [
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_46",
+   "nome": "ceramica_filete DoorWallW",
+   "descricao": "cerâmica de fachada em filetes (bege e marrom)",
+   "props": [
+    [
+     "DoorWallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_casa_01_47",
+   "nome": "ceramica_filete DoorWallN",
+   "descricao": "cerâmica de fachada em filetes (bege e marrom)",
+   "props": [
+    [
+     "DoorWallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  }
+ ],
+ "buildingtiles": {
+  "exterior_walls": [
+   {
+    "West": 0,
+    "North": 1,
+    "NorthWest": 2,
+    "SouthEast": 3,
+    "WestWindow": 8,
+    "NorthWindow": 9,
+    "WestDoor": 10,
+    "NorthDoor": 11
+   },
+   {
+    "West": 4,
+    "North": 5,
+    "NorthWest": 6,
+    "SouthEast": 7,
+    "WestWindow": 12,
+    "NorthWindow": 13,
+    "WestDoor": 14,
+    "NorthDoor": 15
+   },
+   {
+    "West": 16,
+    "North": 17,
+    "NorthWest": 18,
+    "SouthEast": 19,
+    "WestWindow": 24,
+    "NorthWindow": 25,
+    "WestDoor": 26,
+    "NorthDoor": 27
+   },
+   {
+    "West": 20,
+    "North": 21,
+    "NorthWest": 22,
+    "SouthEast": 23,
+    "WestWindow": 28,
+    "NorthWindow": 29,
+    "WestDoor": 30,
+    "NorthDoor": 31
+   },
+   {
+    "West": 32,
+    "North": 33,
+    "NorthWest": 34,
+    "SouthEast": 35,
+    "WestWindow": 40,
+    "NorthWindow": 41,
+    "WestDoor": 42,
+    "NorthDoor": 43
+   },
+   {
+    "West": 36,
+    "North": 37,
+    "NorthWest": 38,
+    "SouthEast": 39,
+    "WestWindow": 44,
+    "NorthWindow": 45,
+    "WestDoor": 46,
+    "NorthDoor": 47
+   }
+  ],
+  "interior_walls": [
+   {
+    "West": 0,
+    "North": 1,
+    "NorthWest": 2,
+    "SouthEast": 3,
+    "WestWindow": 8,
+    "NorthWindow": 9,
+    "WestDoor": 10,
+    "NorthDoor": 11
+   },
+   {
+    "West": 4,
+    "North": 5,
+    "NorthWest": 6,
+    "SouthEast": 7,
+    "WestWindow": 12,
+    "NorthWindow": 13,
+    "WestDoor": 14,
+    "NorthDoor": 15
+   },
+   {
+    "West": 16,
+    "North": 17,
+    "NorthWest": 18,
+    "SouthEast": 19,
+    "WestWindow": 24,
+    "NorthWindow": 25,
+    "WestDoor": 26,
+    "NorthDoor": 27
+   },
+   {
+    "West": 20,
+    "North": 21,
+    "NorthWest": 22,
+    "SouthEast": 23,
+    "WestWindow": 28,
+    "NorthWindow": 29,
+    "WestDoor": 30,
+    "NorthDoor": 31
+   },
+   {
+    "West": 32,
+    "North": 33,
+    "NorthWest": 34,
+    "SouthEast": 35,
+    "WestWindow": 40,
+    "NorthWindow": 41,
+    "WestDoor": 42,
+    "NorthDoor": 43
+   },
+   {
+    "West": 36,
+    "North": 37,
+    "NorthWest": 38,
+    "SouthEast": 39,
+    "WestWindow": 44,
+    "NorthWindow": 45,
+    "WestDoor": 46,
+    "NorthDoor": 47
+   }
+  ]
+ },
+ "bt_nomes_prontos": false,
+ "estilo": "pz_v1"
+}

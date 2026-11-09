@@ -1,0 +1,1243 @@
+{
+ "folha": "rsb_objetos_casa_01",
+ "tipo": "objeto",
+ "pecas": [
+  {
+   "peca": "rsb_objetos_casa_01_0",
+   "nome": "tanque_s",
+   "descricao": "tanque de lavar roupa, frente para S",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Sink"
+    ],
+    [
+     "Facing",
+     "S"
+    ],
+    [
+     "GroupName",
+     "Tanque"
+    ],
+    [
+     "IsLow",
+     ""
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "IsSurfaceOffset",
+     ""
+    ],
+    [
+     "Material",
+     "MetalPlates"
+    ],
+    [
+     "Material2",
+     "MetalPipe"
+    ],
+    [
+     "PickUpWeight",
+     "200"
+    ],
+    [
+     "Surface",
+     "35"
+    ],
+    [
+     "solidtrans",
+     ""
+    ],
+    [
+     "waterAmount",
+     "20"
+    ],
+    [
+     "waterMaxAmount",
+     "20"
+    ],
+    [
+     "waterPiped",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_casa_01_1",
+   "nome": "tanque_l",
+   "descricao": "tanque de lavar roupa, frente para L",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Sink"
+    ],
+    [
+     "Facing",
+     "E"
+    ],
+    [
+     "GroupName",
+     "Tanque"
+    ],
+    [
+     "IsLow",
+     ""
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "IsSurfaceOffset",
+     ""
+    ],
+    [
+     "Material",
+     "MetalPlates"
+    ],
+    [
+     "Material2",
+     "MetalPipe"
+    ],
+    [
+     "PickUpWeight",
+     "200"
+    ],
+    [
+     "Surface",
+     "35"
+    ],
+    [
+     "solidtrans",
+     ""
+    ],
+    [
+     "waterAmount",
+     "20"
+    ],
+    [
+     "waterMaxAmount",
+     "20"
+    ],
+    [
+     "waterPiped",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_casa_01_2",
+   "nome": "tanque_n",
+   "descricao": "tanque de lavar roupa, frente para N",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Sink"
+    ],
+    [
+     "Facing",
+     "N"
+    ],
+    [
+     "GroupName",
+     "Tanque"
+    ],
+    [
+     "IsLow",
+     ""
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "IsSurfaceOffset",
+     ""
+    ],
+    [
+     "Material",
+     "MetalPlates"
+    ],
+    [
+     "Material2",
+     "MetalPipe"
+    ],
+    [
+     "PickUpWeight",
+     "200"
+    ],
+    [
+     "Surface",
+     "35"
+    ],
+    [
+     "solidtrans",
+     ""
+    ],
+    [
+     "waterAmount",
+     "20"
+    ],
+    [
+     "waterMaxAmount",
+     "20"
+    ],
+    [
+     "waterPiped",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_casa_01_3",
+   "nome": "tanque_o",
+   "descricao": "tanque de lavar roupa, frente para O",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Sink"
+    ],
+    [
+     "Facing",
+     "W"
+    ],
+    [
+     "GroupName",
+     "Tanque"
+    ],
+    [
+     "IsLow",
+     ""
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "IsSurfaceOffset",
+     ""
+    ],
+    [
+     "Material",
+     "MetalPlates"
+    ],
+    [
+     "Material2",
+     "MetalPipe"
+    ],
+    [
+     "PickUpWeight",
+     "200"
+    ],
+    [
+     "Surface",
+     "35"
+    ],
+    [
+     "solidtrans",
+     ""
+    ],
+    [
+     "waterAmount",
+     "20"
+    ],
+    [
+     "waterMaxAmount",
+     "20"
+    ],
+    [
+     "waterPiped",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_casa_01_4",
+   "nome": "botijao_gas",
+   "descricao": "botijão de gás",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "solidtrans",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_casa_01_5",
+   "nome": "espada_sao_jorge",
+   "descricao": "vaso de espada-de-são-jorge",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_casa_01_6",
+   "nome": "cadeira_fio_vermelha_s",
+   "descricao": "cadeira de fio vermelha, virada para S",
+   "props": [
+    [
+     "BedType",
+     "badBed"
+    ],
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Chair"
+    ],
+    [
+     "Facing",
+     "S"
+    ],
+    [
+     "GroupName",
+     "Fio"
+    ],
+    [
+     "IsLow",
+     ""
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "Material",
+     "PlasticHard"
+    ],
+    [
+     "MaterialType",
+     "Plastic"
+    ],
+    [
+     "PickUpWeight",
+     "50"
+    ],
+    [
+     "ScrapSize",
+     "Small"
+    ],
+    [
+     "SnowTile",
+     "object_snow_overlay_01_65"
+    ],
+    [
+     "Surface",
+     "17"
+    ],
+    [
+     "bed",
+     ""
+    ],
+    [
+     "chairS",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_casa_01_7",
+   "nome": "cadeira_fio_vermelha_l",
+   "descricao": "cadeira de fio vermelha, virada para L",
+   "props": [
+    [
+     "BedType",
+     "badBed"
+    ],
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Chair"
+    ],
+    [
+     "Facing",
+     "E"
+    ],
+    [
+     "GroupName",
+     "Fio"
+    ],
+    [
+     "IsLow",
+     ""
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "Material",
+     "PlasticHard"
+    ],
+    [
+     "MaterialType",
+     "Plastic"
+    ],
+    [
+     "PickUpWeight",
+     "50"
+    ],
+    [
+     "ScrapSize",
+     "Small"
+    ],
+    [
+     "SnowTile",
+     "object_snow_overlay_01_64"
+    ],
+    [
+     "Surface",
+     "17"
+    ],
+    [
+     "bed",
+     ""
+    ],
+    [
+     "chairE",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_casa_01_8",
+   "nome": "cadeira_fio_vermelha_n",
+   "descricao": "cadeira de fio vermelha, virada para N",
+   "props": [
+    [
+     "BedType",
+     "badBed"
+    ],
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Chair"
+    ],
+    [
+     "Facing",
+     "N"
+    ],
+    [
+     "GroupName",
+     "Fio"
+    ],
+    [
+     "IsLow",
+     ""
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "Material",
+     "PlasticHard"
+    ],
+    [
+     "MaterialType",
+     "Plastic"
+    ],
+    [
+     "PickUpWeight",
+     "50"
+    ],
+    [
+     "ScrapSize",
+     "Small"
+    ],
+    [
+     "SnowTile",
+     "object_snow_overlay_01_66"
+    ],
+    [
+     "Surface",
+     "17"
+    ],
+    [
+     "bed",
+     ""
+    ],
+    [
+     "chairN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_casa_01_9",
+   "nome": "cadeira_fio_vermelha_o",
+   "descricao": "cadeira de fio vermelha, virada para O",
+   "props": [
+    [
+     "BedType",
+     "badBed"
+    ],
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Chair"
+    ],
+    [
+     "Facing",
+     "W"
+    ],
+    [
+     "GroupName",
+     "Fio"
+    ],
+    [
+     "IsLow",
+     ""
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "Material",
+     "PlasticHard"
+    ],
+    [
+     "MaterialType",
+     "Plastic"
+    ],
+    [
+     "PickUpWeight",
+     "50"
+    ],
+    [
+     "ScrapSize",
+     "Small"
+    ],
+    [
+     "SnowTile",
+     "object_snow_overlay_01_67"
+    ],
+    [
+     "Surface",
+     "17"
+    ],
+    [
+     "bed",
+     ""
+    ],
+    [
+     "chairW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_casa_01_10",
+   "nome": "cadeira_fio_azul_s",
+   "descricao": "cadeira de fio azul, virada para S",
+   "props": [
+    [
+     "BedType",
+     "badBed"
+    ],
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Chair"
+    ],
+    [
+     "Facing",
+     "S"
+    ],
+    [
+     "GroupName",
+     "Fio"
+    ],
+    [
+     "IsLow",
+     ""
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "Material",
+     "PlasticHard"
+    ],
+    [
+     "MaterialType",
+     "Plastic"
+    ],
+    [
+     "PickUpWeight",
+     "50"
+    ],
+    [
+     "ScrapSize",
+     "Small"
+    ],
+    [
+     "SnowTile",
+     "object_snow_overlay_01_65"
+    ],
+    [
+     "Surface",
+     "17"
+    ],
+    [
+     "bed",
+     ""
+    ],
+    [
+     "chairS",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_casa_01_11",
+   "nome": "cadeira_fio_azul_l",
+   "descricao": "cadeira de fio azul, virada para L",
+   "props": [
+    [
+     "BedType",
+     "badBed"
+    ],
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Chair"
+    ],
+    [
+     "Facing",
+     "E"
+    ],
+    [
+     "GroupName",
+     "Fio"
+    ],
+    [
+     "IsLow",
+     ""
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "Material",
+     "PlasticHard"
+    ],
+    [
+     "MaterialType",
+     "Plastic"
+    ],
+    [
+     "PickUpWeight",
+     "50"
+    ],
+    [
+     "ScrapSize",
+     "Small"
+    ],
+    [
+     "SnowTile",
+     "object_snow_overlay_01_64"
+    ],
+    [
+     "Surface",
+     "17"
+    ],
+    [
+     "bed",
+     ""
+    ],
+    [
+     "chairE",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_casa_01_12",
+   "nome": "cadeira_fio_azul_n",
+   "descricao": "cadeira de fio azul, virada para N",
+   "props": [
+    [
+     "BedType",
+     "badBed"
+    ],
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Chair"
+    ],
+    [
+     "Facing",
+     "N"
+    ],
+    [
+     "GroupName",
+     "Fio"
+    ],
+    [
+     "IsLow",
+     ""
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "Material",
+     "PlasticHard"
+    ],
+    [
+     "MaterialType",
+     "Plastic"
+    ],
+    [
+     "PickUpWeight",
+     "50"
+    ],
+    [
+     "ScrapSize",
+     "Small"
+    ],
+    [
+     "SnowTile",
+     "object_snow_overlay_01_66"
+    ],
+    [
+     "Surface",
+     "17"
+    ],
+    [
+     "bed",
+     ""
+    ],
+    [
+     "chairN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_casa_01_13",
+   "nome": "cadeira_fio_azul_o",
+   "descricao": "cadeira de fio azul, virada para O",
+   "props": [
+    [
+     "BedType",
+     "badBed"
+    ],
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Chair"
+    ],
+    [
+     "Facing",
+     "W"
+    ],
+    [
+     "GroupName",
+     "Fio"
+    ],
+    [
+     "IsLow",
+     ""
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "Material",
+     "PlasticHard"
+    ],
+    [
+     "MaterialType",
+     "Plastic"
+    ],
+    [
+     "PickUpWeight",
+     "50"
+    ],
+    [
+     "ScrapSize",
+     "Small"
+    ],
+    [
+     "SnowTile",
+     "object_snow_overlay_01_67"
+    ],
+    [
+     "Surface",
+     "17"
+    ],
+    [
+     "bed",
+     ""
+    ],
+    [
+     "chairW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_casa_01_14",
+   "nome": "cadeira_fio_verde_s",
+   "descricao": "cadeira de fio verde, virada para S",
+   "props": [
+    [
+     "BedType",
+     "badBed"
+    ],
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Chair"
+    ],
+    [
+     "Facing",
+     "S"
+    ],
+    [
+     "GroupName",
+     "Fio"
+    ],
+    [
+     "IsLow",
+     ""
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "Material",
+     "PlasticHard"
+    ],
+    [
+     "MaterialType",
+     "Plastic"
+    ],
+    [
+     "PickUpWeight",
+     "50"
+    ],
+    [
+     "ScrapSize",
+     "Small"
+    ],
+    [
+     "SnowTile",
+     "object_snow_overlay_01_65"
+    ],
+    [
+     "Surface",
+     "17"
+    ],
+    [
+     "bed",
+     ""
+    ],
+    [
+     "chairS",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_casa_01_15",
+   "nome": "cadeira_fio_verde_l",
+   "descricao": "cadeira de fio verde, virada para L",
+   "props": [
+    [
+     "BedType",
+     "badBed"
+    ],
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Chair"
+    ],
+    [
+     "Facing",
+     "E"
+    ],
+    [
+     "GroupName",
+     "Fio"
+    ],
+    [
+     "IsLow",
+     ""
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "Material",
+     "PlasticHard"
+    ],
+    [
+     "MaterialType",
+     "Plastic"
+    ],
+    [
+     "PickUpWeight",
+     "50"
+    ],
+    [
+     "ScrapSize",
+     "Small"
+    ],
+    [
+     "SnowTile",
+     "object_snow_overlay_01_64"
+    ],
+    [
+     "Surface",
+     "17"
+    ],
+    [
+     "bed",
+     ""
+    ],
+    [
+     "chairE",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_casa_01_16",
+   "nome": "cadeira_fio_verde_n",
+   "descricao": "cadeira de fio verde, virada para N",
+   "props": [
+    [
+     "BedType",
+     "badBed"
+    ],
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Chair"
+    ],
+    [
+     "Facing",
+     "N"
+    ],
+    [
+     "GroupName",
+     "Fio"
+    ],
+    [
+     "IsLow",
+     ""
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "Material",
+     "PlasticHard"
+    ],
+    [
+     "MaterialType",
+     "Plastic"
+    ],
+    [
+     "PickUpWeight",
+     "50"
+    ],
+    [
+     "ScrapSize",
+     "Small"
+    ],
+    [
+     "SnowTile",
+     "object_snow_overlay_01_66"
+    ],
+    [
+     "Surface",
+     "17"
+    ],
+    [
+     "bed",
+     ""
+    ],
+    [
+     "chairN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_casa_01_17",
+   "nome": "cadeira_fio_verde_o",
+   "descricao": "cadeira de fio verde, virada para O",
+   "props": [
+    [
+     "BedType",
+     "badBed"
+    ],
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Chair"
+    ],
+    [
+     "Facing",
+     "W"
+    ],
+    [
+     "GroupName",
+     "Fio"
+    ],
+    [
+     "IsLow",
+     ""
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "Material",
+     "PlasticHard"
+    ],
+    [
+     "MaterialType",
+     "Plastic"
+    ],
+    [
+     "PickUpWeight",
+     "50"
+    ],
+    [
+     "ScrapSize",
+     "Small"
+    ],
+    [
+     "SnowTile",
+     "object_snow_overlay_01_67"
+    ],
+    [
+     "Surface",
+     "17"
+    ],
+    [
+     "bed",
+     ""
+    ],
+    [
+     "chairW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_casa_01_18",
+   "nome": "relogio_luz_n",
+   "descricao": "padrão de energia (relógio de luz), parede N",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_casa_01_19",
+   "nome": "interfone_numero_n",
+   "descricao": "número, interfone e caixa de correio, parede N",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_casa_01_20",
+   "nome": "grade_janela_reta_n",
+   "descricao": "grade de janela (reta), parede N",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_casa_01_21",
+   "nome": "grade_janela_losango_n",
+   "descricao": "grade de janela (losango), parede N",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_casa_01_22",
+   "nome": "relogio_luz_o",
+   "descricao": "padrão de energia (relógio de luz), parede O",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_casa_01_23",
+   "nome": "interfone_numero_o",
+   "descricao": "número, interfone e caixa de correio, parede O",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_casa_01_24",
+   "nome": "grade_janela_reta_o",
+   "descricao": "grade de janela (reta), parede O",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_casa_01_25",
+   "nome": "grade_janela_losango_o",
+   "descricao": "grade de janela (losango), parede O",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_casa_01_26",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_casa_01_27",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_casa_01_28",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_casa_01_29",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_casa_01_30",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_casa_01_31",
+   "props": []
+  }
+ ],
+ "buildingtiles": {},
+ "bt_nomes_prontos": false,
+ "estilo": "pz_v1"
+}

@@ -1,0 +1,144 @@
+{
+ "folha": "rsb_pisos_casa_01",
+ "tipo": "piso",
+ "pecas": [
+  {
+   "peca": "rsb_pisos_casa_01_0",
+   "nome": "pedra_miracema",
+   "descricao": "pedra miracema (quintal e garagem)",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ],
+    [
+     "exterior",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_pisos_casa_01_1",
+   "nome": "ardosia",
+   "descricao": "ardósia cinza-escura (varanda e sala)",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_pisos_casa_01_2",
+   "nome": "ceramica_rustica_garagem",
+   "descricao": "cerâmica rústica antiderrapante (garagem)",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ],
+    [
+     "exterior",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_pisos_casa_01_3",
+   "nome": "ceramica_branca_45",
+   "descricao": "cerâmica branca 45 x 45 (sala e quartos)",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_pisos_casa_01_4",
+   "nome": "cimentado_garagem",
+   "descricao": "cimentado de garagem com mancha de óleo",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ],
+    [
+     "exterior",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_pisos_casa_01_5",
+   "nome": "bloquete",
+   "descricao": "bloquete (piso intertravado de concreto)",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ],
+    [
+     "exterior",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_pisos_casa_01_6",
+   "props": []
+  },
+  {
+   "peca": "rsb_pisos_casa_01_7",
+   "props": []
+  }
+ ],
+ "buildingtiles": {
+  "floors": [
+   {
+    "Floor": 0
+   },
+   {
+    "Floor": 1
+   },
+   {
+    "Floor": 2
+   },
+   {
+    "Floor": 3
+   },
+   {
+    "Floor": 4
+   },
+   {
+    "Floor": 5
+   }
+  ]
+ },
+ "bt_nomes_prontos": false,
+ "estilo": "pz_v1"
+}
