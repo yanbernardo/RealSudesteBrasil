@@ -1,0 +1,1176 @@
+{
+ "folha": "rsb_muretas_favela_01",
+ "tipo": "parede",
+ "pecas": [
+  {
+   "peca": "rsb_muretas_favela_01_0",
+   "nome": "mureta meia altura tijolo_baiano W",
+   "descricao": "tijolo baiano aparente (laranja), argamassa grossa",
+   "props": [
+    [
+     "HoppableW",
+     ""
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Brick"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_1",
+   "nome": "mureta meia altura tijolo_baiano N",
+   "descricao": "tijolo baiano aparente (laranja), argamassa grossa",
+   "props": [
+    [
+     "HoppableN",
+     ""
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Brick"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_2",
+   "nome": "mureta meia altura tijolo_baiano NW",
+   "descricao": "tijolo baiano aparente (laranja), argamassa grossa",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_muretas_favela_01_1"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_muretas_favela_01_0"
+    ],
+    [
+     "HoppableN",
+     ""
+    ],
+    [
+     "HoppableW",
+     ""
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Brick"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_3",
+   "nome": "mureta meia altura tijolo_baiano SE",
+   "descricao": "tijolo baiano aparente (laranja), argamassa grossa",
+   "props": [
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Brick"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_4",
+   "nome": "mureta meia altura bloco_concreto W",
+   "descricao": "bloco de concreto aparente (cinza)",
+   "props": [
+    [
+     "HoppableW",
+     ""
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Stone"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_5",
+   "nome": "mureta meia altura bloco_concreto N",
+   "descricao": "bloco de concreto aparente (cinza)",
+   "props": [
+    [
+     "HoppableN",
+     ""
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Stone"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_6",
+   "nome": "mureta meia altura bloco_concreto NW",
+   "descricao": "bloco de concreto aparente (cinza)",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_muretas_favela_01_5"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_muretas_favela_01_4"
+    ],
+    [
+     "HoppableN",
+     ""
+    ],
+    [
+     "HoppableW",
+     ""
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Stone"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_7",
+   "nome": "mureta meia altura bloco_concreto SE",
+   "descricao": "bloco de concreto aparente (cinza)",
+   "props": [
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Stone"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_8",
+   "nome": "mureta baixa tijolo_baiano W",
+   "descricao": "tijolo baiano aparente (laranja), argamassa grossa",
+   "props": [
+    [
+     "HoppableW",
+     ""
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Brick"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_9",
+   "nome": "mureta baixa tijolo_baiano N",
+   "descricao": "tijolo baiano aparente (laranja), argamassa grossa",
+   "props": [
+    [
+     "HoppableN",
+     ""
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Brick"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_10",
+   "nome": "mureta baixa tijolo_baiano NW",
+   "descricao": "tijolo baiano aparente (laranja), argamassa grossa",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_muretas_favela_01_9"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_muretas_favela_01_8"
+    ],
+    [
+     "HoppableN",
+     ""
+    ],
+    [
+     "HoppableW",
+     ""
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Brick"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_11",
+   "nome": "mureta baixa tijolo_baiano SE",
+   "descricao": "tijolo baiano aparente (laranja), argamassa grossa",
+   "props": [
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Brick"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_12",
+   "nome": "mureta baixa bloco_concreto W",
+   "descricao": "bloco de concreto aparente (cinza)",
+   "props": [
+    [
+     "HoppableW",
+     ""
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Stone"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_13",
+   "nome": "mureta baixa bloco_concreto N",
+   "descricao": "bloco de concreto aparente (cinza)",
+   "props": [
+    [
+     "HoppableN",
+     ""
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Stone"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_14",
+   "nome": "mureta baixa bloco_concreto NW",
+   "descricao": "bloco de concreto aparente (cinza)",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_muretas_favela_01_13"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_muretas_favela_01_12"
+    ],
+    [
+     "HoppableN",
+     ""
+    ],
+    [
+     "HoppableW",
+     ""
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Stone"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_15",
+   "nome": "mureta baixa bloco_concreto SE",
+   "descricao": "bloco de concreto aparente (cinza)",
+   "props": [
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Stone"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_16",
+   "nome": "mureta inacabada em degraus tijolo_baiano W",
+   "descricao": "tijolo baiano aparente (laranja), argamassa grossa",
+   "props": [
+    [
+     "HoppableW",
+     ""
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Brick"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_17",
+   "nome": "mureta inacabada em degraus tijolo_baiano N",
+   "descricao": "tijolo baiano aparente (laranja), argamassa grossa",
+   "props": [
+    [
+     "HoppableN",
+     ""
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Brick"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_18",
+   "nome": "mureta inacabada em degraus tijolo_baiano NW",
+   "descricao": "tijolo baiano aparente (laranja), argamassa grossa",
+   "props": [
+    [
+     "HoppableW",
+     ""
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Brick"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_19",
+   "nome": "mureta inacabada em degraus tijolo_baiano SE",
+   "descricao": "tijolo baiano aparente (laranja), argamassa grossa",
+   "props": [
+    [
+     "HoppableN",
+     ""
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Brick"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_20",
+   "nome": "mureta inacabada em degraus bloco_concreto W",
+   "descricao": "bloco de concreto aparente (cinza)",
+   "props": [
+    [
+     "HoppableW",
+     ""
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Stone"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_21",
+   "nome": "mureta inacabada em degraus bloco_concreto N",
+   "descricao": "bloco de concreto aparente (cinza)",
+   "props": [
+    [
+     "HoppableN",
+     ""
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Stone"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_22",
+   "nome": "mureta inacabada em degraus bloco_concreto NW",
+   "descricao": "bloco de concreto aparente (cinza)",
+   "props": [
+    [
+     "HoppableW",
+     ""
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Stone"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_23",
+   "nome": "mureta inacabada em degraus bloco_concreto SE",
+   "descricao": "bloco de concreto aparente (cinza)",
+   "props": [
+    [
+     "HoppableN",
+     ""
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Stone"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_24",
+   "nome": "mureta meia altura reboco_cru W",
+   "descricao": "reboco cru / chapisco cinza, sem pintura",
+   "props": [
+    [
+     "HoppableW",
+     ""
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_25",
+   "nome": "mureta meia altura reboco_cru N",
+   "descricao": "reboco cru / chapisco cinza, sem pintura",
+   "props": [
+    [
+     "HoppableN",
+     ""
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_26",
+   "nome": "mureta meia altura reboco_cru NW",
+   "descricao": "reboco cru / chapisco cinza, sem pintura",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_muretas_favela_01_25"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_muretas_favela_01_24"
+    ],
+    [
+     "HoppableN",
+     ""
+    ],
+    [
+     "HoppableW",
+     ""
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_27",
+   "nome": "mureta meia altura reboco_cru SE",
+   "descricao": "reboco cru / chapisco cinza, sem pintura",
+   "props": [
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_28",
+   "nome": "mureta meia altura reboco_branco_encardido W",
+   "descricao": "reboco branco encardido",
+   "props": [
+    [
+     "HoppableW",
+     ""
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_29",
+   "nome": "mureta meia altura reboco_branco_encardido N",
+   "descricao": "reboco branco encardido",
+   "props": [
+    [
+     "HoppableN",
+     ""
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_30",
+   "nome": "mureta meia altura reboco_branco_encardido NW",
+   "descricao": "reboco branco encardido",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_muretas_favela_01_29"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_muretas_favela_01_28"
+    ],
+    [
+     "HoppableN",
+     ""
+    ],
+    [
+     "HoppableW",
+     ""
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_31",
+   "nome": "mureta meia altura reboco_branco_encardido SE",
+   "descricao": "reboco branco encardido",
+   "props": [
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_32",
+   "nome": "mureta baixa reboco_cru W",
+   "descricao": "reboco cru / chapisco cinza, sem pintura",
+   "props": [
+    [
+     "HoppableW",
+     ""
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_33",
+   "nome": "mureta baixa reboco_cru N",
+   "descricao": "reboco cru / chapisco cinza, sem pintura",
+   "props": [
+    [
+     "HoppableN",
+     ""
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_34",
+   "nome": "mureta baixa reboco_cru NW",
+   "descricao": "reboco cru / chapisco cinza, sem pintura",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_muretas_favela_01_33"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_muretas_favela_01_32"
+    ],
+    [
+     "HoppableN",
+     ""
+    ],
+    [
+     "HoppableW",
+     ""
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_35",
+   "nome": "mureta baixa reboco_cru SE",
+   "descricao": "reboco cru / chapisco cinza, sem pintura",
+   "props": [
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_36",
+   "nome": "mureta baixa reboco_branco_encardido W",
+   "descricao": "reboco branco encardido",
+   "props": [
+    [
+     "HoppableW",
+     ""
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_37",
+   "nome": "mureta baixa reboco_branco_encardido N",
+   "descricao": "reboco branco encardido",
+   "props": [
+    [
+     "HoppableN",
+     ""
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_38",
+   "nome": "mureta baixa reboco_branco_encardido NW",
+   "descricao": "reboco branco encardido",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_muretas_favela_01_37"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_muretas_favela_01_36"
+    ],
+    [
+     "HoppableN",
+     ""
+    ],
+    [
+     "HoppableW",
+     ""
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_39",
+   "nome": "mureta baixa reboco_branco_encardido SE",
+   "descricao": "reboco branco encardido",
+   "props": [
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_40",
+   "nome": "mureta inacabada em degraus reboco_cru W",
+   "descricao": "reboco cru / chapisco cinza, sem pintura",
+   "props": [
+    [
+     "HoppableW",
+     ""
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_41",
+   "nome": "mureta inacabada em degraus reboco_cru N",
+   "descricao": "reboco cru / chapisco cinza, sem pintura",
+   "props": [
+    [
+     "HoppableN",
+     ""
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_42",
+   "nome": "mureta inacabada em degraus reboco_cru NW",
+   "descricao": "reboco cru / chapisco cinza, sem pintura",
+   "props": [
+    [
+     "HoppableW",
+     ""
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_43",
+   "nome": "mureta inacabada em degraus reboco_cru SE",
+   "descricao": "reboco cru / chapisco cinza, sem pintura",
+   "props": [
+    [
+     "HoppableN",
+     ""
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_44",
+   "nome": "mureta inacabada em degraus reboco_branco_encardido W",
+   "descricao": "reboco branco encardido",
+   "props": [
+    [
+     "HoppableW",
+     ""
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_45",
+   "nome": "mureta inacabada em degraus reboco_branco_encardido N",
+   "descricao": "reboco branco encardido",
+   "props": [
+    [
+     "HoppableN",
+     ""
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_46",
+   "nome": "mureta inacabada em degraus reboco_branco_encardido NW",
+   "descricao": "reboco branco encardido",
+   "props": [
+    [
+     "HoppableW",
+     ""
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_muretas_favela_01_47",
+   "nome": "mureta inacabada em degraus reboco_branco_encardido SE",
+   "descricao": "reboco branco encardido",
+   "props": [
+    [
+     "HoppableN",
+     ""
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ]
+   ]
+  }
+ ],
+ "buildingtiles": {},
+ "bt_nomes_prontos": false
+}

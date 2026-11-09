@@ -10,8 +10,8 @@ propriedades do jogo e as entradas do BuildingEd):
   cada face pela posição na parede (u ao longo, z de altura), com número inteiro
   de tijolos por tile, para emendar entre tiles e entre andares.
 - `rsb_pisos_favela_01`: contrapiso, laje, cimento queimado, cerâmica barata.
-- `rsb_telhado_fibrocimento_01` e `rsb_telhado_zinco_01`: o telhado `roofs_03`
-  do jogo recolorido (mesmas peças, mesma posição, mesmas propriedades).
+- (Telhado inclinado de fibrocimento/zinco foi tirado a pedido do usuário: favela tem
+  laje plana. A função `telhados()` ficou para uso futuro em outras construções.)
 - `rsb_escadas_favela_01`: as escadas maciças do jogo (`fixtures_stairs_01`
   16-18/24-26 e 19-21/27-29) em concreto cru e cimento queimado vermelho.
 
@@ -388,5 +388,6 @@ if __name__ == "__main__":
     tiles2x, tdefs, saida = Path(sys.argv[1]), Path(sys.argv[2]), Path(sys.argv[3])
     defs = {d["nome"]: d for d in kit_tiles.ler_definicoes(tdefs)}
     bt = (tiles2x.parent.parent / "config" / "BuildingTiles.txt").read_text(encoding="utf-8", errors="replace")
-    res = [paredes(tiles2x, defs, saida), pisos(tiles2x, saida)] + telhados(tiles2x, defs, saida, bt) + [escadas(tiles2x, defs, saida)]
+    # telhado inclinado saiu (usuário, 08/11/2026): favela tem laje plana; ver kit_laje.py
+    res = [paredes(tiles2x, defs, saida), pisos(tiles2x, saida), escadas(tiles2x, defs, saida)]
     print(json.dumps(res, ensure_ascii=False))

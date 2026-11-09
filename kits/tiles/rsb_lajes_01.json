@@ -1,0 +1,230 @@
+{
+ "folha": "rsb_lajes_01",
+ "tipo": "piso",
+ "pecas": [
+  {
+   "peca": "rsb_lajes_01_0",
+   "nome": "laje_crua_a",
+   "descricao": "laje de concreto crua",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "exterior",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_lajes_01_1",
+   "nome": "laje_crua_b",
+   "descricao": "laje de concreto crua com mancha de água",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "exterior",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_lajes_01_2",
+   "nome": "laje_manta",
+   "descricao": "laje com manta asfáltica preta",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "exterior",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_lajes_01_3",
+   "nome": "laje_manta_remendo",
+   "descricao": "laje com manta e remendo de alumínio",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "exterior",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_lajes_01_4",
+   "nome": "laje_ralo",
+   "descricao": "laje com ralo",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "exterior",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_lajes_01_5",
+   "nome": "terraco_ceramica_vermelha",
+   "descricao": "terraço de cerâmica vermelha",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "exterior",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_lajes_01_6",
+   "nome": "terraco_ceramica_bege",
+   "descricao": "terraço de cerâmica bege",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "exterior",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ]
+   ]
+  }
+ ],
+ "buildingtiles": {
+  "floors": [
+   {
+    "Floor": 0
+   },
+   {
+    "Floor": 1
+   },
+   {
+    "Floor": 2
+   },
+   {
+    "Floor": 3
+   },
+   {
+    "Floor": 4
+   },
+   {
+    "Floor": 5
+   },
+   {
+    "Floor": 6
+   }
+  ],
+  "roof_tops": [
+   {
+    "West1": 0,
+    "West2": 0,
+    "West3": 0,
+    "North1": 0,
+    "North2": 0,
+    "North3": 0,
+    "_offset": true
+   },
+   {
+    "West1": 1,
+    "West2": 1,
+    "West3": 1,
+    "North1": 1,
+    "North2": 1,
+    "North3": 1,
+    "_offset": true
+   },
+   {
+    "West1": 2,
+    "West2": 2,
+    "West3": 2,
+    "North1": 2,
+    "North2": 2,
+    "North3": 2,
+    "_offset": true
+   },
+   {
+    "West1": 3,
+    "West2": 3,
+    "West3": 3,
+    "North1": 3,
+    "North2": 3,
+    "North3": 3,
+    "_offset": true
+   },
+   {
+    "West1": 4,
+    "West2": 4,
+    "West3": 4,
+    "North1": 4,
+    "North2": 4,
+    "North3": 4,
+    "_offset": true
+   },
+   {
+    "West1": 5,
+    "West2": 5,
+    "West3": 5,
+    "North1": 5,
+    "North2": 5,
+    "North3": 5,
+    "_offset": true
+   },
+   {
+    "West1": 6,
+    "West2": 6,
+    "West3": 6,
+    "North1": 6,
+    "North2": 6,
+    "North3": 6,
+    "_offset": true
+   }
+  ]
+ },
+ "bt_nomes_prontos": false
+}

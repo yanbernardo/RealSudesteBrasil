@@ -93,9 +93,9 @@ Como cada peça é feita (coluna "Como"):
 **Feito em 08/11/2026 (peças para construir casas; só as peças):** `scripts/gerador/kit_favela.py` → `kits/tiles/`, já registradas no BuildingEd (listas de parede externa e interna, piso, telhado plano, telhado inclinado, escada):
 - Paredes, 10 estilos × 8 peças (oeste, norte, quina, pilar, janela e porta nos dois lados): tijolo baiano limpo e sujo, bloco de concreto, reboco cru, reboco desbotado e descascando (rosa, azul, verde-água, amarelo, branco encardido), tábuas de barraco (`rsb_paredes_favela_01`).
 - Pisos: contrapiso (2), laje de concreto (2, uma também como telhado plano), cimento queimado vermelho e verde, cerâmica barata vermelha e bege (`rsb_pisos_favela_01`).
-- Telhado inclinado de fibrocimento e de zinco enferrujado, todas as peças do telhado do jogo (`rsb_telhado_fibrocimento_01`, `rsb_telhado_zinco_01`).
 - Escada maciça de concreto e de cimento queimado vermelho (`rsb_escadas_favela_01`).
-- Portas e janelas: as do jogo. **Falta:** os triângulos de parede embaixo do telhado inclinado (empena) nos estilos novos; por enquanto, telhado inclinado usa a empena do jogo (ou laje plana, o mais comum na favela).
+- Portas e janelas: as do jogo.
+- **Laje e terraço (09/11/2026, `scripts/gerador/kit_laje.py`):** favela não tem telha inclinada (o telhado de fibrocimento/zinco feito antes foi tirado a pedido do usuário). Lajes de cobertura: crua (2), com manta asfáltica, com remendo de alumínio, com ralo, terraço de cerâmica vermelha e bege (`rsb_lajes_01`, também na lista "Roof Tops" do BuildingEd). Muretas de laje em meia altura, baixa e inacabada em degraus, em tijolo baiano, bloco, reboco cru e reboco branco (`rsb_muretas_favela_01`, puláveis como as do jogo; colocar no modo de peças). Objetos da laje: caixa d'água azul 1000 L e 500 L, caixa velha de amianto, churrasqueira de tijolo (2 lados), pilar com ferro de espera, ferro de espera solto, antena parabólica, varal com roupa (2 lados) (`rsb_objetos_laje_01`).
 
 | Peça | Como |
 |---|---|

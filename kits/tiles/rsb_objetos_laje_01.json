@@ -1,0 +1,151 @@
+{
+ "folha": "rsb_objetos_laje_01",
+ "tipo": "objeto",
+ "pecas": [
+  {
+   "peca": "rsb_objetos_laje_01_0",
+   "nome": "caixa_dagua_1000",
+   "descricao": "caixa d'água azul de 1000 L",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "solid",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_laje_01_1",
+   "nome": "caixa_dagua_500",
+   "descricao": "caixa d'água azul de 500 L",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "solid",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_laje_01_2",
+   "nome": "caixa_dagua_amianto",
+   "descricao": "caixa d'água velha de amianto",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "solid",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_laje_01_3",
+   "nome": "churrasqueira_s",
+   "descricao": "churrasqueira de tijolo, boca para o sul",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "solid",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_laje_01_4",
+   "nome": "churrasqueira_e",
+   "descricao": "churrasqueira de tijolo, boca para o leste",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "solid",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_laje_01_5",
+   "nome": "pilar_ferro_espera",
+   "descricao": "pilar com ferro de espera (canto do tile)",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "solidtrans",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_laje_01_6",
+   "nome": "ferro_espera",
+   "descricao": "ferro de espera saindo da laje",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_laje_01_7",
+   "nome": "antena_parabolica",
+   "descricao": "antena parabólica",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_laje_01_8",
+   "nome": "varal_x",
+   "descricao": "varal com roupa (leste-oeste)",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_laje_01_9",
+   "nome": "varal_y",
+   "descricao": "varal com roupa (norte-sul)",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_laje_01_10",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_laje_01_11",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_laje_01_12",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_laje_01_13",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_laje_01_14",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_laje_01_15",
+   "props": []
+  }
+ ],
+ "buildingtiles": {},
+ "bt_nomes_prontos": false
+}
