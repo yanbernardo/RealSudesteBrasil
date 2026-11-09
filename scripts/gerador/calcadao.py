@@ -1,19 +1,20 @@
 """Calçadão de Copacabana: pedra portuguesa em ondas (Kit Brasil, 1ª peça nova).
 
-Como é o calçadão de verdade (fotos do Wikimedia Commons, 09/11/2026): listras
+Como é o calçadão de verdade (fotos do Wikimedia Commons, 08/11/2026): listras
 pretas e brancas TRANSVERSAIS (cruzam a largura da calçada), cada uma ondulando
 uma vez de um lado ao outro, todas em fase ("mar largo").
 
 Como o script faz caber isso em peças quadradas do jogo:
 
 1. Campo contínuo no mapa. O desenho é uma função do lugar no mapa, periódica:
-   numa avenida reta ao longo de x ele se repete a cada 3 tiles ao longo e 6
-   através, então bastam 3 x 6 = 18 peças e cada uma encaixa perfeitamente nas
-   vizinhas. Há 4 "famílias", uma por direção: H (ao longo de x), V (ao longo
-   de y), D e A (as duas diagonais, 16 peças cada; ver FAMILIAS). Total: 68.
+   numa avenida reta ao longo de x ele se repete a cada poucos tiles ao longo e
+   através, então bastam poucas peças e cada uma encaixa perfeitamente nas
+   vizinhas. Uma "família" de peças por direção (ver CONJUNTOS): "4dir" (retas
+   e diagonais, listras largas, 68 peças) ou "8dir" (também 1 x 2 tiles, 26,6°,
+   listras mais finas, 132 peças; a Av. Atlântica usa só 4 famílias = 66).
 2. Trechos. Cada trecho da avenida usa a família mais perto da direção dele
-   (no máximo 22,5° de diferença: as listras ficam um pouco inclinadas, como
-   um campo que a calçada "recorta"). Trechos curtos são juntados.
+   (as listras ficam um pouco inclinadas, como um campo que a calçada
+   "recorta": até 22,5° no "4dir", 13° no "8dir"). Trechos curtos são juntados.
 3. Costura. Onde a família muda, a fase da família nova (deslocamento do
    campo, que não pede peça nova) e a linha da costura são escolhidas para
    errar o mínimo: corte mínimo num grafo (cada tile da janela de troca é
