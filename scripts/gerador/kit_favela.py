@@ -289,9 +289,9 @@ PISOS = [
     ("cimento_queimado_vermelho", "cimento queimado vermelho", lambda: tf.cimento_queimado((172, 62, 50), 25)),
     ("cimento_queimado_verde", "cimento queimado verde", lambda: tf.cimento_queimado((80, 122, 86), 26)),
     ("ceramica_vermelha_barata", "cerâmica vermelha barata 30 x 30",
-     lambda: tf.ceramica([(150, 66, 50), (142, 60, 46), (158, 72, 54)], 27, (176, 170, 156))),
+     lambda: tf.ceramica([(150, 66, 50), (142, 60, 46), (158, 72, 54)], 27, (176, 170, 156), quebrada=0.0)),
     ("ceramica_bege_barata", "cerâmica bege barata 30 x 30",
-     lambda: tf.ceramica([(208, 194, 166), (200, 186, 160)], 28, (160, 154, 140))),
+     lambda: tf.ceramica([(208, 194, 166), (200, 186, 160)], 28, (160, 154, 140), quebrada=0.0)),
 ]
 
 
@@ -373,19 +373,19 @@ def escadas(tiles2x: Path, defs: dict, saida: Path) -> dict:
 
     def cor_de(i, X, Y, r):
         cru = i in (0, 1, 2, 8, 9, 10)
-        base = np.array((158, 154, 146) if cru else (140, 60, 50), dtype=float)
+        base = np.array((158, 154, 146) if cru else (128, 54, 46), dtype=float)
         u, v = X / 128.0, Y / 256.0
-        c = base * np.clip(r, 0.3, 1.5)[..., None]
+        c = base * np.clip(r, 0.3, 1.5 if cru else 1.22)[..., None]
         c = c * (0.9 + 0.18 * tf.fbm(u, v, 4, 8, 4, 50 + i))[..., None]           # manchas
         poro, _ = tf.pontos(u, v, 64, 128, 0.5, 0.45 if cru else 0.15, 60 + i)
         c = c * (1 - 0.3 * poro)[..., None]                                        # poros
         gasto = tf.sstep(1.15, 1.45, r)                                            # quina dos degraus gasta
-        c = tf.mistura(c, np.minimum(c * 1.25 + 12, 255), gasto * 0.6)
+        c = tf.mistura(c, np.minimum(c * 1.18 + 8, 255), gasto * (0.5 if cru else 0.25))
         canto = tf.sstep(0.75, 0.45, r)                                            # sujeira nos cantos
         c = c * (1 - 0.25 * canto)[..., None]
         if not cru:                                                                # tinta vermelha gasta no meio do degrau
-            pe = tf.sstep(0.55, 0.75, tf.fbm(u, v, 3, 6, 4, 70 + i))
-            c = tf.mistura(c, np.array([150, 146, 138.0]) * np.clip(r, 0.3, 1.5)[..., None], pe * 0.5)
+            pe = tf.sstep(0.6, 0.8, tf.fbm(u, v, 3, 6, 4, 70 + i))
+            c = tf.mistura(c, np.array([112, 92, 82.0]) * np.clip(r, 0.3, 1.2)[..., None], pe * 0.35)
         return c + grao(X / 128, Y / 128, 4, 50 + i)[..., None]
     nome = "rsb_escadas_favela_01"
     r = recolorir(tiles2x, defs, "fixtures_stairs_01", nome, "escada", cor_de, None, saida, mapa)

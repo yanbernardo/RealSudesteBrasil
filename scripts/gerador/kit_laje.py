@@ -42,21 +42,21 @@ PX_M = tf.PX_M
 # ---------------------------------------------------------------- lajes
 LAJES = [
     ("laje_crua_a", "laje de concreto crua", lambda: tf.laje_crua(41)),
-    ("laje_crua_b", "laje crua com poça", lambda: tf.laje_crua(42, poca=True)),
+    ("laje_crua_b", "laje crua com poça (usar de vez em quando)", lambda: tf.laje_crua(42, poca=True)),
     ("laje_crua_c", "laje crua rachada, com musgo", lambda: tf.laje_crua(43, rachada=True)),
     ("laje_crua_d", "laje crua com entulho miúdo", lambda: tf.laje_crua(44, entulho=True)),
     ("laje_manta_a", "laje com manta asfáltica", lambda: tf.manta(45)),
     ("laje_manta_b", "laje com manta asfáltica, sem bolhas", lambda: tf.manta(46, bolhas=False)),
-    ("laje_manta_remendo", "manta com remendo de alumínio", lambda: tf.manta(47, remendo=True)),
+    ("laje_manta_remendo", "manta com remendo de alumínio (usar de vez em quando)", lambda: tf.manta(47, remendo=True)),
     ("laje_ralo", "laje com ralo", lambda: tf.ralo(48)),
     ("terraco_ceramica_vermelha_a", "terraço de cerâmica vermelha",
-     lambda: tf.ceramica([(150, 66, 50), (142, 60, 46), (158, 72, 54)], 49, (176, 170, 156))),
+     lambda: tf.ceramica([(150, 66, 50), (142, 60, 46), (158, 72, 54)], 49, (176, 170, 156), quebrada=0.0)),
     ("terraco_ceramica_vermelha_b", "terraço de cerâmica vermelha, variação",
-     lambda: tf.ceramica([(146, 62, 48), (156, 70, 52), (138, 58, 44)], 50, (170, 164, 150))),
+     lambda: tf.ceramica([(146, 62, 48), (156, 70, 52), (138, 58, 44)], 50, (170, 164, 150), quebrada=0.1)),
     ("terraco_ceramica_bege_a", "terraço de cerâmica bege",
-     lambda: tf.ceramica([(208, 194, 166), (200, 186, 160)], 51, (160, 154, 140))),
+     lambda: tf.ceramica([(208, 194, 166), (200, 186, 160)], 51, (160, 154, 140), quebrada=0.0)),
     ("terraco_ceramica_bege_b", "terraço de cerâmica bege, variação",
-     lambda: tf.ceramica([(202, 188, 160), (212, 198, 170)], 52, (156, 150, 136))),
+     lambda: tf.ceramica([(202, 188, 160), (212, 198, 170)], 52, (156, 150, 136), quebrada=0.1)),
 ]
 
 

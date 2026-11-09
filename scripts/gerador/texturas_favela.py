@@ -238,7 +238,7 @@ def _reboco_base(U, Z, seed, aspero=1.0):
     h = aspero * (0.55 * grao + 0.35 * grao2)
     # arcos da desempenadeira
     arco = np.sin((U * 9 + vn(U, v, 4, 6, seed + 2) * 2.5 + v * 4) * 2 * math.pi)
-    h = h + 0.18 * arco * (vn(U, v, 3, 5, seed + 3) > 0.5)
+    h = h + 0.06 * aspero * arco * (vn(U, v, 3, 5, seed + 3) > 0.5)
     cor = np.array([152, 148, 140.0]) * (0.9 + 0.15 * fbm(U, v, 5, 8, 4, seed + 4))[..., None]
     cor = cor * (1 + 0.06 * grao)[..., None]
     return cor, h
@@ -428,10 +428,11 @@ def laje_crua(seed, poca=False, rachada=False, entulho=False):
     fer, _ = pontos(S, T, 9, 9, 0.35, 0.15, seed + 5)
     cor = mistura(cor, np.array([140, 84, 52.0]), fer * 0.55)
     if poca:
-        p = sstep(0.62, 0.66, fbm(S, T, 2, 2, 4, seed + 6))
+        forma = np.hypot((S - 0.5) * 1.2, T - 0.5) + 0.12 * (fbm(S, T, 4, 4, 3, seed + 6) - 0.5)
+        p = sstep(0.3, 0.26, forma)
         cor = mistura(cor, cor * 0.62 + np.array([0, 2, 6.0]), p)
         h = h * (1 - 0.8 * p)
-        borda = np.abs(fbm(S, T, 2, 2, 4, seed + 6) - 0.66) < 0.008
+        borda = np.abs(forma - 0.28) < 0.006
         cor = cor * (1 - 0.15 * borda)[..., None]
     rac = rachaduras(S, T, PX_PISO, PX_PISO, 3 if rachada else 1, 30 if rachada else 10, seed + 7, galhos=rachada)
     fio = np.clip(1 - rac / (0.8 if rachada else 0.5), 0, 1)
@@ -468,7 +469,8 @@ def manta(seed, remendo=False, bolhas=True):
         b, _ = pontos(S, T, 6, 6, 0.42, 0.35, seed + 3)
         h = h + 2.6 * np.sqrt(b)
     if remendo:
-        r = sstep(0.6, 0.63, fbm(S, T, 3, 3, 3, seed + 4))
+        forma = np.maximum(np.abs(S - 0.5) * 1.3, np.abs(T - 0.45)) + 0.06 * (fbm(S, T, 6, 6, 3, seed + 4) - 0.5)
+        r = sstep(0.27, 0.25, forma)
         amassado = vn(S, T, 60, 60, seed + 5) + 0.5 * vn(S, T, 120, 120, seed + 6)
         alu = np.array([186, 188, 192.0]) * (0.85 + 0.25 * amassado)[..., None]
         cor = mistura(cor, alu, r)
