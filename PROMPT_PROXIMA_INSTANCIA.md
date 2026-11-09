@@ -7,13 +7,13 @@ Regras de trabalho: o usuário não programa; explique em português simples. **
 ## Estado do Rio piloto (`rsb_rio_piloto`, Centro + Zona Sul)
 Feito e aprovado pelo usuário em jogo: legenda do mapa como a original (D-42), visão de satélite (D-41), ruas internas moldadas em trechos retos com calçada e avenidas no traçado real (D-43), ruas soltas ligadas (túneis), orla sem casas, quadra de vôlei na areia, quartel de Louisville, delegacias copiadas com estacionamento.
 
-## Feito mas AINDA NÃO INSTALADO (aguarda o aviso do usuário)
+## Instalado em 08/11/2026 (jogo fechado), ainda sem feedback do usuário em jogo
 - Praias de Flamengo, Botafogo e Vermelha (D-44) e ponta de areia afinando em todas as praias (U42).
 - Quadra de vôlei com contorno de linhas brancas.
 - Meios-tiles em triângulo nas diagonais desligados (`semCalcadaDiagonal` falso): o usuário não gostou; avenida diagonal fica com calçada em degraus até o Kit Brasil.
 - Casa de laje de exemplo removida do mapa (U40).
 
-Para instalar: o usuário fecha o jogo; regere o desenho com `scripts/gerador/cidade.py <KnoxMap> dados kits/cidades/rio_piloto.json scripts/testes/rio_piloto.json saida/rio_piloto/desenho.png`; rode `scripts/knoxmap_pipeline.py <KnoxMap> scripts/testes/rio_piloto.json` (sem `--sem-instalar`); depois `scripts/gerador/teleporte_debug.py dados saida/teleporte --instalar <pasta do mod>`. Tudo com o Python do `.venv` do KnoxMap, `-I`.
+Para instalar de novo no futuro: o usuário fecha o jogo; regere o desenho com `scripts/gerador/cidade.py <KnoxMap> dados kits/cidades/rio_piloto.json scripts/testes/rio_piloto.json saida/rio_piloto/desenho.png`; rode `scripts/knoxmap_pipeline.py <KnoxMap> scripts/testes/rio_piloto.json` (sem `--sem-instalar`); depois `scripts/gerador/teleporte_debug.py dados saida/teleporte --instalar <pasta do mod>`. Tudo com o Python do `.venv` do KnoxMap, `-I`.
 
 ## Pedidos e observações do usuário a lembrar
 1. **Todas as praias com areia na vida real** do Rio devem ter faixa de areia (D-44). Copacabana foi só o teste. Ao gerar o RJ inteiro, tirar as praias dos dados (OSM `natural=beach`), não só dos pontos escritos no kit.
