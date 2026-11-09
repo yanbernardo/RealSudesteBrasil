@@ -1,0 +1,491 @@
+{
+ "folha": "rsb_objetos_ciep_01",
+ "tipo": "objeto",
+ "pecas": [
+  {
+   "peca": "rsb_objetos_ciep_01_0",
+   "nome": "carteira_s",
+   "descricao": "carteira universitária, virada para S",
+   "props": [
+    [
+     "BedType",
+     "badBed"
+    ],
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Chair"
+    ],
+    [
+     "Facing",
+     "S"
+    ],
+    [
+     "GroupName",
+     "Carteira"
+    ],
+    [
+     "IsLow",
+     ""
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "Material",
+     "PlasticHard"
+    ],
+    [
+     "MaterialType",
+     "Plastic"
+    ],
+    [
+     "PickUpWeight",
+     "50"
+    ],
+    [
+     "ScrapSize",
+     "Small"
+    ],
+    [
+     "SnowTile",
+     "object_snow_overlay_01_65"
+    ],
+    [
+     "Surface",
+     "17"
+    ],
+    [
+     "bed",
+     ""
+    ],
+    [
+     "chairS",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_ciep_01_1",
+   "nome": "carteira_l",
+   "descricao": "carteira universitária, virada para L",
+   "props": [
+    [
+     "BedType",
+     "badBed"
+    ],
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Chair"
+    ],
+    [
+     "Facing",
+     "E"
+    ],
+    [
+     "GroupName",
+     "Carteira"
+    ],
+    [
+     "IsLow",
+     ""
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "Material",
+     "PlasticHard"
+    ],
+    [
+     "MaterialType",
+     "Plastic"
+    ],
+    [
+     "PickUpWeight",
+     "50"
+    ],
+    [
+     "ScrapSize",
+     "Small"
+    ],
+    [
+     "SnowTile",
+     "object_snow_overlay_01_64"
+    ],
+    [
+     "Surface",
+     "17"
+    ],
+    [
+     "bed",
+     ""
+    ],
+    [
+     "chairE",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_ciep_01_2",
+   "nome": "carteira_n",
+   "descricao": "carteira universitária, virada para N",
+   "props": [
+    [
+     "BedType",
+     "badBed"
+    ],
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Chair"
+    ],
+    [
+     "Facing",
+     "N"
+    ],
+    [
+     "GroupName",
+     "Carteira"
+    ],
+    [
+     "IsLow",
+     ""
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "Material",
+     "PlasticHard"
+    ],
+    [
+     "MaterialType",
+     "Plastic"
+    ],
+    [
+     "PickUpWeight",
+     "50"
+    ],
+    [
+     "ScrapSize",
+     "Small"
+    ],
+    [
+     "SnowTile",
+     "object_snow_overlay_01_66"
+    ],
+    [
+     "Surface",
+     "17"
+    ],
+    [
+     "bed",
+     ""
+    ],
+    [
+     "chairN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_ciep_01_3",
+   "nome": "carteira_o",
+   "descricao": "carteira universitária, virada para O",
+   "props": [
+    [
+     "BedType",
+     "badBed"
+    ],
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Chair"
+    ],
+    [
+     "Facing",
+     "W"
+    ],
+    [
+     "GroupName",
+     "Carteira"
+    ],
+    [
+     "IsLow",
+     ""
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "Material",
+     "PlasticHard"
+    ],
+    [
+     "MaterialType",
+     "Plastic"
+    ],
+    [
+     "PickUpWeight",
+     "50"
+    ],
+    [
+     "ScrapSize",
+     "Small"
+    ],
+    [
+     "SnowTile",
+     "object_snow_overlay_01_67"
+    ],
+    [
+     "Surface",
+     "17"
+    ],
+    [
+     "bed",
+     ""
+    ],
+    [
+     "chairW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_ciep_01_4",
+   "nome": "bebedouro_s",
+   "descricao": "bebedouro de inox, frente para S",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Sink"
+    ],
+    [
+     "Facing",
+     "S"
+    ],
+    [
+     "GroupName",
+     "Bebedouro"
+    ],
+    [
+     "IsLow",
+     ""
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "IsSurfaceOffset",
+     ""
+    ],
+    [
+     "Material",
+     "MetalPlates"
+    ],
+    [
+     "Material2",
+     "MetalPipe"
+    ],
+    [
+     "PickUpWeight",
+     "200"
+    ],
+    [
+     "Surface",
+     "35"
+    ],
+    [
+     "solidtrans",
+     ""
+    ],
+    [
+     "waterAmount",
+     "20"
+    ],
+    [
+     "waterMaxAmount",
+     "20"
+    ],
+    [
+     "waterPiped",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_ciep_01_5",
+   "nome": "bebedouro_l",
+   "descricao": "bebedouro de inox, frente para L",
+   "props": [
+    [
+     "BlocksPlacement",
+     ""
+    ],
+    [
+     "CanScrap",
+     ""
+    ],
+    [
+     "CustomName",
+     "Sink"
+    ],
+    [
+     "Facing",
+     "E"
+    ],
+    [
+     "GroupName",
+     "Bebedouro"
+    ],
+    [
+     "IsLow",
+     ""
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "IsSurfaceOffset",
+     ""
+    ],
+    [
+     "Material",
+     "MetalPlates"
+    ],
+    [
+     "Material2",
+     "MetalPipe"
+    ],
+    [
+     "PickUpWeight",
+     "200"
+    ],
+    [
+     "Surface",
+     "35"
+    ],
+    [
+     "solidtrans",
+     ""
+    ],
+    [
+     "waterAmount",
+     "20"
+    ],
+    [
+     "waterMaxAmount",
+     "20"
+    ],
+    [
+     "waterPiped",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_objetos_ciep_01_6",
+   "nome": "quadro_verde_n_1",
+   "descricao": "quadro verde de giz (parte 1 de 2), parede N",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_ciep_01_7",
+   "nome": "quadro_verde_n_2",
+   "descricao": "quadro verde de giz (parte 2 de 2), parede N",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_ciep_01_8",
+   "nome": "letreiro_ciep_n_1",
+   "descricao": "letreiro 'CIEP 501' (parte 1 de 2), parede N",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_ciep_01_9",
+   "nome": "letreiro_ciep_n_2",
+   "descricao": "letreiro 'CIEP 501' (parte 2 de 2), parede N",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_ciep_01_10",
+   "nome": "quadro_verde_o_1",
+   "descricao": "quadro verde de giz (parte 1 de 2), parede O",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_ciep_01_11",
+   "nome": "quadro_verde_o_2",
+   "descricao": "quadro verde de giz (parte 2 de 2), parede O",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_ciep_01_12",
+   "nome": "letreiro_ciep_o_1",
+   "descricao": "letreiro 'CIEP 501' (parte 1 de 2), parede O",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_ciep_01_13",
+   "nome": "letreiro_ciep_o_2",
+   "descricao": "letreiro 'CIEP 501' (parte 2 de 2), parede O",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_ciep_01_14",
+   "props": []
+  },
+  {
+   "peca": "rsb_objetos_ciep_01_15",
+   "props": []
+  }
+ ],
+ "buildingtiles": {},
+ "bt_nomes_prontos": false,
+ "estilo": "pz_v1"
+}

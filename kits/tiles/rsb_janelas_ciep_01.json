@@ -1,0 +1,1133 @@
+{
+ "folha": "rsb_janelas_ciep_01",
+ "tipo": "janela",
+ "pecas": [
+  {
+   "peca": "rsb_janelas_ciep_01_0",
+   "nome": "janela larga CIEP inteira 1 W",
+   "descricao": "janela basculante larga do CIEP (inteira), metade 1, face W",
+   "props": [
+    [
+     "CanBreak",
+     ""
+    ],
+    [
+     "CustomName",
+     "Window"
+    ],
+    [
+     "Facing",
+     "W"
+    ],
+    [
+     "GlassRemovedOffset",
+     "96"
+    ],
+    [
+     "GroupName",
+     "CIEP"
+    ],
+    [
+     "IsClosedState",
+     ""
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Glass"
+    ],
+    [
+     "MoveType",
+     "Window"
+    ],
+    [
+     "PickUpLevel",
+     "2"
+    ],
+    [
+     "PickUpTool",
+     "Crowbar"
+    ],
+    [
+     "PickUpWeight",
+     "200"
+    ],
+    [
+     "PlaceTool",
+     "Hammer"
+    ],
+    [
+     "SmashedTileOffset",
+     "64"
+    ],
+    [
+     "WindowShape",
+     "1"
+    ],
+    [
+     "attachedW",
+     ""
+    ],
+    [
+     "windowW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_1",
+   "nome": "janela larga CIEP inteira 1 N",
+   "descricao": "janela basculante larga do CIEP (inteira), metade 1, face N",
+   "props": [
+    [
+     "CanBreak",
+     ""
+    ],
+    [
+     "CustomName",
+     "Window"
+    ],
+    [
+     "Facing",
+     "N"
+    ],
+    [
+     "GlassRemovedOffset",
+     "96"
+    ],
+    [
+     "GroupName",
+     "CIEP"
+    ],
+    [
+     "IsClosedState",
+     ""
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Glass"
+    ],
+    [
+     "MoveType",
+     "Window"
+    ],
+    [
+     "PickUpLevel",
+     "2"
+    ],
+    [
+     "PickUpTool",
+     "Crowbar"
+    ],
+    [
+     "PickUpWeight",
+     "200"
+    ],
+    [
+     "PlaceTool",
+     "Hammer"
+    ],
+    [
+     "SmashedTileOffset",
+     "64"
+    ],
+    [
+     "WindowShape",
+     "1"
+    ],
+    [
+     "attachedN",
+     ""
+    ],
+    [
+     "windowN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_2",
+   "nome": "janela larga CIEP inteira 2 W",
+   "descricao": "janela basculante larga do CIEP (inteira), metade 2, face W",
+   "props": [
+    [
+     "CanBreak",
+     ""
+    ],
+    [
+     "CustomName",
+     "Window"
+    ],
+    [
+     "Facing",
+     "W"
+    ],
+    [
+     "GlassRemovedOffset",
+     "96"
+    ],
+    [
+     "GroupName",
+     "CIEP"
+    ],
+    [
+     "IsClosedState",
+     ""
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Glass"
+    ],
+    [
+     "MoveType",
+     "Window"
+    ],
+    [
+     "PickUpLevel",
+     "2"
+    ],
+    [
+     "PickUpTool",
+     "Crowbar"
+    ],
+    [
+     "PickUpWeight",
+     "200"
+    ],
+    [
+     "PlaceTool",
+     "Hammer"
+    ],
+    [
+     "SmashedTileOffset",
+     "64"
+    ],
+    [
+     "WindowShape",
+     "2"
+    ],
+    [
+     "attachedW",
+     ""
+    ],
+    [
+     "windowW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_3",
+   "nome": "janela larga CIEP inteira 2 N",
+   "descricao": "janela basculante larga do CIEP (inteira), metade 2, face N",
+   "props": [
+    [
+     "CanBreak",
+     ""
+    ],
+    [
+     "CustomName",
+     "Window"
+    ],
+    [
+     "Facing",
+     "N"
+    ],
+    [
+     "GlassRemovedOffset",
+     "96"
+    ],
+    [
+     "GroupName",
+     "CIEP"
+    ],
+    [
+     "IsClosedState",
+     ""
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Glass"
+    ],
+    [
+     "MoveType",
+     "Window"
+    ],
+    [
+     "PickUpLevel",
+     "2"
+    ],
+    [
+     "PickUpTool",
+     "Crowbar"
+    ],
+    [
+     "PickUpWeight",
+     "200"
+    ],
+    [
+     "PlaceTool",
+     "Hammer"
+    ],
+    [
+     "SmashedTileOffset",
+     "64"
+    ],
+    [
+     "WindowShape",
+     "2"
+    ],
+    [
+     "attachedN",
+     ""
+    ],
+    [
+     "windowN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_4",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_5",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_6",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_7",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_8",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_9",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_10",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_11",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_12",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_13",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_14",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_15",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_16",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_17",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_18",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_19",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_20",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_21",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_22",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_23",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_24",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_25",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_26",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_27",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_28",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_29",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_30",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_31",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_32",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_33",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_34",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_35",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_36",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_37",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_38",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_39",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_40",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_41",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_42",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_43",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_44",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_45",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_46",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_47",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_48",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_49",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_50",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_51",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_52",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_53",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_54",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_55",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_56",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_57",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_58",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_59",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_60",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_61",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_62",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_63",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_64",
+   "nome": "janela larga CIEP quebrada 1 W",
+   "descricao": "janela basculante larga do CIEP (quebrada), metade 1, face W",
+   "props": [
+    [
+     "CanBreak",
+     ""
+    ],
+    [
+     "CustomName",
+     "Window"
+    ],
+    [
+     "Facing",
+     "W"
+    ],
+    [
+     "GroupName",
+     "CIEP"
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Glass_Light"
+    ],
+    [
+     "MoveType",
+     "Window"
+    ],
+    [
+     "PickUpLevel",
+     "2"
+    ],
+    [
+     "PickUpTool",
+     "Crowbar"
+    ],
+    [
+     "PickUpWeight",
+     "200"
+    ],
+    [
+     "PlaceTool",
+     "Hammer"
+    ],
+    [
+     "WindowShape",
+     "1"
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_65",
+   "nome": "janela larga CIEP quebrada 1 N",
+   "descricao": "janela basculante larga do CIEP (quebrada), metade 1, face N",
+   "props": [
+    [
+     "CanBreak",
+     ""
+    ],
+    [
+     "CustomName",
+     "Window"
+    ],
+    [
+     "Facing",
+     "N"
+    ],
+    [
+     "GroupName",
+     "CIEP"
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Glass_Light"
+    ],
+    [
+     "MoveType",
+     "Window"
+    ],
+    [
+     "PickUpLevel",
+     "2"
+    ],
+    [
+     "PickUpTool",
+     "Crowbar"
+    ],
+    [
+     "PickUpWeight",
+     "200"
+    ],
+    [
+     "PlaceTool",
+     "Hammer"
+    ],
+    [
+     "WindowShape",
+     "1"
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_66",
+   "nome": "janela larga CIEP quebrada 2 W",
+   "descricao": "janela basculante larga do CIEP (quebrada), metade 2, face W",
+   "props": [
+    [
+     "CanBreak",
+     ""
+    ],
+    [
+     "CustomName",
+     "Window"
+    ],
+    [
+     "Facing",
+     "W"
+    ],
+    [
+     "GroupName",
+     "CIEP"
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Glass_Light"
+    ],
+    [
+     "MoveType",
+     "Window"
+    ],
+    [
+     "PickUpLevel",
+     "2"
+    ],
+    [
+     "PickUpTool",
+     "Crowbar"
+    ],
+    [
+     "PickUpWeight",
+     "200"
+    ],
+    [
+     "PlaceTool",
+     "Hammer"
+    ],
+    [
+     "WindowShape",
+     "2"
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_67",
+   "nome": "janela larga CIEP quebrada 2 N",
+   "descricao": "janela basculante larga do CIEP (quebrada), metade 2, face N",
+   "props": [
+    [
+     "CanBreak",
+     ""
+    ],
+    [
+     "CustomName",
+     "Window"
+    ],
+    [
+     "Facing",
+     "N"
+    ],
+    [
+     "GroupName",
+     "CIEP"
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "MaterialType",
+     "Glass_Light"
+    ],
+    [
+     "MoveType",
+     "Window"
+    ],
+    [
+     "PickUpLevel",
+     "2"
+    ],
+    [
+     "PickUpTool",
+     "Crowbar"
+    ],
+    [
+     "PickUpWeight",
+     "200"
+    ],
+    [
+     "PlaceTool",
+     "Hammer"
+    ],
+    [
+     "WindowShape",
+     "2"
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_68",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_69",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_70",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_71",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_72",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_73",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_74",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_75",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_76",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_77",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_78",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_79",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_80",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_81",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_82",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_83",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_84",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_85",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_86",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_87",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_88",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_89",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_90",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_91",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_92",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_93",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_94",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_95",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_96",
+   "nome": "janela larga CIEP sem_vidro 1 W",
+   "descricao": "janela basculante larga do CIEP (sem_vidro), metade 1, face W",
+   "props": [
+    [
+     "CanBreak",
+     ""
+    ],
+    [
+     "CustomName",
+     "Window"
+    ],
+    [
+     "Facing",
+     "W"
+    ],
+    [
+     "GroupName",
+     "CIEP"
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "MoveType",
+     "Window"
+    ],
+    [
+     "PickUpLevel",
+     "2"
+    ],
+    [
+     "PickUpTool",
+     "Crowbar"
+    ],
+    [
+     "PickUpWeight",
+     "200"
+    ],
+    [
+     "PlaceTool",
+     "Hammer"
+    ],
+    [
+     "WindowShape",
+     "1"
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_97",
+   "nome": "janela larga CIEP sem_vidro 1 N",
+   "descricao": "janela basculante larga do CIEP (sem_vidro), metade 1, face N",
+   "props": [
+    [
+     "CanBreak",
+     ""
+    ],
+    [
+     "CustomName",
+     "Window"
+    ],
+    [
+     "Facing",
+     "N"
+    ],
+    [
+     "GroupName",
+     "CIEP"
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "MoveType",
+     "Window"
+    ],
+    [
+     "PickUpLevel",
+     "2"
+    ],
+    [
+     "PickUpTool",
+     "Crowbar"
+    ],
+    [
+     "PickUpWeight",
+     "200"
+    ],
+    [
+     "PlaceTool",
+     "Hammer"
+    ],
+    [
+     "WindowShape",
+     "1"
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_98",
+   "nome": "janela larga CIEP sem_vidro 2 W",
+   "descricao": "janela basculante larga do CIEP (sem_vidro), metade 2, face W",
+   "props": [
+    [
+     "CanBreak",
+     ""
+    ],
+    [
+     "CustomName",
+     "Window"
+    ],
+    [
+     "Facing",
+     "W"
+    ],
+    [
+     "GroupName",
+     "CIEP"
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "MoveType",
+     "Window"
+    ],
+    [
+     "PickUpLevel",
+     "2"
+    ],
+    [
+     "PickUpTool",
+     "Crowbar"
+    ],
+    [
+     "PickUpWeight",
+     "200"
+    ],
+    [
+     "PlaceTool",
+     "Hammer"
+    ],
+    [
+     "WindowShape",
+     "2"
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_99",
+   "nome": "janela larga CIEP sem_vidro 2 N",
+   "descricao": "janela basculante larga do CIEP (sem_vidro), metade 2, face N",
+   "props": [
+    [
+     "CanBreak",
+     ""
+    ],
+    [
+     "CustomName",
+     "Window"
+    ],
+    [
+     "Facing",
+     "N"
+    ],
+    [
+     "GroupName",
+     "CIEP"
+    ],
+    [
+     "IsMoveAble",
+     ""
+    ],
+    [
+     "MoveType",
+     "Window"
+    ],
+    [
+     "PickUpLevel",
+     "2"
+    ],
+    [
+     "PickUpTool",
+     "Crowbar"
+    ],
+    [
+     "PickUpWeight",
+     "200"
+    ],
+    [
+     "PlaceTool",
+     "Hammer"
+    ],
+    [
+     "WindowShape",
+     "2"
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_100",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_101",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_102",
+   "props": []
+  },
+  {
+   "peca": "rsb_janelas_ciep_01_103",
+   "props": []
+  }
+ ],
+ "buildingtiles": {},
+ "bt_nomes_prontos": false,
+ "estilo": "pz_v1"
+}

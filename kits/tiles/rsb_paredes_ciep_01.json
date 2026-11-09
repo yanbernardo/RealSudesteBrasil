@@ -1,0 +1,1120 @@
+{
+ "folha": "rsb_paredes_ciep_01",
+ "tipo": "parede",
+ "pecas": [
+  {
+   "peca": "rsb_paredes_ciep_01_0",
+   "nome": "ciep_peitoril_verde WallW",
+   "descricao": "fachada de CIEP: concreto claro, peitoril verde",
+   "props": [
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_1",
+   "nome": "ciep_peitoril_verde WallN",
+   "descricao": "fachada de CIEP: concreto claro, peitoril verde",
+   "props": [
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_2",
+   "nome": "ciep_peitoril_verde WallNW",
+   "descricao": "fachada de CIEP: concreto claro, peitoril verde",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_paredes_ciep_01_1"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_paredes_ciep_01_0"
+    ],
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_3",
+   "nome": "ciep_peitoril_verde WallSE",
+   "descricao": "fachada de CIEP: concreto claro, peitoril verde",
+   "props": [
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_4",
+   "nome": "ciep_peitoril_vermelho WallW",
+   "descricao": "fachada de CIEP: concreto claro, peitoril vermelho e faixa amarela",
+   "props": [
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_5",
+   "nome": "ciep_peitoril_vermelho WallN",
+   "descricao": "fachada de CIEP: concreto claro, peitoril vermelho e faixa amarela",
+   "props": [
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_6",
+   "nome": "ciep_peitoril_vermelho WallNW",
+   "descricao": "fachada de CIEP: concreto claro, peitoril vermelho e faixa amarela",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_paredes_ciep_01_5"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_paredes_ciep_01_4"
+    ],
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_7",
+   "nome": "ciep_peitoril_vermelho WallSE",
+   "descricao": "fachada de CIEP: concreto claro, peitoril vermelho e faixa amarela",
+   "props": [
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_8",
+   "nome": "ciep_peitoril_verde WindowW",
+   "descricao": "fachada de CIEP: concreto claro, peitoril verde",
+   "props": [
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_9",
+   "nome": "ciep_peitoril_verde WindowN",
+   "descricao": "fachada de CIEP: concreto claro, peitoril verde",
+   "props": [
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_10",
+   "nome": "ciep_peitoril_verde DoorWallW",
+   "descricao": "fachada de CIEP: concreto claro, peitoril verde",
+   "props": [
+    [
+     "DoorWallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_11",
+   "nome": "ciep_peitoril_verde DoorWallN",
+   "descricao": "fachada de CIEP: concreto claro, peitoril verde",
+   "props": [
+    [
+     "DoorWallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_12",
+   "nome": "ciep_peitoril_vermelho WindowW",
+   "descricao": "fachada de CIEP: concreto claro, peitoril vermelho e faixa amarela",
+   "props": [
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_13",
+   "nome": "ciep_peitoril_vermelho WindowN",
+   "descricao": "fachada de CIEP: concreto claro, peitoril vermelho e faixa amarela",
+   "props": [
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_14",
+   "nome": "ciep_peitoril_vermelho DoorWallW",
+   "descricao": "fachada de CIEP: concreto claro, peitoril vermelho e faixa amarela",
+   "props": [
+    [
+     "DoorWallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_15",
+   "nome": "ciep_peitoril_vermelho DoorWallN",
+   "descricao": "fachada de CIEP: concreto claro, peitoril vermelho e faixa amarela",
+   "props": [
+    [
+     "DoorWallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_16",
+   "nome": "ciep_peitoril_azul WallW",
+   "descricao": "fachada de CIEP: concreto claro, peitoril azul",
+   "props": [
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_17",
+   "nome": "ciep_peitoril_azul WallN",
+   "descricao": "fachada de CIEP: concreto claro, peitoril azul",
+   "props": [
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_18",
+   "nome": "ciep_peitoril_azul WallNW",
+   "descricao": "fachada de CIEP: concreto claro, peitoril azul",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_paredes_ciep_01_17"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_paredes_ciep_01_16"
+    ],
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_19",
+   "nome": "ciep_peitoril_azul WallSE",
+   "descricao": "fachada de CIEP: concreto claro, peitoril azul",
+   "props": [
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_20",
+   "nome": "escola_barra_verde WallW",
+   "descricao": "parede de escola com barra verde a óleo",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_21",
+   "nome": "escola_barra_verde WallN",
+   "descricao": "parede de escola com barra verde a óleo",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_22",
+   "nome": "escola_barra_verde WallNW",
+   "descricao": "parede de escola com barra verde a óleo",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_paredes_ciep_01_21"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_paredes_ciep_01_20"
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_23",
+   "nome": "escola_barra_verde WallSE",
+   "descricao": "parede de escola com barra verde a óleo",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_24",
+   "nome": "ciep_peitoril_azul WindowW",
+   "descricao": "fachada de CIEP: concreto claro, peitoril azul",
+   "props": [
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_25",
+   "nome": "ciep_peitoril_azul WindowN",
+   "descricao": "fachada de CIEP: concreto claro, peitoril azul",
+   "props": [
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_26",
+   "nome": "ciep_peitoril_azul DoorWallW",
+   "descricao": "fachada de CIEP: concreto claro, peitoril azul",
+   "props": [
+    [
+     "DoorWallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_27",
+   "nome": "ciep_peitoril_azul DoorWallN",
+   "descricao": "fachada de CIEP: concreto claro, peitoril azul",
+   "props": [
+    [
+     "DoorWallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_28",
+   "nome": "escola_barra_verde WindowW",
+   "descricao": "parede de escola com barra verde a óleo",
+   "props": [
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_29",
+   "nome": "escola_barra_verde WindowN",
+   "descricao": "parede de escola com barra verde a óleo",
+   "props": [
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_30",
+   "nome": "escola_barra_verde DoorWallW",
+   "descricao": "parede de escola com barra verde a óleo",
+   "props": [
+    [
+     "DoorWallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_31",
+   "nome": "escola_barra_verde DoorWallN",
+   "descricao": "parede de escola com barra verde a óleo",
+   "props": [
+    [
+     "DoorWallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_32",
+   "nome": "escola_barra_azul WallW",
+   "descricao": "parede de escola com barra azul a óleo",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_33",
+   "nome": "escola_barra_azul WallN",
+   "descricao": "parede de escola com barra azul a óleo",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_34",
+   "nome": "escola_barra_azul WallNW",
+   "descricao": "parede de escola com barra azul a óleo",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_paredes_ciep_01_33"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_paredes_ciep_01_32"
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_35",
+   "nome": "escola_barra_azul WallSE",
+   "descricao": "parede de escola com barra azul a óleo",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_36",
+   "props": []
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_37",
+   "props": []
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_38",
+   "props": []
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_39",
+   "props": []
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_40",
+   "nome": "escola_barra_azul WindowW",
+   "descricao": "parede de escola com barra azul a óleo",
+   "props": [
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_41",
+   "nome": "escola_barra_azul WindowN",
+   "descricao": "parede de escola com barra azul a óleo",
+   "props": [
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_42",
+   "nome": "escola_barra_azul DoorWallW",
+   "descricao": "parede de escola com barra azul a óleo",
+   "props": [
+    [
+     "DoorWallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_43",
+   "nome": "escola_barra_azul DoorWallN",
+   "descricao": "parede de escola com barra azul a óleo",
+   "props": [
+    [
+     "DoorWallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_44",
+   "props": []
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_45",
+   "props": []
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_46",
+   "props": []
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_47",
+   "props": []
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_48",
+   "nome": "ciep_peitoril_verde janela larga 1 W",
+   "descricao": "fachada de CIEP: concreto claro, peitoril verde",
+   "props": [
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "WindowShape",
+     "1"
+    ],
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_49",
+   "nome": "ciep_peitoril_verde janela larga 1 N",
+   "descricao": "fachada de CIEP: concreto claro, peitoril verde",
+   "props": [
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "WindowShape",
+     "1"
+    ],
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_50",
+   "nome": "ciep_peitoril_verde janela larga 2 W",
+   "descricao": "fachada de CIEP: concreto claro, peitoril verde",
+   "props": [
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "WindowShape",
+     "2"
+    ],
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_51",
+   "nome": "ciep_peitoril_verde janela larga 2 N",
+   "descricao": "fachada de CIEP: concreto claro, peitoril verde",
+   "props": [
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "WindowShape",
+     "2"
+    ],
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_52",
+   "nome": "ciep_peitoril_vermelho janela larga 1 W",
+   "descricao": "fachada de CIEP: concreto claro, peitoril vermelho e faixa amarela",
+   "props": [
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "WindowShape",
+     "1"
+    ],
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_53",
+   "nome": "ciep_peitoril_vermelho janela larga 1 N",
+   "descricao": "fachada de CIEP: concreto claro, peitoril vermelho e faixa amarela",
+   "props": [
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "WindowShape",
+     "1"
+    ],
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_54",
+   "nome": "ciep_peitoril_vermelho janela larga 2 W",
+   "descricao": "fachada de CIEP: concreto claro, peitoril vermelho e faixa amarela",
+   "props": [
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "WindowShape",
+     "2"
+    ],
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_55",
+   "nome": "ciep_peitoril_vermelho janela larga 2 N",
+   "descricao": "fachada de CIEP: concreto claro, peitoril vermelho e faixa amarela",
+   "props": [
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "WindowShape",
+     "2"
+    ],
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_56",
+   "nome": "ciep_peitoril_azul janela larga 1 W",
+   "descricao": "fachada de CIEP: concreto claro, peitoril azul",
+   "props": [
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "WindowShape",
+     "1"
+    ],
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_57",
+   "nome": "ciep_peitoril_azul janela larga 1 N",
+   "descricao": "fachada de CIEP: concreto claro, peitoril azul",
+   "props": [
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "WindowShape",
+     "1"
+    ],
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_58",
+   "nome": "ciep_peitoril_azul janela larga 2 W",
+   "descricao": "fachada de CIEP: concreto claro, peitoril azul",
+   "props": [
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "WindowShape",
+     "2"
+    ],
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_59",
+   "nome": "ciep_peitoril_azul janela larga 2 N",
+   "descricao": "fachada de CIEP: concreto claro, peitoril azul",
+   "props": [
+    [
+     "MaterialType",
+     "Concrete"
+    ],
+    [
+     "WindowShape",
+     "2"
+    ],
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_60",
+   "props": []
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_61",
+   "props": []
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_62",
+   "props": []
+  },
+  {
+   "peca": "rsb_paredes_ciep_01_63",
+   "props": []
+  }
+ ],
+ "buildingtiles": {
+  "exterior_walls": [
+   {
+    "West": 0,
+    "North": 1,
+    "NorthWest": 2,
+    "SouthEast": 3,
+    "WestWindow": 8,
+    "NorthWindow": 9,
+    "WestDoor": 10,
+    "NorthDoor": 11,
+    "WestWindow1": 48,
+    "NorthWindow1": 49,
+    "WestWindow2": 50,
+    "NorthWindow2": 51
+   },
+   {
+    "West": 4,
+    "North": 5,
+    "NorthWest": 6,
+    "SouthEast": 7,
+    "WestWindow": 12,
+    "NorthWindow": 13,
+    "WestDoor": 14,
+    "NorthDoor": 15,
+    "WestWindow1": 52,
+    "NorthWindow1": 53,
+    "WestWindow2": 54,
+    "NorthWindow2": 55
+   },
+   {
+    "West": 16,
+    "North": 17,
+    "NorthWest": 18,
+    "SouthEast": 19,
+    "WestWindow": 24,
+    "NorthWindow": 25,
+    "WestDoor": 26,
+    "NorthDoor": 27,
+    "WestWindow1": 56,
+    "NorthWindow1": 57,
+    "WestWindow2": 58,
+    "NorthWindow2": 59
+   }
+  ],
+  "interior_walls": [
+   {
+    "West": 20,
+    "North": 21,
+    "NorthWest": 22,
+    "SouthEast": 23,
+    "WestWindow": 28,
+    "NorthWindow": 29,
+    "WestDoor": 30,
+    "NorthDoor": 31
+   },
+   {
+    "West": 32,
+    "North": 33,
+    "NorthWest": 34,
+    "SouthEast": 35,
+    "WestWindow": 40,
+    "NorthWindow": 41,
+    "WestDoor": 42,
+    "NorthDoor": 43
+   }
+  ]
+ },
+ "bt_nomes_prontos": false,
+ "estilo": "pz_v1"
+}

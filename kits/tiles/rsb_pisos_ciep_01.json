@@ -1,0 +1,90 @@
+{
+ "folha": "rsb_pisos_ciep_01",
+ "tipo": "piso",
+ "pecas": [
+  {
+   "peca": "rsb_pisos_ciep_01_0",
+   "nome": "paviflex_bege_marrom",
+   "descricao": "paviflex bege e marrom (sala de aula, corredor)",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_pisos_ciep_01_1",
+   "nome": "paviflex_cinza",
+   "descricao": "paviflex cinza (secretaria, biblioteca)",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_pisos_ciep_01_2",
+   "nome": "cimentado_patio",
+   "descricao": "cimentado liso do pátio coberto",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ],
+    [
+     "exterior",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_pisos_ciep_01_3",
+   "props": []
+  },
+  {
+   "peca": "rsb_pisos_ciep_01_4",
+   "props": []
+  },
+  {
+   "peca": "rsb_pisos_ciep_01_5",
+   "props": []
+  },
+  {
+   "peca": "rsb_pisos_ciep_01_6",
+   "props": []
+  },
+  {
+   "peca": "rsb_pisos_ciep_01_7",
+   "props": []
+  }
+ ],
+ "buildingtiles": {
+  "floors": [
+   {
+    "Floor": 0
+   },
+   {
+    "Floor": 1
+   },
+   {
+    "Floor": 2
+   }
+  ]
+ },
+ "bt_nomes_prontos": false,
+ "estilo": "pz_v1"
+}
