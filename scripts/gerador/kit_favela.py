@@ -416,7 +416,8 @@ def _entrada_bt(texto: str, categoria: str, prefixo: str) -> dict:
 def _gravar(folha, nome, tipo, pecas, saida: Path, buildingtiles: dict, bruto=False) -> dict:
     saida.mkdir(parents=True, exist_ok=True)
     import estilo_pz  # filtro de estilo do jogo (aprovado em 09/11/2026)
-    estilo_pz.filtrar_folha(folha, tipo).save(saida / f"{nome}.png")
+    juntas = {i for i, pc in enumerate(pecas) if str(pc.get("nome", "")).startswith(("letreiro", "quadro"))}
+    estilo_pz.filtrar_folha(folha, tipo, sem_contorno=juntas).save(saida / f"{nome}.png")
     man = {"folha": nome, "tipo": tipo, "pecas": pecas, "buildingtiles": buildingtiles, "bt_nomes_prontos": bruto,
            "estilo": estilo_pz.ESTILO}
     (saida / f"{nome}.json").write_text(json.dumps(man, ensure_ascii=False, indent=1), encoding="utf-8")

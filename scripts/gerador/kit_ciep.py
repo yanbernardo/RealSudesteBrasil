@@ -56,7 +56,8 @@ def concreto_painel(seed):
     poro, _ = tf.pontos(U, v, 80, 240, 0.4, 0.25, seed + 1)
     cor = cor * (1 - 0.05 * poro)[..., None]
     h = 0.3 * poro
-    junta_v = np.minimum(U, 1 - U) * 63 < 0.9
+    # sem junta vertical a cada tile (pedido do usuário: as emendas viravam linhas na fachada)
+    junta_v = np.zeros_like(U, dtype=bool)
     junta_h = (Z < 2.0) | (np.abs(Z - 188) < 1.0)
     j = junta_v | junta_h
     cor = np.where(j[..., None], cor * 0.78, cor)
@@ -271,7 +272,6 @@ def peca_arco_largo(molde, face, texs, Lref, forma):
     nasce = topo - r
     centro = (a + b) / 2 * 63
     dentro = (ug >= a) & (ug <= b) & ((Z <= nasce) | (np.hypot(ug * 63 - centro, Z - nasce) <= r))
-    dentro &= (np.mgrid[0:256, 0:128][1] < 63) if face == "W" else (np.mgrid[0:256, 0:128][1] > 64)
     im[..., 3] = np.where(dentro, 0, im[..., 3])
     return Image.fromarray(im, "RGBA")
 
@@ -288,7 +288,6 @@ def peca_arco(molde, face, texs, Lref):
     r = (u1 - u0) * 63 / 2
     topo = ARCO_TOPO_M * PX_M
     furo = (U >= u0) & (U <= u1) & (Z <= topo) & ~_fora_arredondado(U, Z, u0, u1, -60, topo, r, so_topo=True)
-    furo &= (np.mgrid[0:256, 0:128][1] < 63) if face == "W" else (np.mgrid[0:256, 0:128][1] > 64)
     im[..., 3] = np.where(furo, 0, im[..., 3])
     return Image.fromarray(im, "RGBA")
 
@@ -311,14 +310,13 @@ def recorte_largo(molde, face, base_ch, Lref, vao, forma, cp, cf):
     em = (U >= a - 0.04) & (U <= b + 0.04) & (Z >= pz0) & (Z <= pz1)
     em &= ~_fora_arredondado(U, Z, a - 0.04, b + 0.04, pz0, pz1 + 30, 0.3 * 63)
     cor = np.where(em[..., None], np.array(cp, float) * (1 + 0.1 * tf.sstep(pz0, pz1, Z))[..., None], cor)
-    h = np.where(em, 1.2, h)
+    # sem relevo na faixa: a textura é periódica e o relevo "dava a volta" na emenda, virando um traço escuro
     if cf is not None:
         fx = (Z >= z1 + 0.05 * PX_M) & (Z <= z1 + 0.25 * PX_M) & (U >= a - 0.04) & (U <= b + 0.04)
         cor = np.where(fx[..., None], np.array(cf, float), cor)
     im = np.array(kf.peca_parede_tex(molde, face, kb._iluminar(cor, h), Lref))
     Up, Zp = _uz(face)
     furo = (Up >= a) & (Up <= b) & (Zp >= z0) & (Zp <= z1) & ~_fora_arredondado(Up, Zp, a, b, z0, z1, 0.3 * (z1 - z0))
-    furo &= (np.mgrid[0:256, 0:128][1] < 63) if face == "W" else (np.mgrid[0:256, 0:128][1] > 64)
     im[..., 3] = np.where(furo, 0, im[..., 3])
     return Image.fromarray(im, "RGBA")
 
@@ -496,7 +494,9 @@ def letreiro(parte):
         if face != "y1":
             return np.broadcast_to(np.array([200, 198, 190.0]), np.shape(u) + (3,))
         return kb.amostra(img, (u + parte) / LETREIRO_PARTES, (v - z0) / (z1 - z0)) * K
-    c.caixa(0.0, 0.0, z0, 1.0, 0.06, z1, None, frente, brilho=0.15)
+    # só as pontas de fora do letreiro têm lateral (as laterais internas viravam linhas nas emendas)
+    faces = ('y1', 'topo') + (('x0',) if parte == 0 else ()) + (('x1',) if parte == LETREIRO_PARTES - 1 else ())
+    c.caixa(0.0, 0.0, z0, 1.0, 0.06, z1, None, frente, brilho=0.15, faces=faces)
     return c
 
 

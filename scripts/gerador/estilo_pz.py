@@ -80,7 +80,7 @@ def filtrar_peca(cel: np.ndarray, tipo: str, forca: float = 1.0, m=None) -> np.n
 ESTILO = "pz_v1"
 
 
-def filtrar_folha(folha, tipo: str, forca: float = 1.0) -> Image.Image:
+def filtrar_folha(folha, tipo: str, forca: float = 1.0, sem_contorno=()) -> Image.Image:
     """`folha`: Image ou caminho do PNG. Devolve a folha filtrada (RGBA)."""
     im = np.array((folha if isinstance(folha, Image.Image) else Image.open(folha)).convert("RGBA"))
     a = im[..., 3].astype(float) / 255
@@ -88,7 +88,9 @@ def filtrar_folha(folha, tipo: str, forca: float = 1.0) -> Image.Image:
     out = im.copy()
     for y in range(0, im.shape[0], 256):
         for x in range(0, im.shape[1], 128):
-            out[y:y + 256, x:x + 128] = filtrar_peca(im[y:y + 256, x:x + 128], tipo, forca, m)
+            i = (y // 256) * (im.shape[1] // 128) + x // 128
+            t = "peca" if i in sem_contorno else tipo     # peça de um conjunto (letreiro, quadro): sem contorno na emenda
+            out[y:y + 256, x:x + 128] = filtrar_peca(im[y:y + 256, x:x + 128], t, forca, m)
     return Image.fromarray(out, "RGBA")
 
 
