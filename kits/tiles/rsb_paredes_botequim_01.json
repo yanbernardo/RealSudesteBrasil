@@ -1,0 +1,669 @@
+{
+ "folha": "rsb_paredes_botequim_01",
+ "tipo": "parede",
+ "pecas": [
+  {
+   "peca": "rsb_paredes_botequim_01_0",
+   "nome": "azulejo_branco_faixa_verde WallW",
+   "descricao": "salão: azulejo branco até 1,6 m, faixa verde, tinta creme",
+   "props": [
+    [
+     "MaterialType",
+     "Ceramic"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_1",
+   "nome": "azulejo_branco_faixa_verde WallN",
+   "descricao": "salão: azulejo branco até 1,6 m, faixa verde, tinta creme",
+   "props": [
+    [
+     "MaterialType",
+     "Ceramic"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_2",
+   "nome": "azulejo_branco_faixa_verde WallNW",
+   "descricao": "salão: azulejo branco até 1,6 m, faixa verde, tinta creme",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_paredes_botequim_01_1"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_paredes_botequim_01_0"
+    ],
+    [
+     "MaterialType",
+     "Ceramic"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_3",
+   "nome": "azulejo_branco_faixa_verde WallSE",
+   "descricao": "salão: azulejo branco até 1,6 m, faixa verde, tinta creme",
+   "props": [
+    [
+     "MaterialType",
+     "Ceramic"
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_4",
+   "nome": "azulejo_verde_claro WallW",
+   "descricao": "cozinha e banheiro: azulejo verde-claro, tinta branca",
+   "props": [
+    [
+     "MaterialType",
+     "Ceramic"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_5",
+   "nome": "azulejo_verde_claro WallN",
+   "descricao": "cozinha e banheiro: azulejo verde-claro, tinta branca",
+   "props": [
+    [
+     "MaterialType",
+     "Ceramic"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_6",
+   "nome": "azulejo_verde_claro WallNW",
+   "descricao": "cozinha e banheiro: azulejo verde-claro, tinta branca",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_paredes_botequim_01_5"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_paredes_botequim_01_4"
+    ],
+    [
+     "MaterialType",
+     "Ceramic"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_7",
+   "nome": "azulejo_verde_claro WallSE",
+   "descricao": "cozinha e banheiro: azulejo verde-claro, tinta branca",
+   "props": [
+    [
+     "MaterialType",
+     "Ceramic"
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_8",
+   "nome": "azulejo_branco_faixa_verde WindowW",
+   "descricao": "salão: azulejo branco até 1,6 m, faixa verde, tinta creme",
+   "props": [
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_9",
+   "nome": "azulejo_branco_faixa_verde WindowN",
+   "descricao": "salão: azulejo branco até 1,6 m, faixa verde, tinta creme",
+   "props": [
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_10",
+   "nome": "azulejo_branco_faixa_verde DoorWallW",
+   "descricao": "salão: azulejo branco até 1,6 m, faixa verde, tinta creme",
+   "props": [
+    [
+     "DoorWallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_11",
+   "nome": "azulejo_branco_faixa_verde DoorWallN",
+   "descricao": "salão: azulejo branco até 1,6 m, faixa verde, tinta creme",
+   "props": [
+    [
+     "DoorWallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_12",
+   "nome": "azulejo_verde_claro WindowW",
+   "descricao": "cozinha e banheiro: azulejo verde-claro, tinta branca",
+   "props": [
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_13",
+   "nome": "azulejo_verde_claro WindowN",
+   "descricao": "cozinha e banheiro: azulejo verde-claro, tinta branca",
+   "props": [
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_14",
+   "nome": "azulejo_verde_claro DoorWallW",
+   "descricao": "cozinha e banheiro: azulejo verde-claro, tinta branca",
+   "props": [
+    [
+     "DoorWallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_15",
+   "nome": "azulejo_verde_claro DoorWallN",
+   "descricao": "cozinha e banheiro: azulejo verde-claro, tinta branca",
+   "props": [
+    [
+     "DoorWallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_16",
+   "nome": "fachada_amarela WallW",
+   "descricao": "fachada amarela com barra de cerâmica vermelha",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_17",
+   "nome": "fachada_amarela WallN",
+   "descricao": "fachada amarela com barra de cerâmica vermelha",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_18",
+   "nome": "fachada_amarela WallNW",
+   "descricao": "fachada amarela com barra de cerâmica vermelha",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_paredes_botequim_01_17"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_paredes_botequim_01_16"
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_19",
+   "nome": "fachada_amarela WallSE",
+   "descricao": "fachada amarela com barra de cerâmica vermelha",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_20",
+   "nome": "fachada_verde WallW",
+   "descricao": "fachada verde com barra de cerâmica vermelha",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_21",
+   "nome": "fachada_verde WallN",
+   "descricao": "fachada verde com barra de cerâmica vermelha",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_22",
+   "nome": "fachada_verde WallNW",
+   "descricao": "fachada verde com barra de cerâmica vermelha",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_paredes_botequim_01_21"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_paredes_botequim_01_20"
+    ],
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallNW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_23",
+   "nome": "fachada_verde WallSE",
+   "descricao": "fachada verde com barra de cerâmica vermelha",
+   "props": [
+    [
+     "MaterialType",
+     "Plaster"
+    ],
+    [
+     "WallSE",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_24",
+   "nome": "fachada_amarela WindowW",
+   "descricao": "fachada amarela com barra de cerâmica vermelha",
+   "props": [
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_25",
+   "nome": "fachada_amarela WindowN",
+   "descricao": "fachada amarela com barra de cerâmica vermelha",
+   "props": [
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_26",
+   "nome": "fachada_amarela DoorWallW",
+   "descricao": "fachada amarela com barra de cerâmica vermelha",
+   "props": [
+    [
+     "DoorWallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_27",
+   "nome": "fachada_amarela DoorWallN",
+   "descricao": "fachada amarela com barra de cerâmica vermelha",
+   "props": [
+    [
+     "DoorWallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_28",
+   "nome": "fachada_verde WindowW",
+   "descricao": "fachada verde com barra de cerâmica vermelha",
+   "props": [
+    [
+     "WindowW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_29",
+   "nome": "fachada_verde WindowN",
+   "descricao": "fachada verde com barra de cerâmica vermelha",
+   "props": [
+    [
+     "WindowN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_30",
+   "nome": "fachada_verde DoorWallW",
+   "descricao": "fachada verde com barra de cerâmica vermelha",
+   "props": [
+    [
+     "DoorWallW",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_paredes_botequim_01_31",
+   "nome": "fachada_verde DoorWallN",
+   "descricao": "fachada verde com barra de cerâmica vermelha",
+   "props": [
+    [
+     "DoorWallN",
+     ""
+    ],
+    [
+     "wall",
+     ""
+    ]
+   ]
+  }
+ ],
+ "buildingtiles": {
+  "exterior_walls": [
+   {
+    "West": 0,
+    "North": 1,
+    "NorthWest": 2,
+    "SouthEast": 3,
+    "WestWindow": 8,
+    "NorthWindow": 9,
+    "WestDoor": 10,
+    "NorthDoor": 11
+   },
+   {
+    "West": 4,
+    "North": 5,
+    "NorthWest": 6,
+    "SouthEast": 7,
+    "WestWindow": 12,
+    "NorthWindow": 13,
+    "WestDoor": 14,
+    "NorthDoor": 15
+   },
+   {
+    "West": 16,
+    "North": 17,
+    "NorthWest": 18,
+    "SouthEast": 19,
+    "WestWindow": 24,
+    "NorthWindow": 25,
+    "WestDoor": 26,
+    "NorthDoor": 27
+   },
+   {
+    "West": 20,
+    "North": 21,
+    "NorthWest": 22,
+    "SouthEast": 23,
+    "WestWindow": 28,
+    "NorthWindow": 29,
+    "WestDoor": 30,
+    "NorthDoor": 31
+   }
+  ],
+  "interior_walls": [
+   {
+    "West": 0,
+    "North": 1,
+    "NorthWest": 2,
+    "SouthEast": 3,
+    "WestWindow": 8,
+    "NorthWindow": 9,
+    "WestDoor": 10,
+    "NorthDoor": 11
+   },
+   {
+    "West": 4,
+    "North": 5,
+    "NorthWest": 6,
+    "SouthEast": 7,
+    "WestWindow": 12,
+    "NorthWindow": 13,
+    "WestDoor": 14,
+    "NorthDoor": 15
+   },
+   {
+    "West": 16,
+    "North": 17,
+    "NorthWest": 18,
+    "SouthEast": 19,
+    "WestWindow": 24,
+    "NorthWindow": 25,
+    "WestDoor": 26,
+    "NorthDoor": 27
+   },
+   {
+    "West": 20,
+    "North": 21,
+    "NorthWest": 22,
+    "SouthEast": 23,
+    "WestWindow": 28,
+    "NorthWindow": 29,
+    "WestDoor": 30,
+    "NorthDoor": 31
+   }
+  ]
+ },
+ "bt_nomes_prontos": false
+}

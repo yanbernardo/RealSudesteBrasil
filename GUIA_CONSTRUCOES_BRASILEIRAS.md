@@ -240,6 +240,19 @@ botequim_01: Rio inteiro, de esquina.
 
 Quando juntar algumas, me diga "liguei construções novas em kits\lojas\brasil". Eu leio as anotações, ligo no gerador, instalo e coloco os lugares no grupo TESTE do teleporte para você conferir em jogo.
 
+### 5.7 Peças do botequim ("Bar Ponto Certo") no BuildingEd
+
+Prontas desde 09/11/2026 e já registradas no BuildingEd (feche e abra o BuildingEd de novo para ele ler):
+- **Paredes:** nas listas de parede externa e interna aparecem 4 estilos novos: azulejo branco com faixa verde (salão), azulejo verde-claro (cozinha e banheiro), fachada amarela e fachada verde, as duas com barra de cerâmica vermelha. Use com a ferramenta de parede, assim eu consigo fazer as variações de cor depois.
+- **Pisos:** na lista de pisos: ladrilho hidráulico, xadrez preto e branco, granilite e lajota vermelha.
+- **Móveis e objetos:** no modo de peças (Tile Mode), folha `rsb_botequim_01`. O fim do nome diz o lado da frente: `_s` sul, `_l` leste, `_n` norte, `_o` oeste.
+  - Balcão de azulejo e balcão com estufa: a frente de azulejo fica para o cliente e as prateleiras com garrafas para quem atende. Guardam coisas como o balcão de bar do jogo.
+  - Freezer de sorvete, cervejeira (funciona como geladeira), cadeiras e mesas de plástico, engradados e pilha de cadeiras.
+  - **Letreiro** (2 peças, lado a lado): na fachada para o sul, as peças `letreiro_n_1` (à esquerda, no tile a oeste) e `letreiro_n_2` (à direita), postas na **parede norte do tile da calçada**, encostadas na fachada. Na fachada para o leste, as peças `letreiro_o_1` (no tile ao sul) e `letreiro_o_2` (ao norte), na parede oeste do tile da calçada.
+  - **Lousa de cardápio:** `lousa_cardapio_n` na parede norte, `lousa_cardapio_o` na parede oeste.
+  - **Porta de enrolar:** a "aberta" (só o rolo em cima) vai no tile de uma porta sem folha; a "fechada" vai sobre um pedaço de parede comum (loja fechada).
+  - Letreiro, lousa e portas de enrolar são peças de parede: ponha na camada de objetos de parede do modo de peças. Se não aparecerem ali, use a camada de móveis.
+
 ## 6. Peças novas (tiles brasileiras)
 
 Para o que o jogo base não tem: telha colonial, azulejo português, pedra portuguesa da calçada, fachada pintada, orelhão, placa em português. Regra do projeto: toda peça nova precisa aparecer em 3D no Viewpoint (D-07, D-09), então cada peça nova passa pelo teste do Viewpoint antes de ser usada em massa.

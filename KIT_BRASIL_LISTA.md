@@ -23,12 +23,12 @@ Como cada peça é feita (coluna "Como"):
 ## 2. Pisos de casa e comércio
 | Peça | Como |
 |---|---|
-| Lajota de barro vermelha (2 tons) | Script |
+| Lajota de barro vermelha (2 tons) | **pronto** (1 tom, botequim) |
 | Cerâmica bege e cinza-clara com rejunte | Script |
 | Cimento queimado vermelho e cinza | Script |
-| Ladrilho hidráulico (azul e branco, vermelho e creme) | Script |
-| Azulejo de cozinha e banheiro (parede) | Textura |
-| Piso de granilite (escola, repartição) | Script |
+| Ladrilho hidráulico (azul e branco, vermelho e creme) | **pronto** o vermelho e creme (botequim); falta o azul |
+| Azulejo de cozinha e banheiro (parede) | **pronto** (Script, botequim) |
+| Piso de granilite (escola, repartição) | **pronto** (Script, botequim) |
 | Taco de madeira (apartamentos antigos) | Textura |
 
 ## 3. Paredes e fachadas
@@ -81,11 +81,17 @@ Como cada peça é feita (coluna "Como"):
 | Carrinho de coco e de pipoca | Desenho |
 
 ## 7. Casas e comércio brasileiros (usuário no BuildingEd)
+**Botequim de esquina, feito em 09/11/2026** (`scripts/gerador/kit_botequim.py` → `kits/tiles/`, registrado no BuildingEd). Nome do bar: **"Bar Ponto Certo"** (fictício; trocar em `NOME_BAR` e rodar de novo):
+- Paredes, 4 estilos × 8 peças (`rsb_paredes_botequim_01`): azulejo branco com faixa verde e tinta creme (salão), azulejo verde-claro (cozinha e banheiro), fachada amarela e fachada verde com barra de cerâmica vermelha.
+- Pisos (`rsb_pisos_botequim_01`): ladrilho hidráulico, xadrez preto e branco, granilite, lajota vermelha.
+- Objetos (`rsb_botequim_01`, 36 peças): balcão de azulejo com tampo de granito e balcão com estufa de salgados (4 lados cada; funcionam como o balcão de bar do jogo), freezer de sorvete (4 lados), cervejeira de porta de vidro (2 lados; é geladeira), cadeira de plástico amarela e branca (4 lados), mesa de plástico amarela e branca, engradados de cerveja, pilha de cadeiras, letreiro do bar (2 peças, fachada para o sul ou para o leste), lousa de cardápio, porta de enrolar aberta (rolo) e fechada (paredes norte e oeste).
+
 | Peça | Como |
 |---|---|
 | Fachada de casa de laje, de casa com muro e garagem | Desenho + Textura |
 | Sobrado geminado | Desenho |
-| Bar de esquina, padaria, lanchonete, açougue, quitanda | Desenho |
+| Bar de esquina | **pronto** (Script) |
+| Padaria, lanchonete, açougue, quitanda | Desenho |
 | Placa de loja em português (letreiros sem marca) | Desenho |
 | Toldo de comércio | Desenho |
 

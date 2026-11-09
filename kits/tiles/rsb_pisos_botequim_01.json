@@ -1,0 +1,99 @@
+{
+ "folha": "rsb_pisos_botequim_01",
+ "tipo": "piso",
+ "pecas": [
+  {
+   "peca": "rsb_pisos_botequim_01_0",
+   "nome": "ladrilho_hidraulico",
+   "descricao": "ladrilho hidráulico (flor vermelha e ocre)",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_pisos_botequim_01_1",
+   "nome": "xadrez_preto_branco",
+   "descricao": "piso xadrez preto e branco",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_pisos_botequim_01_2",
+   "nome": "granilite",
+   "descricao": "granilite com junta de latão",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_pisos_botequim_01_3",
+   "nome": "lajota_vermelha",
+   "descricao": "lajota vermelha de barro",
+   "props": [
+    [
+     "diamondFloor",
+     ""
+    ],
+    [
+     "solidfloor",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_pisos_botequim_01_4",
+   "props": []
+  },
+  {
+   "peca": "rsb_pisos_botequim_01_5",
+   "props": []
+  },
+  {
+   "peca": "rsb_pisos_botequim_01_6",
+   "props": []
+  },
+  {
+   "peca": "rsb_pisos_botequim_01_7",
+   "props": []
+  }
+ ],
+ "buildingtiles": {
+  "floors": [
+   {
+    "Floor": 0
+   },
+   {
+    "Floor": 1
+   },
+   {
+    "Floor": 2
+   },
+   {
+    "Floor": 3
+   }
+  ]
+ },
+ "bt_nomes_prontos": false
+}
