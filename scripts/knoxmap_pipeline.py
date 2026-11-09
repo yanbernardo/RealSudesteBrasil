@@ -35,6 +35,20 @@ def main() -> int:
         from generator import sketch as _sk
         _sk.EXTRA_TAGS.update(cfg["extraTags"])
 
+    # D-37: assinatura do KnoxMap no chão, uma vez só e num lugar escolhido.
+    # "assinatura": false = não pinta neste pedaço; {"mundo": [x, y]} = pinta no
+    # lugar livre mais perto desse tile do mundo (o KnoxMap usa a casa de
+    # nascimento). Sem a chave, fica o comportamento original dele.
+    if "assinatura" in cfg:
+        from knoxbuild import credit_ground as _cg
+        ass = cfg["assinatura"]
+        if ass is False:
+            _cg.paint = lambda ground, veg, free, rows: None
+        elif ass:
+            cx, cy = cfg.get("cell", [0, 0])
+            alvo = (int(ass["mundo"][0]) - cx * 300, int(ass["mundo"][1]) - cy * 300)
+            _cg.spawn_house = lambda rows: alvo
+
     # Decoração das lojas: troca peças de um tipo de loja (ex.: gunstore) só
     # durante esta execução, sem mexer nos arquivos do KnoxMap.
     if cfg.get("storeOverrides"):
