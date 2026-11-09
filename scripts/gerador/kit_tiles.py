@@ -100,7 +100,7 @@ def definicoes(lista, destino: Path) -> None:
         out += f"{man['folha']}\n{man['folha']}.png\n".encode("latin-1")
         out += struct.pack("<4i", cols, linhas, num, cols * linhas)
         for n in range(cols * linhas):
-            props = PISO if n < len(man["pecas"]) else []
+            props = (man["pecas"][n].get("props") or PISO) if n < len(man["pecas"]) else []
             out += struct.pack("<i", len(props))
             for k, v in props:
                 out += f"{k}\n{v}\n".encode("latin-1")

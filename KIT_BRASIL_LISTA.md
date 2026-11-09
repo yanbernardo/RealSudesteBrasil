@@ -1,0 +1,121 @@
+# Kit Brasil: lista de peças (tiles) úteis, por grupo
+
+Lista só dos nomes, para o usuário escolher a ordem dos grupos (08/11/2026). Nenhuma peça deste arquivo foi feita ainda, exceto o que está marcado como **pronto**.
+
+Como cada peça é feita (coluna "Como"):
+- **Script**: piso desenhado por script, sem trabalho manual (como o calçadão).
+- **Textura**: sai de uma foto/textura livre pelo TileSetZ (guia, seção 6.2): parede, telhado, piso.
+- **Desenho**: peça de objeto (poste, banca, orelhão), desenhada à mão ou a partir de modelo 3D; a mais trabalhosa. Toda peça nova precisa também de 3D no Viewpoint (D-07).
+
+## 1. Calçadas e pisos de rua
+| Peça | Como |
+|---|---|
+| Calçadão de Copacabana, pedra portuguesa em ondas (66 peças) | **pronto** (Script) |
+| Pedra portuguesa lisa: branca, preta, cinza (2 variações cada) | Script |
+| Paralelepípedo (rua antiga, Centro e Santa Teresa) | Script |
+| Calçada de placas de concreto 2 × 2 (calçada carioca comum), nova e desgastada | Script |
+| Piso tátil de alerta e direcional (amarelo) | Script |
+| Ciclovia vermelha (Copacabana, Aterro, Lagoa) e sua faixa branca | Script |
+| Meio-fio pintado de amarelo e de branco | Script |
+| Rampa de calçada (acessibilidade) | Desenho |
+| Bueiro e tampa de concessionária | Desenho |
+
+## 2. Pisos de casa e comércio
+| Peça | Como |
+|---|---|
+| Lajota de barro vermelha (2 tons) | Script |
+| Cerâmica bege e cinza-clara com rejunte | Script |
+| Cimento queimado vermelho e cinza | Script |
+| Ladrilho hidráulico (azul e branco, vermelho e creme) | Script |
+| Azulejo de cozinha e banheiro (parede) | Textura |
+| Piso de granilite (escola, repartição) | Script |
+| Taco de madeira (apartamentos antigos) | Textura |
+
+## 3. Paredes e fachadas
+| Peça | Como |
+|---|---|
+| Reboco pintado liso (bege, verde-água, rosa, azul, branco) | Textura |
+| Reboco descascado e com mofo | Textura |
+| Tijolo baiano aparente (favela, obra) | Textura |
+| Bloco de concreto sem reboco | Textura |
+| Azulejo português de fachada (Centro, Santa Teresa, Lapa) | Textura |
+| Pastilha de fachada de prédio (anos 70) | Textura |
+| Pichação e grafite (placas sobrepostas) | Desenho |
+| Cartaz lambe-lambe | Desenho |
+| Portão de ferro, de garagem, de grade | Desenho |
+| Muro baixo com grade; muro com cacos de vidro | Desenho |
+
+## 4. Telhados e topos
+| Peça | Como |
+|---|---|
+| Telha colonial (barro) | Textura |
+| Telha de fibrocimento (amianto) | Textura |
+| Laje descoberta com caixa d'água | Desenho |
+| Caixa d'água de polietileno (azul, cinza) | Desenho |
+| Antena parabólica; antena de TV | Desenho |
+| Cobertura de zinco (barraco) | Textura |
+
+## 5. Mobiliário urbano
+| Peça | Como |
+|---|---|
+| Orelhão | Desenho |
+| Banca de jornal | Desenho |
+| Ponto de ônibus coberto | Desenho |
+| Poste com fiação enrolada (emaranhado de cabos) | Desenho |
+| Lixeira de rua laranja (Comlurb) e contêiner de lixo | Desenho |
+| Placa de rua em português (azul e branco), sem texto | Desenho |
+| Placa de trânsito brasileira (pare, proibido estacionar etc.) | Desenho |
+| Lombada pintada, faixa de pedestre brasileira | Script |
+| Semáforo brasileiro | Desenho |
+| Banco de praça e de calçadão | Desenho |
+| Bebedouro, chuveirão de praia | Desenho |
+
+## 6. Praia
+| Peça | Como |
+|---|---|
+| Guarda-sol de praia (cores) | Desenho |
+| Cadeira de praia e barraca | Desenho |
+| Quiosque de orla | Desenho |
+| Rede de vôlei e de futevôlei (já existe com peças do jogo) | pronto (jogo base) |
+| Posto de salva-vidas | Desenho |
+| Carrinho de coco e de pipoca | Desenho |
+
+## 7. Casas e comércio brasileiros (usuário no BuildingEd)
+| Peça | Como |
+|---|---|
+| Fachada de casa de laje, de casa com muro e garagem | Desenho + Textura |
+| Sobrado geminado | Desenho |
+| Bar de esquina, padaria, lanchonete, açougue, quitanda | Desenho |
+| Placa de loja em português (letreiros sem marca) | Desenho |
+| Toldo de comércio | Desenho |
+
+## 8. Morro e favela
+| Peça | Como |
+|---|---|
+| Escadaria de concreto no morro (degraus em patamar) | Desenho |
+| Bica d'água e valão | Desenho |
+| Casas de tijolo e de madeira empilhadas | Desenho |
+| Fiação (gato de luz) | Desenho |
+| Casa de chefe do morro (D-31, só com peças do jogo, D-16) | Desenho |
+
+## 9. Vegetação e terreno
+| Peça | Como |
+|---|---|
+| Palmeira imperial e coqueiro (se o jogo não tiver) | Desenho |
+| Amendoeira, flamboyant, mangueira (árvores de rua) | Desenho |
+| Mata atlântica densa com bananeira e samambaia | Desenho |
+| Pedra de granito exposta (morros) | Desenho |
+| Capim-colonião e brejo | Textura |
+
+## 10. Rodovia e estrada
+| Peça | Como |
+|---|---|
+| Pórtico de pedágio, placa verde de rodovia | Desenho |
+| Barreira "New Jersey" de concreto | Desenho |
+| Mureta e guard-rail | Desenho |
+| Ponto de ônibus rodoviário, posto de beira de estrada | Desenho |
+
+## O que já está pronto para o Kit Brasil
+- Empacotador das folhas (`scripts/gerador/kit_tiles.py`) e editor de células (`scripts/gerador/lots.py`).
+- Calçadão de Copacabana (D-45).
+- Script de pisos (`scripts/gerador/pisos_brasil.py`) com 22 pisos do grupo 1 e 2 (pedra branca, preta, cinza; paralelepípedo; lajota; cerâmica; cimento queimado; tátil; hidráulico; placas; ciclovia), **sem entrar** na folha do mod até o usuário escolher.

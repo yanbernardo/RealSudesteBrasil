@@ -13,7 +13,7 @@
       {"nome": "Orla sem casas - Copacabana (Av. Atlantica)", "tile": [69770, 66146]},
       {"nome": "Orla do Leblon emendada no Jardim de Alah (U30)", "tile": [69532, 66275]},
       {"nome": "Rua Santa Clara moldada em trechos retos (D-43)", "tile": [69696, 66132]},
-      {"nome": "Tunel Zuzu Angel ligado (U28)", "tile": [69372, 66264]}
+      {"nome": "Tunel Zuzu Angel ligado (U28)", "tile": [69372, 66264]}, {"nome": "Calcadao de Copacabana - meio (D-45)", "tile": [69754, 66179]}, {"nome": "Calcadao de Copacabana - troca de direcao (D-45)", "tile": [69744, 66189]}, {"nome": "Calcadao de Copacabana - perto do Leme (D-45)", "tile": [69786, 66147]}
     ]},
     {"grupo": "Rio de Janeiro - Marcos", "pontos": [
       {"nome": "Cristo Redentor (Corcovado)", "lat": -22.9519, "lon": -43.2105},
