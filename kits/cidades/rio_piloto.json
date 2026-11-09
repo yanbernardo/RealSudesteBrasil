@@ -262,21 +262,5 @@
       ]
     }
   },
-  "predios_marco": [
-    {
-      "nome": "Casa de laje exemplo",
-      "chave": "casa_laje_exemplo",
-      "tipo": "house",
-      "andares": 1,
-      "lat": -22.956,
-      "lon": -43.199,
-      "frentes": {
-        "S": [
-          9,
-          11
-        ]
-      },
-      "_sobre": "Exemplo de laje (Flat Top de concreto, mureta, caixa d'água) para o usuário ver em jogo; tirar depois do OK."
-    }
-  ]
+  "predios_marco": []
 }

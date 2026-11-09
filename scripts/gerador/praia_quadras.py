@@ -31,6 +31,11 @@ PECAS = {("W", "ini"): ((12, 41, 200), "recreational_sports_01_93"),
          ("N", "meio"): ((12, 41, 204), "recreational_sports_01_89"),
          ("N", "fim"): ((12, 41, 205), "recreational_sports_01_90")}
 MARCA = "RSB praia"
+# Linha branca de tinta nova (a "desbotada" do KnoxMap saía tracejada e fraca na areia):
+# folha street_trafficlines_01, peças 8, 10, 12 e 14 = bordas oeste, norte, leste e sul.
+LINHAS = {"W": ((12, 41, 206), "street_trafficlines_01_8"), "N": ((12, 41, 207), "street_trafficlines_01_10"),
+          "E": ((12, 41, 208), "street_trafficlines_01_12"), "S": ((12, 41, 209), "street_trafficlines_01_14")}
+LINHA_W, LINHA_N, LINHA_E, LINHA_S = (LINHAS[k][0] for k in "WNES")
 
 
 def garantir_regras(knox: Path) -> int:
@@ -45,6 +50,10 @@ def garantir_regras(knox: Path) -> int:
         novas.append(f"\nrule\n{{\n    label = {MARCA} rede {lado} {parte}\n    bitmap = 1\n"
                      f"    color = {cor[0]} {cor[1]} {cor[2]}\n"
                      f"    tiles = {peca}\n    layer = 0_Furniture\n}}\n")
+    for lado, (cor, peca) in LINHAS.items():
+        novas.append(f"\nrule\n{{\n    label = {MARCA} linha {lado}\n    bitmap = 1\n"
+                     f"    color = {cor[0]} {cor[1]} {cor[2]}\n"
+                     f"    tiles = {peca}\n    layer = 0_FloorOverlay5\n}}\n")
     caminho.write_text(texto.rstrip() + "\n" + "".join(novas), encoding="utf-8")
     return len(novas)
 
@@ -57,6 +66,21 @@ def colocar(knox: Path, nome: str, cfg: dict) -> dict:
             continue
         img = np.array(Image.open(p).convert("RGB"))
         H, W = img.shape[:2]
+        # contorno: linhas brancas de borda do jogo (as mesmas regras "Edge line" do KnoxMap)
+        for q in quadras:
+            x0, y0, x1, y1 = q["rx0"], q["ry0"], q["rx1"], q["ry1"]
+            for y in range(y0, y1 + 1):
+                if 0 <= y < H:
+                    if 0 <= x0 < W:
+                        img[y, x0] = LINHA_W
+                    if 0 <= x1 < W:
+                        img[y, x1] = LINHA_E
+            for x in range(x0 + 1, x1):
+                if 0 <= x < W:
+                    if 0 <= y0 < H:
+                        img[y0, x] = LINHA_N
+                    if 0 <= y1 < H:
+                        img[y1, x] = LINHA_S
         for q in quadras:
             if q["tipo"] == "W":
                 pts = [(q["x"], y) for y in range(q["y0"], q["y1"] + 1)]

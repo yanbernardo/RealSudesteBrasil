@@ -229,11 +229,33 @@ def praias(kit, mar):
         if L.is_ring and L.length - S.length < S.length:      # o outro arco é o mais curto
             S = linemerge([shapely.ops.substring(L, db, L.length), shapely.ops.substring(L, 0, da)])
         larg = float(pr.get("largura", 22))
-        esq, dir_ = S.buffer(larg, single_sided=True), S.buffer(-larg, single_sided=True)
-        if esq.intersection(mar).area >= dir_.intersection(mar).area:
-            faixa, sinal_terra = esq.intersection(mar), -1
+        # A faixa afina nas duas pontas até zero (usuário, 08/11/2026: a ponta da
+        # areia do Flamengo era um corte reto dando direto no mar): a largura sobe
+        # de 0 à cheia em `afinar` tiles, em curva suave.
+        afinar = min(float(pr.get("afinar", 40)), S.length * 0.22)
+        n = max(8, int(S.length))
+        ds = np.linspace(0, S.length, n + 1)
+        pts = [S.interpolate(d) for d in ds]
+
+        def faixa_afinada(sinal):
+            fora = []
+            for k, d in enumerate(ds):
+                a_, b_ = pts[max(0, k - 1)], pts[min(n, k + 1)]
+                tx, ty = b_.x - a_.x, b_.y - a_.y
+                m = math.hypot(tx, ty) or 1.0
+                t = min(d, S.length - d) / afinar if afinar > 0 else 1.0
+                t = min(1.0, t)
+                w = larg * t * t * (3 - 2 * t)                 # curva suave (smoothstep)
+                fora.append((pts[k].x + sinal * (-ty / m) * w, pts[k].y + sinal * (tx / m) * w))
+            anel = [(q.x, q.y) for q in pts] + fora[::-1]
+            # colada na costa: o polígono por pontos deixava frestas onde a costa curva
+            return unary_union([Polygon(anel).buffer(0), S.buffer(1.5)])
+
+        f1, f2 = faixa_afinada(1), faixa_afinada(-1)
+        if f1.intersection(mar).area >= f2.intersection(mar).area:
+            faixa, sinal_terra = f1.intersection(mar), -1
         else:
-            faixa, sinal_terra = dir_.intersection(mar), 1
+            faixa, sinal_terra = f2.intersection(mar), 1
         out.append({"nome": pr["nome"], "costa": S, "faixa_mar": faixa, "sinal_terra": sinal_terra,
                     "largura": larg, "ruas_orla": pr.get("ruas_orla")})
     return out
@@ -303,6 +325,8 @@ def quadras_de_praia(pr, zonas, passo=110):
                     rede = {"tipo": "W", "x": x0 + w // 2, "y0": y0, "y1": y0 + h - 1}
                 else:
                     rede = {"tipo": "N", "y": y0 + h // 2, "x0": x0, "x1": x0 + w - 1}
+                # contorno da quadra (linhas brancas no chão): rx0..rx1, ry0..ry1
+                rede.update({"rx0": x0, "ry0": y0, "rx1": x0 + w - 1, "ry1": y0 + h - 1})
                 out.append((r, rede))
                 break
     return out
@@ -1538,9 +1562,12 @@ def main() -> int:
                            "historias": [["Forest", 16, 16, 6], ["Lake", 14, 14, 1]]},
         "centrarFaixas": True,          # U13 (scripts/gerador/faixas.py)
         "limparOrla": True,             # U25 (scripts/gerador/limpar_orla.py)
-        "semCalcadaDiagonal": True,     # K15/U20 (scripts/gerador/diagonais.py)
+        # Desligado (usuário, 08/11/2026): a borda do asfalto com meios-tiles em rua
+        # diagonal ficou feia; avenida diagonal fica com a calçada em degraus até o
+        # Kit Brasil. As ruas internas são retas (D-43). Script guardado em diagonais.py.
+        "semCalcadaDiagonal": False,
         # quadras de vôlei na areia (scripts/gerador/praia_quadras.py), em pixels do desenho
-        "quadrasPraia": [{k: (v - (mold.X0 if k in ("x", "x0", "x1") else mold.Y0) if k != "tipo" else v)
+        "quadrasPraia": [{k: (v if k == "tipo" else v - (mold.X0 if k in ("x", "x0", "x1", "rx0", "rx1") else mold.Y0))
                           for k, v in rede.items()} for _r, rede in quadras],
     }
     saida.write_text(json.dumps(cfg, ensure_ascii=False), encoding="utf-8")
