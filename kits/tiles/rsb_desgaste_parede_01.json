@@ -4,262 +4,6 @@
  "pecas": [
   {
    "peca": "rsb_desgaste_parede_01_0",
-   "nome": "grime de favela leve WallW",
-   "descricao": "sujeira de favela leve (lama, mofo, escorrido)",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedW",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_1",
-   "nome": "grime de favela leve WallN",
-   "descricao": "sujeira de favela leve (lama, mofo, escorrido)",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedN",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_2",
-   "nome": "grime de favela leve WallNW",
-   "descricao": "sujeira de favela leve (lama, mofo, escorrido)",
-   "props": [
-    [
-     "CornerNorthWall",
-     "rsb_desgaste_parede_01_1"
-    ],
-    [
-     "CornerWestWall",
-     "rsb_desgaste_parede_01_0"
-    ],
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedN",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_3",
-   "nome": "grime de favela leve WallSE",
-   "descricao": "sujeira de favela leve (lama, mofo, escorrido)",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedW",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_4",
-   "nome": "grime de favela forte WallW",
-   "descricao": "sujeira de favela forte (lama, mofo, escorrido)",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedW",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_5",
-   "nome": "grime de favela forte WallN",
-   "descricao": "sujeira de favela forte (lama, mofo, escorrido)",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedN",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_6",
-   "nome": "grime de favela forte WallNW",
-   "descricao": "sujeira de favela forte (lama, mofo, escorrido)",
-   "props": [
-    [
-     "CornerNorthWall",
-     "rsb_desgaste_parede_01_5"
-    ],
-    [
-     "CornerWestWall",
-     "rsb_desgaste_parede_01_4"
-    ],
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedN",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_7",
-   "nome": "grime de favela forte WallSE",
-   "descricao": "sujeira de favela forte (lama, mofo, escorrido)",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedW",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_8",
-   "nome": "grime de favela leve WindowW",
-   "descricao": "sujeira de favela leve (lama, mofo, escorrido)",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedW",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_9",
-   "nome": "grime de favela leve WindowN",
-   "descricao": "sujeira de favela leve (lama, mofo, escorrido)",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedN",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_10",
-   "nome": "grime de favela leve DoorWallW",
-   "descricao": "sujeira de favela leve (lama, mofo, escorrido)",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedW",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_11",
-   "nome": "grime de favela leve DoorWallN",
-   "descricao": "sujeira de favela leve (lama, mofo, escorrido)",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedN",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_12",
-   "nome": "grime de favela forte WindowW",
-   "descricao": "sujeira de favela forte (lama, mofo, escorrido)",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedW",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_13",
-   "nome": "grime de favela forte WindowN",
-   "descricao": "sujeira de favela forte (lama, mofo, escorrido)",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedN",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_14",
-   "nome": "grime de favela forte DoorWallW",
-   "descricao": "sujeira de favela forte (lama, mofo, escorrido)",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedW",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_15",
-   "nome": "grime de favela forte DoorWallN",
-   "descricao": "sujeira de favela forte (lama, mofo, escorrido)",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedN",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_16",
    "nome": "tinta descascando 1 (oeste)",
    "descricao": "tinta descascando",
    "props": [
@@ -274,7 +18,7 @@
    ]
   },
   {
-   "peca": "rsb_desgaste_parede_01_17",
+   "peca": "rsb_desgaste_parede_01_1",
    "nome": "tinta descascando 1 (norte)",
    "descricao": "tinta descascando",
    "props": [
@@ -289,7 +33,7 @@
    ]
   },
   {
-   "peca": "rsb_desgaste_parede_01_18",
+   "peca": "rsb_desgaste_parede_01_2",
    "nome": "tinta descascando 2 (oeste)",
    "descricao": "tinta descascando",
    "props": [
@@ -304,7 +48,7 @@
    ]
   },
   {
-   "peca": "rsb_desgaste_parede_01_19",
+   "peca": "rsb_desgaste_parede_01_3",
    "nome": "tinta descascando 2 (norte)",
    "descricao": "tinta descascando",
    "props": [
@@ -319,7 +63,7 @@
    ]
   },
   {
-   "peca": "rsb_desgaste_parede_01_20",
+   "peca": "rsb_desgaste_parede_01_4",
    "nome": "tinta descascando 3 (oeste)",
    "descricao": "tinta descascando",
    "props": [
@@ -334,7 +78,7 @@
    ]
   },
   {
-   "peca": "rsb_desgaste_parede_01_21",
+   "peca": "rsb_desgaste_parede_01_5",
    "nome": "tinta descascando 3 (norte)",
    "descricao": "tinta descascando",
    "props": [
@@ -349,7 +93,7 @@
    ]
   },
   {
-   "peca": "rsb_desgaste_parede_01_22",
+   "peca": "rsb_desgaste_parede_01_6",
    "nome": "tinta descascando 4 (oeste)",
    "descricao": "tinta descascando",
    "props": [
@@ -364,7 +108,7 @@
    ]
   },
   {
-   "peca": "rsb_desgaste_parede_01_23",
+   "peca": "rsb_desgaste_parede_01_7",
    "nome": "tinta descascando 4 (norte)",
    "descricao": "tinta descascando",
    "props": [
@@ -379,7 +123,7 @@
    ]
   },
   {
-   "peca": "rsb_desgaste_parede_01_24",
+   "peca": "rsb_desgaste_parede_01_8",
    "nome": "reboco caído (tijolo aparecendo) 1 (oeste)",
    "descricao": "reboco caído (tijolo aparecendo)",
    "props": [
@@ -394,7 +138,7 @@
    ]
   },
   {
-   "peca": "rsb_desgaste_parede_01_25",
+   "peca": "rsb_desgaste_parede_01_9",
    "nome": "reboco caído (tijolo aparecendo) 1 (norte)",
    "descricao": "reboco caído (tijolo aparecendo)",
    "props": [
@@ -409,7 +153,7 @@
    ]
   },
   {
-   "peca": "rsb_desgaste_parede_01_26",
+   "peca": "rsb_desgaste_parede_01_10",
    "nome": "reboco caído (tijolo aparecendo) 2 (oeste)",
    "descricao": "reboco caído (tijolo aparecendo)",
    "props": [
@@ -424,7 +168,7 @@
    ]
   },
   {
-   "peca": "rsb_desgaste_parede_01_27",
+   "peca": "rsb_desgaste_parede_01_11",
    "nome": "reboco caído (tijolo aparecendo) 2 (norte)",
    "descricao": "reboco caído (tijolo aparecendo)",
    "props": [
@@ -439,7 +183,7 @@
    ]
   },
   {
-   "peca": "rsb_desgaste_parede_01_28",
+   "peca": "rsb_desgaste_parede_01_12",
    "nome": "reboco caído (tijolo aparecendo) 3 (oeste)",
    "descricao": "reboco caído (tijolo aparecendo)",
    "props": [
@@ -454,7 +198,7 @@
    ]
   },
   {
-   "peca": "rsb_desgaste_parede_01_29",
+   "peca": "rsb_desgaste_parede_01_13",
    "nome": "reboco caído (tijolo aparecendo) 3 (norte)",
    "descricao": "reboco caído (tijolo aparecendo)",
    "props": [
@@ -469,7 +213,7 @@
    ]
   },
   {
-   "peca": "rsb_desgaste_parede_01_30",
+   "peca": "rsb_desgaste_parede_01_14",
    "nome": "rachadura 1 (oeste)",
    "descricao": "rachadura",
    "props": [
@@ -484,7 +228,7 @@
    ]
   },
   {
-   "peca": "rsb_desgaste_parede_01_31",
+   "peca": "rsb_desgaste_parede_01_15",
    "nome": "rachadura 1 (norte)",
    "descricao": "rachadura",
    "props": [
@@ -499,7 +243,7 @@
    ]
   },
   {
-   "peca": "rsb_desgaste_parede_01_32",
+   "peca": "rsb_desgaste_parede_01_16",
    "nome": "rachadura 2 (oeste)",
    "descricao": "rachadura",
    "props": [
@@ -514,7 +258,7 @@
    ]
   },
   {
-   "peca": "rsb_desgaste_parede_01_33",
+   "peca": "rsb_desgaste_parede_01_17",
    "nome": "rachadura 2 (norte)",
    "descricao": "rachadura",
    "props": [
@@ -529,7 +273,7 @@
    ]
   },
   {
-   "peca": "rsb_desgaste_parede_01_34",
+   "peca": "rsb_desgaste_parede_01_18",
    "nome": "rachadura 3 (oeste)",
    "descricao": "rachadura",
    "props": [
@@ -544,7 +288,7 @@
    ]
   },
   {
-   "peca": "rsb_desgaste_parede_01_35",
+   "peca": "rsb_desgaste_parede_01_19",
    "nome": "rachadura 3 (norte)",
    "descricao": "rachadura",
    "props": [
@@ -559,172 +303,153 @@
    ]
   },
   {
-   "peca": "rsb_desgaste_parede_01_36",
-   "nome": "mofo e infiltração 1 (oeste)",
-   "descricao": "mofo e infiltração",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedW",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_37",
-   "nome": "mofo e infiltração 1 (norte)",
-   "descricao": "mofo e infiltração",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedN",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_38",
-   "nome": "mofo e infiltração 2 (oeste)",
-   "descricao": "mofo e infiltração",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedW",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_39",
-   "nome": "mofo e infiltração 2 (norte)",
-   "descricao": "mofo e infiltração",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedN",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_40",
-   "nome": "escorrido de chuva 1 (oeste)",
-   "descricao": "escorrido de chuva",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedW",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_41",
-   "nome": "escorrido de chuva 1 (norte)",
-   "descricao": "escorrido de chuva",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedN",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_42",
-   "nome": "escorrido de chuva 2 (oeste)",
-   "descricao": "escorrido de chuva",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedW",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_43",
-   "nome": "escorrido de chuva 2 (norte)",
-   "descricao": "escorrido de chuva",
-   "props": [
-    [
-     "WallOverlay",
-     ""
-    ],
-    [
-     "attachedN",
-     ""
-    ]
-   ]
-  },
-  {
-   "peca": "rsb_desgaste_parede_01_44",
+   "peca": "rsb_desgaste_parede_01_20",
    "props": []
   },
   {
-   "peca": "rsb_desgaste_parede_01_45",
+   "peca": "rsb_desgaste_parede_01_21",
    "props": []
   },
   {
-   "peca": "rsb_desgaste_parede_01_46",
+   "peca": "rsb_desgaste_parede_01_22",
    "props": []
   },
   {
-   "peca": "rsb_desgaste_parede_01_47",
+   "peca": "rsb_desgaste_parede_01_23",
    "props": []
   }
  ],
- "buildingtiles": {
-  "grime_wall": [
-   {
-    "West": 0,
-    "North": 1,
-    "NorthWest": 2,
-    "SouthEast": 3,
-    "WestWindow": 8,
-    "NorthWindow": 9,
-    "WestDoor": 10,
-    "NorthDoor": 11
-   },
-   {
-    "West": 4,
-    "North": 5,
-    "NorthWest": 6,
-    "SouthEast": 7,
-    "WestWindow": 12,
-    "NorthWindow": 13,
-    "WestDoor": 14,
-    "NorthDoor": 15
-   }
-  ]
- },
+ "buildingtiles": {},
  "bt_nomes_prontos": false,
  "moveis": [
   {
-   "grupo": "Kit Brasil - Desgaste de parede: tinta descascando",
+   "grupo": "Kit Brasil - Desgaste de parede (fixo): tinta descascando",
    "camada": "WallOverlay",
    "itens": [
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 0
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 1
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 2
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 3
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 4
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 5
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 6
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 7
+      }
+     }
+    ]
+   ]
+  },
+  {
+   "grupo": "Kit Brasil - Desgaste de parede (fixo): reboco caído (tijolo aparecendo)",
+   "camada": "WallOverlay",
+   "itens": [
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 8
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 9
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 10
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 11
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 12
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 13
+      }
+     }
+    ]
+   ]
+  },
+  {
+   "grupo": "Kit Brasil - Desgaste de parede (fixo): rachadura",
+   "camada": "WallOverlay",
+   "itens": [
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 14
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 15
+      }
+     }
+    ],
     [
      {
       "orient": "W",
@@ -750,198 +475,6 @@
       "orient": "N",
       "tiles": {
        "0,0": 19
-      }
-     }
-    ],
-    [
-     {
-      "orient": "W",
-      "tiles": {
-       "0,0": 20
-      }
-     },
-     {
-      "orient": "N",
-      "tiles": {
-       "0,0": 21
-      }
-     }
-    ],
-    [
-     {
-      "orient": "W",
-      "tiles": {
-       "0,0": 22
-      }
-     },
-     {
-      "orient": "N",
-      "tiles": {
-       "0,0": 23
-      }
-     }
-    ]
-   ]
-  },
-  {
-   "grupo": "Kit Brasil - Desgaste de parede: reboco caído (tijolo aparecendo)",
-   "camada": "WallOverlay",
-   "itens": [
-    [
-     {
-      "orient": "W",
-      "tiles": {
-       "0,0": 24
-      }
-     },
-     {
-      "orient": "N",
-      "tiles": {
-       "0,0": 25
-      }
-     }
-    ],
-    [
-     {
-      "orient": "W",
-      "tiles": {
-       "0,0": 26
-      }
-     },
-     {
-      "orient": "N",
-      "tiles": {
-       "0,0": 27
-      }
-     }
-    ],
-    [
-     {
-      "orient": "W",
-      "tiles": {
-       "0,0": 28
-      }
-     },
-     {
-      "orient": "N",
-      "tiles": {
-       "0,0": 29
-      }
-     }
-    ]
-   ]
-  },
-  {
-   "grupo": "Kit Brasil - Desgaste de parede: rachadura",
-   "camada": "WallOverlay",
-   "itens": [
-    [
-     {
-      "orient": "W",
-      "tiles": {
-       "0,0": 30
-      }
-     },
-     {
-      "orient": "N",
-      "tiles": {
-       "0,0": 31
-      }
-     }
-    ],
-    [
-     {
-      "orient": "W",
-      "tiles": {
-       "0,0": 32
-      }
-     },
-     {
-      "orient": "N",
-      "tiles": {
-       "0,0": 33
-      }
-     }
-    ],
-    [
-     {
-      "orient": "W",
-      "tiles": {
-       "0,0": 34
-      }
-     },
-     {
-      "orient": "N",
-      "tiles": {
-       "0,0": 35
-      }
-     }
-    ]
-   ]
-  },
-  {
-   "grupo": "Kit Brasil - Desgaste de parede: mofo e infiltração",
-   "camada": "WallOverlay",
-   "itens": [
-    [
-     {
-      "orient": "W",
-      "tiles": {
-       "0,0": 36
-      }
-     },
-     {
-      "orient": "N",
-      "tiles": {
-       "0,0": 37
-      }
-     }
-    ],
-    [
-     {
-      "orient": "W",
-      "tiles": {
-       "0,0": 38
-      }
-     },
-     {
-      "orient": "N",
-      "tiles": {
-       "0,0": 39
-      }
-     }
-    ]
-   ]
-  },
-  {
-   "grupo": "Kit Brasil - Desgaste de parede: escorrido de chuva",
-   "camada": "WallOverlay",
-   "itens": [
-    [
-     {
-      "orient": "W",
-      "tiles": {
-       "0,0": 40
-      }
-     },
-     {
-      "orient": "N",
-      "tiles": {
-       "0,0": 41
-      }
-     }
-    ],
-    [
-     {
-      "orient": "W",
-      "tiles": {
-       "0,0": 42
-      }
-     },
-     {
-      "orient": "N",
-      "tiles": {
-       "0,0": 43
       }
      }
     ]

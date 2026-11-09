@@ -1,0 +1,477 @@
+{
+ "folha": "rsb_overlay_grime_favela_01",
+ "tipo": "parede",
+ "pecas": [
+  {
+   "peca": "rsb_overlay_grime_favela_01_0",
+   "nome": "grime de favela leve WallW",
+   "descricao": "sujeira de favela leve (lama, mofo, escorrido); sai com a limpeza",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_favela_01_1",
+   "nome": "grime de favela leve WallN",
+   "descricao": "sujeira de favela leve (lama, mofo, escorrido); sai com a limpeza",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_favela_01_2",
+   "nome": "grime de favela leve WallNW",
+   "descricao": "sujeira de favela leve (lama, mofo, escorrido); sai com a limpeza",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_overlay_grime_favela_01_1"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_overlay_grime_favela_01_0"
+    ],
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_favela_01_3",
+   "nome": "grime de favela leve WallSE",
+   "descricao": "sujeira de favela leve (lama, mofo, escorrido); sai com a limpeza",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_favela_01_4",
+   "nome": "grime de favela forte WallW",
+   "descricao": "sujeira de favela forte (lama, mofo, escorrido); sai com a limpeza",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_favela_01_5",
+   "nome": "grime de favela forte WallN",
+   "descricao": "sujeira de favela forte (lama, mofo, escorrido); sai com a limpeza",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_favela_01_6",
+   "nome": "grime de favela forte WallNW",
+   "descricao": "sujeira de favela forte (lama, mofo, escorrido); sai com a limpeza",
+   "props": [
+    [
+     "CornerNorthWall",
+     "rsb_overlay_grime_favela_01_5"
+    ],
+    [
+     "CornerWestWall",
+     "rsb_overlay_grime_favela_01_4"
+    ],
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_favela_01_7",
+   "nome": "grime de favela forte WallSE",
+   "descricao": "sujeira de favela forte (lama, mofo, escorrido); sai com a limpeza",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_favela_01_8",
+   "nome": "grime de favela leve WindowW",
+   "descricao": "sujeira de favela leve (lama, mofo, escorrido); sai com a limpeza",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_favela_01_9",
+   "nome": "grime de favela leve WindowN",
+   "descricao": "sujeira de favela leve (lama, mofo, escorrido); sai com a limpeza",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_favela_01_10",
+   "nome": "grime de favela leve DoorWallW",
+   "descricao": "sujeira de favela leve (lama, mofo, escorrido); sai com a limpeza",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_favela_01_11",
+   "nome": "grime de favela leve DoorWallN",
+   "descricao": "sujeira de favela leve (lama, mofo, escorrido); sai com a limpeza",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_favela_01_12",
+   "nome": "grime de favela forte WindowW",
+   "descricao": "sujeira de favela forte (lama, mofo, escorrido); sai com a limpeza",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_favela_01_13",
+   "nome": "grime de favela forte WindowN",
+   "descricao": "sujeira de favela forte (lama, mofo, escorrido); sai com a limpeza",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_favela_01_14",
+   "nome": "grime de favela forte DoorWallW",
+   "descricao": "sujeira de favela forte (lama, mofo, escorrido); sai com a limpeza",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_favela_01_15",
+   "nome": "grime de favela forte DoorWallN",
+   "descricao": "sujeira de favela forte (lama, mofo, escorrido); sai com a limpeza",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_favela_01_16",
+   "nome": "mofo e infiltração 1 (oeste)",
+   "descricao": "mofo e infiltração",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_favela_01_17",
+   "nome": "mofo e infiltração 1 (norte)",
+   "descricao": "mofo e infiltração",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_favela_01_18",
+   "nome": "mofo e infiltração 2 (oeste)",
+   "descricao": "mofo e infiltração",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_favela_01_19",
+   "nome": "mofo e infiltração 2 (norte)",
+   "descricao": "mofo e infiltração",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_favela_01_20",
+   "nome": "escorrido de chuva 1 (oeste)",
+   "descricao": "escorrido de chuva",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_favela_01_21",
+   "nome": "escorrido de chuva 1 (norte)",
+   "descricao": "escorrido de chuva",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_favela_01_22",
+   "nome": "escorrido de chuva 2 (oeste)",
+   "descricao": "escorrido de chuva",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedW",
+     ""
+    ]
+   ]
+  },
+  {
+   "peca": "rsb_overlay_grime_favela_01_23",
+   "nome": "escorrido de chuva 2 (norte)",
+   "descricao": "escorrido de chuva",
+   "props": [
+    [
+     "WallOverlay",
+     ""
+    ],
+    [
+     "attachedN",
+     ""
+    ]
+   ]
+  }
+ ],
+ "buildingtiles": {
+  "grime_wall": [
+   {
+    "West": 0,
+    "North": 1,
+    "NorthWest": 2,
+    "SouthEast": 3,
+    "WestWindow": 8,
+    "NorthWindow": 9,
+    "WestDoor": 10,
+    "NorthDoor": 11
+   },
+   {
+    "West": 4,
+    "North": 5,
+    "NorthWest": 6,
+    "SouthEast": 7,
+    "WestWindow": 12,
+    "NorthWindow": 13,
+    "WestDoor": 14,
+    "NorthDoor": 15
+   }
+  ]
+ },
+ "bt_nomes_prontos": false,
+ "moveis": [
+  {
+   "grupo": "Kit Brasil - Sujeira de parede (sai com limpeza): mofo e infiltração",
+   "camada": "WallOverlay",
+   "itens": [
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 16
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 17
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 18
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 19
+      }
+     }
+    ]
+   ]
+  },
+  {
+   "grupo": "Kit Brasil - Sujeira de parede (sai com limpeza): escorrido de chuva",
+   "camada": "WallOverlay",
+   "itens": [
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 20
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 21
+      }
+     }
+    ],
+    [
+     {
+      "orient": "W",
+      "tiles": {
+       "0,0": 22
+      }
+     },
+     {
+      "orient": "N",
+      "tiles": {
+       "0,0": 23
+      }
+     }
+    ]
+   ]
+  }
+ ]
+}

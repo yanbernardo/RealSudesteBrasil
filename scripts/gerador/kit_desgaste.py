@@ -242,56 +242,78 @@ def peca_mancha(molde, face, tex_lit, alfa_g):
     return out
 
 
-def gerar(tiles2x: Path, saida: Path) -> dict:
+LAVAVEIS = ("mofo e infiltração", "escorrido de chuva")     # sujeira: sai com a limpeza do jogo
+
+
+def _folha(nome, linhas):
+    return (Image.new("RGBA", (1024, linhas * 256), (0, 0, 0, 0)),
+            [{"peca": f"{nome}_{i}", "props": []} for i in range(linhas * 8)])
+
+
+def _manchas(folha, pecas, nome, tipos, molde_im, i0, grupo_prefixo):
+    moldeW = kf._celula(molde_im, MOLDE[1])
+    moldeN = kf._celula(molde_im, MOLDE[1] + 1)
+    i, grupos = i0, []
+    for rot, f, n in tipos:
+        t = [x[0] for x in TIPOS].index(rot)
+        itens = []
+        for k in range(n):
+            cor, h, alfa = f(500 + t * 10 + k)
+            lit = tf.iluminar_parede(np.asarray(cor, float), h)
+            iw, iN = i, i + 1
+            for j, img in ((iw, peca_mancha(moldeW, "W", lit["W"], alfa)), (iN, peca_mancha(moldeN, "N", lit["N"], alfa))):
+                folha.alpha_composite(Image.fromarray(img, "RGBA"), ((j % 8) * 128, (j // 8) * 256))
+            for j, lado, anexo in ((iw, "oeste", "attachedW"), (iN, "norte", "attachedN")):
+                pecas[j] = {"peca": f"{nome}_{j}", "nome": f"{rot} {k + 1} ({lado})", "descricao": rot,
+                            "props": [["WallOverlay", ""], [anexo, ""]]}
+            itens.append([{"orient": "W", "tiles": {"0,0": iw}}, {"orient": "N", "tiles": {"0,0": iN}}])
+            i += 2
+        grupos.append({"grupo": f"{grupo_prefixo}: {rot}", "camada": "WallOverlay", "itens": itens})
+    return grupos
+
+
+def gerar(tiles2x: Path, saida: Path) -> list:
+    """Duas folhas:
+    - `rsb_overlay_grime_favela_01` (SAI com a limpeza do jogo: o jogo limpa toda
+      peça cujo nome contém "overlay_grime", em IsoGridSquare.removeGrime): grime
+      de favela leve e forte + mofo + escorrido de chuva;
+    - `rsb_desgaste_parede_01` (FICA: não sai com vassoura): tinta descascada,
+      reboco caído com tijolo aparecendo, rachadura."""
     molde_im = Image.open(tiles2x / f"{MOLDE[0]}.png").convert("RGBA")
-    n_manchas = sum(n for _t, _f, n in TIPOS)
-    linhas = 2 + (n_manchas * 2 + 7) // 8
-    folha = Image.new("RGBA", (1024, linhas * 256), (0, 0, 0, 0))
-    pecas = [{"peca": f"{NOME}_{i}", "props": []} for i in range(linhas * 8)]
-
-    def pos(i, img):
-        folha.alpha_composite(Image.fromarray(img, "RGBA"), ((i % 8) * 128, (i // 8) * 256))
-
-    # 1) grime de favela: leve e forte, nas 8 peças de parede
+    lav = [t for t in TIPOS if t[0] in LAVAVEIS]
+    fix = [t for t in TIPOS if t[0] not in LAVAVEIS]
+    # --- folha lavável
+    nome_g = "rsb_overlay_grime_favela_01"
+    n_lav = sum(n for _r, _f, n in lav) * 2
+    folha, pecas = _folha(nome_g, 2 + (n_lav + 7) // 8)
     entradas = []
     for k, (rot, forca) in enumerate((("leve", 0.55), ("forte", 1.0))):
         b = k * 4
         papel = {}
         for off, face, prop in PAPEIS:
             i = b + off
-            pos(i, peca_grime(kf._celula(molde_im, MOLDE[1] + off), face, forca, 300 + k))
+            img = peca_grime(kf._celula(molde_im, MOLDE[1] + off), face, forca, 300 + k)
+            folha.alpha_composite(Image.fromarray(img, "RGBA"), ((i % 8) * 128, (i // 8) * 256))
             papel[prop] = i
             anexo = "attachedW" if face in ("W", "SE") or prop in ("WindowW", "DoorWallW") else "attachedN"
-            pecas[i] = {"peca": f"{NOME}_{i}", "nome": f"grime de favela {rot} {prop}",
-                        "descricao": f"sujeira de favela {rot} (lama, mofo, escorrido)",
+            pecas[i] = {"peca": f"{nome_g}_{i}", "nome": f"grime de favela {rot} {prop}",
+                        "descricao": f"sujeira de favela {rot} (lama, mofo, escorrido); sai com a limpeza",
                         "props": [["WallOverlay", ""], [anexo, ""]]}
         nw = papel["WallNW"]
-        pecas[nw]["props"] = [["CornerNorthWall", f"{NOME}_{papel['WallN']}"],
-                              ["CornerWestWall", f"{NOME}_{papel['WallW']}"]] + pecas[nw]["props"]
+        pecas[nw]["props"] = [["CornerNorthWall", f"{nome_g}_{papel['WallN']}"],
+                              ["CornerWestWall", f"{nome_g}_{papel['WallW']}"]] + pecas[nw]["props"]
         entradas.append({"West": papel["WallW"], "North": papel["WallN"], "NorthWest": nw,
                          "SouthEast": papel["WallSE"], "WestWindow": papel["WindowW"],
                          "NorthWindow": papel["WindowN"], "WestDoor": papel["DoorWallW"],
                          "NorthDoor": papel["DoorWallN"]})
-    # 2) manchas avulsas: cada forma em oeste e norte
-    moldeW = kf._celula(molde_im, MOLDE[1])
-    moldeN = kf._celula(molde_im, MOLDE[1] + 1)
-    i = 16
-    grupos = []
-    for t, (rot, f, n) in enumerate(TIPOS):
-        itens = []
-        for k in range(n):
-            cor, h, alfa = f(500 + t * 10 + k)
-            lit = tf.iluminar_parede(np.asarray(cor, float), h)
-            iw, iN = i, i + 1
-            pos(iw, peca_mancha(moldeW, "W", lit["W"], alfa))
-            pos(iN, peca_mancha(moldeN, "N", lit["N"], alfa))
-            for j, lado, anexo in ((iw, "oeste", "attachedW"), (iN, "norte", "attachedN")):
-                pecas[j] = {"peca": f"{NOME}_{j}", "nome": f"{rot} {k + 1} ({lado})", "descricao": rot,
-                            "props": [["WallOverlay", ""], [anexo, ""]]}
-            itens.append([{"orient": "W", "tiles": {"0,0": iw}}, {"orient": "N", "tiles": {"0,0": iN}}])
-            i += 2
-        grupos.append({"grupo": f"Kit Brasil - Desgaste de parede: {rot}", "camada": "WallOverlay", "itens": itens})
-    return kf._gravar(folha, NOME, "parede", pecas, saida, {"grime_wall": entradas}, moveis=grupos)
+    grupos = _manchas(folha, pecas, nome_g, lav, molde_im, 16, "Kit Brasil - Sujeira de parede (sai com limpeza)")
+    r1 = kf._gravar(folha, nome_g, "parede", pecas, saida, {"grime_wall": entradas}, moveis=grupos)
+    # --- folha fixa
+    n_fix = sum(n for _r, _f, n in fix) * 2
+    folha, pecas = _folha(NOME, (n_fix + 7) // 8)
+    grupos = _manchas(folha, pecas, NOME, fix, molde_im, 0, "Kit Brasil - Desgaste de parede (fixo)")
+    r2 = kf._gravar(folha, NOME, "parede", pecas, saida, {}, moveis=grupos)
+    return [r1, r2]
 
 
 if __name__ == "__main__":
